@@ -1,0 +1,66 @@
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url('Payoutrates', array('controller' => 'payoutrates', 'action' => 'editNews', 'id' => $id)));
+echo $this->form()->openTag($form);
+?>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('type')); ?></label>
+    <div><?php echo $this->formElement($form->get('type')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('type')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('namepackge')); ?></label>
+    <div><?php echo $this->formElement($form->get('namepackge')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('namepackge')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('price')); ?></label>
+    <div><?php echo $this->formElement($form->get('price')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('price')); ?></span>
+</div>
+
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('code')); ?></label>
+    <div><?php echo $this->formElement($form->get('code')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('code')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('hotstring')); ?></label>
+    <div><?php echo $this->formElement($form->get('hotstring')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('hotstring')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('DKCpmUni')); ?></label>
+    <div><?php echo $this->formElement($form->get('DKCpmUni')); ?></div>
+    <?php echo $this->formElementErrors($form->get('DKCpmUni')); ?>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('DKCpmRaw')); ?></label>
+    <div><?php echo $this->formElement($form->get('DKCpmRaw')); ?></div>
+    <?php echo $this->formElementErrors($form->get('DKCpmRaw')); ?>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('MBCpmUni')); ?></label>
+    <div><?php echo $this->formElement($form->get('MBCpmUni')); ?></div>
+    <?php echo $this->formElementErrors($form->get('MBCpmUni')); ?>
+</div>
+
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('MBCpmRaw')); ?></label>
+    <div><?php echo $this->formElement($form->get('MBCpmRaw')); ?></div>
+    <?php echo $this->formElementErrors($form->get('MBCpmRaw')); ?>
+</div>
+
+<?php echo $this->formElement($form->get('security')); ?>
+<?php echo $this->formElement($form->get('submit')); ?>
+<?php echo $this->form()->closeTag() ?>

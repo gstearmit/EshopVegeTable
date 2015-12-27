@@ -1,0 +1,184 @@
+<section id="content">
+
+	<!--breadcrumbs start-->
+	<div id="breadcrumbs-wrapper" class=" grey lighten-3">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<h5 class="breadcrumbs-title">Mana Declaration site</h5>
+					<ol class="breadcrumb">
+						<li><a href="<?php echo WEBPATH;?>/materialize/">Dashboard</a></li>
+						<li><a href="<?php echo WEBPATH;?>/catalog/manacatalo">Declaration</a></li>
+						<li class="active">Site</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--breadcrumbs end-->
+
+
+	<!--start container-->
+	<div class="container">
+		<div class="section">
+		
+<div id="hoverable-table">
+            <h5 class="header">Manage automated sample taken </h5>
+            <div class="col s12 m8 l9">
+               <div id="float-button" style="float:left;">
+                      <a href="javascript:void(0)" onclick="history.go(-1)" class="btn waves-effect waves-light indigo"><i class="mdi-action-3d-rotation left"></i>Back</a>
+                      <a href="<?php echo WEBPATH?>/crowler/index/index" class=" waves-light light-green darken-4 btn"><i class="mdi-action-backup right"></i>List Product took</a>
+                      <a href="<?php echo WEBPATH?>/crowler/crowler/index" class="btn waves-effect waves-light indigo"><i class="mdi-action-backup right"></i>Get automated news</a>
+              </div> 
+              <div id="float-button" style="float:right;">
+                      <button onclick="feed_data();" title="Product Get Crowler" class="btn-floating btn-flat waves-effect waves-light pink accent-2 white-text"><i class="mdi-file-cloud-download"></i></button>
+                      <?php  if(isset($items)and $items == null and $items_details == 0 and $save_cmd == '' ){?> <?php } else { if(isset($items)and $items != null and $items_details == 0 ) { ?> <button onclick="feed_data_detail();" title="Get Detail Product" class="btn-floating waves-effect waves-light blue-grey"><i class="mdi-editor-insert-comment"></i></button> <?php } }?>
+			          <?php  if(isset($items)and $items and $items_details ==1  and  $save_cmd == 'feeddetails' ){?> <button onclick="insert_data();" title="Insert Database"  class="btn-floating btn-flat waves-effect waves-light pink accent-2 white-text"><i class="mdi-file-file-download"></i></button><?php }?>
+		              <a href="<?php echo WEBPATH?>/crowler/crowler/adddeclaration" title="Add product get crowler" data-position="bottom" data-delay="50" data-tooltip="Add product get crowler" class="tooltipped btn-floating btn-flat waves-effect waves-light pink accent-2 white-text"><i class="mdi-action-note-add"></i></a>
+                      <a href="#" title="Delete Crowler"  data-position="bottom" data-delay="50" data-tooltip="Delete Crowler" class="tooltipped btn-floating waves-effect waves-light red"><i class="mdi-content-clear"></i></a>
+              </div>         
+            </div>
+              <div class="row">
+                 <div  <?php if(isset($items) and $items){ echo 'class="col s12 m9 l9"';?>  <?php }else { echo 'class="col s12 m12 l12"'; }?> >
+                 <form name="feedForm" method="post">
+				  <input type="hidden" name="cmd" value="" id="cmd" />
+                  <table class="hoverable">
+                    <thead>
+                      <tr>
+                       <td>
+		                        <div class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+		                        <input type="checkbox" id="task0" id="DeclarationSite_all_checkbox" onclick="select_all_checkbox(this.checked);" title="Tất cả" value="0">
+		                        <label for="task0" style="text-decoration: line-through;">  </label>
+		                        </div>
+                         </td>
+                        <th data-field="id">Name WEB</th>
+                        <th data-field="name">Url </th>
+                        <th data-field="table">Table</th>
+                        <th data-field="catalogue">Directory Upload</th>
+                        <th data-field="avatar">Avatar</th>
+                        <th># Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php 
+                  
+                    $k=1;
+                    for($i = 0; $i < count ( $listNews ); $i ++) {
+                        $task = 'task'.$listNews[$i]->id;
+                    ?>
+                   <tr>
+                        <td>  
+                        <div class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+	                      <input type="checkbox" id="<?php echo $task;?>" name="temps[<?php echo $listNews[$i]->id;?>]" 
+										     id="temps[<?php echo $listNews[$i]->id;?>]" 
+											 value="<?php echo $listNews[$i]->id;?>"> 
+	                      <label for="<?php echo $task;?>" style="text-decoration: line-through;"> </label>
+                      
+                       </div>
+                       </td>
+                        <td id="<?php echo $listNews[$i]->id;?>"><a href="<?php echo $listNews[$i]->url;?>"><?php echo $listNews[$i]->name;?></a></td> 
+                        <td>
+                           <?php echo $listNews[$i]->url;?>
+                           <div id="boder"></div>
+                           <div id="allstruct">
+                           <p><span>product_name :</span> <?php echo $listNews[$i]->product_name;?></p>
+                           <p><span>product_href_detail :</span><?php echo $listNews[$i]->product_href_detail;?></p>
+                           <p><span>product_price :</span><?php echo $listNews[$i]->product_price;?></p>
+                           <p><span>product_images :</span><?php echo $listNews[$i]->product_images;?></p>
+                            <p><span>product_promotion :</span><?php echo $listNews[$i]->product_promotion;?></p>
+                           <p><span>countryoforigin :</span><?php echo $listNews[$i]->countryoforigin;?></p>
+                           <p><span>detail_descriptstion :</span><?php echo $listNews[$i]->detail_product_descriptstion;?></p>
+                           </div>
+                           
+                        </td>
+                        <td>declaration</td>
+                        <td><?php echo $listNews[$i]->directoryavatar;?></td>
+                        <td style="  width: 12%; ">
+                        <?php if($listNews[$i]->avatar_images !='') {?>
+	                        <div class="s4 m4 l4">
+	                            <img src="<?php echo IMG_CROWLER.$listNews[$i]->avatar_images;?>" alt="" class="circle responsive-img valign profile-image">
+	                            </div>
+	                    <?php }else {?>
+	                       <div class="s4 m4 l4">
+	                            <img src="<?php echo WEBPATH;?>/product_crowler_img/default_crowler.jpg" alt="" class="circle responsive-img valign profile-image">
+	                            </div>
+	                    <?php }?>
+	                    </td>
+                        <td>
+												<div id="linview" style="  width: 166px; ">
+												   <!--  <a class="btn-floating waves-effect waves-light red" href="<?php echo WEBPATH;?>/crowler/crowler/edit/<?php echo $listNews[$i]->id;?>"><i class="mdi-editor-border-color"></i></a>  -->
+													<a class="btn-floating waves-effect waves-light red" href="<?php echo WEBPATH;?>/crowler/crowler/delete/<?php echo $listNews[$i]->id;?>"><i class="mdi-action-delete"></i></a> 
+													
+													<!--  
+													<a
+														href="<?php echo WEBPATH;?>/crowler/crowler/status/<?php echo $listNews[$i]->id;?>"><span
+														class="label label-primary lin color-primary waves-effect waves-light light-green darken-4 btn bequa phuc"><i class="mdi-action-done"></i> Ch.status</span>
+													</a> 
+													-->		
+													 <a
+														href="<?php echo WEBPATH;?>/crowler/crowler/view/<?php echo $listNews[$i]->id;?>"><span
+														class="label label-primary lin color-primary btn waves-effect waves-light yellow darken-4 bequa phuc"> <i class="mdi-action-pageview"></i> View</span> </a> 
+														
+														
+												     <a href="<?php echo WEBPATH;?>/crowler/crowler/filedstructure/<?php echo $listNews[$i]->id;?>" title="Cấu Trúc Các Trường Muốn lấy dữ liệu"><span
+														class="label label-primary lin color-primary waves-effect waves-light blue btn bequa phuc"><i class="mdi-image-details"></i>Structure</span> 
+													</a>
+
+
+												</div>
+						</td>
+                      </tr>
+                      
+                    <?php $k++; } // end for ?>	  
+                       
+                    <tr> <td colspan="6">
+										            <?php
+																						echo $this->paginationControl ( $paginator, 'Sliding', 'layout/paginatordeclarationmana', array (
+																								'name' => 'Crowler',
+																								'controller' => 'crowler',
+																								'action' => 'declarationsite' 
+																						) );
+																						?>
+										        </td>
+					</tr>
+                    
+                    
+                    
+                      
+                    </tbody>
+                  </table>
+                  </form>
+                </div>
+                <?php if(isset($items) and $items){ ?>  
+                <div class="col s12 m3 l3"> 
+				 <div align="center"><img src="<?php echo APOTRAVINY_ADMIN?>/images/animated_loading.gif" class="loading" /></div>
+				    
+					<div class="template-data fr" style="float: right;width: 118%;">
+					<?php 
+					//echo " items_details : ";var_dump($items_details);
+                 //  var_dump($items);
+					
+					if(isset($items)and $items and $items_details ==1 ){ // echo "jko hien gi ah";?> <h4 class="header" style="color:red;margin: 0px;padding: 0px;">Get Product Details Succeess!</h4> <?php }?>
+					<?php if(isset($items_details) and $items and $items_details == 0){ ?> <h4 class="header">The data was taken</h4> <?php } ?>
+					    <ol id="data_result">
+							<?php echo $items;?>
+						</ol>
+					 
+					</div>
+			    
+				</div>
+				<?php } //if(isset($items) and $items){  end?>	
+              </div>
+            </div>
+  </div>
+							<!-- left -->
+							<!-- end chi tiet -->
+						
+					
+			
+
+		</div>
+		<!-- end section -->
+	</div>
+	<!--end container-->
+</section>          

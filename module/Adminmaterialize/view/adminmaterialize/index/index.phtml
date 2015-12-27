@@ -1,0 +1,90 @@
+﻿<?php $getuser=$this->layout()->getuser;?>
+<?php if($err){   ?>
+       
+		<div class="trangquantri container">
+ <?php if($getuser->group=="supperadmin"||$getuser->group=="admin"){?>    
+         	<div class="title-qt clo-md-12 col-sm-12 col-xs-12">
+            	<h3>Admin Manager</h3>
+            </div>
+            
+             <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="#"><img src="img/house.png"></a>
+                    <a href="#"><p>Home</p></a>
+                </div>
+            </div>
+            
+             <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="<?php echo WEBPATH;?>/contact/list"><img src="img/phanhoi.png"></a>
+                    <a href="<?php echo WEBPATH;?>/contact/list"><p>Contact</p></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="<?php echo WEBPATH;?>/news/list-news"><img width="90" height="90" src="img/newspaper-128.png"></a>
+                    <a href="<?php echo WEBPATH;?>/news/list-news"><p>News Manage</p></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="<?php echo WEBPATH;?>/slider"><img width="90" height="90" src="img/banner-design-icon.jpg"></a>
+                    <a href="<?php echo WEBPATH;?>/slider"><p>Slider Manage</p></a>
+                </div>
+            </div> 
+            
+             <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="<?php echo WEBPATH;?>/news/oder"><img width="90" height="90" src="img/1431517736_Cart.png"></a>
+                    <a href="<?php echo WEBPATH;?>/news/oder"><p>Oder Manage</p></a>
+                </div>
+            </div>
+            
+             <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="#"><img src="img/Visa-icon.png"></a>
+                    <a href="#"><p>Visa - Status Process</p></a>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="#"><img src="img/1431518491_check.png"></a>
+                    <a href="#"><p>Other</p></a>
+                </div>
+            </div>
+            
+		<?php }?>
+<?php if($getuser->group=="supperadmin"){?>
+            <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="<?php echo WEBPATH;?>/admin/member"><img src="img/thanhvien.png"></a>
+                    <a href="<?php echo WEBPATH;?>/admin/member"><p>Manage Member</p></a>
+                </div>
+            </div> 
+            <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="#"><img src="img/User_group.png"></a>
+                    <a href="#"><p>Customer Manage</p></a>
+                </div>
+            </div>
+              <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="#"><img src="img/Settings-5-128.png"></a>
+                    <a href="#"><p>Setting Web</p></a>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-3 col-xs-4">
+            	<div class="box1">
+                	<a href="#"><img src="img/support_talk-128.png"></a>
+                    <a href="#"><p>Helps</p></a>
+                </div>
+            </div>
+<?php }?>
+ 
+<?php if($getuser->group=="supperadmin"||$getuser->group=="adsmanager"){?> 
+<?php }?>
+  <div class="clearfix"></div>
+         </div><!--container-->    
+    <?php }else echo "You don't have permission";?>

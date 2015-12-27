@@ -1,0 +1,280 @@
+<?php 
+if (!$this->layout()->getuser) die("Error") ?>
+    <section id="content">
+
+       <!--breadcrumbs start-->
+    <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h5 class="breadcrumbs-title">Mana catalogue</h5>
+                    <ol class="breadcrumb">
+                        <li><a href="<?php echo WEBPATH; ?>/materialize/">Dashboard</a></li>
+                        <li><a href="<?php echo WEBPATH; ?>/catalog/manacatalo">Catalogue</a></li>
+                        <li class="active">Manager</li>
+                    </ol>
+                </div>
+                 <div class="col s12 m6 l6 btn-manage">
+                    <a href="<?php echo WEBPATH; ?>/catalog/manacatalo" class="waves-effect waves-light  btn">Manager catalogue</a>
+                    <a href="<?php echo WEBPATH; ?>/catalog/addmaster" class="waves-effect waves-light  btn">Add New catalogue</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs end-->
+
+
+    <!--start container-->
+    <div class="container">
+        <div class="section">        
+            <div class="alert alert-success" role="alert">
+                <?php
+                $sucess=$this->sucess;
+                if(isset($sucess)){ echo $sucess;}
+                ?>
+            </div>
+            <div class="divider"></div>
+            <!--Basic Form-->
+            <div id="basic-form" class="section">
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card-panel"> 
+                            <?php
+                            if ((isset($check) && $check == 1 and $id_product != '') || (isset($check) && $check == 1 and $Error != 1)) {
+                                echo '<div class="alert alert-success" role="alert">Catalog has been Add success.</div>';
+                            }
+                            ?>
+                            <?php
+                            if (isset($check) && $check == 0) {
+                                echo '<div class="alert alert-danger" role="alert">Error!!.</div>';
+                            }
+                            ?>
+                            <?php if (!isset($check) || $check == 'NULL') { ?>
+                                <div class="row">
+                                    <?php
+                                    $data_catalog = $this->data_catalog;
+                                    $data_cat=$this->data_cat;
+                                   
+                                    $status=$data_cat->status;
+                                   $hot=$data_cat->hot;
+                                   $new=$data_cat->new;
+                                   $show_index=$data_cat->show_index;
+                                   $id_cat=$data_cat->parent;
+                                    $form = $this->catalogform;
+                                    $form->prepare();
+                                    echo $this->form()->openTag($form);
+                                    ?>
+                                      <?php echo $this->formElement($form->get('id')); ?>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <?php echo $this->formElement($form->get('name')); ?>
+                                            <?php echo $this->formlabel($form->get('name')); ?>
+                                            
+                                        </div>
+
+                                        <div class="input-field col s6">                        
+                                            <?php echo $this->formElement($form->get('alias')); ?>
+                                            <?php echo $this->formlabel($form->get('alias')); ?>
+                                        </div>
+                                    </div>
+                                    <div class="row">    
+                                        <div class="input-field col s6 style-textarea">
+                                            <?php echo $this->formElement($form->get('description')); ?>   
+                                           <?php echo $this->formlabel($form->get('description'));?>
+                             
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <?php //echo $this->formElement($form->get('parent')); ?>
+                                             <?php //echo $this->formlabel($form->get('parent'));?>
+                                            <select name="parent" >
+                                                <option value="0"></option>
+                                                <?php
+                                                foreach ($data_catalog as $key_cat => $value_cat) {
+                                                    if ($value_cat->parent == NULL || $value_cat == 0) {
+                                                        $sub_cat = $this->sub_cat[$value_cat->id];
+                                                        ?>
+                                                        <option <?php if($id_cat == $value_cat->id){ echo 'selected';}?> value="<?php echo $value_cat->id ?>"><?php echo $value_cat->name ?></option>
+                                                        <?php
+                                                        foreach ($sub_cat as $key_s => $value_s) {                                                            
+                                                            $sub_cat_s = $this->sub_cat[$value_s->id];
+                                                             $selected_c ='';
+                                                        if($id_cat == $value_s->id){ $selected_c ='selected';}
+                                                            echo '<option '.$selected_c.' value="' . $value_s->id . '">-- ' . $value_s->name . '</option>';
+                                                            foreach ($sub_cat_s as $key_s_1 => $value_s_1) {
+                                                                $selected_c1 ='';
+                                                        if($id_cat == $value_s_1->id){ $selected_c1 ='selected';}
+                                                                echo '<option '.$selected_c1.' value="' . $value_s_1->id . '">---- ' . $value_s_1->name . '</option>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                    </div>                                
+                                   
+                                   <div class="row">
+                                        <div class="file-field input-field col s6 set-label">
+                                            <?php echo $this->formLabel($form->get('img')); ?>
+                                            <input class="file-path validate" readonly="" type="text"/>
+                                            <div class="btn">
+                                                <span>IMG</span>
+                                                <?php echo $this->formFile($form->get('img')); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col s6">  
+                                        <?php if ($this->img != '' || $this->img != NULL) { ?>                                    
+                                        <img class="img-responsive"
+                                             src="<?php echo WEBPATH_UPLOAD_PATH_IMG .'thumb_catalog/'. $listNews[$i]->img; ?>" width="100" />
+                                   
+                                        <?php } ?>
+                                        </div>
+                                       
+                                    </div>                               
+                                    
+                                    <div class="row">
+                                        <div class="input-field col s6 ">
+                                            <div class="col s12 m12 l12">
+                                                <label for="parent">Status</label>
+                                                <div class="row">
+                                                    <div class="col s12 m12 l3 offset-l3">
+                                                        <input name="status" type="radio" value="0" id="featured_products" <?php if($status==0){ echo 'checked';}?> > <label for="featured_products">Pause</label>
+                                                        <p></p>
+                                                    </div>
+                                                    <div class="col s12 m12 l6">
+                                                        <input name="status" type="radio" value="1"  id="featured_products1" <?php if($status==1){ echo 'checked';}?>> <label for="featured_products1">Active</label>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-field col s6 ">
+                                            <div class="col s12 m12 l12">
+                                                <label for="parent">Choice Hot</label>
+                                                <div class="row">
+                                                    <div class="col s12 m12 l3 offset-l3">
+                                                        <input name="hot" type="radio" value="0" id="new_products" <?php if($hot==0){ echo 'checked';}?>> <label for="new_products">No</label>
+                                                        <p></p>
+                                                    </div>
+                                                    <div class="col s12 m12 l6">
+                                                        <input name="hot" type="radio" value="1"  id="new_products1" <?php if($hot==1){ echo 'checked';}?> > <label for="new_products1">Yes</label>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6 ">
+                                            <div class="col s12 m12 l12">
+                                                <label for="parent">New</label>
+                                                <div class="row">
+                                                    <div class="col s12 m12 l3 offset-l3">
+                                                        <input name="new" type="radio" value="0" id="sale_products" <?php if($new==0){ echo 'checked';}?>> <label for="sale_products">No</label>
+                                                        <p></p>
+                                                    </div>
+                                                    <div class="col s12 m12 l6">
+                                                        <input name="new" type="radio" value="1"  id="sale_products1" <?php if($new==1){ echo 'checked';}?>> <label for="sale_products1">Yes</label>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                        <div class="input-field col s6 ">
+                                            <div class="col s12 m12 l12">
+                                                <label for="parent">Show index</label>
+                                                <div class="row">
+                                                    <div class="col s12 m12 l3 offset-l3">
+                                                        <input name="show_index" type="radio" value="0" id="show_index" <?php if($show_index==0){ echo 'checked';}?>> <label for="show_index">No</label>
+                                                        <p></p>
+                                                    </div>
+                                                    <div class="col s12 m12 l6">
+                                                        <input name="show_index" type="radio" value="1"  id="show_index1" <?php if($show_index==1){ echo 'checked';}?> > <label for="show_index1">Yes</label>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>     
+                                    </div>                    
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php                               
+                                echo $this->form()->closeTag($form);
+                                ?>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+            <!-- Form with placeholder -->
+
+        </div>
+    </div>
+
+    <!-- Form with icon prefixes -->
+
+</div>
+
+
+
+
+
+
+</div>
+</section>
+
+
+    <script type="text/javascript">
+        function get_alias() {
+            var str = (document.getElementById("name").value);
+            str = str.toLowerCase();
+            str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+            str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+            str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+            str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+            str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+            str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+            str = str.replace(/đ/g, "d");
+            str = str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g, "-");
+            str = str.replace(/-+-/g, "-"); //thay thế 2- thành 1-
+            str = str.replace(/^\-+|\-+$/g, "");//cắt bỏ ký tự - ở đầu và cuối chuỗi
+            document.getElementById("alias").value = str;
+            return str;
+        }
+    </script>
+
+    <script type="text/javascript">
+        var domainnew = '<?php echo WEBPATH; ?>';
+        var glob = 2;
+        jQuery(document).ready(function () {
+            e = location.pathname;
+            $.ajax({
+                type: "POST",
+                url: domainnew + "/main/myproduct",
+                data: {idcode: e, page: glob},
+                success: function (data) {
+                    //alert(data);console.log( $('.leftcatalogue').html(data));
+                    $('#myproductaja').html(data);
+                    glob++;
+                }
+            });
+        });
+    </script>
+    <style>
+        .alert-error{
+            font-size: 14px;
+            background: #B995A9;
+            line-height: 60px;
+            padding-left: 20px;
+        }
+        
+    </style>

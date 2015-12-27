@@ -1,0 +1,326 @@
+<!-- font chu icon http://fortawesome.github.io/Font-Awesome/icons/ -->
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div
+					class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+					<!--  <div id="leftcatalogue"></div> -->
+					<!-- leftcatalogue -->
+
+					<div id="myacountaja"></div>
+					<!-- myacountaja -->
+					<div id="myproductaja"></div>
+
+					<div id="mycartaja"></div>
+
+
+					<div id="compareproductaja"></div>
+					<!-- compareproductaja -->
+					
+					<?php
+					/*
+					 * ?> <div id="populartags"></div> <!-- populartags --> <div id="containernone"></div> <!-- container-none -->
+					 */
+					?>
+
+					<p></p>
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div
+					class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="pageheader">
+						<h1 class="title-admin page-title">
+							<i class="glyphicon glyphicon-plus"></i>Add Product:
+						</h1>
+					</div>
+
+					<div class="buttons-set buttons-set2" style="float: right;  margin: 0px;">
+							<a href="<?php echo WEBPATH?>/product/index/index">
+								<button type="button" name="Manacatalogue"
+									title="Share Wishlist" class="butoon button btn-share">
+									<span><span>Manage Product</span></span>
+								</button>
+							</a> <a href="<?php echo WEBPATH?>/product/index/add">
+								<button type="button" title="AddNew"
+									class="butoon button btn-add">
+									<span><span>Add new Product</span></span>
+								</button>
+							</a>
+
+						</div>
+					<div class=""> 
+					<?php
+					if ( (isset ( $check ) && $check == 1 && $id_product != '' ) ||  (isset ( $check ) && $check == 1 && $this->error == 1))
+                    {
+						echo '<div class="alert alert-success" role="alert">Product has been Add success.</div>';
+					}
+					?>
+					<?php if(isset($check)&&$check==0){echo '<div class="alert alert-danger" role="alert">Error!!.</div>';}?>
+					<?php if(!isset($check) || $check =='NULL'){?>
+    <div class="col-sm-6">
+     <?php
+						$form = $this->Productform;
+						$form->prepare ();
+						echo $this->form ()->openTag ( $form );
+						?>
+    <?php echo $this->formElement($form->get('id')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('id'));?></span> 
+    
+     <?php// echo $this->formElement($form->get('rating')); ?>
+    <span class="common-error-msg"><?php //echo $this->formElementErrors($form->get('rating'));?></span>     
+    
+    
+    <?php echo $this->formlabel($form->get('name'));?>
+    <?php echo $this->formElement($form->get('name')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('name'));?></span>
+    
+    <?php echo $this->formlabel($form->get('alias'));?>
+    <?php echo $this->formElement($form->get('alias')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('alias'));?></span>
+    
+    <?php echo $this->formlabel($form->get('availability'));?>
+    <?php echo $this->formElement($form->get('availability')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('availability'));?></span>
+    
+     <?php echo $this->formlabel($form->get('description'));?>
+    <?php echo $this->formElement($form->get('description')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('description'));?></span>
+    
+     <?php echo $this->formlabel($form->get('detail_product'));?>
+    <?php echo $this->formElement($form->get('detail_product')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('detail_product'));?></span>
+    
+    
+      <?php echo $this->formlabel($form->get('promotions'));?>
+    <?php echo $this->formElement($form->get('promotions')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('promotions'));?></span>
+   
+   <?php echo "</br>";?>
+     
+     <?php echo $this->formlabel($form->get('cat_id'));?>
+    <?php echo $this->formElement($form->get('cat_id')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('cat_id'));?></span>
+    
+    
+    <?php /*
+      <?php echo $this->formlabel($form->get('tag_id'));?>
+    <?php echo $this->formElement($form->get('tag_id')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('tag_id'));?></span>
+    
+      <?php echo $this->formlabel($form->get('manufacturer_id'));?>
+    <?php echo $this->formElement($form->get('manufacturer_id')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('manufacturer_id'));?></span>
+    */?>
+
+							<label for="parent">Choice Hot</label>
+							<div class="form-control">
+      <?php echo $this->formElement($form->get('hot')); ?>
+      <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('hot'));?></span>
+							</div>
+
+							<label for="parent">New</label>
+							<div class="form-control">
+      <?php echo $this->formElement($form->get('new')); ?>
+      <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('new'));?></span>
+							</div>
+
+
+							<label for="parent">Status</label>
+							<div class="form-control">
+      <?php echo $this->formElement($form->get('status')); ?>
+      <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('status'));?></span>
+							</div>
+
+		 <?php echo $this->formlabel($form->get('about_price'));?>
+    <?php echo $this->formElement($form->get('about_price')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('about_price'));?></span>					
+
+
+	<?php echo $this->formlabel($form->get('weekly_featured'));?>
+    <div class="form-control">
+     <?php echo $this->formElement($form->get('weekly_featured')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('weekly_featured'));?></span>	
+	</div>
+    
+      <?php echo $this->formlabel($form->get('featured_products'));?>
+      <div class="form-control">
+    <?php echo $this->formElement($form->get('featured_products')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('featured_products'));?></span>	
+    </div>
+    
+    <?php echo $this->formlabel($form->get('new_products'));?>
+    <div class="form-control">
+    <?php echo $this->formElement($form->get('new_products')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('new_products'));?></span>	
+    </div>
+    
+    <?php echo $this->formlabel($form->get('sale_products'));?>
+    <?php echo $this->formElement($form->get('sale_products')); ?>
+    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('sale_products'));?></span>	
+    
+    <?php echo "</br>";?>				
+
+		 <?php echo $this->formLabel($form->get('img')); ?>
+		  <?php if ($this->img_thumb != '' ||$this->img_thumb != NULL ) {?>
+		    <div class="form-control imgnew">
+		    <img class="img-responsive"
+									src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb;?>" />
+			 </div>
+		   <?php }?>
+		   
+		    <?php echo $this->formFile($form->get('img')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img'));?></span>
+
+		    <?php /* ?>
+
+		    <?php echo $this->formLabel($form->get('img1')); ?>
+		     <?php  if ($this->img_thumb1 != '' ||$this->img_thumb1 != NULL) { ?>
+		    <div class="form-control imgnew">
+		    <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb1;?>" />
+			 </div>
+			 <?php }?>
+		    <?php echo $this->formFile($form->get('img1')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img1'));?></span>
+
+		    
+		  
+		    
+		    <?php echo $this->formLabel($form->get('img2')); ?>
+		     <?php if ($this->img_thumb2 != '' ||$this->img_thumb2 != NULL) { ?>
+		    <div class="form-control imgnew">
+		    <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb2;?>" />
+			</div>
+			 <?php }?>
+		    <?php echo $this->formFile($form->get('img2')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img2'));?></span>
+
+		    <?php echo $this->formLabel($form->get('img3')); ?>
+		    <?php if ($this->img_thumb3 != '' ||$this->img_thumb3 != NULL) { ?>
+		    <div class="form-control imgnew">
+		    <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb3;?>" />
+			</div>
+			<?php }?>
+		    <?php echo $this->formFile($form->get('img3')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img3'));?></span>
+
+		    <?php echo $this->formLabel($form->get('img4')); ?>
+		    <?php if ($this->img_thumb4 != '' ||$this->img_thumb4 != NULL) { ?>
+		    <div class="form-control imgnew">
+		    <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb4;?>" />
+			 </div>
+			 <?php }?>
+		    <?php echo $this->formFile($form->get('img4')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img4'));?></span>
+
+		    <?php echo $this->formLabel($form->get('img5')); ?>
+		    <?php if ($this->img_thumb5 != '' ||$this->img_thumb5 != NULL) { ?>
+		    <div class="form-control imgnew">
+		     <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb5;?>" />
+			 </div>
+			 <?php }?>
+		    <?php echo $this->formFile($form->get('img5')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img5'));?></span>
+
+		    <?php echo $this->formLabel($form->get('img6')); ?>
+		    <div class="form-control imgnew">
+		    <?php if ($this->img_thumb6 != '' ||$this->img_thumb6 != NULL) { ?>
+		      <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb6;?>" />
+			</div>
+			<?php }?>
+		    <?php echo $this->formFile($form->get('img6')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img6'));?></span>
+
+		    
+		    <?php echo $this->formLabel($form->get('img7')); ?>
+		    <?php if ($this->img_thumb7 != '' ||$this->img_thumb7 != NULL) { ?>
+		    <div class="form-control imgnew">
+		     <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb7;?>" />
+			</div>
+			<?php }?>
+		    <?php echo $this->formFile($form->get('img7')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img7'));?></span>
+
+		    
+		    <?php echo $this->formLabel($form->get('img8')); ?>
+		     <?php if ($this->img_thumb8 != '' ||$this->img_thumb8 != NULL) { ?>
+		    <div class="form-control imgnew">
+		    <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb8;?>" />
+			</div>
+			<?php }?>
+		    <?php echo $this->formFile($form->get('img8')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img8'));?></span>
+
+		    
+		    
+		    <?php echo $this->formLabel($form->get('img9')); ?>
+		    <div class="form-control imgnew">
+		    <?php if ($this->img_thumb9 != '' ||$this->img_thumb9 != NULL) { ?>
+		      <img class="img-responsive" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb9;?>" />
+			</div>
+			<?php }?>
+		    <?php echo $this->formFile($form->get('img9')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img9'));?></span>
+
+		    <?php echo $this->formLabel($form->get('img0')); ?>
+		    <?php if ($this->img_thumb10 != '' ||$this->img_thumb10 != NULL) { 	?>
+		    <div class="form-control imgnew">
+		    <img class="img-responsive" 	src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.$this->img_thumb10;?>" />
+			 </div>
+			  <?php }?>
+		    <?php echo $this->formFile($form->get('img0')); ?>
+		    <span class="common-error-msg" style="color: red; font-size: 16px;"><?php echo $this->formElementErrors($form->get('img0'));?></span>
+
+*/
+						?>
+							<p></p>
+	<?php echo $this->formElement($form->get('submit'));?>
+     <?php echo $this->form()->closeTag($form);?>
+     <p></p>
+						</div>
+     <?php }?>
+</div>
+					<!-- end chi tiet -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	function get_alias(){
+		var str = (document.getElementById("name").value);
+		str= str.toLowerCase();
+		str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+		str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+		str= str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+		str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+		str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+		str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
+		str= str.replace(/đ/g,"d");
+		str= str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g,"-");
+		str= str.replace(/-+-/g,"-"); //thay thế 2- thành 1-
+		str= str.replace(/^\-+|\-+$/g,"");//cắt bỏ ký tự - ở đầu và cuối chuỗi
+		document.getElementById("alias").value = str;
+		return str;
+	}
+	</script>
+	
+	<script type="text/javascript">
+		     var domainnew ='<?php echo WEBPATH;?>';var glob=2;
+			 jQuery(document).ready(function($) {
+				 e = location.pathname;
+				 $.ajax({
+		               type: "POST",
+		               url: domainnew + "/main/myproduct",
+		               data: {idcode:e,page:glob},
+		               success: function(data){
+			               //alert(data);console.log( $('.leftcatalogue').html(data));
+		                            $('#myproductaja').html(data);
+		                             glob++;
+		                       }
+		         });
+			 });
+				</script>

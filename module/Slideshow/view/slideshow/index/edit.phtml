@@ -1,0 +1,108 @@
+<script language="javascript" src="<?php echo WEBPATH?>/include/ckeditor/ckeditor.js" type="text/javascript"></script>
+<!-- font chu icon http://fortawesome.github.io/Font-Awesome/icons/ -->
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+					<div id="myacountaja"></div>
+					<div id="myproductaja"></div>
+					<div id="myslideshowaja"></div>
+					<div id="mycartaja"></div>
+					<div id="compareslideshowaja"></div>
+					
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="my-account">
+						<h1 class="title-admin page-title">
+							<i class="glyphicon glyphicon-plus"></i>Add Slide:
+						</h1>
+						<div class="buttons-set buttons-set2" style="float: right;  margin: 0px;">
+							<a href="<?php echo WEBPATH?>/slideshow/index">
+								<button type="button" name="Manacatalogue"
+									title="Share Wishlist" class="butoon button btn-share">
+									<span><span>Manage Slideshow</span></span>
+								</button>
+							</a> <a href="<?php echo WEBPATH?>/slideshow/add">
+								<button type="button" title="AddNew" class="butoon button btn-add">
+									<span><span>Add new Slideshow</span></span>
+								</button>
+							</a>
+
+						</div>
+						<div style="width: 100%;height:25px;" class="clear-both"></div>
+						
+							<section class="md-content-section">
+
+							<md-content class="md-default-theme">
+							<div class="md-content__body">
+								<div class="table-responsive">
+									
+									<div class="col-sm-6">
+									
+									<?php  echo $this->error;?>
+									
+										<?php  echo $this->form ()->openTag ( $form );?>
+										
+										<?php  echo $this->formlabel($form->get('text'));?><span class="start-error">*</span>
+				    					<?php echo $this->formElement($form->get('text')); ?>
+				    					<script type="text/javascript">CKEDITOR.replace('descripts'); </script>
+				    					<div style="width: 100%;height:10px;" class="clear-both"></div>
+				    					<?php echo $this->formElementErrors($form->get('text')); ?>
+				    					
+				    					<?php  echo $this->formlabel($form->get('link'));?><span class="start-error">*</span>
+				    					<?php echo $this->formElement($form->get('link')); ?>
+				    					<?php echo $this->formElementErrors($form->get('link')); ?>
+				    					<div style="width: 100%;height:10px;" class="clear-both"></div>
+				    					
+				    					<div class="form-control imgnew">
+                                        	<img class="img-responsive" src="<?php $show_img= $this->layout()->show_img; echo WEBPATH.'/imgslideshow/thumb_slideshow2/'.$show_img;?>">
+                                    	</div>
+				    					
+				    					<?php echo $this->formlabel($form->get('img'));?><span class="start-error">*</span>
+				    					<?php echo $this->formElement($form->get('img')); ?>
+				    					<?php echo $this->formElementErrors($form->get('img')); ?>
+				    					<span class="start-error" style="color: red;">dimension image: 900x388</span>
+				    					<div style="width: 100%;height:10px;" class="clear-both"></div>
+				    					
+				    					<?php echo $this->formlabel($form->get('status'));?>
+				    					<span class="start-error">*</span>
+				    					<div class="form-control">
+				    					<?php echo $this->formElement($form->get('status')); ?>
+				    					</div><div style="width: 100%;height:0px;" class="clear-both"></div>
+				    					<?php echo $this->formElementErrors($form->get('status')); ?>
+				    					
+				    					<div style="width: 100%;height:10px;" class="clear-both"></div>
+				    					<?php echo $this->formElement($form->get('btn_submit')); ?>
+				    					
+				    					<?php echo $this->form()->closeTag($form);  ?>
+									
+								    	
+									</div>
+									
+								</div>
+							</div>
+							</md-content>
+
+						</section>
+
+						
+
+						<!-- 
+					 <p></p> <section class="md-content-section"> <md-content class="md-default-theme"> <div class="md-content__body"> <div class="table-responsive"> <table class="table"> <thead> <tr> <th>#</th> <th>Name</th> <th>Status</th> <th>Desciption</th> <th>Action</th> <th>Completion %</th> </tr> </thead> <tbody> <tr> <td>1</td> <td><span class="color-primary"><i class="fa fa-level-up"></i></span> TWLT</td> <td><span class="label label-primary">Pending</span></td> <td>John Doe</td> <td> <div id="linview" > <span class="btn-edit lin"></span> <span class="btn-remove btn-remove2 lin"></span> <span class="label label-primary lin color-primary btn bequa"><i class="fa fa-bolt"></i> Pause</span> </div> </td> <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="55"> <div class="progress-bar" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="55%" ng-transclude="" style="width: 55%;"></div> </div></td> </tr> <tr> <td>2</td> <td><span class="color-accent"><i class="fa fa-level-up"></i></span> A16Z</td> <td><span class="label label-accent">Testing</span></td> <td>Carol Simmerman</td> <td><span class="label label-primary">Pending</span></td> <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="34" type="accent"> <div class="progress-bar progress-bar-accent" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="34%" ng-transclude="" style="width: 34%;"></div> </div></td> </tr> <tr> <td>3</td> <td><span class="color-warning"><i class="fa fa-level-down"></i></span> DARK</td> <td><span class="label label-warning">Due</span></td> <td>Joselie Hanna</td> <td><span class="label label-primary">Pending</span></td> <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="68" type="warning"> <div class="progress-bar progress-bar-warning" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="68%" ng-transclude="" style="width: 68%;"></div> </div></td> </tr> <tr> <td>4</td> <td><span class="color-success"><i class="fa fa-level-up"></i></span> Q300</td> <td><span class="label label-success">Accepted</span></td> <td>Johane Bayer</td> <td><span class="label label-primary">Pending</span></td> <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="52" type="success"> <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="52%" ng-transclude="" style="width: 52%;"></div> </div></td> </tr> <tr> <td>5</td> <td><span class="color-danger"><i class="fa fa-level-down"></i></span> RVNG</td> <td><span class="label label-danger">Suspended</span></td> <td>Donnavon Franklin</td> <td><span class="label label-primary">Pending</span></td> <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="77" type="danger"> <div class="progress-bar progress-bar-danger" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="77%" ng-transclude="" style="width: 77%;"></div> </div></td> </tr> <tr> <td>6</td> <td><span class="color-info"><i class="fa fa-level-down"></i></span> FDSA</td> <td><span class="label label-info">In evaluation</span></td> <td>Jane Modrid</td> <td><span class="label label-primary">Pending</span></td> <td><div class="progressbar-xs no-margin progress ng-isolate-scope" value="55" type="success"> <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="55%" ng-transclude="" style="width: 55%;"></div> </div></td> </tr> </tbody> </table> </div> </div> </md-content> </section>
+					 -->
+
+					</div>
+
+
+				</div>
+				<!-- left -->
+				<!-- end chi tiet -->
+			</div>
+		</div>
+	</div>
+</div>

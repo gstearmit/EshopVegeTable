@@ -1,0 +1,147 @@
+<div class="container-fluid thanh-cuoi-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 nopading-360">
+                <div class="col-sm-2 box-tatca-danhmuc "><a href="#menu">TẤT CẢ DANH MỤC <i class="fa fa-arrow-circle-down"></i></a></div>
+                <div class="col-sm-10 box-tieude-danhmuc"> 
+                    <ul class="ul_camera">
+                        <li><a href="#"><?php echo $catalog_detail['name'];?></a></li>  
+
+                        <li><span> <?php echo $data_detail['name']?></span></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<article>
+    <div class="container-fluid toi-trongsuot">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 row-content-top">
+                    <div class="col-sm-2 menudoc-conten-left">
+                        <ul id="tab-menu" class="menu-new">
+                            <?php
+                        foreach ($data_m as $keycat => $valuecat) {
+                            ?>
+                            <li class="menu-cat" ><a class="<?php
+                                if ($keycat == 0) {
+                                    echo 'active-tab';
+                                }
+                                ?>" rel='#category-box<?php echo $valuecat['id'] ?>' href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$valuecat['id']?>">  <?php echo $valuecat['name'] ?></a>
+                                <?php
+                                if($sub_menu[$valuecat['id']] !=null){
+                                ?>
+                                <ul class="sb-menu">
+                                    <?php foreach ($sub_menu[$valuecat['id']] as $key_sub=>$value_sub){?>
+                                    <li><a href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$value_sub['id']?>"><?php echo $value_sub['name'];?></a></li>
+                                    <?php } ?>
+                                </ul>
+                                <?php } ?>
+                            </li>
+                                <?php } ?>
+                        </ul>
+                    </div>
+                     
+                    <div class="col-sm-2  menu-right-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!--accound-->
+        <div class="row margin-top">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="box-sm10">
+                    <h2>Đơn hàng của tôi</h2>
+
+                    <div class=" row ">
+
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+
+                            <form class="form-horizontal">
+
+                                <?php
+                                foreach ($list_order_user as $key => $value) {
+                                    $status = $value['status_oder'];
+
+                                    if ($status == 0) {
+                                        $status_ = 'Đang chờ xử lý';
+                                    }
+                                    if ($status == 1) {
+                                        $status_ = ' Đang xử lý';
+                                    }
+                                    if ($status == 2) {
+                                        $status_ = ' Đã hoàn thành';
+                                    }
+                                    ?>
+                                    <div class="col-sm-12 my-order">
+                                        <p> <span class="icon-order"> <i class="fa fa-play-circle-o"></i></span> Đơn hàng #:<span class="code"><?php echo $value['id'] ?></span> <strong onclick="vieworder(<?php echo $value['id'] ?>)" id="view-order">Xem chi tiêt</strong> </p>
+                                        <div class="col-sm-3">Khách hàng: <?php echo $value['customer'] ?></div>
+                                        <div class="col-sm-3">Ngày đặt: <?php echo date('d-m-Y', strtotime($value['date_creat'])) ?></div>
+                                        <div class="col-sm-3">Trạng thái: <?php echo $status_; ?> </div>
+                                        <div class="col-sm-3">Tổng tiền: <?php echo $value['totalprice'] ?></div>
+                                        <!--form-->
+                                        <div id="detail-order" class="detail-order<?php echo $value['id'] ?>">
+                                            <h4>Thông tin địa chỉ nhận hàng</h4>
+                                            <p>Người nhận: <?php echo $value['customer'] ?></p>
+                                            <p>Email: <?php echo $value['email'] ?></p>
+                                            <p>Địa chỉ: <?php echo $value['address'] ?></p>
+                                            <p>Điện thoại: <?php echo $value['phone'] ?></p>
+                                            <table class="table">
+                                                <thead class="colortable">
+                                                    <tr>
+                                                        <td colspan="2">Hình ảnh </td>													
+                                                        <td>Giá</td>
+                                                        <td>số lượng</td>
+                                                        <td>Thành tiền</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($list_oderdetail[$value['id']] as $key1 => $value1) {
+                                                        ?>
+                                                        <tr class="colortable">
+                                                            <td> <img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value1['img']; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png"></td>
+                                                            <td> <a href="#"><?php echo $value1['name'] ?> </a></td>													
+                                                            <td><?php echo $value1['price_product'] ?></td>
+                                                            <td> <?php echo $value1['quantity'] ?></td>
+                                                            <td> <?php echo $value1['quantity'] * $value1['price_product'] ?></td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                    <tr>
+                                                        <td colspan="3" ></td>
+                                                        <td > phí vận chuyển</td>
+                                                        <td> 0  VND</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3" ></td>
+                                                        <td > <b>Thành tiền</b> (đã bao gồm (VAT))</td>
+                                                        <td><?php echo $value['totalprice']; ?></td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                <?php } ?>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+</article>

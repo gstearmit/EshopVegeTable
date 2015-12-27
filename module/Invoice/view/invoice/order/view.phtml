@@ -1,0 +1,149 @@
+<section id="content">
+     <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h5 class="breadcrumbs-title">Mana Order</h5>
+                    <ol class="breadcrumb">
+                        <li><a href="<?php echo WEBPATH; ?>/materialize/">Dashboard</a></li>
+                        <li><a href="<?php echo WEBPATH; ?>/invoice/order/index">Order</a></li>
+                        <li class="active">Manager</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs start-->
+    <div id="breadcrumbs-wrapper" class="lighten-3">
+        <div class="container">
+            <div class="row">
+                <span id="chang_status"></span>
+                <div class="col s12 m4 l3">
+                    <p>Customer :</p>
+                    <p>Email :</p>
+                    <p>Phone :</p>
+                    <p>Adress :</p>
+                    <p>Date :</p>
+                    <p>Status :</p>
+                    <p>Type :</p>
+                    <p>Time consignee :</p>
+                    <p>Change Status Order :</p>
+                </div>
+                <div class="col s12 m8 l9">
+                    <?php
+                    $status = $data['status_oder'];
+                    $type = $data['type'];
+                    if ($status == 0) {
+                        $status1 = 'Pending';
+                    }
+                    if ($status == 1) {
+                        $status1 = 'Processing';
+                    }
+                    if ($status == 2) {
+                        $status1 = 'Finished';
+                    }
+
+                    if ($type == 0) {
+                        $type1 = 'Payment on delivery';
+                    }
+                    if ($type == 1) {
+                        $type1 = 'Payment through Paypal';
+                    }
+                    echo '<p>' . $data['customer'] . '</p>'
+                    . '<p>' . $data['email'] . '</p>'
+                    . '<p>' . $data['phone'] . '</p>'
+                    . '<p>' . $data['address'] . '</p>'
+                    . '<p>' . date('d-m-Y', strtotime($data['email'])) . '</p>'
+                    . '<p id="st">' . $status1 . '</p>'
+                    . '<p>' . $type1 . '</p>'
+                    . '<p>' . $data['time'] . '</p>'
+                    ;
+                    ?>
+                    <input type="hidden" id="id_oder" value="<?php echo $data['id']?>"/>
+                    <select class="col m4 l3" id="status">
+                        <option> Select Status</option>
+                        <option value="0"> Pending</option>
+                        <option value="1"> Processing</option>
+                        <option value="2"> Finished</option>
+                        
+                    </select>
+                           <button onclick="changestatus_oder()" style="float:left" class="waves-effect waves-light  btn"><i class="mdi-notification-sync"></i> Update</button>
+                           <img class="load" style="float:left;"src="<?php echo APOTRAVINY_ADMIN.'/images/blue.gif' ?>" width="30"/>
+                </div>
+
+                <div class="col s12 m12 l12">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <td>#</td>   
+                            <td>Product name</td>
+                            <td>Price</td>
+                            <td>Quantity</td>
+                            <td>Amount</td>
+                            </thead>
+                            <tbody>
+
+                                <?php
+                                $stt = '';
+                                
+                                foreach ($data_detail[$data['id']] as $key => $value) {
+                                    $stt ++;
+                                    $id_product=$value['id_product'];
+                                    $total_price +=$value['quantity'] * $value['price_product'];
+                                    ?>
+                                <tr class="bg">
+                                        <td><?php echo $stt; ?></td>   
+                                        <td><?php echo $data_product[$id_product]['name']?></td>
+                                        <td><?php echo $value['price_product']; ?></td>
+                                        <td><?php echo $value['quantity']; ?></td>
+                                        <td><?php echo $value['quantity'] * $value['price_product']; ?></td>
+                                    </tr>
+                                <?php } ?>
+                                    <tr>
+                                        <td colspan="4" style="text-align: right"><strong>Total Money :</strong></td>
+                                        <td><?php echo $total_price; ?></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+<style>
+    .bg:nth-child(even){
+        background: #e3e3e3;
+    }
+    .load{
+        display: none;
+    }
+</style>
+<script>
+function changestatus_oder(){
+    $('.load').fadeIn();
+   var id_oder=$('#id_oder').val();
+   var status=$('#status').val();
+   var select=$('#status');
+    var selectedItem = select.find(':selected');    
+    var selectedText = selectedItem.text();
+   var values='id_oder='+ id_oder +'&status='+status;
+   var URL=" <?php echo WEBPATH ?>/invoice/order/updatestatus";
+    $.ajax({
+        url: URL,
+        type: "post",
+        data: values,
+        cache: false,
+        success: function (data) {
+            console.log(data);
+            $('#st').html(selectedText);
+            $('#chang_status').html('<div class="alert alert-success" id="chang_status" role="alert">'+data+'</div>');
+		$('.load').fadeOut();
+    },
+        error: function () {
+            alert("failure");
+		}
+	});
+}
+</script>

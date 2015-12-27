@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--
+	To change this license header, choose License Headers in Project Properties.
+	To change this template file, choose Tools | Templates
+	and open the template in the editor.
+-->
+<html>
+	<head>
+		<title>lazada</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="js/jquery-2.1.3.js" type="text/javascript"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/screen.css" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style-lop1.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/messages_vi.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			 $("#submitform").validate({
+				 messages: {
+				name: "Please enter your firstname",
+				address: "Please enter your lastname",
+			/*	username: {
+					required: "Please enter a username",
+					minlength: "Your username must consist of at least 2 characters"
+				},
+				password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long"
+				},
+				confirm_password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long",
+					equalTo: "Please enter the same password as above"
+			}, */
+				phone: "Please enter a valid number phone ",
+				
+			}
+				 
+				 
+				 
+				 
+				 });
+	$('#billing_address_form').hide();
+	$('#radio1').click(function(){
+		if ($("#radio1").is(":checked")){
+			$('#billing_address_form').show();
+			} else{
+			$('#billing_address_form').hide();
+			
+			};
+		
+		});
+
+		});
+		
+	</script>
+	</head>
+	<body>
+		<header>
+			<div class="container-fluid logo-timkiem-mua-fluid">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="logo_dh">
+								<a href="#" class="header__logo">
+									<img alt="#" class="img-responsive anhlogo" src="img/header/vn.png">
+								</a>
+							</div>
+							<div class="steps-progress toclear">
+								<div class="steps step-1 ">
+									<span class="step-txt toclear">
+										<span class="icon-wrap"><i class="icon icon-lock"></i></span>
+										<span class="step-number">1.</span>
+										<span class="step-name">Email ID</span>
+									</span>
+								</div>
+								<div class="steps step-2 on_progress current">
+									<span class="step-txt toclear">
+										<span class="icon-wrap"><i class="icon icon-lorry"></i></span>
+										<span class="step-number">2.</span>
+										<span class="step-name">Vận chuyển</span>
+									</span>
+								</div>
+								<div class="step-last steps step-3">
+									<span class="step-txt toclear">
+										<span class="icon-wrap"><i class="icon icon-wallet"></i></span>
+										<span class="step-number">3.</span>
+										<span class="step-name">Thanh toán</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+			
+		</header>
+		<div class="conten">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+					<form id="submitform">
+					<div class=" padding-marrgin border_form">
+						<div class="row">
+							<div class="col-md-9">
+								<div class="form-horizontal" id="contact">
+									<div class="form-group">
+										<label for="name" class="col-sm-3 control-label">Họ tên</label>
+										<div class="col-sm-9">
+											<input type="email" class="form-control" id="Name" placeholder="Họ Tên" required>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="address" class="col-sm-3 control-label">Địa chỉ</label>
+										<div class="col-sm-9">
+											<input type="email" class="form-control" id="address" placeholder="Địa chỉ" required>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="city" class="col-sm-3 control-label">Tỉnh/thành phố</label>
+										<div class="col-sm-9">
+											<select class="form-control">
+												<option> Thành Phố Hồ chí Minh </option>
+												<option> Hà Nội </option>
+												<option> Đà Nẵng </option>
+												<option> Vũng Tàu </option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="quanhuyen" class="col-sm-3 control-label">Quận Huyện</label>
+										<div class="col-sm-9">
+											<select class="form-control">
+												<option> Thành Phố Hồ chí Minh </option>
+												<option> Hà Nội </option>
+												<option> Đà Nẵng </option>
+												<option> Vũng Tàu </option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="phone" class="col-sm-3 control-label">Số Điện Thoại</label>
+										<div class="col-sm-9">
+											<input type="number" class="form-control" value="number"  id="phone" placeholder="09874678" required >
+										</div>
+									</div>
+									
+									
+								</div>
+								
+								
+							</div>
+							
+							<div class="col-md-3">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-9">
+								<div class="form-horizontal">
+									<div class="form-group">
+										<div class="col-sm-9">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" id="radio1">  Thông tin người đặt hàng (chỉ dành cho đơn hàng thanh toán qua thẻ)
+												</label>
+											</div>
+										</div>
+									</div>
+									<div id="billing_address_form" class=" form_new">
+										<div class="billing_address_form__h3">
+											<div class="billing_t_label">Địa chỉ thanh toán</div>
+											<div class="billing-country-scope bill-to-country-local ">
+												<span class="bill-to-country">Việt Nam</span>
+												|
+												<a href="#" id="billing_to-different-country" class="change-billing-country-scope">Quốc tế</a>
+											</div>
+											
+										</div>
+										<div class="billing-country-scope bill-to-country-local ">
+											<div id="billing_local_address_form" class="payment_billingform">
+												<div class="form-group">
+													<label for="inputEmail3" class="col-sm-3 control-label">Họ tên</label>
+													<div class="col-sm-9">
+														<input type="email" class="form-control"  placeholder="Họ Tên" required>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="inputEmail3" class="col-sm-3 control-label">Địa chỉ <span class="required">(Số nhà, đường) </span></label>
+													<div class="col-sm-9">
+														<input type="email" class="form-control" id="inputstreet" placeholder="Địa chỉ" required>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="inputtp" class="col-sm-3 control-label">Tỉnh/thành phố</label>
+													<div class="col-sm-9">
+														<input type="email" class="form-control" id="inputEmail3" placeholder="Tỉnh thành phố" required>
+													</div>
+												</div>
+												
+												<div class="form-group">
+													<label for="inputEmail3" class="col-sm-3 control-label">Tỉnh/thành phố</label>
+													<div class="col-sm-9">
+														<select class="form-control">
+															<option value="271">Hồ Chí Minh</option>
+															<option value="232">Hà Nội</option>
+															<option value="260">Đà Nẵng</option>
+															<option value="280">Cần Thơ</option>
+															<option value="242">Hải Phòng</option>
+															<option value="265">Khánh Hòa</option>
+															<option value="431">Bà Rịa Vũng Tàu</option>
+															<option value="281">Đồng Nai</option>
+															<option value="558">Đăk Lăk</option>
+															<option value="272">An Giang</option>
+															<option value="234">Bắc Giang</option>
+															<option value="233">Bắc Kạn</option>
+															<option value="276">Bạc Liêu</option>
+															<option value="273">Bình Dương</option>
+															<option value="274">Bình Phước</option>
+															<option value="278">Bình Thuận</option>
+															<option value="261">Bình Định</option>
+															<option value="235">Bắc Ninh</option>
+															<option value="279">Cà Mau</option>
+															<option value="236">Cao Bằng</option>
+															<option value="277">Bến Tre</option>
+															<option value="577">Đăk Nông</option>
+															<option value="237">Điện Biên</option>
+															<option value="282">Đồng Tháp</option>
+															<option value="262">Gia Lai</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="inputEmail3" class="col-sm-3 control-label">Quận/huyện</label>
+													<div class="col-sm-9">
+														<select class="form-control" rel="location_1" name="ThreeStepBillingAddressForm[location][1]" id="ThreeStepBillingAddressForm_location_1">
+															<option value="">Lựa chọn</option>
+															<option value="1106">Văn Phòng Lazada Quận 1</option>
+															<option value="1133">Văn phòng Lazada Bình Tân</option>
+															<option value="1115">Văn Phòng Lazada Bình Thạnh</option>
+															<option value="1134">Văn phòng Lazada Thủ Đức</option>
+															<option value="718">Quận 1</option>
+															<option value="727">Quận 10</option>
+															<option value="728">Quận 11</option>
+															<option value="729">Quận 12</option>
+															<option value="719">Quận 2</option>
+															<option value="720">Quận 3</option>
+															<option value="721">Quận 4</option>
+															<option value="722">Quận 5</option>
+															<option value="738">Huyện Cần Giờ</option>
+															<option value="723">Quận 6</option>
+															<option value="724">Quận 7</option>
+															<option value="725">Quận 8</option>
+															<option value="726">Quận 9</option>
+															<option value="730">Quận Bình Tân</option>
+															<option value="731">Quận Bình Thạnh</option>
+															<option value="737">Huyện Bình Chánh</option>
+															<option value="732">Quận Gò Vấp</option>
+															<option value="739">Huyện Củ Chi</option>
+															<option value="733">Quận Phú Nhuận</option>
+															<option value="740">Huyện Hóc Môn</option>
+															<option value="734">Quận Tân Bình</option>
+															<option value="741">Huyện Nhà Bè</option>
+															<option value="735">Quận Tân Phú</option>
+															<option value="736">Quận Thủ Đức</option>
+														</select> 
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputEmail3" class="col-sm-3 control-label">Số điện thoại</label>
+												<div class="col-sm-9">
+													<span class="ch-in-extension">+84</span>
+													<input class="billing_input_field  form-control" size="50" minlength="8" maxlength="20" placeholder="091234567890" name="ThreeStepBillingAddressForm[phone]" id="ThreeStepBillingAddressForm_phone" type="text" required> 
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputEmail3" class="col-sm-3 control-label">Mã số thuế</label>
+												<div class="col-sm-9">
+													
+													<input class="billing_input_field form-control" placeholder="Mã số thuế" name="ThreeStepBillingAddressForm[tax_code]" id="ThreeStepBillingAddressForm_tax_code" type="text" required> 
+												</div>
+												<div class="ch-pright">
+													<span class="handlingfee">Invoices for products sold by Trader members will be made within
+													7 days of delivery success.</span>
+												</div>
+											</div>	
+											
+										</div>
+									</div>
+									
+								</div>
+								
+							</div>
+						</div>
+						<div class="col-md-3">
+						</div>
+					</div>
+					</div>
+						<div class=" marrgin-padding border_form">
+					<div class="hipping_options_area" >
+						<h4>Choose your shipping option</h4>
+						<div class="shipping_options">
+							<div class="shippingOptionRow">
+								<input class="shipping_fee_type" type="radio" name="shipping-group-" id="shipping_type_address_input_standard" value="standard" checked="checked">
+								<label class="shippingOptionLabel" for="shipping_type_address_input_standard">
+									<strong>Giao hàng tiêu chuẩn</strong>
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<button class=" btn btn-warning" id="submit-form"> TIẾP TỤC >> </button>
+				
+					</form>
+				</div>
+			
+				<div class="col-md-4">
+					<div class="conter_right_f">
+						<div class="tittle-conter-right">
+							<p><b>Thông Tin sản phẩm </b></p>
+						</div>
+						<div class="order-detail">
+							<b>Bạn có 1 sản phẩm trong giỏ hàng.</b>
+							<p style="font-size:12px;">Thanh toán bằng thẻ tín dụng/ghi nợ hoặc ATM nội địa để giảm thêm 10.000 VND trên tổng giá trị đơn hàng (*)</p>
+							<table class="table" style="font-size:12px;"> 
+								<tbody>
+									<tr>
+										<th class="left_align">Sản phẩm</th>
+										<th class="qty">Số lượng</th>
+										<th class="right_align">Giá</th>
+									</tr>
+									<tr class="first_item  no-border  ">
+										<td class="no-padding-bottom">
+											<div class="product">Máy ảnh KTS Sony Cyber-shot H DSC-H300 20.1MP và zoom quang 35x (Đen)</div>
+										</td>
+										<td class="qty no-padding-bottom">
+										1   </td>
+										<td class="right_align no-padding-bottom sel-cart-item-total-SO993ELAEN3BVNAMZ-226627">
+										3.849.000                                                            </td>
+									</tr>
+									
+									<tr>
+										<td class="subtotal sel-subtotal">Tổng cộng</td>
+										<td colspan="2" class="right_align">3.849.000 VND</td>
+									</tr>
+									<tr class="total ">
+										<td class="total">
+											<b>Thành tiền </b></br>
+											<span class="vat-minicart">(Đã bao gồm VAT)</span>
+										</td>
+										<td colspan="2" class="total right_align sel-total">
+										3.849.000 VND                    </td>
+									</tr>
+									<tr>
+										<td width="115" align="center" valign="top">
+											<a href="javascript:void(0)" class="jan_verisign"></a>
+										</td>
+										<td width="115" align="center" valign="top">
+											<span class="seal_verisign"></span>
+										</td>
+									</tr>
+								</tbody>
+								
+							</table>
+						</div>
+						
+					</div>
+				</div>
+				
+			</div>
+			<div class="row border-top">
+		
+				<div class="col-md-6">
+					<p> Bạn cần hỗ trợ? Gọi Hotline <b>08 3942 1188 hoặc 04 7300 1188 </b></p>
+				</div>
+				<div class="col-md-6">
+					<ul class="footerul_li">
+						<li><a> FAQ</a></li>
+						<li><a>Chính Sách  Thanh Toán</a></li>
+						<li><a> Điều Khoản sử dụng</a></li>
+					</ul>
+					<p class="copy"> © Copyright 2013 - 2014, Lazada.vn</p>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+	</div>
+	
+	
+	
+	
+</body>
+</html>

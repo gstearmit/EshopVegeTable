@@ -1,0 +1,32 @@
+<table class="table table-bordered">
+    <tr>
+        <td colspan="7"><a href="<?php echo $this->url('News', array('controller' => 'news', 'action' => 'add-news')); ?>">Add</a></td>
+    </tr>
+    <tr>
+        <td>ID</td>
+		<td>Date Creat</td>
+        <td>Preview Img</td>
+        <td>Title</td>
+        <td>Content</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    <?php for ($i = 0; $i < count($listNews); $i++) { ?>
+        <tr>
+            <td><?php echo $listNews[$i]->news_id; ?></td>
+			<td><?php echo $listNews[$i]->date_creat; ?></td>
+            <td><img src="/uploads/<?php echo $listNews[$i]->news_thumbnail; ?>" style="width: 70px; height: 70px" /></td>
+            <td><?php echo $listNews[$i]->news_name; ?></td>
+            <td><?php echo $listNews[$i]->news_content; ?></td>
+            <td><a href="<?php echo $this->url('News', array('controller' => 'news', 'action' => 'edit-news', 'id' => $listNews[$i]->news_id)); ?>">Edit</a></td>
+            <td><a href="<?php echo $this->url('News', array('controller' => 'news', 'action' => 'delete-news', 'id' => $listNews[$i]->news_id)); ?>">Delete</a></td>
+        </tr>
+    <?php } ?>
+    <tr>
+        <td colspan="7">
+            <?php
+            echo $this->paginationControl($paginator, 'Sliding', 'layout/paginator', array('name' => 'News', 'controller' => 'post', 'action' => 'list-news'));
+            ?>
+        </td>
+    </tr>    
+</table>

@@ -1,0 +1,84 @@
+<?php
+$ipserver = $_SERVER['SERVER_ADDR'];
+
+ //$paginator=$this->layout()->ressort;
+function substr_unicode($str, $s, $l = null) {
+    return join("", array_slice(
+        preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY), $s, $l));
+}
+function getduration($duration){
+	$list=explode(':',$duration);
+	$sizearr=sizeof($list);
+		if(((int) $list[0])==0)
+		{
+			return substr($duration,3);
+		}
+	else return $duration;
+		
+	}
+?>
+<div class="content">
+	<div class="pageheader">
+		<h2 class="title-admin"><i class="glyphicon glyphicon-search"></i> Result: <?php echo '<span class="label label-info">'.$this->layout()->count.' items</span>';?></h2>
+	</div>
+                    <?php 
+ 
+ if(isset($paginator)&&$paginator)
+	 {
+		$kt=0;
+	 foreach ($paginator as $upload) : 
+	 $kt++;
+	 $imgUrl='';
+	if($upload->imgfolder==''){
+        $imgUrl='http://s1.data.'. WEBPATH.'/data/uploads/images'.$upload->seriecode.'/1.jpg';
+         
+      }
+	else
+	{  
+// 		$imgUrl=$upload->imgfolder.'/thumbnail.jpg';
+		if($ipserver ==='127.0.0.1'){
+			$imgUrl= S1_DATA_DEVELOP_IMAGE.$upload->imgfolder.'/thumbnail.jpg';
+		}
+		if($ipserver !='127.0.0.1'){
+			$imgUrl=$upload->imgfolder.'/thumbnail.jpg';
+		}
+	}
+	 ?>
+								<div class="col-md-12" style="margin-bottom:10px;margin-top: 10px;">
+									<div class="col-md-4">
+										<a href="<?php echo  WEBPATH;?>/main/play/<?php echo $this->escapeHtml($upload->seriecode);?>"> 
+											
+										<img class="" width="250" height="140" src="<?php echo $imgUrl;?>"></a>
+										<div class="duration"><?php echo getduration($upload->duration);?></div>
+									</div>
+									<div class="col-md-8">
+										<a href="<?php echo  WEBPATH;?>/main/play/<?php echo $this->escapeHtml($upload->seriecode);?>"><p><span style="color:#0859ab; font-weight:bold"><?php if(strlen($upload->title)<80){echo $this->escapeHtml($upload->title);}else echo $this->escapeHtml(substr_unicode($upload->title,0,80)).'...';?> </span>   
+		 </br><span style="color:#999; font-weight:bold; font-size:12px"><?php echo $this->escapeHtml($upload->views);?> Views &nbsp&nbsp<span>Date Creat: </span>  <?php echo $this->escapeHtml(substr($upload->datetime,0,10));?></span></p></a>
+		<p><?php if(strlen($upload->description)<120){echo $this->escapeHtml($upload->description);}else echo $this->escapeHtml(substr_unicode($upload->description,0,120)).'...';?></p>
+
+									</div>
+									
+								<div class="clearfix"></div>
+								</div>
+								
+	 <?php endforeach; 
+	 if($kt==0){echo "<h3>No item found</h3>";}
+	 ?>
+	 
+	 <?php // add at the end of the file after the table
+	echo $this->paginationControl(
+		// the paginator object
+		$this->paginator,
+		// the scrolling style; see http://zf2.readthedocs.org/en/release-2.1.4/modules/zend.paginator.usage.html#rendering-pages-with-view-scripts
+		'sliding',
+		// the partial to use to render the control
+		array('partial/search.phtml', 'search'),
+		// the route to link to when a user clicks a control link
+		array(
+			//'route' => 'search'
+		)
+	);
+	}else{?>
+	<h3>No item found</h3>
+	 <?php }?>
+ </div>

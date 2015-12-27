@@ -1,0 +1,635 @@
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+			<div class="breadcrumbs">
+				<ul>
+					<li class="home"><a href="<?php echo WEBPATH;?>" title="Go to Home Page">Home</a>
+
+					</li>
+					<li class="category93"><strong><?php echo $product->name;?></strong></li>
+				</ul>
+			</div>
+			<div class="row show-grid">
+				<div class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+                <?php $getuser = $this->layout ()->getuser; 
+                if($getuser){
+                  // login
+                ?>
+									<!--  <div id="leftcatalogue"></div> --> <!-- leftcatalogue -->
+
+									<div id="myacountaja"></div>
+									<!-- myacountaja -->
+									<div id="myproductaja"></div>
+				
+									<div id="mycartaja"></div>
+				
+				
+									<div id="compareproductaja"></div>
+									<!-- compareproductaja -->
+					<?php }
+					else { 
+					?>
+						
+								<div id="leftcatalogue"> </div><!-- leftcatalogue -->
+								
+								<div id="bestsellera"></div><!-- bestsellera -->
+								
+								<div id="saleproducta"></div><!-- sale product -->
+								
+								<div id="blockcompare"></div><!-- blockcompare -->
+								<div id="populartags"></div><!-- populartags -->
+								
+								<div id="containernone"></div><!-- container-none -->
+								
+						<?php }//end login?>		
+			   </div>
+				
+				
+				<?php
+				if (isset ( $slug ) and $slug == '') {
+					?><div
+					class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="my-account">
+						<div class="my-wishlist">
+							<div class="page-title title-buttons">
+								<h1>Page Detail</h1>
+							</div>
+							<ul class="messages">
+								<li class="success-msg">
+									<ul>
+										<li><span>Oops! </span></li>
+										<li><span>404 Not Found.Sorry, an error has occured, Requested
+												page not found! Click <a href="<?php echo WEBPATH;?>">here</a>
+												to cameback home.
+										</span></li>
+									</ul>
+								</li>
+							</ul>
+
+
+						</div>
+						<div class="buttons-set">
+							<p class="back-link">
+								<a href="<?php echo WEBPATH;?>"><small>« </small>Back</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				
+				<?php
+				
+} 				// if(isset($slug ) and $slug =='')
+				else {
+					// co data
+					?>
+				
+
+				<!--thay trang chi tiet vao--->
+				<div class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+				
+				
+					<script type="text/javascript">
+					    var optionsPrice = new Product.OptionsPrice([]);
+					</script>
+					<div id="messages_product_view"></div>
+					<div class="product-view">
+						<div class="product-essential">
+							<div class="row">
+								<form action="#"
+									method="post" id="product_addtocart_form">
+									<input name="form_key" type="hidden" value="5YbdL2SOlbKOpG7G" />
+									<div class="no-display">
+										<input type="hidden" name="product" value="31" /> <input
+											type="hidden" name="related_product"
+											id="related-products-field" value="" />
+									</div>
+									<div
+										class="product-img-box clearfix col-md-5 col-sm-5 col-xs-12">
+										<div class="more-views">
+											<h2>More Views</h2>
+											<ul class="galleryimages" data-slide="vertical">
+											
+											<?php if($product->img !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												
+											
+											  <?php if($product->img0 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img0;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												<?php if($product->img1 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img1;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												<?php if($product->img2 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img2;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												<?php if($product->img3 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img3;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												
+												<?php if($product->img4 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img4;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												
+												<?php if($product->img5 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img5;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												<?php if($product->img6 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img6;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												
+												<?php if($product->img7 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img7;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												
+												
+												<?php if($product->img8 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img8;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												<?php if($product->img9 !='') {?>
+												<li>
+												<img class="img-responsive" 
+													src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img9;?>"
+													alt="" title="" />
+												</li>
+												<?php } ?>
+												
+												
+											</ul>
+										</div>
+										<p class="product-image">
+											<a href="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img;?>"
+												class="cloud-zoom"
+												rel="transparentImage: 'data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==', useWrapper: false, showTitle: 1, zoomWidth:'290', zoomHeight:'374', adjustY:0, adjustX:10">
+												<img class="image img-responsive"
+												style="width: 400px; height: 374px;"
+												src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'/'.$product->img9;?>"
+												alt="<?php if($product->descripts !='') { echo $product->descripts; }?>" />
+											</a>
+										</p>
+
+										<script type="text/javascript">
+										    jQuery(document).ready(function($) {
+												$('.cloud-zoom, .cloud-zoom-gallery').CloudZoom(); //CloudZoom( {position: 'inside'});
+										        var $thumbslide = $(".galleryimages");
+										        var $typeslide  = $thumbslide.data('slide');
+										        if($typeslide){
+										            var isVertical = false;
+										            if($typeslide == 'vertical') isVertical = true;
+										            $(".galleryimages").flexisel({margin: 10, clone: true, vertical: isVertical});
+										        }
+										        $('.galleryimages li').click(function() {
+										            var img   = $('img', $(this)).attr("src");
+										            var title = $('img', $(this)).attr("title");
+										            var zoom  = $('.cloud-zoom');
+										            zoom.attr("href", img);
+										            $('img', zoom).attr("src", img);
+										            $('img', zoom).attr("title", title);
+										            $('img', zoom).attr("alt", title);
+										            $('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
+										        });
+										    });
+										</script>
+									</div>
+									<div class="product-shop col-md-7 col-sm-7 col-xs-12">
+										<div class="product-name">
+											<h1>Suede Loafer, Navy</h1>
+										</div>
+										<div class="ratings">
+											<div class="rating-box">
+											<?php if($product->rating !='' || $product->rating != null) { 
+												if(is_numeric($product->rating) and $product->rating >=0 )
+												{
+												 $rate = @floor((($product->rating)/10)*100);
+												}else $rate = 0;
+											} else $rate = 0;?>
+												<div class="rating" style="width: <?php echo $rate?>%"></div>
+											</div>
+											<p class="rating-links">
+												<a
+													href="http://alothemes.com/demo/smije/index.php/review/product/list/id/31/">1
+													Review(s)</a> <span class="separator">|</span> <a
+													href="http://alothemes.com/demo/smije/index.php/review/product/list/id/31/#review-form">Add
+													Your Review</a>
+											</p>
+										</div>
+
+										<?php if($product->availability !='' || $product->availability != null) { 
+												if(is_numeric($product->availability) and $product->availability >=0 )
+												{
+												 $availability = $product->availability;
+												 $availability_text = 'In stock('.$availability.')'; 
+												}else 
+												 {
+												 	$availability = 0;
+												 	$availability_text = 'out of stock('.$availability.')'; 
+												 }
+											} else 
+												 {
+												 	$availability = 0;
+												 	$availability_text = 'out of stock('.$availability.')'; 
+												 }?>
+										<p class="availability in-stock">
+											Availability: <span><?php echo $availability_text;?></span>
+										</p>
+
+										<?php 
+									if($product->price !='' || $product->price != null) {	
+										if(is_numeric($product->price) and $product->price >=0 )
+										{
+										$number = $product->price;
+										$format_number = number_format($number, 0, '', '.');
+										 }else  {  $format_number = 0; }
+									 }else  $format_number = 0;
+										?>
+
+										<div class="price-box">
+											<span class="regular-price" id="product-price-31"> <span
+												class="price">$<?php echo $format_number;?></span>
+											</span>
+
+										</div>
+
+
+										<div class="short-description">
+											<h2>Quick Overview</h2>
+											<div class="std">
+												<p>
+													<?php if($product->descripts !='') { echo $product->descripts; }?><br />
+												</p>
+											</div>
+										</div>
+
+
+
+										<div class="add-to-box">
+
+
+											<ul class="add-to-links">
+												<li><a
+													href="http://alothemes.com/demo/smije/index.php/wishlist/index/add/product/31/form_key/5YbdL2SOlbKOpG7G/"
+													onclick="productAddToCartForm.submitLight(this, this.href); return false;"
+													class="link-wishlist"> <i class="fa fa-heart-o"></i> Add to
+														Wishlist
+												</a></li>
+												<li><a
+													href="http://alothemes.com/demo/smije/index.php/catalog/product_compare/add/product/31/uenc/aHR0cDovL2Fsb3RoZW1lcy5jb20vZGVtby9zbWlqZS9pbmRleC5waHAvc3VlZGUtbG9hZmVyLW5hdnkuaHRtbA,,/form_key/5YbdL2SOlbKOpG7G/"
+													class="link-compare"> <i class="fa fa-compress"></i> Add to
+														Compare
+												</a></li>
+												<li class="email-friend"><a
+													href="http://alothemes.com/demo/smije/index.php/sendfriend/product/send/id/31/">
+														<i class="fa fa-envelope-o"></i> Email to a Friend
+												</a></li>
+											</ul>
+											<div class="add-to-cart">
+												<label for="qty">Qty:</label> <input type="text" name="qty"
+													id="qty" maxlength="12" value="1" title="Qty"
+													class="input-text qty" />
+												<button type="button" title="Add to Cart"
+													class="button btn-cart"
+													onclick="productAddToCartForm.submit(this)">
+													<span><span>Add to Cart</span></span>
+												</button>
+											</div>
+
+										</div>
+
+
+										<div class="addit">
+											<!-- AddThis Button BEGIN -->
+											<div class="addthis_toolbox addthis_default_style ">
+												<a class="addthis_button_facebook_like"
+													fb:like:layout="button_count"></a> <a
+													class="addthis_button_tweet"></a> <a
+													class="addthis_button_pinterest_pinit"></a> <a
+													class="addthis_counter addthis_pill_style"></a>
+											</div>
+											<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+											<script type="text/javascript"
+												src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5107a0493d2d440a"></script>
+											<!-- AddThis Button END -->
+										</div>
+									</div>
+								</form>
+							</div>
+							<script type="text/javascript">
+    //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+    //]]>
+    </script>
+						</div>
+
+						<div class="product-collateral">
+							<div class="box-collateral box-description">
+								<h2>Details</h2>
+								<div class="std">
+									<?php if($product->detail_product !='') { echo $product->detail_product; }?>
+								</div>
+							</div>
+							<div class="box-collateral box-review_form">
+								<div class="form-add">
+									<h2>Write Your Own Review</h2>
+									<form
+										action="http://alothemes.com/demo/smije/index.php/review/product/post/id/31/"
+										method="post" id="review-form">
+										<input name="form_key" type="hidden" value="5YbdL2SOlbKOpG7G" />
+										<fieldset>
+											<h3>
+												You're reviewing: <span> <?php if($product->name !='') { echo $product->name; }?> Loafer, Navy</span>
+											</h3>
+											<h4>
+												How do you rate this product? <em class="required">*</em>
+											</h4>
+											<span id="input-message-box"></span>
+											<table class="data-table" id="product-review-table">
+												<col />
+												<col width="1" />
+												<col width="1" />
+												<col width="1" />
+												<col width="1" />
+												<col width="1" />
+												<thead>
+													<tr>
+														<th>&nbsp;</th>
+														<th><span class="nobr">1 star</span></th>
+														<th><span class="nobr">2 stars</span></th>
+														<th><span class="nobr">3 stars</span></th>
+														<th><span class="nobr">4 stars</span></th>
+														<th><span class="nobr">5 stars</span></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>Price</th>
+														<td class="value"><input type="radio" name="ratings[3]"
+															id="Price_1" value="11" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[3]"
+															id="Price_2" value="12" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[3]"
+															id="Price_3" value="13" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[3]"
+															id="Price_4" value="14" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[3]"
+															id="Price_5" value="15" class="radio" /></td>
+													</tr>
+													<tr>
+														<th>Value</th>
+														<td class="value"><input type="radio" name="ratings[2]"
+															id="Value_1" value="6" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[2]"
+															id="Value_2" value="7" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[2]"
+															id="Value_3" value="8" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[2]"
+															id="Value_4" value="9" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[2]"
+															id="Value_5" value="10" class="radio" /></td>
+													</tr>
+													<tr>
+														<th>Quality</th>
+														<td class="value"><input type="radio" name="ratings[1]"
+															id="Quality_1" value="1" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[1]"
+															id="Quality_2" value="2" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[1]"
+															id="Quality_3" value="3" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[1]"
+															id="Quality_4" value="4" class="radio" /></td>
+														<td class="value"><input type="radio" name="ratings[1]"
+															id="Quality_5" value="5" class="radio" /></td>
+													</tr>
+												</tbody>
+											</table>
+											<input type="hidden" name="validate_rating"
+												class="validate-rating" value="" />
+											<script type="text/javascript">decorateTable('product-review-table')</script>
+											<ul class="form-list">
+												<li><label for="nickname_field" class="required"><em>*</em>Nickname</label>
+													<div class="input-box">
+														<input type="text" name="nickname" id="nickname_field"
+															class="input-text required-entry" value="" />
+													</div></li>
+												<li><label for="summary_field" class="required"><em>*</em>Summary
+														of Your Review</label>
+													<div class="input-box">
+														<input type="text" name="title" id="summary_field"
+															class="input-text required-entry" value="" />
+													</div></li>
+												<li><label for="review_field" class="required"><em>*</em>Review</label>
+													<div class="input-box">
+														<textarea name="detail" id="review_field" cols="5"
+															rows="3" class="required-entry"></textarea>
+													</div></li>
+											</ul>
+										</fieldset>
+										<div class="buttons-set">
+											<button type="submit" title="Submit Review" class="button">
+												<span><span>Submit Review</span></span>
+											</button>
+										</div>
+									</form>
+									<script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('review-form');
+        Validation.addAllThese(
+        [
+               ['validate-rating', 'Please select one of each of the ratings above', function(v) {
+                    var trs = $('product-review-table').select('tr');
+                    var inputs;
+                    var error = 1;
+
+                    for( var j=0; j < trs.length; j++ ) {
+                        var tr = trs[j];
+                        if( j > 0 ) {
+                            inputs = tr.select('input');
+
+                            for( i in inputs ) {
+                                if( inputs[i].checked == true ) {
+                                    error = 0;
+                                }
+                            }
+
+                            if( error == 1 ) {
+                                return false;
+                            } else {
+                                error = 1;
+                            }
+                        }
+                    }
+                    return true;
+                }]
+        ]
+        );
+    //]]>
+    </script>
+								</div>
+							</div>
+							<div class="box-collateral box-tags">
+								<h2>Product Tags</h2>
+								<form id="addTagForm"
+									action="http://alothemes.com/demo/smije/index.php/tag/index/save/product/31/uenc/aHR0cDovL2Fsb3RoZW1lcy5jb20vZGVtby9zbWlqZS9pbmRleC5waHAvc3VlZGUtbG9hZmVyLW5hdnkuaHRtbA,,/"
+									method="get">
+									<div class="form-add">
+										<label for="productTagName">Add Your Tags:</label>
+										<div class="input-box">
+											<input type="text" class="input-text required-entry"
+												name="productTagName" id="productTagName" />
+										</div>
+										<button type="button" title="Add Tags" class="button"
+											onclick="submitTagForm()">
+											<span> <span>Add Tags</span>
+											</span>
+										</button>
+									</div>
+								</form>
+								<p class="note">Use spaces to separate tags. Use single quotes
+									(') for phrases.</p>
+								<script type="text/javascript">
+    //<![CDATA[
+        var addTagFormJs = new VarienForm('addTagForm');
+        function submitTagForm(){
+            if(addTagFormJs.validator.validate()) {
+                addTagFormJs.form.submit();
+            }
+        }
+    //]]>
+    </script>
+							</div>
+						</div>
+					</div>
+
+					<script type="text/javascript">
+				    var lifetime = 3600;
+				    var expireAt = Mage.Cookies.expires;
+				    if (lifetime > 0) {
+				        expireAt = new Date();
+				        expireAt.setTime(expireAt.getTime() + lifetime * 1000);
+				    }
+				    Mage.Cookies.set('external_no_cache', 1, expireAt);
+				</script>
+				</div>
+				
+				<?php } // end exits data ?>
+
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+		     var domainnew ='<?php echo WEBPATH;?>';var glob=2;
+			 jQuery(document).ready(function($) {
+				 e = location.pathname;
+				 $.ajax({
+		               type: "POST",
+		               url: domainnew + "/main/myproduct",
+		               data: {idcode:e,page:glob},
+		               success: function(data){
+			               //alert(data);console.log( $('.leftcatalogue').html(data));
+		                            $('#myproductaja').html(data);
+		                             glob++;
+		                       }
+		         });
+			 });
+				</script>

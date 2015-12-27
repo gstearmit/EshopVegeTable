@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<!--
+	To change this license header, choose License Headers in Project Properties.
+	To change this template file, choose Tools | Templates
+	and open the template in the editor.
+-->
+<html>
+    <head>
+		<title>lazada</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/jquery.mmenu.all.css" rel="stylesheet" type="text/css"/>
+		<script src="js/jquery-2.1.3.js" type="text/javascript"></script>
+		<script>
+			jQuery(document).ready(function($){		 
+				jQuery(window).scroll(function () {
+					if ($(this).scrollTop() > 150) {
+						$('.logo-timkiem-mua-fluid').css({"position": "fixed", "top": "0px"});
+					}
+					else {
+						$('.logo-timkiem-mua-fluid').css({"position": "relative", "top": "0px"});
+					}
+				});
+			});
+		</script>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="fonts/font-awesome.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		
+		<link href="css/style-lop1.css" rel="stylesheet" type="text/css"/>
+		<script src="js/jquery.mmenu.min.all.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/multizoom.js"></script>
+		<script type="text/javascript">
+			
+			jQuery(document).ready(function($){
+				$('#image2').addimagezoom() ;
+				$("#menu")
+				.mmenu({
+				})
+				.on("click", "a[href=\"#\"]",
+				function () {
+					//alert("Thank you for clicking, but that's a demo link.");
+					return false;
+				}
+				);
+				
+				$('#tt').click(function(){
+					$('#payper').modal('show');
+				});
+				$('#buy').click(function(){
+					$('#product').modal('show');
+				});
+				
+				$('.box-mua-ngay').click(function(){
+					$('#product').modal('show');
+				});
+				$('.box-muangay-luoi').click(function(){
+					$('#product').modal('show');
+				});
+				
+				
+				
+                $('#house a').click(function () {
+                    $('.box-danngnhap').toggle();
+				});
+				
+				
+                $('.box-tatca-danhmuc').click(function () {
+                    $('.toi-trongsuot').slideToggle();
+				});
+				
+				
+				$('#tab-menu li a').hover(function () {
+                    $('#tab-menu li a').removeAttr('class');
+                    $('.div-tab').hide();
+                    var showtab = $(this).attr("href");
+                    var active = showtab.replace("#", "");
+                    //alert(active);
+                    $(this).addClass(active);
+                    $(showtab).show();
+				});
+                $('.show-div').click(function () {
+					
+				});
+				
+				
+				
+			})
+			
+		</script>
+		
+		<style>
+            .box-tatca-danhmuc:hover + #demo{
+			display: block;
+            }
+			
+		</style>
+	</head>
+	
+    <body >
+		
+		
+        <header>
+			
+            <nav class="navbar navbar-default thaydoinavbar">
+                <div class="container-fluid domaumenufluid">
+                    <div class="container">
+                        <div class="row row-menu-top">
+                            <div class="col-sm-12 menu-top-top">
+                                <div class="col-sm-3 header-top-left"></div>
+								
+                                <div class="col-sm-9 header-top-right">
+                                    <div class="container-fluid">
+                                        <!-- Brand and toggle get grouped for better mobile display -->
+                                        <div class="navbar-header header-trencung-mobi">
+                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+											</button>
+                                            <a class="navbar-brand" href="#">
+                                                <img alt="Brand name" src="img/header/logo_nho.png"  />
+											</a>
+										</div>
+										
+                                        <!-- Collect the nav links, forms, and other content for toggling -->
+                                        <div class="collapse navbar-collapse menu-container" id="bs-example-navbar-collapse-1">
+                                            <ul class="nav navbar-nav ulmenu">
+												
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >CHĂM SÓC KHÁCH HÀNG <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Trung tâm hỗ trợ</a></li>
+                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Đơn hàng & Thanh toán</a></li>
+                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Giao hàng & Nhận hàng</a></li>
+                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Đổi trả hàng & Hoàn tiền <button class="btn-danger">Mới</button></a></li>
+													</ul>
+												</li>
+                                                <li class="dropdown" id="house">
+                                                    <a href="#" class="dropdown"  data-toggle="dropdown" role="button" >KIỂM TRA ĐƠN HÀNG <span class="caret"></span></a>
+													
+													
+                                                    <div class="box-danngnhap">
+                                                        <div class="col-sm-12 margin-top-bottom">
+                                                            <div class="col-sm-12 box-tieude-login">
+                                                                <span class="text-tieude-login">  ĐĂNG NHẬP</span>
+															</div>
+                                                            <div class="col-sm-12 margin-top">
+                                                                <span class="text-thuong">Vui lòng nhập mã đơn hàng:</span>
+															</div>
+                                                            <div class="col-sm-12">
+                                                                <input type="text" class="form-control">
+															</div>
+                                                            <div class="col-sm-12 margin-top">
+                                                                <span class="text-thuong"> Vui lòng nhập địa chỉ email:</span>
+															</div>
+                                                            <div class="col-sm-12">
+                                                                <input type="text" class="form-control">
+															</div>
+                                                            <div class="col-sm-12 margin-top">
+                                                                <span class="text-thuong">  Nếu bạn có thắc mắc nào khác, <a href="#"><span class="maudo">Nhấn vào đây</span></a></span>
+															</div>
+                                                            <div class="col-sm-12 margin-top">
+                                                                <button class="btn btn-success">  Kiểm tra</button>
+															</div>
+															
+															
+														</div>
+													</div>       
+													
+													
+													
+												</li>
+												
+                                                <li class="dropdown">
+													
+                                                    <!-- Large modal -->
+                                                    <a data-toggle="modal" data-target=".popup_dangki">ĐĂNG KÍ<span class="caret"></span></a>
+													
+                                                    <div class="modal fade bs-example-modal-lg popup_dangki" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content dangki-vuavua">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 margin-top-bottom">
+                                                                        <div class="col-sm-12 box-tieude-login">
+                                                                            <span class="text-tieude-login">ĐĂNG KÍ</span>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3 box-text-label">Họ Tên : <span class="maudo">*</span> </div>
+                                                                            <div class="col-sm-9">
+                                                                                <input type="text" class="form-control" id="inputSuccess1">
+																			</div>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3 box-text-label">Email : <span class="maudo">*</span> </div>
+                                                                            <div class="col-sm-9">
+                                                                                <input type="text" class="form-control" id="inputSuccess1">
+																			</div>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3 box-text-label">Mật Khẩu : <span class="maudo">*</span> </div>
+                                                                            <div class="col-sm-9">
+                                                                                <input type="text" class="form-control" id="inputSuccess1">
+																			</div>
+																		</div>
+                                                                        <div class="col-sm-12">
+                                                                            <div class="col-sm-3"></div>
+                                                                            <div class="col-sm-9">
+                                                                                <span>ít nhất gồm 6 kí tự gồm chữ và số</span>
+																			</div>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3 box-text-label">Nhập lại MK : <span class="maudo">*</span></div>
+                                                                            <div class="col-sm-9">
+                                                                                <input type="text" class="form-control" id="inputSuccess1">
+																			</div>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3 box-text-label">Ngày sinh :</div>
+                                                                            <div class="col-sm-3"> 
+                                                                                <select class="form-control">
+																					
+                                                                                    <option>1950</option>
+                                                                                    <option>1951</option>
+                                                                                    <option>1952</option>
+                                                                                    <option>1953</option>
+                                                                                    <option>1954</option>
+                                                                                    <option>1955</option>
+                                                                                    <option>1956</option>
+                                                                                    <option>1957</option>
+                                                                                    <option>1958</option>
+                                                                                    <option>1959</option>
+                                                                                    <option>1960</option>
+                                                                                    <option>1961</option>
+                                                                                    <option>1962</option>
+                                                                                    <option>1963</option>
+                                                                                    <option>1964</option>
+                                                                                    <option>1965</option>
+                                                                                    <option>1966</option>
+                                                                                    <option>1967</option>
+                                                                                    <option>1968</option>
+                                                                                    <option>1969</option>
+                                                                                    <option>1970</option>
+                                                                                    <option>1971</option>
+                                                                                    <option>1972</option>
+                                                                                    <option>1973</option>
+                                                                                    <option>1974</option>
+                                                                                    <option>1975</option>
+                                                                                    <option>1976</option>
+                                                                                    <option>1977</option>
+                                                                                    <option>1978</option>
+                                                                                    <option>1979</option>
+                                                                                    <option>1980</option>
+                                                                                    <option>1981</option>
+                                                                                    <option>1982</option>
+                                                                                    <option>1983</option>
+                                                                                    <option>1984</option>
+                                                                                    <option>1985</option>
+                                                                                    <option>1986</option>
+                                                                                    <option>1987</option>
+                                                                                    <option>1988</option>
+                                                                                    <option>1989</option>
+                                                                                    <option>1990</option>
+                                                                                    <option>1991</option>
+                                                                                    <option>1992</option>
+                                                                                    <option>1993</option>
+                                                                                    <option>1994</option>
+                                                                                    <option>1995</option>
+                                                                                    <option>1996</option>
+                                                                                    <option>1997</option>
+                                                                                    <option>1998</option>
+                                                                                    <option>1999</option>
+                                                                                    <option>2000</option>
+                                                                                    <option>2001</option>
+                                                                                    <option>2002</option>
+                                                                                    <option>2003</option>
+                                                                                    <option>2004</option>
+                                                                                    <option>2005</option>
+                                                                                    <option>2006</option>
+																				</select>
+																			</div>
+                                                                            <div class="col-sm-3 media-margin">
+                                                                                <select class="form-control">
+                                                                                    <option>January</option>
+                                                                                    <option>February</option>
+                                                                                    <option>March</option>
+                                                                                    <option>April</option>
+                                                                                    <option>May</option>
+                                                                                    <option>June</option>
+                                                                                    <option>July</option>
+                                                                                    <option>August</option>
+                                                                                    <option>September</option>
+                                                                                    <option>October</option>
+                                                                                    <option>November</option>
+                                                                                    <option>December</option>
+																				</select>
+																			</div>
+                                                                            <div class="col-sm-3 media-margin">
+                                                                                <select class="form-control">
+                                                                                    <option>01</option>
+                                                                                    <option>02</option>
+                                                                                    <option>03</option>
+                                                                                    <option>04</option>
+                                                                                    <option>05</option>
+                                                                                    <option>06</option>
+                                                                                    <option>07</option>
+                                                                                    <option>08</option>
+                                                                                    <option>09</option>
+                                                                                    <option>10</option>
+                                                                                    <option>11</option>
+                                                                                    <option>12</option>
+                                                                                    <option>13</option>
+                                                                                    <option>14</option>
+                                                                                    <option>15</option>
+                                                                                    <option>16</option>
+                                                                                    <option>17</option>
+                                                                                    <option>18</option>
+                                                                                    <option>19</option>
+                                                                                    <option>21</option>
+                                                                                    <option>22</option>
+                                                                                    <option>23</option>
+                                                                                    <option>24</option>
+                                                                                    <option>25</option>
+                                                                                    <option>26</option>
+                                                                                    <option>27</option>
+                                                                                    <option>28</option>
+                                                                                    <option>29</option>
+                                                                                    <option>30</option>
+																					
+																				</select>
+																			</div>
+																		</div>
+																		
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3 box-text-label">Giới Tính :</div>
+                                                                            <div class="col-sm-9">
+                                                                                <select class="form-control">
+                                                                                    <option>Nam</option>
+                                                                                    <option>Nữ</option>
+																				</select>
+																			</div>
+																		</div>
+																		
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3"></div>
+                                                                            <div class="col-sm-6">
+                                                                                <span class="text-thuong">  Tôi đã đọc và đồng ý với <span class="maudo">các điều khoản của ABC</span></span>
+																			</div>
+                                                                            <div class="col-sm-3">
+																				
+                                                                                <span class="text-thuong"> (<span class="maudo">*</span>) Thông tin bắt buộc</span>
+																			</div>
+																			
+																		</div>
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3"></div>
+                                                                            <div class="col-sm-9">
+                                                                                <button class="btn btn-danger">Đăng Kí</button>
+																			</div>
+																		</div>
+																		
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+                                                <li class="dropdown">
+													
+                                                    <a data-toggle="modal" data-target=".bs-example-modal-sm">ĐĂNG NHẬP<span class="caret"></span></a>
+													
+                                                    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-sm">
+                                                            <div class="modal-content dangnhap-reponsive">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 margin-top-bottom">
+                                                                        <div class="col-sm-12 box-tieude-login">
+                                                                            <span class="text-tieude-login">ĐĂNG NHẬP</span>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top-nopading">
+                                                                            <div class="col-sm-4 box-text-label">Email: <span class="maudo">*</span></div>
+                                                                            <div class="col-sm-8">
+                                                                                <input type="text" class="form-control" id="inputSuccess1">
+																			</div>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top-nopading">
+                                                                            <div class="col-sm-4 box-text-label">Mật Khẩu:<span class="maudo">*</span></div>
+                                                                            <div class="col-sm-8">
+                                                                                <input type="text" class="form-control" id="inputSuccess1">
+																			</div>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top">
+                                                                            <div class="col-sm-3"></div>
+                                                                            <div class="col-sm-5 box-wuenmatkhau-dangnhap">
+                                                                                <a href="#">Quên mật khẩu?</a>
+																			</div>
+                                                                            <div class="col-sm-4 box-wuenmatkhau-dangnhap">
+                                                                                <a href="#"> Đăng Kí</a>
+																			</div>
+																		</div>
+                                                                        <div class="col-sm-12 margin-top-nopading">
+                                                                            <div class="col-sm-4"></div>
+                                                                            <div class="col-sm-8">
+                                                                                <button class="btn btn-danger">ĐĂNG NHẬP</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+											</ul>
+											
+											
+										</div><!-- /.navbar-collapse -->
+									</div>
+								</div><!-- /.container-fluid -->
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+            <div class="container-fluid logo-timkiem-mua-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 menu-top-giua">
+                            <div class="col-sm-2 box-chua_logo">
+                                <img src="img/header/vn.png"  class="img-responsive anhlogo" alt="#">
+							</div>
+                            <div class="col-sm-6 box-chua-search">
+                                <div class="input-group input-group-lg">
+                                    <input type="text" class="form-control input-search" placeholder="Tìm kiếm theo sản phẩm, danh mục hay nhãn hàng mong muốn" aria-describedby="sizing-addon1">
+                                    <span class="input-group-addon button-timkiem" id="sizing-addon1"><span class="timkiem_an">Tìm kiếm</span><i class="fa fa-search fa-timkiem"></i></span>
+									
+								</div>
+							</div>
+                            <div class="col-sm-2 box-chua_thanhtoan">
+                                <div class="box-thanhtoan">
+                                    <span class="text-giohang">1</span>
+                                    <img src="img/header/thanhtoan.png"  class="anh-thanhtoan" alt="#">
+									
+								</div>
+							</div>
+                            <div class="col-sm-2 oclock-header">
+								
+                                <div class="thoigian-oclock">08:48:53</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="container-fluid menu-top-nho-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 menu-group-menu-header-bottom"> 
+                            <div class="col-sm-2">
+								
+							</div>
+                            <div class="col-sm-8 menu-header-bottom">
+                                <menu>
+                                    <ul>
+                                        <li> <a href="#">Xu hướng</a></li>
+                                        <li><a href="#">Voucher</a></li>
+                                        <li><a href="#">Tai nghe</a></li>
+                                        <li><a href="#">Đồng hồ</a></li>
+                                        <li><a href="#">Iphone 6</a></li>
+                                        <li><a href="#">Iphone 4s</a></li>
+                                        <li><a href="#">Nokia</a></li>
+                                        <li><a href="#">Loa vi tính</a></li>
+									</ul>
+								</menu>
+							</div>
+                            <div class="col-sm-2">
+                                <span class="text-header-bottom-right">Daily Deals mới, khám phá ngay <i class="fa fa-arrow-circle-o-right"></i></span>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid thanh-cuoi-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 nopading-360">
+                            <div class="col-sm-2 box-tatca-danhmuc "><a href="#menu">TẤT CẢ DANH MỤC <i class="fa fa-arrow-circle-down"></i></a></div>
+                            <div class="col-sm-10 box-tieude-danhmuc"> 
+								<ul class="ul_camera">
+									<li><a href="#"> Điện thoại & Máy tính bảng</a></li>
+									<li><a href="#"> Điện thoại di động</a></li>
+									<li><a href="#"> Smartphone</a></li>
+									<li><a href="#"> Smartphone APPLE</a></li>
+									
+									<li><span> Apple iPhone 6 16GB (Vàng) - Hàng nhập khẩu</span></li>
+								</ul>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+        <article>
+            <div class="container-fluid toi-trongsuot">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 row-content-top">
+                            <div class="col-sm-2 menudoc-conten-left">
+                                <ul id="tab-menu">
+                                    <li ><a class="box-khuyenmai" href="#box-khuyenmai"> <span class="botron-icon"><i class="fa fa-bullhorn"></i></span> KHUYẾN MÃI TẠI ABC</a></li>
+                                    <li ><a href="#box-tivi-video"> <span class="botron-icon"><i class="fa fa-desktop"></i></span> TIVI, VIDEO, ÂM THANH</a></li>
+                                    <li><a href="#box-dienthoai-tablet"> <span class="botron-icon"><i class="fa fa-laptop"></i></span>  ĐIỆN THOẠI, TABLET</a></li>
+                                    <li><a href="#box-maytinh-laptop"> <span class="botron-icon-dienthoai_me"><i class="fa fa-tablet"></i></span> MÁY TÍNH & LAPTOPS</a></li>
+                                    <li><a href="#box-mayanh-mayuayphim"> <span class="botron-icon"><i class="fa fa-camera"></i></span> MÁY ẢNH & MÁY UAY PHIM</a></li>
+                                    <li><a href="#box-me-be"> <span class="botron-icon"><i class="fa fa-heart-o"></i></span> MẸ & BÉ</a></li>
+                                    <li><a href="#box-nhacua-doisong"> <span class="botron-icon-dienthoai_me"><i class="fa fa-home"></i></span> NHÀ CỬA & ĐỜI SỐNG</a></li>
+                                    <li><a href="#box-thoitrang-phukien"> <span class="botron-icon"><i class="fa fa-suitcase"></i></span> THỜI TRANG & PHỤ KIỆN</a></li>
+                                    <li><a href="#box-phukien-otoxemay"> <span class="botron-icon"><i class="fa fa-soccer-ball-o"></i></span> OTO, XE MÁY & PHỤ KIỆN</a></li>
+                                    <li><a href="#box-suckhoe-sacdep"> <span class="botron-icon"><i class="fa fa-smile-o"></i></span> SỨC KHỎE & SẮC ĐẸP</a></li>
+								</ul>
+							</div>
+							
+                            <div class="col-sm-8 div-tab" id="box-khuyenmai">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav"  >
+                                            <li><a href="#"> Special Promotions</a></li>
+											
+                                            <li><a href="#">Stuhrling Watch </a></li>
+                                            <li><a href="#">Diaper - 30% Off  </a></li>
+                                            <li><a href="#">Máy Lạnh, Máy Giặt, Tủ Lạnh Giá Sốc</a></li>
+                                            <li><a href="#">Tân Trang Nhà Cửa - Giảm Đến 50%</a></li>
+                                            <li><a href="#">Hàng Thể Thao- Giảm Đến 50%</a></li>
+                                            <li><a href="#">Hàng Oto Xe Máy- Giảm Đến 50%</a></li>
+                                            <li><a href="#">Trả Góp Lãi Suất 0%</a></li>
+										</ul>
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+                            <div class="col-sm-8 div-tab " id="box-tivi-video">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav">
+											
+                                            <li><a href="#" class="sub" tabindex="1">Hệ Thống Âm Thanh <i class="fa fa-angle-double-down"></i></a><img src="images/up.gif" alt="" />
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Tai nghe</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Loa máy tính</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đầu karaoke</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Máy MP3 và iPod</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Phụ kiện âm thanh</a></li>
+												</ul>
+											</li>
+                                            <li><a href="#">Tivi Gía Đặc Biệt </a></li>
+                                            <li><a href="#" class="sub" tabindex="1">TV & Đầu Đĩa <i class="fa fa-angle-double-down"></i></a><img src="images/up.gif" alt="" />
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Phụ kiện (Cáp, Remote..)</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Tivi</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đầu đĩa DVD & Máy chiếu</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Game (Chuột, Bàn Phím..)</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Máy chơi game</a></li>
+												</ul>
+											</li>
+											
+                                            <li><a href="#">Tivi Gía Đặc Biệt </a></li>
+											
+										</ul>
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.tivi_video_amthanh/bt1.jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.tivi_video_amthanh/bt2.jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+							
+							
+                            <div class="col-sm-8 div-tab " id="box-maytinh-laptop">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav">
+											
+                                            <li><a href="#" class="sub" tabindex="1">Laptop</a><img src="images/up.gif" alt="" />
+												
+											</li>
+                                            <li><a href="#">Máy Tính Để Bàn </a></li>
+                                            <li><a href="#" class="sub" tabindex="1">Phụ Kiện Máy Tính <i class="fa fa-angle-double-down"></i></a><img src="images/up.gif" alt="" />
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Ổ Cứng Gắn Ngoài</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> USB</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Chuột</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Bàn Phím</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Màn Hình</a></li>
+												</ul>
+											</li>
+											
+                                            <li><a href="#">Linh Kiện Máy Tính </a></li>
+                                            <li><a href="#">Thiết Bị Mạng </a></li>
+                                            <li><a href="#">Máy In & Mực In </a></li>
+                                            <li><a href="#" class="sub" tabindex="1">Thương Hiệu Nổi Tiếng <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Laptop Asus</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Laptop Acer</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Laptop Dell</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Laptop HP</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Laptop Lenovo</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Laptop Macbook</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Laptop Sony</a></li>
+													
+												</ul>
+											</li>
+											
+										</ul>
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.vitinh_laptop/1.jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+										
+										
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+                            <div class="col-sm-8 div-tab " id="box-mayanh-mayuayphim">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav">
+											
+                                            <li><a href="#" class="sub" tabindex="1">Máy Ảnh Du Lịch </a><img src="images/up.gif" alt="" />
+												
+											</li>
+                                            <li><a href="#">Máy Ảnh Cao Cấp </a></li>
+                                            <li><a href="#">Máy Ảnh Chụp Lấy Ngay</a></li>
+											
+											
+                                            <li><a href="#">Máy Ảnh Không Ngương Lật </a></li>
+                                            <li><a href="#">Máy Ảnh DSL/SLR </a></li>
+                                            <li><a href="#">Các Loại Máy Ảnh Khác </a></li>
+                                            <li><a href="#">Máy Quay Phim </a></li>
+                                            <li><a href="#" class="sub" tabindex="1">Phụ Kiện <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Chân máy ảnh (Tripod)</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đèn flash</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Ống kính</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Kính lọc</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Pin Máy Ảnh</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Túi đựng máy ảnh</a></li>
+													
+													
+												</ul>
+											</li>
+											
+										</ul>
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.mayanh_mayuayphim/bt1.jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+										
+										
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+							
+                            <div class="col-sm-8 div-tab " id="box-me-be">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav">
+											
+											
+                                            <li><a href="#">Xả Hàng Cuối Năm </a></li>
+                                            <li><a href="#">Khuyến Mãi Giá Tốt HOT</a></li>
+											
+											
+                                            <li><a href="#">Sản Phẩm Bán Chạy </a></li>
+											
+											
+                                            <li><a href="#" class="sub" tabindex="1">Lần Đầu Làm Mẹ <i class="fa fa-angle-double-down"></i> </a>
+                                                <ul>
+                                                    <li><a href="#"> Chăm sóc bà mẹ mang thai</a></li>
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Trẻ Sơ Sinh <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Tã và dụng cụ vệ sinh</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đồ dùng bú sữa & ăn dặm</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Sữa & thức ăn dặm</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Xe đẩy, địu, ghế ăn</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đồ dùng phòng ngủ</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Tắm & chăm sóc trẻ sơ sinh</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Quần áo trẻ sơ sinh</a></li>
+													
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Đồ Chơi <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đồ chơi lắp ráp & xây dựng</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đồ chơi giáo dục</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đồ chơi gỗ</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Thủ công & Nghệ thuật</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Xe mô hình và điều khiển</a></li>
+													
+													
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Thương Hiệu Hàng Đầu <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Huggies</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Bobby</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Lego</a></li>
+													
+													
+													
+												</ul>
+											</li>
+											
+										</ul>
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.me_be/200x355.jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+										
+										
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+							
+                            <div class="col-sm-8 div-tab " id="box-nhacua-doisong">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav">
+											
+											
+                                            <li><a href="#">Tham Quan Mua Sắm </a></li>
+                                            <li><a href="#">Khuyến Mãi Đặc Biệt </a></li>
+											
+											
+											
+											
+                                            <li><a href="#" class="sub" tabindex="1">Bếp & Phòng Ăn <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đồ dùng nấu bếp</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đồ dùng bàn ăn</a></li>
+													
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Phụ kiện & dụng cụ nhà bếp</a></li>
+													
+													
+													
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Tân Trang Nhà Cửa <i class="fa fa-angle-double-down"></i> </a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Dụng cụ & thiết bị</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Dụng cụ cầm tay</a></li>
+													
+													
+												</ul>
+											</li>
+                                            <li><a href="#">Chăn Ra Gối Nệm</a></li>
+                                            <li><a href="#">Ngoài Trời & Sân Vườn</a></li>
+                                            <li><a href="#">Trang Trí Nhà Cửa</a></li>
+                                            <li><a href="#">Đồ Dùng Phòng Tắm</a></li>
+                                            <li><a href="#">Tủ Đựng & Sắp Xếp Đồ</a></li>
+                                            <li><a href="#">Văn Phòng Phẩm</a></li>
+                                            <li><a href="#">100 Sản Phẩm Bán Chạy</a></li>
+                                            <li><a href="#" class="sub" tabindex="1">Thương Hiệu Hàng Đầu  <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Luminarc</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Edena</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Moriitalia</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Skil</a></li>
+												</ul>
+											</li>
+											
+											
+										</ul>
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.nhacua_doisong/bt6.jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+							
+                            <div class="col-sm-8 div-tab " id="box-thoitrang-phukien">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav">
+											
+											
+                                            <li><a href="#">Xu Hướng Thời Trang</a></li>
+											
+											
+											
+											
+											
+                                            <li><a href="#" class="sub" tabindex="1">Thời Trang Nữ <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Túi xách nữ</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Trang phục lót</a></li>
+													
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Trang phục nữ</a></li>
+													
+													
+													
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Giày Nữ <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Giày cao gót</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Giày đế bằng</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Giày đế xuồng</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Xăng đan & Dép</a></li>
+													
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Thời Trang Nam <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Hàng mới về</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Trang phục lót</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Túi xách nam</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Xăng đan & Dép</a></li>
+													
+												</ul>
+											</li>
+											
+                                            <li><a href="#" class="sub" tabindex="1">Giày Nam <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Giày Casual</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Xăng đan & Dép</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Giày đế bằng</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Phong cách phái mạnh</a></li>
+												</ul>
+											</li>
+											
+											
+										</ul>
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.thoitrang_phukien/200x355.jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div> 
+							
+                            <div class="col-sm-8 div-tab " id="box-phukien-otoxemay">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav">
+											
+                                            <li><a href="#" class="sub" tabindex="1">Khuyến Mãi HOT <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Phụ kiện Ô tô Xe máy HOT nhất</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Xe đẹp rước nàng</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Mũ bảo hiểm</a></li>
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Xe Máy <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đồ bảo hộ mô tô, xe máy</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Khóa chống trộm xe máy</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Phụ tùng xe máy</a></li>
+													
+													
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Ô Tô <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Thiết bị định vị, dẫn đường </a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Hỗ trợ khởi động & pin cầm tay</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Dụng cụ khẩn cấp cho xe</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Bơm lốp xe</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Đèn & Phụ kiện</a></li>
+													
+													
+													
+												</ul>
+											</li>
+                                            <li><a href="#">Camera hành trình & Thiết bị điện tử</a></li>
+                                            <li><a href="#">Chăm sóc xe hơi</a></li>
+                                            <li><a href="#">Đồ chơi xe hơi</a></li>
+                                            <li><a href="#">Nội thất ô tô</a></li>
+                                            <li><a href="#">Thế giới mùi thơm</a></li>
+											
+											
+										</ul>
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.oto-xemay/bt6.jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+							
+                            <div class="col-sm-8 div-tab " id="box-suckhoe-sacdep">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav">
+                                            <li><a href="#" class="sub" tabindex="1">Trang Điểm <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Chăm sóc da mặt </a></li>
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1"> Chăm Sóc Mặt <i class="fa fa-angle-double-down"></i> </a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Chăm sóc da vùng mắt </a></li>
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Chăm Sóc Tóc <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Nước hoa dành cho nữ </a></li>
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Nước Hoa <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Nước hoa dành cho nam </a></li>
+												</ul>
+											</li>
+                                            <li><a href="#">Bộ Quà Tặng</a></li>
+                                            <li><a href="#">Tắm & Chăm Sóc Cơ Thể</a></li>
+                                            <li><a href="#">Dành Cho Nam Giới</a></li>
+                                            <li><a href="#">Chăm Sóc Cá Nhân & Sức Khỏe</a></li>
+                                            <li><a href="#">Dụng Cụ Chăm Sóc Sức Khỏe & Sắc Đẹp</a></li>
+                                            <li><a href="#">Thực Phẩm Chức Năng & Kiểm Soát Cân Nặng Mới</a></li>
+                                            <li><a href="#">Sản Phẩm Hỗ Trợ Tình Dục</a></li>
+                                            <li><a href="#">Thiết Bị Y Tế</a></li>
+                                            <li><a href="#">Đồ Định Hình</a></li>
+											
+											
+										</ul>
+										
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+							
+                            <div class="col-sm-8 div-tab" id="box-dienthoai-tablet">
+                                <div class="col-sm-12 nopading-width50">
+                                    <div class="col-sm-3 box-tablet-50">
+                                        <ul id="nav"  >
+                                            <li><a href="#">
+												<img src="img/big-sale1.png"  alt="#"/> 
+												New Daily Deals
+											</a></li>
+                                            <li><a href="#">Smartphones</a></li>
+                                            <li><a href="#">Điện Thoại Phổ Thông</a></li>
+                                            <li><a href="#" class="sub" tabindex="1">Máy Tinh Bảng  <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Hỗ trợ chức năng thoại</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Không hỗ trợ thoại</a></li>
+													
+												</ul>
+											</li>
+											
+                                            <li><a href="#" class="sub" tabindex="1"> Phụ Kiện Điện Thoại <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Vỏ & Bao điện thoại</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Pin & Bộ sạc</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Thẻ nhớ</a></li>
+													
+												</ul>
+											</li>
+											
+                                            <li><a href="#">Phụ Kiện Máy Tính Bảng </a></li>
+                                            <li><a href="#" class="sub" tabindex="1">Điện Thoại Bàn <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"> <i class="fa fa-angle-double-right"></i> Sam Sung</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Asus</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> BlackBerry</a></li>
+													
+												</ul>
+											</li>
+                                            <li><a href="#" class="sub" tabindex="1">Thương Hiệu Nổi Tiếng <i class="fa fa-angle-double-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> HTC</a></li>
+                                                    <li><a href="#"><i class="fa-angle-double-right"></i> Apple(iPhone, iPad)</a></li>
+                                                    <li><a href="#"><i class="fa-angle-double-right"></i> Nokia</a></li>
+													
+												</ul>
+											</li>
+											
+										</ul>
+                                        <div class="col-sm-12 box-an-980">
+                                            <img src="img/li.dienthoai_tablet/VN.2015-04-(6).jpg" class="img-responsive" alt="#"/>
+										</div>
+										
+										
+									</div>
+                                    <div class="col-sm-9"></div>
+								</div>
+							</div>
+                            <div class="col-sm-2  menu-right-content">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="container">
+				
+				<div class="container-detail gioithieusp">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-sm-8">
+								<div class="prod_header_brand_action">
+									<h1> Apple iPhone 6 16GB (Vàng) - Hàng nhập khẩu  </h1>
+									<div class="prod_header_reviews">
+										<div id="rating">  
+											<span class="itm-rat lfloat">
+												<span class="itm-ratStars ui-inlineBlock">
+													<span style="width: 85%;" class="itm-ratStars itm-ratRating"></span>
+												</span>
+											</span>
+											
+											<div itemprop="aggregateRating" itemscope="">
+												<meta itemprop="worstRating" content="1">
+												<meta itemprop="ratingValue" content="4.2222">
+												<meta itemprop="bestRating" content="5">
+												<meta itemprop="ratingCount" content="9">
+											</div>
+										</div>
+										
+										<div id="review">
+											<a href="#" class="prd-reviews" data-tab-linked="tab-review">
+												(9)
+											</a>
+										</div>
+                                        <span class="prod_header_reviews_link action_link">
+											<a href="#" id="lnk-write-reviews" class="prd-reviews" data-tab-linked="tab-review">
+												<i class="fa fa-pencil"></i>
+											Mời bạn đánh giá sản phẩm này                                                    </a>
+										</span>
+									</div>
+									
+									Thương hiệu:  <a href="#">APPLE  </a> <a href="#">
+										 Thêm Điện thoại di động từ APPLE
+									</a>
+									
+								</div>
+								
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="prod_brand">
+									<div class="share_link">
+										<span class="heart"><i class="fa fa-heart-o"></i></span>
+										<span class="wishlist-add__link__text">
+											Tôi thích sản phẩm này! 
+										</span>
+									</div>
+									<span class="cricle_fb"><i class="fa fa-facebook "></i></span>
+									<span class="prod_header_share_facebook_text">Share</span>
+									<span class="prod_header_share_facebook_counter js_fbShareCounter">138</span>
+									
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div> 
+				<div class="contactdetail">
+					<div class="container">	
+						<div class="row">
+							<div class="col-md-9 col-sm-9">
+								<div class="row">
+									<div class="col-md-2 col-sm-2">
+										<ul class="ul_li_image">
+											<li><a href="#"><img src="img/apple-iphone-6-16gb-vang-hang-nhap-khau-3398-524903-2-gallery.jpg" class="img-responsive" alt=""></a></li>
+											<li><a href="#"><img src="img/apple-iphone-6-16gb-vang-hang-nhap-khau-3400-524903-3-gallery.jpg" class="img-responsive" alt=""></a></li>
+											<li><a href="#"><img src="img/apple-iphone-6-16gb-vang-hang-nhap-khau-3401-524903-4-gallery.jpg" class="img-responsive" alt=""></a></li>
+											<li><a href="#"><img src="img/apple-iphone-6-16gb-vang-hang-nhap-khau-3404-524903-5-gallery.jpg" class="img-responsive" alt=""></a></li>
+											<li><a href="#"><img src="img/apple-iphone-6-16gb-vang-hang-nhap-khau-8888-524903-1-gallery.jpg" class="img-responsive" alt=""></a></li>
+											
+										</ul>
+									</div>
+									<div class="col-md-10 col-sm-10">
+										<div class="row">
+											<div class="col-md-5 col-sm-5 border-image-zoom">
+												<img id="image2" border="0" src="img/apple-iphone-6-16gb-vang-hang-nhap-khau-8888-524903-1-zoom.jpg" class="img-responsive" alt=""/>
+											</div>
+											<div class="col-md-7 col-sm-7">
+												<div class="row box-border-bottom ">
+													<div class="col-md-12">
+														<div class="prod_brief_warranty">
+															Máy có lỗi sẽ được giữ lại 3 ngày để kiểm tra. Không áp dụng đổi trả phụ kiện đi kèm       
+														</div>
+														<ul class="prd-attributesList ui-listBulleted">
+															<li class=""><span>Camera 8.0MP</span></li>
+															<li class=""><span>Bộ nhớ trong 16GB</span></li>
+															<li class=""><span>Hệ điều hành iOS 8.1</span></li>
+															<li class=""><span>Kích thước màn hình 4.7"</span></li>
+															<li class=""><span>Đổi mới trong 10 ngày đầu nếu có lỗi của nhà sản xuất</span></li>
+															<li class=""><span>Không bảo hành nguồn; ổ cứng và màn hình</span></li>
+														</ul>
+													</div>
+												</div>
+												<div class="row box-border-bottom">
+													<div class="col-md-12 col-sm-12">
+														<span>Màu sắc</span>
+														<img src="img/apple-iphone-6-16gb-vang-hang-nhap-khau-8888-524903-1-gallery.jpg" alt="" class="img-responsive"/>
+													</div>
+												</div>
+												<div class="row">
+												<div class="col-md-6">
+												<div id="product-price-box" class="prod_pricebox price_details">
+													<div class="prod_pricebox_price">
+														<div class="prod_pricebox_price_final">
+															<span id="product_price" class="hidden">2999000.00</span>
+															<span id="special_price_box">2.999.000 VND</span>
+														</div>
+														<div id="special_price_area" class=" prod_pricebox_price_special">
+															<span id="product_special_price_label">Giá trước đây</span>
+															<span class="price_erase">
+																<span id="product_price_prefix" class="price-prefix-detail"></span>
+																<span id="price_box">4.990.000 VND,</span>
+															</span>
+															<div class="prod_saving">
+																<span id="product_saving_label">Tiết kiệm</span>
+																<span id="product_saving_percentage" class="price_highlight"> 40%</span>
+															</div>
+														</div>
+													</div>
+													<!-- click on the question mark icon to open the tooltip popup -->
+													
+													<div class="hidden">
+														<span itemprop="offers">
+															<meta itemprop="availability" content="Còn hàng">
+															<meta itemprop="price" content="2.999.000 VND">
+															<meta itemprop="priceCurrency" content="VND">
+														</span>
+													</div>
+												</div>
+												</div>
+												<div class="col-md-6">
+												<div class="mobile-block"><div class="mobile-price">13.999.000 VND</div></div>
+												
+												</div>
+												
+												</div>
+												<div class="thanhtoan">
+													
+													<button id="tt">THANH TOÁN NHANH </button>
+													<div class="line">
+														<hr>
+														<p class="text-center or">hoặc</p>
+													</div>
+													<button id="buy">MUA NGAY </button>
+													<span class="txt-howtobuy"><a href="#"> <!--<img src="img/car.png" alt="" class="img-responsive"> --> Hướng dẫn <br> mua hàng</a></span>
+													<p>còn hàng</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="bg_lienhe">
+									<p> Tùy chọn giao hàng</p>	
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label for="" class="col-sm-4 control-label">Tỉnh/Thành phố:</label>
+											<div class="col-sm-8">
+												<select class="form-control">
+													<option>chọn tỉnh thành phố</option>
+													<option>Hà Nội</option>
+													<option> TP Hồ chí minh</option>
+													<option> Đà Nẵng</option>
+													<option>Cần Thơ</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputPassword3" class="col-sm-4 control-label">Your district:</label>
+											<div class="col-sm-8">
+												<select class="form-control">
+													<option>chọn quận huyện</option>
+													<option>quận 1 </option>
+													<option> quận 2</option>
+													<option> quận 3</option>
+													<option>Quận 4</option>
+												</select>
+											</div>
+										</div>
+									</form>
+									<div class="row product__promotion__item">
+										<div class="col-md-2 col-sm-2">
+											<!--<img src="img/money.png"  alt=""/>-->
+										</div>
+										<div class="col-md-10 col-sm-10">
+											<span>Quý khách có thể "Thanh toán khi nhận hàng" </span>
+										</div>
+									</div>
+								</div>
+								<div class="bg_lienhe">
+									<p> Được bán & giao hàng bởi Lazada</p>
+									<ul class="lhe">
+										<li><a href="#">
+										<img src="img/bt.png" alt=""/> bảo vệ người mua hàng 100%</a></li>
+										<li><a href="#">
+										<img src="img/bt1.png" alt=""/> Đảm bảo sự hài lòng</a></li>
+									</ul>
+									<ul class="lhe2">
+										<li><a href="#">
+										hàng chính hãng</a></li>
+										<li><a href="#">
+										Thanh toán đảm bảo</a></li>
+										<li><a href="#">
+										trả hàng trong vòng 30 ngày</a></li>
+									</ul>
+									<p><a href="#">xem thêm</a><p>
+										
+										
+									</div>
+									<div class="networde">
+										<ul>
+											<li><a href="#"><img src="img/footer/icon-xh-7.png" class="img-responsive" alt="#"></a></li>
+											<li><a href="#"><img src="img/footer/icon-xh-5.png" class="img-responsive" alt="#"></a></li>
+											<li><a href="#"><img src="img/footer/icon-xh-3.png" class="img-responsive" alt="#"></a></li>
+											<li><a href="#"><img src="img/footer/icon-xh-8.png" class="img-responsive" alt="#"></a></li>
+										</ul>
+									</div>
+									
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<div class="row product-description__block">
+							<div class="col-md-9 col-sm-3 border_top_block">
+								<h2> Chi tiết sản phẩm</h2>
+								<p> Máy ảnh Fujifilm FinePix S8600 tiếp tục mở rộng dòng siêu zoom S series của Fujifilm với mức zoom ấn tượng lên đến 36x với công nghệ ổn định hình ảnh Optical Image Stabilisation đảm bảo độ rõ nét cho từng bức ảnh. Bên cạnh đó, máy được trang bị cảm biến ảnh CCD 16.0MP giúp chụp ảnh độ phân giải cao và tốt hơn trong điều kiện thiếu sáng. Những người yêu thích quay phim trên máy ảnh sẽ hài lòng với chức năng quay video độ phân giải HD 30fps và công nghệ lọc tiếng ồn độc đáo. Sự ra mắt của Fujifilm FinePix S8600 mang đến cho người dùng sự lựa chọn mới với mức giá hấp dẫn và khả năng chụp ảnh linh hoạt nhưng không kém phần chuyên nghiệp.</p>
+								<div><b>TÍNH NĂNG NỔI BẬT<br><br></b></div>
+								<p> 
+									<p><b>Siêu zoom 36x</b><br>
+									Ống kính hỗ trợ zoom quang học lên đến 36x và zoom số ở mức 72x. Công nghệ ổn định hình ảnh Optical Image Stabilisation sẽ đảm bảo hình ảnh luôn được rõ nét. Ống kính quang học với độ dài tiêu cự 25mm-900mm đặc biệt hỗ trợ khả năng chụp ảnh Super Macro cho những hình ảnh cận cảnh cực kỳ ấn tượng. Chế độ chụp Macro cực gần với khoảng cách chỉ 1cm cho phép bạn có thể chụp nhiều thể loại ảnh khác nhau mà không cần phải thay đổi ống kính.<br><br></p></p>
+									<p align="center"><img class="productlazyimage" src="img/li.mayanh_mayuayphim/pic_additional_03.jpg" ></p>
+									<p><b>Cảm biến 16MP lấy nét cực nhanh</b><br>
+									Cảm biến CCD lớn 1/2.3-inch 16MP cùng chế độ chụp ảnh 8fps và lấy nét tự động cực nhanh sẽ giúp bạn nhanh chóng nắm bắt mọi hình ảnh rõ nét ngay cả khi chủ thể dang di chuyển. Cám biến lớn này cũng cho khả năng chụp ảnh tốt hơn trong điều kiện thiếu sáng để bạn không phải bỏ lỡ bất kỳ khoảnh khắc tuyệt đẹp nào. Ngoài ra, việc chụp ảnh sẽ càng thêm đơn giản với các chế độ chụp ảnh chân dung, phong cảnh, chụp ảnh ban đêm, macro, chụp ảnh chân dung ban đêm và chụp ảnh ngược sáng.<br><br></p>
+									<p align="center"><img class="productlazyimage"  alt="Fujifilm Finepix S8600-1" src="img/li.mayanh_mayuayphim/pic_additional_01.jpg" style="display: inline;"></p>
+									<p><b>Chức năng chụp ảnh cao cấp</b><br>
+										
+									Lựa chọn trong sáu bộ lọc đặc biệt cho phép bạn tạo hiệu ứng hình ảnh độc đáo. Bộ lọc hiệu ứng này có thể được thiết lập dễ dàng trên màn hình LCD 3.0-inch 460K-dot. Với tính năng chụp Motion Panorama 360, bạn chỉ cần quét máy ảnh từ phải sang trái hoặc từ trên xuống để chụp ảnh toàn cảnh rộng lớn. Để tạo nên hình ảnh có sức thuyết phục hơn, bạn có thể sử dụng chức năng chụp ảnh 3D để tạo ra những hiệu ứng 3D đầy ấn tượng trong mỗi bức ảnh của bạn.</p>
+									
+									<p id="productvid">
+										<iframe width="800" height="450" src="http://www.youtube.com/embed/s13ooqiyc-4" frameborder="0" allowfullscreen=""></iframe>
+									</p>
+									<div class="border_top_block">
+										<h2 class="product-description__title">Thông tin sản phẩm Fujifilm FinePix 16.0MP và Zoom quang 36x - Model S8600 (Đen)</h2>
+										<div class="product-description__inbox toclear">
+											<h3>Bộ sản phẩm bao gồm:</h3>
+											<div class="inbox__wrap">
+												<ul class="ui-listBulleted">
+													<li class="inbox__item"><span>1 x Máy ảnh</span></li>
+													<li class="inbox__item"><span>1 x Nắp ống kính</span></li>
+													<li class="inbox__item"><span>1 x Dây đeo</span></li>
+													<li class="inbox__item"><span>3 x Pin AA</span></li>
+													<li class="inbox__item"><span>1 x HDSD</span></li>
+													<li class="inbox__item"><span>1 x Phiếu bảo hành</span></li>
+													<li class="inbox__item"><span>1 x Thẻ nhớ SD 8GB</span></li>
+												</ul> 
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-sm-12 table-responsive">
+												<h3> Đặc điểm chính:</h3>
+												<table class="table">
+													<tbody><tr>
+														<td class="specification-table__property">SKU</td>
+														<td id="pdtsku" class="specification-table__value">FU404ELATZB8VNAMZ-448361</td>
+													</tr>
+													<tr>
+														<td class="bold">Giá</td>
+														<td id="pdtprice">2.999.000 VND</td>
+													</tr>
+													<tr>
+														<td class="bold">Loại pin</td>
+														<td>3 pin AA</td>
+													</tr>
+													<tr>
+														<td class="bold">Màu</td>
+														<td>Đen</td>
+													</tr>
+													<tr>
+														<td class="bold">Cổng kết nối</td>
+														<td>USB2.0(High-Speed), mini-B USB terminal, HDMI Mini connector (Type C)</td>
+													</tr>
+													<tr>
+														<td class="bold">Kích thước màn hình</td>
+														<td>3.0</td>
+													</tr>
+													<tr>
+														<td class="bold">Loại màn hình</td>
+														<td>LCD</td>
+													</tr>
+													<tr>
+														<td class="bold">Bộ cảm biến</td>
+														<td>CCD</td>
+													</tr>
+													<tr>
+														<td class="bold">Độ nhạy sáng ISO</td>
+														<td>ISO 6400</td>
+													</tr>
+													<tr>
+														<td class="bold">Độ phân giải camera (MP)</td>
+														<td>16.0</td>
+													</tr>
+													<tr>
+														<td class="bold">Hỗ trợ thẻ nhớ</td>
+														<td>SD/SDHC/SDXC</td>
+													</tr>
+													<tr>
+														<td class="bold">Model</td>
+														<td>S8600</td>
+													</tr>
+													<tr>
+														<td class="bold">Zoom quang</td>
+														<td>36.0</td>
+													</tr>
+													<tr>
+														<td class="bold">Kích thước sản phẩm (D x R x C cm)</td>
+														<td>12.13 x 6.46 x 8.08</td>
+													</tr>
+													<tr>
+														<td class="bold">Loại</td>
+														<td>Máy ảnh cao cấp</td>
+													</tr>
+													<tr>
+														<td class="bold">Bảo hành</td>
+														<td>12 tháng (bằng phiếu bảo hành)</td>
+													</tr>
+													<tr>
+														<td class="bold">Trọng lượng (KG)</td>
+														<td>0.45</td>
+													</tr>
+													
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<a href="#"><img src="img/fake-link-v2.jpg"  alt=""/style="width:100%;"></a>
+								<div class="row border-top-sp">
+								<div class="col-md-12 col-sm-12 richRelevance-placeholder-title">
+									sản phẩm được xem cùng
+						
+								</div>
+								<div class="row">
+								<div class="col-md-12 col-sm-12">
+								<a href="#">
+												<div class="row row-mang-danhsach">
+													<div class="col-sm-12 margin-top-bottom">
+														<div class="col-sm-12 box-nopading-980">
+															<img src="img/trangbay-lop1/iphone1.jpg" class="img-responsive" alt=""/>
+															
+														</div>
+														<div class="col-sm-12 nopading">
+															
+															<div class="col-sm-12 box-tieude-top-tren">
+																<h4>Apple iPhone 6 16GB (Vàng) - Hàng nhập khẩu</h4>
+															</div>
+														<div class="col-md-12 pricesp">
+														<del>17.789.000 VND</del>
+														<div class=" box-giathuc">15.489.000 VND</div>
+														<div class="product-card__sale">-8%</div>
+														</div>
+														<div class="col-sm-12 box-muangay-an">
+																
+															<div class="box-mua-ngay"><a href="#">Mua ngay</a> </div>
+															</div>
+															
+															
+															
+															
+														</div>
+													</div>
+												</div>
+												
+								</a>
+								
+								</div>
+								</div>
+								<div class="row">
+								<div class="col-md-12 col-sm-12">
+								<a href="#">
+												<div class="row row-mang-danhsach">
+													<div class="col-sm-12 margin-top-bottom">
+														<div class="col-sm-12 box-nopading-980">
+															<img src="img/trangbay-lop1/iphone1.jpg" class="img-responsive" alt=""/>
+															
+														</div>
+														<div class="col-sm-12 nopading">
+															
+															<div class="col-sm-12 box-tieude-top-tren">
+																<h4>Apple iPhone 6 16GB (Vàng) - Hàng nhập khẩu</h4>
+															</div>
+														<div class="col-md-12 pricesp">
+														<del>17.789.000 VND</del>
+														<div class=" box-giathuc">15.489.000 VND</div>
+														<div class="product-card__sale">-8%</div>
+														</div>
+														<div class="col-sm-12 box-muangay-an">
+																
+															<div class="box-mua-ngay"><a href="#">Mua ngay</a> </div>
+															</div>
+															
+															
+															
+															
+														</div>
+													</div>
+												</div>
+												
+								</a>
+								
+								</div>
+								</div>
+								<div class="row">
+								<div class="col-md-12 col-sm-12">
+								<a href="#">
+												<div class="row row-mang-danhsach">
+													<div class="col-sm-12 margin-top-bottom">
+														<div class="col-sm-12 box-nopading-980">
+															<img src="img/trangbay-lop1/iphone1.jpg" class="img-responsive" alt=""/>
+															
+														</div>
+														<div class="col-sm-12 nopading">
+															
+															<div class="col-sm-12 box-tieude-top-tren">
+																<h4>Apple iPhone 6 16GB (Vàng) - Hàng nhập khẩu</h4>
+															</div>
+														<div class="col-md-12 pricesp">
+														<del>17.789.000 VND</del>
+														<div class=" box-giathuc">15.489.000 VND</div>
+														<div class="product-card__sale">-8%</div>
+														</div>
+														<div class="col-sm-12 box-muangay-an">
+																
+															<div class="box-mua-ngay"><a href="#">Mua ngay</a> </div>
+															</div>
+															
+															
+															
+															
+														</div>
+													</div>
+												</div>
+												
+								</a>
+								
+								</div>
+								</div>
+								
+								</div>
+								
+							</div>
+							
+							
+							
+							
+						</div>		  
+						
+						
+						
+					</div>
+					
+					
+				</article>
+				
+				<footer>
+					<div class="container box-an-360">
+						<div class="row margin-top">
+							<div class="col-sm-3">
+								<div class="col-sm-12 Ten-muc-footer-top">CHĂM SÓC KHÁCH HÀNG</div>
+								<div class="col-sm-12 menu-footer-chua-link">
+									<ul>
+										<li><a href="#">Trung tâm hỗ trợ</a></li>
+										<li><a href="#">Thanh toán</a></li>
+										<li><a href="#">Hướng dẫn đặt hàng</a></li>
+										<li><a href="#">Giao hàng & Nhận hàng</a></li>
+										<li><a href="#">Hướng dẫn đổi trả hàng</a></li>
+										<li><a href="#">Bảo hành</a></li>
+									</ul>
+								</div>
+								<div class="col-sm-12 menu-footer-khong-chua-link">
+									<ul>
+										<li>HCM (08) 3942 xxxx </li>
+										<li>HN (04) 7300 xxxx</li>
+										<li>Thứ 2 - thứ 6: 7h - 20h</li>
+										<li>Thứ 7, CN & ngày lễ: 8h - 17h</li>
+										<li>Hoặc gửi yêu cầu <a href="#">tại đây</a></li>
+										<li>Thông báo hàng giả (08) 7300 xxxx</li>
+										
+									</ul>
+								</div>
+							</div> 
+							<div class="col-sm-3">
+								<div class="col-sm-12 Ten-muc-footer-top">ABC VIỆT NAM</div>
+								<div class="col-sm-12 menu-footer-chua-link">
+									<ul>
+										<li><a href="#">Về abc Việt Nam</a></li>
+										<li><a href="#">Chương trình abc</a></li>
+										<li><a href="#">Tuyển dụng</a></li>
+										<li><a href="#">Điều khoản mua bán hàng hóa</a></li>
+										<li><a href="#">Chính sách bảo mật</a></li>
+										<li><a href="#">Báo chí</a></li>
+										<li><a href="#">Bán hàng cùng abc</a></li>
+										<li><a href="#">Thương hiệu tại abc</a></li>
+										<li><a href="#">Danh mục sản phẩm</a></li>
+										<li><a href="#"> Phát hiện hàng giả </a></li>
+									</ul>
+								</div>
+							</div> 
+							<div class="col-sm-3">
+								<div class="col-sm-12 Ten-muc-footer-top">ĐĂNG KÍ NHẬN TIN</div>
+								<div class="col-sm-12 menu-footer-chua-link">
+									<div class="col-sm-12 box-dangki-tin">Đăng ký nhận tin từ abc và nhận voucher 50.000 VND</div>
+									<div class="col-sm-12 box-dangki-tin">Email:</div>
+									<div class="col-sm-12 box-dangki-tin">
+										<input type="text" class="form-control" placeholder="Địa chỉ email của bạn">
+									</div>
+									<div class="col-sm-12 margin-top-bottom-nopadding">
+										<div class="col-sm-6">
+											<button class="btn btn-danger button-footer">Nam</button>
+											
+										</div>
+										<div class="col-sm-6">
+											<button class="btn btn-danger button-footer">Nữ</button>
+										</div>
+									</div>
+									<div class="col-sm-12 box-dangki-tin">
+										Thông tin của bạn sẽ được giữ kín tuyệt đối, và bạn có thể hủy đăng ký bất cứ lúc nào. Mỗi khách hàng chỉ tham gia chương trình 1 lần. Chương trình chỉ dành cho khách hàng mới.
+									</div>
+									<div class="col-sm-12 box-dangki-tin">
+										Bằng việc đăng ký nhận tin từ abc, bạn xác nhận rằng bạn đã đọc và hiểu <a href="#">chính sách bảo mật</a> của chúng tôi.
+									</div>
+									
+								</div>
+							</div> 
+							<div class="col-sm-3">
+								<div class="col-sm-12 Ten-muc-footer-top">TẢI NGAY ỨNG DỤNG</div>
+								<div class="col-sm-12 margin-top-nopading">
+									<img src="img/footer/ungdung1.png"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 margin-top-nopading">
+									<img src="img/footer/ungdung2.png"  class="img-responsive" alt="#"/>
+								</div>
+							</div> 
+							<div class="col-sm-12"><div class="col-sm-12 border-footer"></div></div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 nopading">
+								<div class="col-sm-2 border-dotted-right">
+									<div class="col-sm-12 Ten-muc-footer-top">CÁCH THỨC THANH TOÁN</div>
+									<div class="col-sm-12">
+										<img src="img/footer/visa.png" class="img-responsive" alt="#"/>
+									</div> 
+								</div>
+								
+								<div class="col-sm-3 border-dotted-right">
+									<div class="col-sm-12 Ten-muc-footer-top">ĐƯỢC CHỨNG NHẬN</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/footer/clcik.png" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6">
+										<a href="#">  <img src="img/footer/tindung.png" class="img-responsive" alt="#"/></a>
+									</div>
+									<div class="col-sm-12 Ten-muc-footer-top">DỊCH VỤ THANH TOÁN</div>
+									<div class="col-sm-12  nopading">
+										<img src="img/footer/kery.png" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+								<div class="col-sm-7">
+									<div class="col-sm-12 Ten-muc-footer-top">SẢN PHẨM NỔI BẬT</div>
+									<div class="col-sm-12 menu-footer-khong-chua-link">
+										<ul>
+											<li>Điện thoại: Nokia, Samsung, Oppo, BlackBerry, Sony, Smartphone, iPhone 4s, iPhone 4, iPhone 6, iPhone 5</li>
+											<li>Máy tính bảng: iPad mini, iPad air, iPad air 2, iPad mini 2, iPad mini 3, Máy tính bảng Samsung, Máy tính bảng Acer, Máy tính bảng Lenovo</li>
+											<li>
+												Tivi: Tivi Sony, Tivi LG, Tivi Toshiba, Tivi LED, Tivi LCD, Smart Tivi, Tivi TCL, Tivi Sharp, Tivi Led Sony, Tivi Led Samsung, Tivi 3D, Tivi Samsung
+											</li>
+											<li>Tủ lạnh: Tủ lạnh mini, Tủ lạnh Sanyo, Tủ lạnh Electrolux, Tủ lạnh Panasonic, Tủ lạnh Toshiba, Tủ lạnh Samsung</li>
+											<li>Máy giặt: Máy giặt Electrolux, Máy giặt Sanyo, Máy giặt Toshiba, Máy giặt LG,</li>
+											<li>Lò vi sóng: Lò vi sóng Sharp, Lò vi sóng Electrolux, Lò vi sóng Sanyo</li>
+											<li>Laptop: Laptop Dell, Laptop Asus, Laptop Apple, Laptop Sony, Laptop Lenovo, Laptop Acer</li>
+											<li>Máy ảnh: Canon, Nikon, Máy ảnh Sony, Fujifilm, Máy ảnh chuyên nghiệp, Máy ảnh DSLR, Camera</li>
+											<li>Thời trang nam: Áo khoác nam, Áo thun trơn, Áo sơ mi nam, Áo thun nam, Túi đeo chéo, Giày lười nam</li>
+											<li>Thời trang nữ: Áo sơ mi nữ, Áo khoác nữ, Đầm công sở, Quần legging, Chân váy, Bikini, Đồ lót nữ, Giày thể thao nữ, Giày mọi nữ, Giày Oxford nữ, Quần jean nữ, Giày búp bê, Giày cao gót</li>
+											<li>Trang điểm: Bộ trang điểm, The face shop, Maybelline, Shiseido, Skinfood, Lancome, L'Oreal, Innisfree, Nature Republic, NYX, Bourjois, Essence, Mascara, Son môi, Mặt nạ</li>
+											<li>Collagen, Bao cao su, Sữa ong chúa, Vitamin, Tẩy tế bào chết, Máy sấy tóc, Chăm sóc da mặt, Xịt khoáng</li>
+											<li>Nước hoa, Nước hoa nam, Nước hoa nữ, Kem chống nắng, Máy cạo râu, Gel bôi trơn</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12"> <div class="col-sm-12 border-footer-moi"></div></div>
+							
+						</div>
+						<div class="row">
+							
+							<div class="col-sm-12">    <div class="col-sm-12 Ten-muc-footer-top">ABC - KÊNH MUA SẮM TRỰC TUYẾN HÀNG ĐẦU VIỆT NAM!</div></div>
+							<div class="col-sm-12 box-text-bt">
+								<span class="text-dam">    Mua hàng trực tuyến (mua hàng online)</span> mang lại sự tiện lợi, lựa chọn đa dạng hơn và các dịch vụ tốt hơn cho người tiêu dùng, thế nhưng người tiêu dùng Việt Nam vẫn chưa tận hưởng được những tiện ích đó. Chính vì vậy ABC Việt Nam được triển khai với mong muốn trở thành trung tâm mua sắm trực tuyến số 1 tại Việt Nam, nơi bạn có thể chọn lựa mọi thứ, từ các mặt hàng điện tử như laptop, điện thoại di động giá rẻ, thiết bị gia dụng như máy lạnh, máy lọc không khí, máy hút bụi mini gia đình, nội thất phòng ngủ… Chúng tôi có tất cả!
+							</div>
+							<div class="col-sm-12 box-text-bt">
+								Tại ABC.vn bạn có thể mua đồ điện tử giá rẻ, cũng như các loại mặt hàng khác với rất nhiều các chương trình khuyến mãi hàng tháng. Ngoài ra bạn cũng có thể tham gia bán hàng trực tuyến thông qua hệ thống marketplace của ABC với rất nhiều hỗ trợ và dịch vụ hấp dẫn.
+							</div>
+							<div class="col-sm-12 box-text-bt">
+								Bây giờ bạn có thể trải nghiệm mua hàng online thỏa thích mà ABC mang lại chỉ với 1 click chuột. Dù bạn là một nhà quản lý bận rộn với công việc hay là người nội trợ với danh sách dài việc phải làm, chắc chắn bạn cũng sẽ yêu thích trải nghiệm mua hàng tại <span class="text-dam">ABC Việt Nam - mua hàng trực tuyến dễ dàng hơn, thuận tiện hơn và tiết kiệm thời gian.</span>
+							</div>
+							<div class="col-sm-12 margin-top-bottom">
+								<div class="col-sm-3 footer-cuoi-left">
+									<div class="col-sm-6 nopading">
+										ABC South-East Asia
+									</div>
+									<div class="col-sm-6 nopading">
+										<div class="la-co">
+											<a href="#"> 
+												<img src="img/footer/icon1.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="la-co">
+											<a href="#"> 
+												<img src="img/footer/iocn2.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="la-co">
+											<a href="#"> 
+												<img src="img/footer/icon3.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="la-co">
+											<a href="#"> 
+												<img src="img/footer/icon4.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="la-co">
+											<a href="#"> 
+												<img src="img/footer/icon5.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="la-co">
+											<a href="#"> 
+												<img src="img/footer/icon6.png" class="img-responsive" alt="#"/>
+											</a>
+											
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4"></div>
+								<div class="col-sm-5 footer-cuoi-right">
+									<div class="col-sm-3 nopading">
+										Kết nối chúng tôi
+									</div>
+									<div class="col-sm-9 nopading">
+										<div class="mangxahoi">
+											<a href="#"> 
+												<img src="img/footer/icon-xh-1.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="mangxahoi">
+											<a href="#"> 
+												<img src="img/footer/iocn-xh-2.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="mangxahoi">
+											<a href="#"> 
+												<img src="img/footer/icon-xh-3.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="mangxahoi">
+											<a href="#"> 
+												<img src="img/footer/icon-xh-4.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="mangxahoi">
+											<a href="#"> 
+												<img src="img/footer/icon-xh-5.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="mangxahoi">
+											<a href="#"> 
+												<img src="img/footer/icon-xh-6.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="mangxahoi">
+											<a href="#"> 
+												<img src="img/footer/icon-xh-7.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+										<div class="mangxahoi">
+											<a href="#"> 
+												<img src="img/footer/icon-xh-8.png" class="img-responsive" alt="#"/>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="container-fluid footer-bottom">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="col-sm-3"></div>
+									<div class="col-sm-6 ">
+										<div class="col-sm-12 can-giua-box-top">Công ty CPĐTPT Công Nghệ Mơi Alatca</div>
+										<div class="col-sm-12 can-giua-box-bottom">
+											168 Kim Giang, Phường Đại Kim, Quận Hoàng Mai, Hà Nội
+										</div>
+									</div>
+									<div class="col-sm-3"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+				
+				<div id="payper" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content bgwhilt">
+							
+							<div class="modal-body">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<div role="tabpanel">
+									
+									<!-- Nav tabs -->
+									<ul class="nav nav-tabs" role="tablist">
+										<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Login</a></li>
+										<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign up</a></li>
+									</ul>
+									<!-- Tab panes -->
+									<div class="tab-content">
+										<div role="tabpanel" class="tab-pane active" id="home">
+											<div class="row margin-top">
+												<div class="col-md-8 col-sm-8 border-right ps">
+													<form class="form-horizontal">
+														<div class="form-group">
+															<label class="col-sm-3 control-label"> Email <span class="required">*</span></label>
+															<div class="col-sm-9">
+																<input type="email" class="form-control" placeholder="Email">
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="inputPassword3" class="col-sm-3 control-label">Mật khẩu <span class="required">*</span></label>
+															<div class="col-sm-9">
+																<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+															</div>
+															<p class="float_right"><a class="ui-inlineBlock" href="#">Quên mật khẩu?</a></p>
+														</div>
+														
+													</form>
+													<div class="form-group col-md-9 col-md-offset-3">
+														<button class="btn btn-warning"> ĐĂNG NHẬP</button>
+													</div>
+													<span class="hinh_or">or</span>
+													
+												</div>
+												<div class="col-md-4 col-sm-4 dn">
+													<p>Đăng nhập bằng </p>
+													<button class="btn btn-default">facebook</button>
+													
+													<button class="btn btn-default"> google+</button>
+													
+													
+												</a>
+												
+												
+											</div>
+											
+											
+										</div>
+										
+										
+									</div>
+									<div role="tabpanel" class="tab-pane" id="profile">
+										<div class="row margin-top">
+											
+											<div class="col-md-8 col-sm-8 border-right ps">
+												<div class="information">
+													<p class="float_right"><a class="ui-inlineBlock" href="#">* Thông tin bắt buộc</a></p>
+												</div>
+												<form class="form-horizontal">
+													
+													<div class="form-group">
+														<label class="col-sm-3 control-label"> Họ Tên  <span class="required">*</span></label>
+														<div class="col-sm-9">
+															<input type="email" class="form-control" placeholder="Email">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-sm-3 control-label"> Email<span class="required">*</span></label>
+														<div class="col-sm-9">
+															<input type="email" class="form-control" placeholder="Email">
+														</div>
+													</div>
+													<div class="form-group">
+														<label for="inputPassword3" class="col-sm-3 control-label">Mật khẩu <span class="required">*</span></label>
+														<div class="col-sm-9">
+															<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+															<span> Ít nhất 6 ký tự gồm chữ cái và số</span>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-sm-3 control-label"> Nhập khẩu <span class="required">*</span></label>
+														<div class="col-sm-9">
+															<input type="email" class="form-control" placeholder="Email">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-sm-3 control-label"> Ngày tháng năm <span class="required">*</span></label>
+														<div class="col-sm-9">
+															<select >
+																<option> 1991</option>
+																<option>1990</option>
+																<option>1779</option>
+															</select>
+															<select >
+																<option> may</option>
+																<option>march</option>
+																<option> june</option>
+															</select>
+															<select >
+																<option> 1</option>
+																<option> 2</option>
+																<option> 3</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-sm-3 control-label">giới tính <span class="required">*</span></label>
+														<div class="col-sm-9">
+															<select class="form-control">
+																<option>nam </option>
+																<option>nữ</option>
+															</select>
+															<span>Tôi đã đọc và đồng ý với <a href="#"> điều khoản sử dụng của lazala</a> </span>
+														</div>
+														
+													</div>
+													
+												</form>
+												<div class="form-group col-md-9 col-md-offset-3">
+													<button class="btn btn-warning"> gủi</button>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+															<span>nhận các thông tin khuyến mãi qua email</span>
+														</label>
+													</div>
+													
+												</div>
+												<span class="hinh_or">or</span>
+												
+											</div>
+											<div class="col-md-4 col-sm-4 dn">
+												<p>sign up with </p>
+												<button class="btn btn-default">facebook</button>
+												
+												<button class="btn btn-default"> google+</button>
+												
+												
+											</a>
+											
+											
+										</div>
+										
+										
+									</div>
+									
+									
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<!--modan mua hang------------------------------------------------------->
+		<div id="product" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content bgwhilt">
+					
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<span class="cartintro">Bạn có 2 sản phẩm trong giỏ hàng.<br>
+						<a style="color:#6f0000; font-size:10px;" href="http://www.lazada.vn/uu-dai-thanh-toan-the/" target="_blank" title="Ưu đãi thẻ">Thanh toán bằng thẻ tín dụng/ghi nợ hoặc ATM nội địa để giảm thêm 10.000 VND trên tổng giá trị đơn hàng (*)</a></span>
+						
+						<table class="table stylefonttable" >
+							<thead>
+								<tr>
+									<td colspan="2"></td>
+									<td >Giá</td>
+									<td >Số lượng</td>
+									<td >Tổng cộng</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr> 
+									<td> <a href="/may-nh-kts-fujifilm-s9400w-16-2mp-va-zoom-quang-50x-en-941937.html?mp=1">
+										<img src="img/catalog.jpg" width="117" height="117" alt="Máy ảnh KTS Fujifilm S9400W 16.2MP và Zoom quang 50x (Đen)" >
+									</a>
+									</td>
+									<td >
+										<div class="productdescription">Máy ảnh KTS Fujifilm S9400W 16.2MP và Zoom quang 50x (Đen)</div>
+										<div class="productdetails">Fujifilm</div>
+										<span class="stock instock">
+										<i class="fa fa-check"></i> Còn hàng </span>
+										
+										<span class="productlink">
+											<a href="#"  data-price="4399000" class="cart-product-actions-link sel-product-move-to-wishlist">
+											Thêm vào danh sách yêu thích                                        </a>
+										</span>
+										<span class="productlink">
+											<a  data-price="4399000" href="#" class="cart-product-actions-link cartItemRemove sel-cart-remove-item-FU404ELAU6SXVNAMZ-459211">
+											Xóa   </a>
+										</span>
+									</td>
+									<td class="price_center">
+										<span>4.399.000 VND</span><br>
+										<span class="mbs cart-product-oldprice-value">
+											<del>7.000.000 VND</del>
+										</span><br>
+										<span class="txtGreen strong">
+											Giảm giá 37%
+										</span>
+									</td>
+									<td class="width_10 price center">
+										<select data-sku="FU404ELAU6SXVNAMZ-459211" data-price="4399000" class="sel-cart-quantity-FU404ELAU6SXVNAMZ-459211 cart-product-actions-select cart-product-item-cell-qty-select" name="qty_FU404ELAU6SXVNAMZ-459211"  title="Số lượng">
+											<option>1</option>
+											<option selected="">2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</td>
+									<td class="width_20 right_align price lastcolumn">
+										
+										8.798.000 VND
+										<div style="color:green">- 439.900 VND</div>
+										
+										
+										
+									</td>
+									
+								</tr>
+								<tr>
+									<td colspan="2"></td>
+									<td colspan="2"> Tổng cộng</td>
+									<td> 8.798.000 VND</td>
+									
+								</tr>
+								<tr>
+									<td colspan="2"></td>
+									<td colspan="2"> <strong>Thành Tiền</strong></td>
+									<td> <strong>8.798.000 VND</strong></br>
+										Đã bao gồm VAT
+									</td>
+									
+								</tr>
+							</tbody>
+						</table>
+						<div class="row">
+							<div class="col-md-6">
+								<a href="#"><span><i class="fa fa-caret-right"></i> Thêm sản phẩm khác vào giỏ hàng</span></a>
+							</div>
+							<div class="col-md-6 btn_right">
+								<button class="btn btn-warning">Tiến hành đặt hàng <i class="fa fa-angle-double-right"></i>  <i class="fa fa-play-circle-o"></i></button>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+					
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</body>
+</html>

@@ -1,0 +1,161 @@
+<?php 
+$Product_sale_products = $this->Product_sale_products;
+if(count($Product_sale_products) > 0 ) {
+?>
+<div>
+									<div class="wkjcflcmqu magicproduct">
+										<div class="block-title-tabs">
+											<ul class="magictabs"
+												data-ajax='{"limit":"10","productDelay":null,"widthImages":"270","heightImages":"341","action":"cart,compare,wishlist,review"}'>
+												<li class="item active loaded single"
+													data-type="saleproduct"><span class="title">Sale Products (<?php echo count($Product_sale_products)?>)</span></li>
+											</ul>
+										</div>
+										<div class="ajax_loading" style="display: none"
+											data-url="<?php echo WEBPATH;?>/magicproduct/index/ajax/">
+											<img
+												src="<?php echo BAG_REAL_HTML; ?>/smije/skin/frontend/alosmije/default/magiccart/plugin/images/loading.gif"
+												alt="Loading..." />
+										</div>
+										<div class="content-products positionlef positionlef2"
+											data-margin="10"
+											data-slider='{"margin":10,"autoPlaySpeed":300,"enableResponsiveBreakpoints":1,"pauseOnHover":1,"visibleItems":1,"responsiveBreakpoints":{"portrait":{"changePoint":480,"visibleItems":1},"landscape":{"changePoint":640,"visibleItems":1},"tablet":{"changePoint":768,"visibleItems":1},"desktop":{"changePoint":992,"visibleItems":1}}}'
+											data-options='{"480":"1","640":"1","768":"1","992":"1","993":"1"}'>
+
+											<div class="mage-magictabs mc-saleproduct">
+												<ul class="flexisel-content products-grid saleproduct">
+<?php 
+                                       $delay_efex_fea = 0;
+											foreach ($Product_sale_products as $key =>$Product_WEEKLY_FEATURED_sale_products)
+											{
+												//$delay_efex_fea = $delay_efex_fea + 500;
+												$style = 'style="-webkit-animation-delay: '.$delay_efex_fea.'ms; -moz-animation-delay: '.$delay_efex_fea.'ms; -o-animation-delay: '.$delay_efex_fea.'ms; animation-delay: '.$delay_efex_fea.'ms;"';
+												//img
+										         $img_featured = '';
+												 if($Product_WEEKLY_FEATURED_sale_products->img !='' || $Product_WEEKLY_FEATURED_sale_products->img != null) { $img_featured =$Product_WEEKLY_FEATURED_sale_products->img; }
+												 if( ($Product_WEEKLY_FEATURED_sale_products->img =='' and $Product_WEEKLY_FEATURED_sale_products->img0 !='' ) || ($Product_WEEKLY_FEATURED_sale_products->img == null and $Product_WEEKLY_FEATURED_sale_products->img0 !='' ) ) { $img_featured =$Product_WEEKLY_FEATURED_sale_products->img0; }
+												 if($Product_WEEKLY_FEATURED_sale_products->img =='' and $Product_WEEKLY_FEATURED_sale_products->img0 =='' and $Product_WEEKLY_FEATURED_sale_products->img1 !='' ) { $img_featured =$Product_WEEKLY_FEATURED_sale_products->img1; }
+												 if($Product_WEEKLY_FEATURED_sale_products->img == null and $Product_WEEKLY_FEATURED_sale_products->img0 ==null and $Product_WEEKLY_FEATURED_sale_products->img1 !='' ) { $img_featured =$Product_WEEKLY_FEATURED_sale_products->img1; }
+												 if($Product_WEEKLY_FEATURED_sale_products->img == null and $Product_WEEKLY_FEATURED_sale_products->img0 ==null and $Product_WEEKLY_FEATURED_sale_products->img1 == null ) { $img_featured = 'default.jpg'; }
+												 
+												 //rate
+												 if($Product_WEEKLY_FEATURED_sale_products->rating !='' || $Product_WEEKLY_FEATURED_sale_products->rating != null) {
+												 	if(is_numeric($Product_WEEKLY_FEATURED_sale_products->rating) and $Product_WEEKLY_FEATURED_sale_products->rating >=0 )
+												 	{
+												 		$rate_featured = @floor((($Product_WEEKLY_FEATURED_sale_products->rating)/10)*100);
+												 	}else $rate_featured = 0;
+												 } else $rate_featured = 0;
+												 
+												 //price
+												 if($Product_WEEKLY_FEATURED_sale_products->price !='' || $Product_WEEKLY_FEATURED_sale_products->price != null) {
+												 	if(is_numeric($Product_WEEKLY_FEATURED_sale_products->price) and $Product_WEEKLY_FEATURED_sale_products->price >=0 )
+												 	{
+												 		$number_featured = $Product_WEEKLY_FEATURED_sale_products->price;
+												 		$format_number_featured = number_format($number_featured, 0, '', '.');
+												 	}else  {  $format_number_featured = 0; }
+												 }else  $format_number_featured = 0;
+																	 
+												?>
+												
+													<li class="item">
+														<div class="per-product">
+															<div class="images-container">
+																<div class="product-hover">
+																	<?php if($Product_WEEKLY_FEATURED_sale_products->new_products!='' and $Product_WEEKLY_FEATURED_sale_products->new_products==1) {?> <span class="sticker top-left"><span class="labelnew">New</span></span> <?php }//?>
+						                                            <?php if($Product_WEEKLY_FEATURED_sale_products->promotions!='' and is_numeric($Product_WEEKLY_FEATURED_sale_products->promotions)) {?><span class="sticker top-right"><span class="labelsale"><?php echo $Product_WEEKLY_FEATURED_sale_products->promotions;?>%</span></span> <?php } //?>
+						
+																 <a href="<?php echo WEBPATH; ?>/product/index/view/<?php echo $Product_WEEKLY_FEATURED_sale_products->id;?>"
+																		title="<?php echo $Product_WEEKLY_FEATURED_sale_products->name;?>" class="product-image"> <img
+																		class="img-responsive"
+																		src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.'/'.$img_featured; ?>"
+																		width="270" height="347" alt="Chelsea Tee" /> <span
+																		class="product-img-back"> <img
+																			class="img-responsive"
+																			src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.'/'.$img_featured; ?>"
+																			width="270" height="347" alt="<?php echo $Product_WEEKLY_FEATURED_sale_products->name;?>" />
+																	</span>
+																	</a>
+																</div>
+																<div class="actions-no">
+																	<div class="actions">
+																		<button type="button" title="Add to Cart"
+																			class="pull-left button btn-cart"
+																			onclick="setLocation('<?php echo WEBPATH;?>/checkout/cart/add/uenc/aHR0cDovL2Fsb3RoZW1lcy5jb20vZGVtby9zbWlqZS9pbmRleC5waHAvP19fX3N0b3JlPWVuZ2xpc2hfZmFzaGlvbg,,/product/33/form_key/CNujFwNHOtvHnMY6/')">
+																			<span><span>Add to Cart</span></span>
+																		</button>
+																		<ul class="add-to-links pull-left">
+																			<li class="pull-left"><a
+																				href="<?php echo WEBPATH;?>/wishlist/index/add/product/33/form_key/CNujFwNHOtvHnMY6/"
+																				title="Add to Wishlist" class="link-wishlist">Add
+																					to Wishlist</a></li>
+																			<li class="pull-right"><span class="separator">|</span>
+																				<a
+																				href="<?php echo WEBPATH;?>/catalog/product_compare/add/product/33/uenc/aHR0cDovL2Fsb3RoZW1lcy5jb20vZGVtby9zbWlqZS9pbmRleC5waHAvP19fX3N0b3JlPWVuZ2xpc2hfZmFzaGlvbg,,/form_key/CNujFwNHOtvHnMY6/"
+																				title="Add to Compare" class="link-compare">Add
+																					to Compare</a></li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+															<div class="products-textlink clearfix">
+																<h2 class="product-name">
+																	<a
+																		href="<?php echo WEBPATH;?>/product/index/view/<?php echo $Product_WEEKLY_FEATURED_sale_products->id;?>"
+																		title="<?php echo $Product_WEEKLY_FEATURED_sale_products->name;?>"><?php echo $Product_WEEKLY_FEATURED_sale_products->name;?></a>
+																</h2>
+																<div class="ratings">
+																	<div class="rating-box">
+																		<div class="rating" style="width: <?php echo $rate_featured;?>%"></div>
+																	</div>
+																	<span class="amount"><a href="#"
+																		onclick="var t = opener ? opener.window : window; t.location.href='<?php echo WEBPATH;?>/review/product/list/id/33/'; return false;">1
+																			Review(s)</a></span>
+																</div>
+
+
+
+																<div class="price-box">
+
+																	<p class="old-price">
+																		<span class="price-label">Regular Price:</span> <span
+																			class="price" id="old-price-33"> $<?php echo $format_number_featured;?></span>
+																	</p>
+
+																	<p class="special-price">
+																		<span class="price-label">Special Price</span> <span
+																			class="price" id="product-price-33"> $<?php echo $format_number_featured;?> </span>
+																	</p>
+
+
+																</div>
+
+															</div>
+														</div>
+													</li>
+													
+													<?php } // end for?>
+												</ul>
+											</div>
+
+
+										</div>
+										<!-- MAP -->
+										<!-- MAP -->
+									</div>
+
+									<script type="text/javascript">
+										jQuery(document)
+												.ready(
+														function() {
+															jQuery(
+																	".wkjcflcmqu")
+																	.magicproduct(
+																			{
+																				selector : ".wkjcflcmqu", // Selector product grid
+																			});
+														});
+									</script>
+
+</div><!-- sale product -->
+										
+										<?php } // end count($Product_sale_products)?>

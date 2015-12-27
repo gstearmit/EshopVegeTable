@@ -1,0 +1,692 @@
+<?php
+use Zend\Session\Container;
+$setting = $this->layout()->setting;
+$setting_session = new Container('setting');
+
+$session_product = new Container('product');
+$list_product = $session_product->product_search;
+
+ $session_user = new Container('userlogin');
+$username=$session_user->username;
+           
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><?php echo $setting_session->name; ?></title>
+        <meta name="description" content="<?php echo $setting_session->seo_description; ?>" />
+        <meta name="keywords" content="<?php echo $setting_session->seo_keywords; ?>" />
+        <meta name="robots" content="INDEX,FOLLOW" />
+        <link rel="icon" href="<?php echo WEBPATH_UPLOAD_PATH_IMG.'logo/'.$setting_session->ico ?>" type="image/x-icon" />
+        <link rel="shortcut icon" href="<?php echo WEBPATH_UPLOAD_PATH_IMG . '/' . $setting_session->ico; ?>" type="image/x-icon" />
+
+        <link href="<?php echo ROHLIK_APOTRAVINY; ?>/css/style.css" rel="stylesheet">
+        <link href="<?php echo ROHLIK_APOTRAVINY; ?>/css/bootstrap.css" rel="stylesheet">
+        <link href="<?php echo ROHLIK_APOTRAVINY; ?>/css/bootstrap-theme.css" rel="stylesheet">
+        <link href="<?php echo ROHLIK_APOTRAVINY; ?>/css/font-awesome.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="<?php echo ROHLIK_APOTRAVINY; ?>/css/jquery.mmenu.all.css" />
+        <link type="text/css" rel="stylesheet" href="<?php echo ROHLIK_APOTRAVINY; ?>/css/jquery.bxslider.css" />
+        <link type="text/css" rel="stylesheet" href="<?php echo ROHLIK_APOTRAVINY; ?>/css/fix-all-device.css" />
+        
+        <style type="text/css">
+        .k-list li { padding: 1px 11px; width: 405px; }
+        </style>
+        <script type="text/javascript">
+		//<![CDATA[
+		    var domain = '<?php echo WEBPATH; ?>';
+		//]]>
+		</script>
+		
+        <script src="<?php echo ROHLIK_APOTRAVINY; ?>/js/jquery-1.8.3.min.js"></script>
+        <script src="<?php echo ROHLIK_APOTRAVINY; ?>/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="<?php echo ROHLIK_APOTRAVINY; ?>/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="<?php echo ROHLIK_APOTRAVINY; ?>/js/jquery.mmenu.min.all.js"></script>
+        <script type="text/javascript" src="<?php echo ROHLIK_APOTRAVINY; ?>/js/load-product.js"></script>
+        <script type="text/javascript" src="<?php echo ROHLIK_APOTRAVINY; ?>/js/jquery.validate.js"></script>
+        <script type="text/javascript" src="<?php echo ROHLIK_APOTRAVINY; ?>/js/kendo.all.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#res").click(function () {
+                    $("#dn").modal();
+                });
+                $(".map").click(function () {
+                    $("#map").modal();
+                });
+                $("#quen-pass").click(function(){
+                    $("#forgetpass").modal();
+                });
+                //		$(".detailclick").click(function(){
+                //        $("#sp").modal();
+                //		});
+                $('.droppmenu').hide();
+                $("#seo").click(function () {
+                    $(".droppmenu").toggle();
+                });
+
+
+                if (screen.width < 767) {
+                    $('.slider1').bxSlider({
+                        pager: false,
+                        auto: false,
+                        slideWidth: 100,
+                        minSlides: 2,
+                        maxSlides: 3,
+                        slideMargin: 10
+                    });
+                } else {
+                    $('.slider1').bxSlider({
+                        pager: false,
+                        auto: false,
+                        controls: true,
+                        slideWidth: 210,
+                        minSlides: 5,
+                        maxSlides: 5,
+                        slideMargin: 10
+                    });
+                }
+
+                if (screen.width < 767) {
+                    $('.slider2').bxSlider({
+                        pager: false,
+                        auto: false,
+                        slideWidth: 100,
+                        minSlides: 2,
+                        maxSlides: 2,
+                        slideMargin: 10
+                    });
+                } else {
+                    $('.slider2').bxSlider({
+                        pager: false,
+                        auto: false,
+                        controls: true,
+                        slideWidth: 180,
+                        minSlides: 4,
+                        maxSlides: 4,
+                        slideMargin: 10
+                    });
+                }
+                $('.example').hide();
+                $("#aa").click(function () {
+                    $('.example').toggle();
+                });
+                $('#basic-addon2').click(function () {
+                    $('#form-search')[0].submit();
+                });
+
+            });
+
+            jQuery(window).load(function () {
+                $("#nav > li > a").click(function (e) { // binding onclick
+                    if ($(this).parent().hasClass('selected')) {
+                        $("#nav .selected div div").slideUp(100); // hiding popups
+                        $("#nav .selected").removeClass("selected");
+                    } else {
+                        $("#nav .selected div div").slideUp(100); // hiding popups
+                        $("#nav .selected").removeClass("selected");
+
+                        if ($(this).next(".subs").length) {
+                            $(this).parent().addClass("selected"); // display popup
+                            $(this).next(".subs").children().slideDown(200);
+                        }
+                    }
+                    e.stopPropagation();
+                });
+
+                $("body").click(function () { // binding onclick to body
+                    $("#nav .selected div div").slideUp(100); // hiding popups
+                    $("#nav .selected").removeClass("selected");
+                });
+
+                var data = [<?php
+foreach ($list_product as $key => $value) {
+    echo '"' . $value['name'] . '",';
+}
+?>
+                ];
+
+$("#search-data").kendoAutoComplete({
+                        dataSource: data,
+                        separator: ", "
+                    });
+                    
+                    
+            });
+
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <style>
+            #basic-addon2{
+                cursor: pointer;
+            }
+            #search-data{
+                height: 34px;
+                border-top-left-radius:3px;
+                border-bottom-left-radius:3px;
+                padding: 0px !important;
+            }
+            .k-list{                
+                background: #fff;
+            }
+            .k-list li {
+                line-height: 30px;
+                cursor: pointer;
+            }
+        </style>
+
+    </head>
+    <body style="position: relative;top: -21px;">
+        <header>
+            <div id="header">
+                <div class="container">
+                    <div class="headermargin">
+                        <div class="row">
+                            <div class="col-md-1 col-sm-1 col-xs-6">
+                                <a href="<?php echo WEBPATH . '/apotraviny/index' ?>">
+                                    <img src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'logo/'.$setting_session->logo1 ?>" style='height: 80px;width: 106%;'
+                                         class="img-responsive" alt="" />
+                                </a>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-md-offset-1 col-xs-6">
+                                <img src="<?php echo ROHLIK_APOTRAVINY; ?>/img/header-badge.png" class="img-responsive" alt="" />
+
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <form id="form-search" action="<?php echo WEBPATH . '/apotraviny/index/search' ?>" method="post">
+                                    <div class="input-group">
+
+                                        <input id="search-data" type="text" name="key" class=""
+                                               placeholder="Hledat název, kategorii nebo značku"
+                                               aria-describedby="basic-addon2"> 
+                                        <a class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12 centersmall">
+                                <?php
+                                    if($username !=null){
+                                        echo '<a href="">'.$username.'</a> | '
+                                            .'<a href="'.WEBPATH.'/customer/logout">Logout</a>';
+                                    }else{
+                                    ?>
+                                <ul class="regis">
+                                    
+                                    <li id="res"><a href="#">Registrovat se</a></li>
+                                    <li id="seo"><a href="#">Přihlásit se</a></li>
+                                   
+                                </ul>
+                                 <?php } ?>
+                                <?php
+                                    if($username !=null){ ?>
+                                 
+                                <p class="map">
+                                    <a href="#">Nastavit adresu doručení</a>
+                                </p>
+                                    <?php } ?>
+                                <div class="droppmenu">
+                                    <p class="fb">
+                                        <a href="#" title="Zaregistrovat přes Facebook">Zaregistrovat
+                                            přes facebook <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </p>
+                                    <p class="center">
+                                        <span class="bgtext">nebo</span>
+                                    </p>
+                                    <span id="error-login"></span>
+                                    <form action="javascript:void(0);">
+                                        <div class="input-group">
+                                            <input type="text" id="mail-login" class="form-control" placeholder="E-mail"
+                                                   aria-describedby="basic-addon2"> <span
+                                                   class="input-group-addon" id="basic-addon2"><i
+                                                    class="fa fa-user"></i></span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="password" id="pass-login" class="form-control" placeholder="Helso"
+                                                   aria-describedby="basic-addon2"> <span
+                                                   class="input-group-addon" id="basic-addon2"><i
+                                                    class="fa fa-key"></i></span>
+                                        </div>
+                                    </form>
+                                    <div class="footerdroppmenu">
+                                        <p id="quen-pass"><a href="javascript:void(0);">Zapomenuté heslo?</a></p>
+                                        <button class="btn " onclick="login();">Přihlásit se</button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MENU-->
+            <?php
+            echo $this->partial('apotravinycz/elements/menu.phtml');
+            ?>
+            <!--menusmall-->
+            <div class="menu_fix_small">
+                <a id="aa" href="#"> <span class="font-width"> <i class="fa fa-bars"></i></span></a>
+                <div class="example">
+                    <div class="menu">
+                        <span>
+                            <ul id="nav">
+                                <li><a href="#">Mé oblíbené </a></li>
+                                <li><a href="#">Last minute </a></li>
+                                <li><a href="#">Farmářské <span class="rightfont"> <i
+                                                class="fa fa-angle-down"></i>
+                                        </span>
+                                    </a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#"> Maso a uzeniny </a></Li>
+                                                <li><a href="#"> České bio ovoce a zelenina </a></Li>
+                                                <li><a href="#"> Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#"> Lahůdky </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#">Čerstvé <span class="rightfont"><i
+                                                class="fa fa-angle-down"></i> </span>
+                                    </a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">Ovoce a zelenina </a></Li>
+                                                <li><a href="#">Pečivo </a></Li>
+                                                <li><a href="#">Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#">Maso, ryby </a></Li>
+                                                <li><a href="#">Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#">Maso, ryby </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#">Trvanlivé <span class="rightfont"><i
+                                                class="fa fa-angle-down"></i> </span>
+                                    </a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">Ovoce a zelenina </a></Li>
+                                                <li><a href="#">Pečivo </a></Li>
+                                                <li><a href="#">Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#">Maso, ryby </a></Li>
+                                                <li><a href="#">Masné výrobky, uzeniny </a></Li>
+                                                <li><a href="#">Lahůdky </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#">Sladké a slané <span class="rightfont"><i
+                                                class="fa fa-angle-down"></i> </span>
+                                    </a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#"> Ovoce a zelenina </a></Li>
+                                                <li><a href="#"> Pečivo </a></Li>
+                                                <li><a href="#"> Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#"> Maso, ryby </a></Li>
+                                                <li><a href="#"> Masné výrobky, uzeniny </a></Li>
+                                                <li><a href="#"> ahůdky </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#">Speciální <span class="rightfont"> <i
+                                                class="fa fa-angle-down"></i>
+                                        </span></a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#"> Ovoce a zelenina </a></Li>
+                                                <li><a href="#"> Pečivo </a></Li>
+                                                <li><a href="#"> Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#"> Maso, ryby </a></Li>
+                                                <li><a href="#"> Masné výrobky, uzeniny </a></Li>
+                                                <li><a href="#"> Lahůdky </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#">Nápoje<span class="rightfont"> <i
+                                                class="fa fa-angle-down"></i>
+                                        </span></a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">Ovoce a zelenina </a></Li>
+                                                <li><a href="#">Pečivo </a></Li>
+                                                <li><a href="#"> Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#"> Maso, ryby </a></Li>
+                                                <li><a href="#">Masné výrobky, uzeniny </a></Li>
+                                                <li><a href="#">Lahůdky </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#">Alkohol a tabák <span class="rightfont"> <i
+                                                class="fa fa-angle-down"></i></span></a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#"> Ovoce a zelenina </a></Li>
+                                                <li><a href="#"> Pečivo </a></Li>
+                                                <li><a href="#"> Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#"> Maso, ryby </a></Li>
+                                                <li><a href="#"> Masné výrobky, uzeniny </a></Li>
+                                                <li><a href="#"> Lahůdky </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#"> Drogerie a domácnost <span class="rightfont"> <i
+                                                class="fa fa-angle-down"></i>
+                                        </span>
+                                    </a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">Ovoce a zelenina </a></Li>
+                                                <li><a href="#">Pečivo </a></Li>
+                                                <li><a href="#">Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#">Maso, ryby </a></Li>
+                                                <li><a href="#">Masné výrobky, uzeniny </a></Li>
+                                                <li><a href="#">Lahůdky </a></Li>
+                                                <li><a href="#">Masné výrobky, uzeniny </a></Li>
+                                                <li><a href="#">Lahůdky </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#"> Dítě <span class="rightfont"> <i
+                                                class="fa fa-angle-down"></i>
+                                        </span></a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">Ovoce a zelenina </a></Li>
+                                                <li><a href="#">Pečivo </a></Li>
+                                                <li><a href="#">Mléčné výrobky a vejce </a></Li>
+                                            </ul>
+                                        </div>
+                                    </div></li>
+                                <li><a href="#">Zvířata <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <div class="subs">
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">Ovoce a zelenina </a></Li>
+                                                <li><a href="#">Pečivo </a></Li>
+                                                <li><a href="#">Mléčné výrobky a vejce </a></Li>
+                                                <li><a href="#">Maso, ryby </a></Li>
+
+                                            </ul>
+                                        </div>
+                                    </div></li>
+
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--end-->
+
+
+        </header>
+        <!--end header-->
+
+
+        <?php echo $this->content; ?>
+
+
+
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <section class="contact">
+                            <ul>
+                                <li class="phone"><strong><span>840&nbsp;730&nbsp;740</span></strong>
+                                    <span>Každý den&nbsp;od&nbsp;10&nbsp;do&nbsp;23&nbsp;hodin<span></span></span></li>
+                                <li class="mail"><a href="mailto:zakaznici@rohlik.cz">zakaznici@rohlik.cz</a>
+                                    <span>Na e-mail se snažíme odpovídat okamžitě</span></li>
+                            </ul>
+                        </section>
+
+                    </div>
+                    <div class="col-md-5 col-xs-12 col-sm-5">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-8 col-xs-12">
+                                <section class="custommers">
+                                    <h5>Pro zákazníky</h5>
+                                    <ul>
+                                        <li><a title="Rohlik.cz Premium" href="#">Rohlik.cz Premium</a></li>
+                                        <li><a title="Mobilní aplikace" href="#">Mobilní aplikace</a></li>
+                                        <li><a title="Garance spokojenosti" href="#">Garance
+                                                spokojenosti</a></li>
+                                        <li><a title="Doprava a mapa dovozu" href="#">Doprava a mapa
+                                                dovozu</a></li>
+                                        <li><a title="Doprava na první objednávku zdarma" href="#">Doprava
+                                                na první objednávku zdarma</a></li>
+                                        <li><a title="Nakoupíme za Vás" href="#">Nakoupíme za Vás</a></li>
+                                    </ul>
+                                </section>
+
+                            </div>
+                            <div class="col-md-5 col-sm-4col-xs-12">
+                                <section class="about">
+                                    <h5>O nás</h5>
+                                    <ul>
+                                        <li><a title="Kontakt" href="#">Kontakt</a></li>
+                                        <li><a title="Podmínky užití" href="#">Podmínky užití</a></li>
+                                        <li><a title="Volná místa" href="#">Volná místa</a></li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                        <p>Alkohol a cigarety prodáváme pouze osobám starším 18 let. Při
+                            převzetí zboží bude ověřen váš věk.</p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 ">
+                        <section class="like">
+                            <img src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'logo/'.$setting_session->logo1 ?>" class="img-responsive" style='width: 40%;height: 86px;  margin-top: 5%;' alt="">
+                            <div class="fb-like"
+                                 data-href="<?php echo ROHLIK_APOTRAVINY; ?>"
+                                 data-layout="button_count" data-action="like"
+                                 data-show-faces="false" data-share="true"></div>
+                            <div class="box">
+                                <img src="<?php echo ROHLIK_APOTRAVINY; ?>/img/user.jpg" alt="" class="img-responsive" />
+                            </div>
+                            <div class="fss fwn fcg">
+                                <a class="uiLinkSubtle" target="_blank"
+                                   href="https://www.facebook.com/help/?page=209089222464503">Plugin
+                                    pro sociální síť Facebook</a>
+                            </div>
+                        </section>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </footer>
+
+        <script type="text/javascript" defer="defer" src="https://mylivechat.com/chatinline.aspx?hccid=35565043"></script>
+    
+    <!--modan-->
+		<div id="dn" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+	    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <div class="headmodan">
+		<h2>100&nbsp;Kč na nákup a doprava zdarma</h2>
+		<p>Zaregistrujte se právě teď a získáte 100&nbsp;Kč a dopravu zdarma na první objednávku</p>
+	</div>
+	<div class="bodymodan">
+	<div class="row">
+	<div class="col-md-6 col-sm-6 col-xs-12 center">
+	<h3>  Registrace přes e-mail</h3>
+	<div class="box">
+            <span id="error"></span>
+           
+	<form action="javscript:void(0);">
+	<div class="input-group">
+            <input type="email" class="form-control" id="email" placeholder="E-mail" aria-describedby="basic-addon2">
+	<span class="input-group-addon" id="basic-addon2"><i class="fa fa-user"></i></span>
+	</div>
+	<div class="input-group">
+            <input type="password" class="form-control" id="password" placeholder="Helso"  aria-describedby="basic-addon2">
+	<span class="input-group-addon" id="basic-addon2"><i class="fa fa-key"></i></span>
+	</div>
+	<div class="input-group">
+	<input type="text" class="form-control"  id="phone"  placeholder="Telefon"  aria-describedby="basic-addon2">
+	<span class="input-group-addon" id="basic-addon2"><i class="fa fa-phone"></i></span>
+	</div>
+            <button type="submit" onclick="register()" name="_submit" value="Zaregistrovat se">Pokračovat</button>
+	</form>
+	<p>V příštím kroku ověříme váš telefon</p>
+	</div>
+	
+	</div>
+	<div class="col-md-6 col-xs-12 col-sm-6 center">
+	<h3>Registrace přes Facebook</h3>
+	<div class="box">
+	<p class="fb"><a href="#" title="Zaregistrovat přes Facebook">Zaregistrovat přes facebook  <i class="fa fa-facebook"></i></a></p>
+
+	<p>V příštím kroku ověříme váš telefon</p>
+	</div>
+	</div>
+	</div>
+	
+	</div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->	
+
+<div id="map" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+	    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <div class="modanaddress">
+		&nbsp
+	</div>
+	<div class="modanmap">
+	<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12 center">
+	<h3>Nastavte si vaši přesnou adresu</h3>
+	<p>Abychom věděli, zda k vám můžeme nákup doručit, musíme znát vaši přesnou adresu.</p>
+        <span id="error-addres"></span>
+	</div>
+	<div class="col-md-12 col-xs-12 col-sm-12 center">
+            <form action="javascript:void(0);">
+	 <div class="form-group">
+    <input type="text" class="form-control" id="address" placeholder="Napište zde svou adresu, např. Pobřežní 46, Praha">
+	</div>
+	<div class="form-group" style="text-align:center; width:100%; height:auto;">
+            <button onclick="add_address()" type="button" class="btn btn-warning">Nastavit adresu</button>
+	</div>
+	</form>
+	
+	</div>
+	</div>
+	
+	</div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->	
+
+
+<!-- Forgetpass Acount-->
+<div id="forgetpass" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+	    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	 
+	<div class="modanmap">
+	<div class="row get-mail">
+	<div class="col-md-12 col-sm-12 col-xs-12 center">
+            
+	<h3>Zapomenuté heslo na Rohlik.cz</h3>
+	<p>Pro obnovení hesla zadejte email na který jste se zaregistrovali..</p>
+        <span id="error-forget"></span>
+	</div>
+	<div class="col-md-12 col-xs-12 col-sm-12 center">
+            <form action="javascript:void(0);">
+	 <div class="form-group">
+    <input type="email" id="email-forget" class="form-control"  placeholder="E-mail">
+	</div>
+	<div class="form-group" style="text-align:center; width:100%; height:auto;">
+            <button onclick="forgetpass();" type="button" class="btn btn-warning">Odeslat</button>
+	</div>
+	</form>
+	
+	</div>
+	</div>
+	
+	</div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->	
+
+<div id="del" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       
+      </div>
+      <div class="modal-body">
+          <center>
+        <p>Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng;</p>
+          </center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+        <span id="btn-del"></span>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="md-wsl-del" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Odstranit produkty z přání</h4>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <p>Chcete-li odstranit tento produkt ze seznamu oblíbených ?</p>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <span id="md-bt"></span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    </body>
+
+</html>

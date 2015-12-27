@@ -1,0 +1,50 @@
+@media (min-width: 1202px) {
+  .modal-dialog {
+  width: 789px;
+  margin: 30px auto;
+}
+ .modal-lg {
+    width: 900px;
+  }
+	
+}
+/* Large desktop */
+@media (min-width: 999px) and (max-width: 1200px) {
+   .modal-dialog {
+  width: 789px;
+  margin: 30px auto;
+}
+ .modal-lg {
+    width: 900px;
+  }
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	
+	.modal-dialog {
+  width: 789px;
+  margin: 30px auto;
+}
+	
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	 .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
+  .modal-sm {
+    width: 300px;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	
+}
+

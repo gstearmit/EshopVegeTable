@@ -1,0 +1,23 @@
+<?php
+ // module/Album/view/album/album/add.phtml:
+
+ $title = 'Login';
+ $this->headTitle($title);
+ ?>
+ <script src="http://localhost/zfsk/public/js/lgform.js"></script>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+ $form->setAttribute('action', $this->url('admin', array('action' => 'login')));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('username'));
+ echo $this->formRow($form->get('password'));
+// echo $this->formRow($form->get('email'));
+ //echo $this->formSubmit($form->get('submit'));
+ ?>
+ <button onclick="lgform_success()">Login</button>
+ <?php
+ echo $this->form()->closeTag();
+ ?>

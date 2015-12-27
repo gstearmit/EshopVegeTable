@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--
+	To change this license header, choose License Headers in Project Properties.
+	To change this template file, choose Tools | Templates
+	and open the template in the editor.
+-->
+<html>
+	<head>
+		<title>lazada</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="js/jquery-2.1.3.js" type="text/javascript"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/screen.css" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style-lop1.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="js/jquery.validate.js"></script>
+		<script type="text/javascript" src="js/messages_vi.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#submitform").validate({
+					messages: {
+						name: "Please enter your firstname",
+						address: "Please enter your lastname",
+						/*	username: {
+							required: "Please enter a username",
+							minlength: "Your username must consist of at least 2 characters"
+							},
+							password: {
+							required: "Please provide a password",
+							minlength: "Your password must be at least 5 characters long"
+							},
+							confirm_password: {
+							required: "Please provide a password",
+							minlength: "Your password must be at least 5 characters long",
+							equalTo: "Please enter the same password as above"
+						}, */
+						phone: "Please enter a valid number phone ",
+					}
+				});
+				$('#billing_address_form').hide();
+				$('#radio1').click(function(){
+					if ($("#radio1").is(":checked")){
+						$('#billing_address_form').show();
+						} else{
+						$('#billing_address_form').hide();
+						
+					};
+					
+				});
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="container-fluid logo-timkiem-mua-fluid">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="logo_dh">
+								<a href="#" class="header__logo">
+									<img alt="#" class="img-responsive anhlogo" src="img/header/vn.png">
+								</a>
+							</div>
+							<div class="steps-progress toclear">
+								<div class="steps step-1 ">
+									<span class="step-txt toclear">
+										<span class="icon-wrap"><i class="icon icon-lock"></i></span>
+										<span class="step-number">1.</span>
+										<span class="step-name">Email ID</span>
+									</span>
+								</div>
+								<div class="steps step-2">
+									<span class="step-txt toclear">
+										<span class="icon-wrap"><i class="icon icon-lorry"></i></span>
+										<span class="step-number">2.</span>
+										<span class="step-name">Vận chuyển</span>
+									</span>
+								</div>
+								<div class="step-last steps step-3 on_progress current">
+									<span class="step-txt toclear">
+										<span class="icon-wrap"><i class="icon icon-wallet"></i></span>
+										<span class="step-number">3.</span>
+										<span class="step-name">Thanh toán</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+			
+		</header>
+		<div class="conten">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<form id="submitform">
+							<div class="border_form">
+								<div class="row">
+									<div class="col-md-12 col-sm-12">
+										<div class="text_p">
+											<p> chọn phương thức thanh toán </p>
+										</div>
+										<div>
+											
+											<!-- Nav tabs -->
+											<div id="tabs">
+												<ul class="nav nav-tabs " role="tablist">
+													<li role="presentation" class="active "><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><div class="tab_pseudo-elems"><span>Thanh toán khi nhận hàng</span></div></a></li>
+													<li role="presentation">
+													<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><div class="tab_pseudo-elemsone"><span>Thẻ tín dụng/ghi nợ</span></div></a></li>
+													<li role="presentation creatatm"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><div class="tab_pseudo-elemstwo"><span>Thẻ ATM <br> nội địa</span></div> </a></li>
+													<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><div class="tab_pseudo-elemsthree"><span>Trả góp bằng <br> thẻ tín dụng</span></div></a></li>
+												</ul>
+											</div>
+											<!-- Tab panes -->
+											<div class="tab-content">
+												<div role="tabpanel" class="tab-pane active" id="home">
+													<div class="margin_toptab">
+														<p>Bạn sẽ thanh toán bằng tiền mặt khi nhận hàng tại nhà</p>
+														<div class=" cod_aditional_info">
+															<u>Lưu ý:</u> Vui lòng kiểm tra kỹ thông tin đơn hàng bên tay phải về: <br>
+															- Phí vận chuyển<br>
+															- Phí giao hàng (nếu có)
+														</div>
+														<div class="red_colortext">
+															<p> Hiện tại Lazada chỉ xuất hóa đơn cho sản phẩm được bán và giao hàng bởi Lazada.</br> 
+															Chúng tôi chưa hỗ trợ cho sản phẩm của đối tác bán hàng</p>
+														</div>
+														<div class="icontt"><a href="#">TIẾP TỤC &gt;&gt; </a></div>
+														<div class="cod_inform">
+															Bạn sẽ được thông báo về tình trạng đơn hàng qua email và tin nhắn.
+														</div>
+													</div>
+												</div>
+												<div role="tabpanel" class="tab-pane" id="profile">
+													<div class="margin_toptab">
+														
+														<div id="newCreditCard" class="payment_new_credit_form ">
+															<div class="t_row">
+																<div class="t_label">
+																	<div class="card-number">
+																	<label for="PaymentMethodForm_parameter_cc_number">Số thẻ</label>                                    </div>
+																	<div class="card_t cardLayout">
+																		<div class="card_icon icon_payment_master_small"></div>
+																	</div>
+																</div>
+																<div class="t_input">
+																	<input name="PaymentMethodForm[parameter][cc_number]" class="input_field short_input checkFraud invalid" size="50" maxlength="30" id="PaymentMethodForm_parameter_cc_number" type="text" value="">
+																</div>
+																
+															</div>
+															
+															<div class="t_row">
+																<div class="t_label"><label for="PaymentMethodForm_parameter_cc_holder">Tên in trên thẻ</label></div>
+																<div class="t_input">
+																<input name="PaymentMethodForm[parameter][cc_holder]" class="input_field short_input " autocomplete="off" placeholder="Tên in trên thẻ" size="50" maxlength="50" id="PaymentMethodForm_parameter_cc_holder" type="text" value="">  </div>
+																<div class="t_validation">
+																</div>
+															</div>
+															
+															<div class="t_row payment_exp-row">
+																<div class="t_label">
+																<label>Ngày hết hạn</label>                                </div>
+																<div class="t_input">
+																	<input name="PaymentMethodForm[parameter][cc_exp_month]" class="input_field short_input " autocomplete="off" placeholder="Mm" size="2" maxlength="2" id="PaymentMethodForm_parameter_cc_exp_month" type="text" value="">                                    &nbsp;
+																<input name="PaymentMethodForm[parameter][cc_exp_year]" class="input_field short_input " autocomplete="off" placeholder="Yy" size="2" maxlength="2" id="PaymentMethodForm_parameter_cc_exp_year" type="text" value="">                                </div>
+																<div class="t_validation">
+																</div>
+															</div>
+															
+															<div class="t_row payment_cc_code-row">
+																<div class="t_label">
+																	<label for="PaymentMethodForm_parameter_cc_security_code">CCV / CVV</label>                                    <div class="hint_t_icon" id="cvv-what-is-this">
+																		<a href="#" class="hint_icon">?</a>
+																		
+																	</div>
+																</div>
+																<div class="t_input">
+																	<input name="PaymentMethodForm[parameter][cc_security_code]" class="input_field short_input_2 checkFraud" size="50" maxlength="30" id="PaymentMethodForm_parameter_cc_security_code" type="text" value="">
+																</div>
+																<div class="t_validation">
+																</div>
+															</div>
+															
+															<div class="clear"></div>
+															
+															<input type="hidden" name="PaymentMethodForm[parameter][is_cc_pasted]" id="isCCPasted" value="">
+															<div class="border_top_laza">
+																<p class="padding-top red_colortext ">Hiện tại Lazada chỉ xuất hóa đơn cho sản phẩm được bán và giao hàng bởi Lazada. </br>
+																Chúng tôi chưa hỗ trợ cho sản phẩm của đối tác bán hàng </p>
+																<div class="icontt"><a href="#">TIẾP TỤC &gt;&gt; </a></div>
+																<div class="cod_inform">
+																Bạn sẽ được thông báo về tình trạng đơn hàng qua email và tin nhắn.        </div>
+															</div>
+															
+														</div>
+														
+													</div>
+												</div>
+												<div role="tabpanel" class="tab-pane" id="messages">
+													<div class="margin_toptab">
+														<p class="cod_inform"><b>Để thực hiện việc thanh toán, bắt buộc thẻ ATM của bạn đã có đăng ký sử dụng dịch vụ Internet Bankin</b></p>
+														<div class="cod_inform">
+															Lazada hiện đã hỗ trợ thanh toán qua 25 ngân hàng tại Việt Nam. Thẻ ATM của bạn cần phải được đăng ký sử dụng Internet Banking để sử dụng tính năng này.<br>
+															<a href="#" target="_blank">Xem thêm thông tin</a> 
+														</div>
+														<div class=" red_colortext cod_inform ">Hiện tại Lazada chỉ xuất hóa đơn cho sản phẩm được bán và giao hàng bởi Lazada. <br>
+														Chúng tôi chưa hỗ trợ cho sản phẩm của đối tác bán hàng</div>
+														<div class="icontt "><a href="#">TIẾP TỤC &gt;&gt; </a></div>
+														
+														<div class="cod_inform">
+															Bạn sẽ được thông báo về tình trạng đơn hàng qua email và tin nhắn.
+														</div>
+													</div>
+												</div>
+												<div role="tabpanel" class="tab-pane" id="settings">
+													<div class="margin_toptab">
+														<p>  This method is applied for only 1 installment eligible product.</p>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										
+										
+									</div>
+								</div>
+								
+								
+								
+								
+							</div>
+						</form>
+					</div>
+					
+					<div class="col-md-4">
+						<div class="conter_right_f">
+							<div class="tittle-conter-right text_p">
+								<p><b>Giao hàng đến </b> <span class="right" style="float:right"> thay đổi</span></p>
+							</div>
+							<div class="order-detail">
+								<b> Minh </b>
+								<p style="font-size:12px;">Kho E4, Số 838 Đường Bạch Đằng, Phường Thanh Lương, Quận Hai Bà Trưng, Hà Nội</br>
+									Hà Nội - Quận Hoàn Kiếm</br>
+								Số điện thoại: 866762057665</p>
+								<table class="table" style="font-size:12px;"> 
+									<tbody>
+										<tr>
+											<th class="left_align">Địa chỉ thanh toán </th>
+											
+										</tr>
+										<tr class="first_item  no-border  ">
+											<td class="no-padding-bottom">
+												<div class="dulieu">hà Nội</div>
+											</td>
+											
+										</tr>
+										<tr class="first_item  no-border  ">
+											<td class="no-padding-bottom">
+												<div class="dulieu">Thanh xuân </div>
+											</td>
+											
+										</tr>
+										<tr class="first_item  no-border  ">
+											<td class="no-padding-bottom">
+												<div class="dulieu">Hải Phòng -Huyện cát bà</div>
+											</td>
+											
+										</tr> 
+										<tr class="first_item  no-border  ">
+											<td class="no-padding-bottom">
+												<div class="dulieu">Số điện thoại :0987699098</div>
+											</td>
+											
+										</tr>
+										<tr class="first_item  no-border  ">
+											<td class="no-padding-bottom">
+												<div class="dulieu">Mã số thuê</div>
+											</td>
+											
+										</tr>
+										<tr class="first_item  no-border  ">
+											<td class="no-padding-bottom">
+												<div class="dulieu">76888</div>
+											</td>
+											
+										</tr>
+										
+									</tbody>
+									
+								</table>
+							</div>
+							<div class="giasp">
+								<div class="tittle-conter-right text_p">
+								<p><b>Thông Tin Đơn hàng  </b></p>
+							</div>
+							<div class="order-detail">
+								<b>Bạn có 1 sản phẩm trong giỏ hàng.</b>
+								
+								<table class="table" style="font-size:12px;"> 
+									<tbody>
+										<tr>
+											<th class="left_align">Sản phẩm</th>
+											<th class="qty">Số lượng</th>
+											<th class="right_align">Giá</th>
+										</tr>
+										<tr class="first_item  no-border  ">
+											<td class="no-padding-bottom">
+												<div class="product">Máy ảnh KTS Sony Cyber-shot H DSC-H300 20.1MP và zoom quang 35x (Đen)</div>
+											</td>
+											<td class="qty no-padding-bottom">
+											<select>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+											</select>
+											
+											</td>
+											<td class="right_align no-padding-bottom sel-cart-item-total-SO993ELAEN3BVNAMZ-226627">
+											3.849.000                                                            </td>
+										</tr>
+										<tr>
+											<td  colspan="2" class="subtotal sel-subtotal">giao hàng tiêu chuẩn </br>
+											<span class="day-month">07 tháng 7 - 09 tháng 07 </span>
+												</td>
+											<td  class="right_align"><a href="#">Thay đổi<a></td>
+											</tr>
+											<tr>
+											
+											<td colspan="3" class="right_align">bạn có giảm giá <a href="#">OK</a></td>
+											</tr>
+										<tr>
+											<td  colspan="2" class="subtotal sel-subtotal">Tổng cộng</td>
+											<td  class="right_align">3.849.000 <span class="current">VND</span></td>
+										</tr>
+										<tr>
+											<td  colspan="2" class="subtotal giamgia">được giảm giá </td>
+											<td  class="right_align">-10.000 <span class="current" >VND</span></td>
+										</tr>
+										<tr>
+											<td  colspan="2" class="subtotal vanchuyen">phí vân chuyển</td>
+											<td  class="right_align">miễn phí </td>
+										</tr>
+										<tr class="total ">
+											<td colspan="2" class="total">
+												<b>Thành tiền </b></br>
+												<span class="vat-minicart">(Đã bao gồm VAT)</span>
+											</td>
+											<td  class="total right_align sel-total">
+											3.849.000 VND                    </td>
+										</tr>
+										
+										</tbody>
+									
+								</table>
+							</div>
+							
+							
+							
+							</div>
+							
+							
+							
+						</div>
+					</div>
+					
+				</div>
+				<div class="row border-top">
+					
+					<div class="col-md-6">
+						<p> Bạn cần hỗ trợ? Gọi Hotline <b>08 3942 1188 hoặc 04 7300 1188 </b></p>
+					</div>
+					<div class="col-md-6">
+						<ul class="footerul_li">
+							<li><a> FAQ</a></li>
+							<li><a>Chính Sách  Thanh Toán</a></li>
+							<li><a> Điều Khoản sử dụng</a></li>
+						</ul>
+						<p class="copy"> © Copyright 2013 - 2014, Lazada.vn</p>
+						</div>
+						</div>
+						
+					</div>
+					
+					
+				</div>
+				
+				
+				
+				
+			</body>
+		</html>			

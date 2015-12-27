@@ -1,0 +1,176 @@
+﻿<?php echo $this->doctype(); ?>
+<html lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="robots" content="index,follow">
+		<meta name="googlebot" content="index,follow">
+		<link rel="SHORTCUT ICON" href="/favicon.ico">
+		
+		
+		<script type="text/javascript" async src="/html/index/asset/js/combined.js"></script>
+		<script type="text/javascript" async src="/html/index/asset/js/layout.js"></script>
+		<link rel="stylesheet" href="/html/index/asset/css/cssfamilyoswald400700robotocondensed400700.css" type="text/css" >
+		<link rel="stylesheet" href="/html/index/asset/css/style.cssv2.css" type="text/css" media="screen" >
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald:400,700|Roboto+Condensed:400,700" type="text/css" >
+		
+		
+		<link rel='stylesheet' id='wp-pagenavi-style-css'  href='/html/index/asset/css/css3_light_blue_glossy.cssver1.css' type='text/css' media='all' />
+		
+		<link type="text/css" rel="stylesheet" href="/html/index/asset/css/mylivechat.css" />
+		<link type="text/css" rel="stylesheet" href="/html/index/asset/css/font-awesome.css" />
+		
+		 <?php echo $this->headTitle('Visa '. $this->translate('Creat visa'))->setSeparator(' - ')->setAutoEscape(false) ?>
+	
+		 <?php  echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <script type="text/javascript">
+        var doaminname = "<?php echo  WEBPATH;?>";
+        if (localStorage.doaminname) {
+        	 localStorage.setItem("doaminname","<?php echo  WEBPATH;?>");
+        } else {
+        	 localStorage.setItem("doaminname",doaminname);
+        }
+       
+        </script>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/icon.ico'))
+                       // ->prependStylesheet($this->basePath() . '/css/style.css')
+                       // ->prependStylesheet($this->basePath() . '/css/sidebar.css')
+                       // ->prependStylesheet($this->basePath() . '/css/carousel.css')
+                       // ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+                       // ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/site-new.css')
+          ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+           // ->prependFile($this->basePath() . '/js/respond-nav.js')
+            ->prependFile($this->basePath() . '/js/lgform.js')
+            //->prependFile($this->basePath() . '/js/slide.js')
+            ->prependFile($this->basePath() . '/js/popupsign.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.min.js')
+          //  ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+          //  ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+
+        ; ?>
+		<script type="text/javascript"> jQuery.noConflict(); </script>
+		<!-- comodo trusted -->
+		<script language="javascript">
+		</script>
+		<!-- Facebook Conversion Code for Landing visa Vietnam -->
+		
+		
+	</head>
+	
+	<body  class="home blog layout-2cr">
+		
+		<!-- facebook api -->
+		<div id="fb-root"></div>
+		
+		<!-- end facebook api -->
+		<div id="shield-layer"></div>
+		<div id="scroll-top" class="hidden-xs"> <span class="glyphicon glyphicon-chevron-up"></span></div>
+		<div class="header">
+			<div class="container">
+				<a id="logo" class="col-xs-12 col-sm-6" title="e-VisaVietnam | Vietnam visa on arrival service" href="#">e-VisaVietnam</a>
+				<div>
+					 <?php $getuser=$this->layout()->getuser;
+						if(isset($getuser->username)){ //var_dump($getuser);?>
+						<ul class="nav navbar-nav navbar-right" style="font-size: 12px;">
+							<li><a href="<?php echo  WEBPATH;?>/main/upload">Upload</a></li>
+							<li><a href="<?php echo  WEBPATH;?>/main/profile">Hello <?php echo $this->escapeHtml($getuser->username);?></a></li>
+							<li class="dropdown">
+								<div  class="dropdown-toggle " data-toggle="dropdown" ><img src="<?php echo WEBPATH.$getuser->avatar;?>" width="46" height="46" style="padding:2px;border-radius:50px;"/></div>
+								<ul class="dropdown-menu">
+									<?php if($getuser->group=="supperadmin"||$getuser->group=="admin"||$getuser->group=="adsmanager"){?>
+									<li class=""><a href="<?php echo  WEBPATH;?>/admin">Admin Pannel</a></li>
+									<?php }?>
+									<?php if($getuser->channel_code!=""){?>
+									<li class=""><a href="<?php echo  WEBPATH;?>/channels/<?php echo $this->escapeHtml($getuser->channel_code);?>">My Channel</a></li>
+									<?php }?>
+									<li><a href="#">Clip</a></li>
+									<li><a href="<?php echo  WEBPATH;?>/main/profile">Account</a></li>
+									<li class="divider"></li>
+									<li><a href="<?php echo  WEBPATH;?>/admin/logout">Logout</a></li>
+								</ul>
+							</li>
+						</ul>
+						
+							
+					   <?php }  else{?>
+				<ul class="nav navbar-nav navbar-right" style="font-size: 12px;">
+					<li><a data-toggle="modal" href="#myModal" class="sigin_pop" >Sign in</a></li>
+					<li><a  data-toggle="modal" href="#myModal" class="sigup_pop" >Sing up </a></li>
+				</ul>
+				<?php }?>
+				</div>
+				
+				<div id="clock" class="col-xs-12 col-sm-6">
+					<div class=" part">Current time in Vietnam: <span></span> (GMT +7)</div>
+					<div class="clearfix"></div>
+					<div class="fb-like part"  data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+					<div class="twitter part">
+						<a href="#" class="twitter-share-button" data-dnt="true" data-count="none" data-via="vietvisa">Tweet</a>
+						<script async type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container menu-locate">
+			<div class="mainmenu">
+				<ul id="menu-menu" class="col-lg-10">
+				  <li id="menu-item-847" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-847">
+				   <a href="/">
+ 				      <b class="f_ctt">Home</b>
+				   </a>
+				  </li>
+				<li id="menu-item-848" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-848">
+				  <a href="vietnam-visa-fees/"><b>Visa Fees</b></a></li>
+				  <li id="menu-item-1017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1017"><a href="visa-requirements/"><b>Visa Requirement</b></a></li>
+				  <li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="apply-vietnam-visa/"><b>Apply Vietnam Visa</b></a></li>
+				
+				<!-- 
+				<li id="menu-item-876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-876"><a href="rush-vietnam-visa/"><b>Urgent Visa</b></a></li>
+				<li id="menu-item-1020" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1020"><a href="vietnam-embassy-consulate/"><b>Find Embassy</b></a></li>
+				<li id="menu-item-2377" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2377"><a href="country/"><b>Vietnam Visa Tutorials</b></a></li>
+				 -->
+				<li id="menu-item-880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-880"><a href="contact-us/"><b>Contact Us</b></a></li>
+			</ul>	
+			<div class="toggle-menu glyphicon  hidden-lg disable-select"><span class="edit"><i class="fa fa-chevron-down"></i></span>
+			<ul></ul></div>
+		</div>
+	</div>
+	
+	
+	<div id="wpa-contentai" style="width:100%;min-height:469px;">
+	<?php echo $this->content; ?>
+	</div>
+	
+	
+	<!-- footer -->
+	<div class="footer">
+		<div class="flinks container">
+			
+			<div class="clr"></div>
+			<div class="hline"></div>
+			<div class="payment-method col-sm-12">
+				<div>
+					<div class="g2s"></div>
+					<div class="paypal2"></div>
+					<div class="truste"></div>
+					<div class="accredited"></div>
+					<div class="certification-authorities"></div>
+				</div>
+			</div>
+			<div class="clr"></div>
+			<div class="hline"></div>
+			<div class="copyright" style="position:relative">Copyright © 2015 - <a href="#" >Vietnam Visa</a> Immigration Service</div>
+			<div class="clr"></div>
+		</div>
+	</div>
+<script type="text/javascript" src="/html/index/asset/js/chatinline.aspx"></script></body>
+</html>

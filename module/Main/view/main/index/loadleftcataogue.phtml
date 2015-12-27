@@ -1,0 +1,96 @@
+
+<div class="vmagicmenu clearfix">
+    
+    <div class="block-title block-title-vmagicmenu">
+        <strong> <span class="fa fa-bars"></span> <span class="vmagicmenu-subtitle">FASHION CATEGORIES</span>
+        </strong>      
+    </div>
+    <ul class="vmagicmenu-narrow clearfix">
+          <?php
+          $catalog=$this->layout ()->allcat;
+          $i=0;
+          foreach ($catalog as $key=>$value) {   
+              if($i==0) $thefirt = 'first';  
+              if ($value->parent == 0 || $value->parent == NULL){
+                  $id_parent=$value->id;
+           ?>
+        
+        <li class="level0 cat <?php echo $thefirt;?>" data-options="{"menu_id":"<?php echo $value->id;?>","cat_columns":"3","cat_proportions":null,"right_proportions":null,"left_proportions":null}">
+        <a class="level-top" href="<?php echo WEBPATH.'/'.$value->alias; ?>.html">
+           <span> <?php  echo $value->name;?> </span>
+       </a>
+            <?php
+             $submenu=$this->layout()->data_parent;            
+             if($submenu[$id_parent] != null){
+            ?>
+            <div class="level-top-mega" style="margin-left: 261px;">
+                <div class="content-mega">
+                    <div class="content-mega-horizontal catCol2" style="width: 770px;">
+                        <ul class="mage-column cat-mega col2" style="width: 420px;">
+                            <?php                          
+                                   foreach ($submenu[$id_parent] as $key1=>$value1){
+                            ?>
+                            <li class="children level-2" style="clear: both;">
+                                <a href="<?php echo WEBPATH.'/'.$value1->alias; ?>.html">
+                                    <?php
+                                    echo $value1->name; 
+                                    if($value1->new == 1){
+                                        echo '<span class="cat_label New">New</span>';
+                                    }elseif ($value1->hot == 1) {
+                                        echo '<span class="cat_label Hot">Hot !</span>';
+                                     }
+                                    ?>
+                                   
+                                  </a>
+                                <ul> 
+                                    <?php
+                                    $id_submenu=$value1->id;
+                                    foreach ($submenu[$id_submenu] as $key2=>$value2){
+                                        ?>
+                                    <li class="nav">
+                                        <a href="<?php echo WEBPATH.'/'.$value2->alias; ?>.html">
+                                        <?php echo $value2->name; ?>
+                                        </a>
+                                    </li>
+                                    <?php }?>
+                                </ul>
+                            </li>
+                                   <?php } ?>
+                           
+                        </ul>
+                         <?php if ($value->img !=null){?>
+                        <div class="mage-column mega-block-right">
+                            <div class="block-custom block-custom-right">                               
+                                <img class="img-responsive img-cat" src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'thumb_catalog/'.$value->img?>" alt="">
+                                
+                                <div class="text-banner-menu text-banner-menu-right">
+                                    <h2>JEANS</h2>
+                                    <span class="border-bottom">&nbsp;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+             <?php } //END IF?>
+        </li>
+        
+        
+        <!--<li class="level0 cat  noChild"><a class="level-top" href="<?php echo WEBPATH; ?>/denim.html"><span>Denim
+                </span></a></li>
+        <li class="level0 cat  noChild"><a class="level-top" href="<?php echo WEBPATH; ?>/luxury-shoes.html"><span>Luxury-->
+        <?php
+        
+              }
+              $i++; 
+          }
+        ?>
+    </ul>
+</div>
+
+<style>
+    .img-cat{
+        width: 100%;
+    }
+</style>

@@ -1,0 +1,86 @@
+﻿<?php $catalog=$this->layout()->catalog;
+		$allcat=$this->layout()->allcat;
+		$err=$this->layout()->err;
+?>
+<?php if(!$err) {echo "Bạn không dủ quyền truy cập";}else{?>
+<button class="btn btn-primary"><a href="http://clipmediagroup.eu/catalog"style="text-decoration:none;color:#fff;">Add Catalog</a></button>
+<table class="table table-bordered" id="table-dstaikhoan">
+<tr>
+<th style="width:250px;">ID</th>
+<th>Name</th>
+<th>Parent</th>
+<th>Child</th>
+<th>Edit</th>
+<th>Delete</th>
+
+
+</tr>
+<?php foreach($catalog as $key=>$val): if($key==1)continue;?>
+
+<tr>
+<td><?php echo $this->escapeHtml($key);?></td>
+<td><?php echo $this->escapeHtml($val);?></td>
+<td><?php echo $this->escapeHtml($allcat[$key]->parent);?></td>
+<td><?php echo $this->escapeHtml($allcat[$key]->child);?></td>
+<td><button class="btn btn-primary">Edit</button></td>
+<td><button class="delete-cat" style="float:right;" data-toggle="modal" data-target="#Modal-delete" value="<?php echo $this->escapeHtml($key);?>">Delete</button></td>
+
+</tr>
+
+<?php endforeach;?>
+</table>
+		<div class="modal fade " id="Modal-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-small">
+			<div class="modal-content">
+			  <div class="modal-header ">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="alert alert-danger" id="myModalLabel" style="margin-right: 15px; margin-left:15px;">Bạn Muốn xóa catalog này?</h4>
+			  </div>
+			  <div class="modal-body ">
+				<form id="cat-delete">
+					 <div style="width:200px;margin:0 auto;">				
+						 <input class="cat-id" type="hidden" name="id" value="" />												
+						 <button type="button-check" class="check-delete button-check btn btn-primary" style="margin-right:15px;">Đồng ý</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left:15px;">Hủy</button>
+					 </div>
+				</form>
+				<div class="result-delete"></div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+<script>
+$('button.delete-cat').click(function(){
+	$('form#cat-delete>div>input.cat-id').val($(this).val());
+});
+$('form#cat-delete>div>button.check-delete').click(function(){
+var id=$('form#cat-delete>div>input.cat-id').val();
+//var code=$('form#cat-delete>div>input.playlist-code').val();
+
+
+$.ajax({
+		type: "POST",
+		url: "http://clipmediagroup.eu/catalog/delete",
+		
+		data: {cat:id},
+		beforeSend : function(){
+			console.log("testing");
+			$('.choose-content').html('<img src="http://clipmediagroup.eu/img/loading.gif">');
+		},
+		success: function(data){
+			if(!data){                                
+				$('.result-delete').html('<div class="alert alert-danger">Đã có lỗi xảy ra</div> ');
+
+			}else 
+			{
+				console.log(data);
+				$('.result-delete').html('<div class="alert alert-success">'+data+'</div> ');
+				//location.reload();
+			}
+		}
+	});
+	return false;
+
+});
+</script>
+<?php }?>

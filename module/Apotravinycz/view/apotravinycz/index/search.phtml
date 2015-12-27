@@ -1,0 +1,308 @@
+<?php
+
+use Zend\Session\Container;
+
+$container = new Container('shopcart');
+$arraycart = $container->cart;
+?>
+<section>
+    <div class="wapper">
+        <div class="breadcrumb hidden-xs ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2 col-xs-12 rohlik">
+                        <h4><a href="#"> <i class="fa fa-angle-left"></i> </a> Zpět na úvod</h4>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <ul class="lastul">
+                            <li> <a href="<?php echo WEBPATH . '/apotraviny/index'; ?>"> Rohlik.cz</a></li>
+                            <li> > </li>
+                            <li> <a href="<?php echo WEBPATH . '/apotraviny/index/viewproductcat/' . $data_cat['id'] ?>" > <?php echo $data_cat['name'] ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-2 zadge">
+                        <a href="#"><img src="<?php echo ROHLIK_APOTRAVINY ?>/img/badge.png" alt="" > Získej až 2000 Kč</a>
+                    </div> 
+                    <div class="col-md-3 col-sm-3 fixhead">
+                        <p>  
+                            <i class="fa fa-cart-plus"> </i> </span>Košík <span class='count-cart'><?php echo count($arraycart); ?></span>
+                            <a href="<?php echo WEBPATH . '/shoppingcart/viewcart' ?>">
+                                <button class="btn btn-xs btn-viewcart">Objednat</button>
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="row scrolltotop">
+                    <div class="col-md-2 col-xs-12 col-sm-2 borderfull">
+                        <strong> Podkategorie</strong>
+                        <ul class="menudetail"> 
+                            <?php
+                            foreach ($cat_left as $key => $value) {
+                                if ($value['hot'] == 1) {
+                                    ?>
+                                    <li> <a href="<?php echo WEBPATH . '/apotraviny/index/viewproductcat/' . $value['id'] ?>"> <?php echo $value['name'] ?></a></li>
+
+                                <?php }
+                            }
+                            ?>
+                        </ul>
+                        <strong>Značky</strong>
+
+                        <ul class="ul_checkbox">
+                            <li>
+                                <label>
+                                    <input type="checkbox" checked="">
+
+                                    <span class="like-checkbox"></span> Delta
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" >
+
+                                    <span class="like-checkbox"></span> Farma Pěnčín
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" >
+
+                                    <span class="like-checkbox"></span> Hradecka pekarna
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" >
+
+                                    <span class="like-checkbox"></span> Ježkův statek
+                                </label>
+                            </li>
+                            <li class="hiddenBrandFilters">
+                                <label>
+                                    <input type="checkbox" >
+
+                                    <span class="like-checkbox"></span> Knedlíky Láznička
+                                </label>
+                            </li>
+                            <li class="hiddenBrandFilters">
+                                <label>
+                                    <input type="checkbox" >
+
+                                    <span class="like-checkbox"></span> Mlékárna Kunín
+                                </label>
+                            </li>
+                            <li class="hiddenBrandFilters">
+                                <label>
+                                    <input type="checkbox" >
+
+                                    <span class="like-checkbox"></span> Penam
+                                </label>
+                            </li>
+                            <li class="hiddenBrandFilters">
+                                <label>
+                                    <input type="checkbox">
+
+                                    <span class="like-checkbox"></span> Rehberg
+                                </label>
+                            </li>
+                            <li class="more">
+                                <a href="#" class="toggle" >Rozbalit seznam</a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                    <div class="col-md-10 col-xs-12 col-sm-10 contactten ">
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 detailborder-bottom">
+                                <h1>Výsledky hledání</h1>	
+                                <div class="lastMinuteMessage">
+                                </div>	
+                                
+                            </div>
+                        </div>
+                        <div class="row detailborder-bottom ">
+                            
+                            <?php
+                            if($data_search ==null){
+                                echo '<center><h2>Nebyly nalezeny žádné výsledky</h2></center>';
+                            }
+                            foreach ($data_search as $key=>$value){?>
+                            <div class="col-md-3 col-sm-3 col-xs-12 col-box">
+                                    <div class="imgslider">
+                                        <span><i class="fa fa-heart"></i></span>
+                                        <!-- <div class="oldprice"> -33 %</div>-->
+                                        <img onclick="productdetail(<?php echo $value['id']?>)" src="<?php  echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value['img'] ?>" class="img-responsive" alt="">
+                                       <!-- <p class="">Datum spotřeby 2.6.2015</p>-->
+
+                                    </div>
+                                    <div class="mota">
+                                        <p class="detailclick" onclick="productdetail(<?php echo $value['id']?>)" style="height: 60px;">
+                                            <a href="#"><?php echo $value['name']?> </a>
+                                            <input type="hidden" value="<?php echo $value['id']?>" id="id_pro1">
+                                        </p>
+                                       <!-- <p>	<strong>98&nbsp;Kč</strong>
+                                            <del>17&nbsp;Kč</del>-->
+                                        <p class="adddetail">
+                                        </p><form action="<?php echo WEBPATH ?>/shoppingcart/addcart" method="post">
+                                            <i class="fa fa-minus-circle" onclick="minuscart(<?php echo $value['id']?>)"></i>
+                                            <input style="width:25px;" type="text" name="qty" value="1" id="qty<?php echo $value['id']?>" class="">
+                                             <input type="hidden" name="id-product" value="<?php echo $value['id']?>" class="">    
+                                            <i class="fa fa-plus-circle" onclick="pluscart(<?php echo $value['id']?>)"></i>
+                                            <button class="btn btn-success">Do košíku </button>
+                                        </form>    
+                                        <p></p>
+                                        <span>(<?php echo $value['price']?> &nbsp;Kč/kg)</span><p></p>
+
+                                    </div>
+
+                                </div>
+                            <?php }?>
+                        </div>	
+                        <div style="clear:both"></div>
+                       
+                    </div>
+                    <div id="backtop" class="hidden-xs scrolltop">
+                        <a href="#top" class="scrollToTop bottom" style="display: inline;"><img src="<?php echo ROHLIK_APOTRAVINY ?>/img/icon_gototop.png" alt=""/> </a>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('.row-product').scrollPagination({
+                                nop: 8,
+                                offset: 0,
+                                error: 'No More Posts!',
+                                delay: 1000,
+                                scroll: true
+
+                            });
+                            // hide #back-top first
+                            $('#backtop').hide();
+
+                            // fade in #back-top
+                            $(function () {
+                                $(window).scroll(function () {
+                                    if ($(this).scrollTop() > 100) {
+                                        $('#backtop').fadeIn();
+                                    } else {
+                                        $('#backtop').fadeOut();
+                                    }
+                                });
+
+                                // scroll body to 0px on click
+                                $('#backtop a').click(function () {
+                                    $('body,html').animate({
+                                        scrollTop: 0
+                                    }, 800);
+                                    return false;
+                                });
+                            });
+
+                        });
+                    </script>
+
+                </div>
+            </div>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <section class="contact">
+                                <ul>
+                                    <li class="phone"><strong><span>840&nbsp;730&nbsp;740</span></strong> <span>Každý den&nbsp;od&nbsp;10&nbsp;do&nbsp;23&nbsp;hodin<span></span></span></li>
+                                    <li class="mail"><a href="mailto:zakaznici@rohlik.cz">zakaznici@rohlik.cz</a> <span>Na e-mail se snažíme odpovídat okamžitě</span></li>
+                                </ul>
+                            </section>
+
+                        </div>
+                        <div class="col-md-5 col-xs-12 col-sm-5">
+                            <div class="row">
+                                <div class="col-md-7 col-sm-8 col-xs-12">
+                                    <section class="custommers">
+                                        <h5>Pro zákazníky</h5>
+                                        <ul>
+                                            <li><a title="Rohlik.cz Premium" href="#">Rohlik.cz Premium</a></li>
+                                            <li><a title="Mobilní aplikace" href="#">Mobilní aplikace</a></li>
+                                            <li><a title="Garance spokojenosti" href="#">Garance spokojenosti</a></li>
+                                            <li><a title="Doprava a mapa dovozu" href="#">Doprava a mapa dovozu</a></li>
+                                            <li><a title="Doprava na první objednávku zdarma" href="#">Doprava na první objednávku zdarma</a></li>
+                                            <li><a title="Nakoupíme za Vás" href="#">Nakoupíme za Vás</a></li>
+                                        </ul>
+                                    </section>
+
+                                </div>
+                                <div class="col-md-5 col-sm-4col-xs-12">
+                                    <section class="about">
+                                        <h5>O nás</h5>
+                                        <ul>
+                                            <li><a title="Kontakt" href="#">Kontakt</a></li>
+                                            <li><a title="Podmínky užití" href="#">Podmínky užití</a></li>
+                                            <li><a title="Volná místa" href="#">Volná místa</a></li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                            <p>Alkohol a cigarety prodáváme pouze osobám starším 18 let. Při převzetí zboží bude ověřen váš věk.</p>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12 ">
+                            <section class="like">
+                                <img src="img/logofooter.png" class="img-responsive" alt="">
+                                <div class="fb-like" data-href="http://s11.bestmediainvestgroup.eu/home.ads" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                                <div class="box">
+                                    <img src="img/user.jpg" alt="" class="img-responsive" />
+                                </div>
+                                <div class="fss fwn fcg"><a class="uiLinkSubtle" target="_blank" href="https://www.facebook.com/help/?page=209089222464503">Plugin pro sociální síť Facebook</a></div>
+                            </section> 
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </footer>
+
+
+
+
+
+
+
+        </div>
+</section>
+<!--end contact-->
+
+
+
+<div id="sp" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body product-detail">
+
+
+                <!--CONTENT AJAX -->
+
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->			
+</div>
+
+<style>
+    .adddetail i{
+        font-size: 16px !important;
+        cursor: pointer;
+    }
+    .img-detail{
+
+        width:100%;
+    }
+
+</style>

@@ -1,0 +1,24 @@
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url('News', array('controller' => 'news', 'action' => 'edit-news', 'id' => $news_id)));
+echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('news_name')); ?></label>
+    <div><?php echo $this->formElement($form->get('news_name')); ?></div>
+    <?php echo $this->formElementErrors($form->get('news_name')); ?>
+</div>
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('news_thumbnail')); ?></label>
+    <div><img src="/uploads/<?php echo $image; ?>" style="width: 150px; height: 150px"> <?php echo $this->formElement($form->get('news_thumbnail')); ?></div>
+    <?php echo $this->formElementErrors($form->get('news_thumbnail')); ?>
+</div>
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('news_content')); ?></label>
+    <div><?php echo $this->formElement($form->get('news_content')); ?></div>
+    <?php echo $this->formElementErrors($form->get('news_content')); ?>
+</div>
+<?php echo $this->formElement($form->get('security')); ?>
+<?php echo $this->formElement($form->get('submit')); ?>
+<?php echo $this->form()->closeTag() ?>

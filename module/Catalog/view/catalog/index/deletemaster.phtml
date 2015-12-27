@@ -1,0 +1,117 @@
+<section id="content">
+
+    <!--breadcrumbs start-->
+    <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h5 class="breadcrumbs-title">Mana catalogue</h5>
+                    <ol class="breadcrumb">
+                        <li><a href="<?php echo WEBPATH; ?>/materialize/">Dashboard</a></li>
+                        <li><a href="<?php echo WEBPATH; ?>/catalog/manacatalo">Catalogue</a></li>
+                        <li class="active">Manager</li>
+                    </ol>
+                </div>
+                <div class="col s12 m6 l6 btn-manage">
+                    <a href="<?php echo WEBPATH; ?>/catalog/manacatalo" class="waves-effect waves-light  btn">Manager catalogue</a>
+                    <a href="<?php echo WEBPATH; ?>/catalog/addmaster" class="waves-effect waves-light  btn">Add New catalogue</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs end-->
+
+
+    <!--start container-->
+    <div class="container">
+        <div class="section">        
+            <div class="alert alert-success" role="alert">
+                <?php if (!isset($check)) { ?>
+                    <p>Are you sure that you want to delete Catalogue Name is : <span style="font-style: bold;">'<?php echo $this->escapeHtml($this->catalogue->name); ?>' </span>?
+                    </p>
+                    <h5>Note: If you delete this list, it will affect the list containing it. Or do you think more carefully before deleting</h5>
+                    <?php $url = $this->url('Catalog', array('action' => 'deletemaster', 'id' => $this->id)); ?>
+                    <form action="<?php echo $url; ?>" method="post">
+                        <div>
+                            <input type="hidden" name="id" value="<?php echo (int) $this->catalogue->id; ?>" />
+                            <input type="submit" name="del" value="Yes" class="btn btn-primary" />
+                            <a href="javascript:void(0)" onclick="history.go(-1)" class="btn btn-primary" > No </a>
+                        </div>
+                    </form>
+                </div><!-- end form delete -->
+            <?php } // if (!isset ( $check ) ?>
+            <?php
+            if (isset($check) && $check == 1) {
+                echo '<div class="alert alert-success" role="alert">Catalog has been Delete success.</div>';
+            }
+            ?>
+            <?php
+            if (isset($check) && $check == 0) {
+                echo '<div class="alert alert-danger" role="alert">Error Delete!!.</div>';
+            }
+            ?>
+
+        </div>
+        <div class="divider"></div>
+
+    </div>
+</div>
+
+<!-- Form with icon prefixes -->
+
+</div>
+
+
+
+
+
+
+</div>
+</section>
+
+
+<script type="text/javascript">
+    function get_alias() {
+        var str = (document.getElementById("name").value);
+        str = str.toLowerCase();
+        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+        str = str.replace(/đ/g, "d");
+        str = str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g, "-");
+        str = str.replace(/-+-/g, "-"); //thay thế 2- thành 1-
+        str = str.replace(/^\-+|\-+$/g, "");//cắt bỏ ký tự - ở đầu và cuối chuỗi
+        document.getElementById("alias").value = str;
+        return str;
+    }
+</script>
+
+<script type="text/javascript">
+    var domainnew = '<?php echo WEBPATH; ?>';
+    var glob = 2;
+    jQuery(document).ready(function () {
+        e = location.pathname;
+        $.ajax({
+            type: "POST",
+            url: domainnew + "/main/myproduct",
+            data: {idcode: e, page: glob},
+            success: function (data) {
+                //alert(data);console.log( $('.leftcatalogue').html(data));
+                $('#myproductaja').html(data);
+                glob++;
+            }
+        });
+    });
+</script>
+<style>
+    .alert-error{
+        font-size: 14px;
+        background: #B995A9;
+        line-height: 60px;
+        padding-left: 20px;
+    }
+
+</style>

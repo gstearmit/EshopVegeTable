@@ -1,0 +1,109 @@
+<div class="container">
+<div id="form-contact-us" class="form-horizontal">
+    <?php 
+    if(!empty($setting)) 
+    {
+		foreach ($setting as $value)
+		{
+			$phone= $value->phone;
+			$Email = $value->email;
+			$web = $value->linkweb;
+			$yahoo = $value->yahoo;
+			$skype = $value->skype;
+			$fax = $value->fax;
+			$address = $value->address;
+			$title= $value->title;
+		}		
+		?>
+	<div id="support" class="col-sm-4 zone-group-2">
+		<div class="zone-title"><?php echo $title;?></div>
+		<div class="zone-content">
+		
+			<ul>
+				<li><span class="glyphicon glyphicon-road"></span> Address</li>
+				<li><?php echo $address;?></li>
+				<li><span class="glyphicon glyphicon-phone"></span> Phone</li>
+				<li><?php echo  $phone;?></li>
+				<li><span class="glyphicon glyphicon-print"></span> Fax</li>
+				<li><?php echo  $fax;?></li>
+				<li>Yahoo!</li>
+				<li>
+										<div style="padding-left:30px;text-align: center;display: inline-block;">
+						<a id="yahoo-contact" href="#"><?php echo $yahoo;?></a>
+						<img border="0" src="<?php echo WEBPATH_REAL;?>/img/offline14.gif" style="position:relative">
+					</div>
+				</li>
+				<li>Skype</li>
+				<li>
+					<ul id="SkypeButton_Call_vntic1_1">
+						<li><a href="skype:<?php echo $skype;?>?call">Call</a></li>
+						<li><a href="skype:<?php echo $skype;?>?chat">Chat</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<?php } // setting ?>
+	<div id="contact-us" class="col-sm-8">
+		<div class="notice" style="margin-top:0">
+			<p>We welcome any request, comment or feedback from you.</p>
+			<p>Please fill in this form then send us your message. With this form, you could send us your request for Vietnam visa, comment on our service or feedback on our service or you can mail to <a href="<?php echo WEBPATH?>/contact-us"><span id="email"></span></a></p>
+		</div>
+		 <?php if(!$check){?>
+							<form class="form-horizontal" method="post" action="<?php echo WEBPATH;?>/contact-us">
+							<h2>Contact us</h2>
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-3 control-label">Catalogue Contact</label>
+								<div class="col-sm-9">
+								<select class="form-control" id="subject_contact" name="subject_contact">
+								<option>Please select one ..</option>
+								<option value="english">english</option>
+								<option value="viet nam">viet nam</option>
+								<option value="Subject Payment methods">Subject Payment methods</option>	
+								</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-3 control-label">Title</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="name" name="name" placeholder="title">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+								<div class="col-sm-9">
+									<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-3 control-label">Phone</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="phone" name="phone" placeholder="">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-3 control-label"> Your massege</label>
+								<div class="col-sm-9 ">
+									<textarea id="content" name="content" class="tarea" rows="12" style="margin: 0px; width: 571px; height: 269px;"></textarea>
+								</div>
+							</div>
+							<div class="col-sm-9 col-sm-offset-3">
+								<button class="btn btn-info ">Send massege</button>
+							</div>
+						</form>
+			<?php }else if($check == 10) {?>
+						   <div class="form-group">
+								<h2 style="  font-size: 14px; font-weight: 700; text-align: center; color: red;">Sorry  Error! Please contact try again!</h2>
+							</div>
+						<?php }else {?>
+						   <div class="form-group">
+								<h1 style="  font-size: 14px; font-weight: 700; text-align: center; color: red;">Contact send Success !</h1>
+							</div>
+						<?php }?>								
+		
+		
+	</div>
+</div>
+</div>

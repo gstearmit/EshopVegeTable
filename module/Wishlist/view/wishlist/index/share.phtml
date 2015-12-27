@@ -1,0 +1,94 @@
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div
+					class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+					<div id="leftcatalogue"></div>
+					<!-- leftcatalogue -->
+
+					<div id="myacountaja"></div>
+					<!-- myacountaja -->
+
+					<div id="mycartaja"></div>
+
+
+					<div id="compareproductaja"></div>
+					<!-- compareproductaja -->
+					<div id="populartags"></div>
+					<!-- populartags -->
+
+					<div id="containernone"></div>
+					<!-- container-none -->
+
+					<p></p>
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="my-account">
+						<div class="page-title">
+							<h1>Share Your Wishlist</h1>
+						</div>
+						<form action="<?php echo WEBPATH; ?>/wishlist/index/send"
+							id="form-validate" method="post">
+							<div class="fieldset">
+								<input name="form_key" type="hidden" value="Z9IuKHJORkq6jWdh">
+								<h2 class="legend">Sharing Information</h2>
+								<ul class="form-list">
+									<li class="wide"><label for="email_address" class="required"><em>*</em>Email
+											addresses, separated by commas</label>
+										<div class="input-box">
+											<textarea name="emails" cols="60" rows="5" id="email_address"
+												class="validate-emails required-entry"></textarea>
+										</div></li>
+									<li class="wide"><label for="message">Message</label>
+										<div class="input-box">
+											<textarea id="message" name="message" cols="60" rows="5"></textarea>
+										</div></li>
+								</ul>
+							</div>
+							<div class="buttons-set form-buttons">
+								<p class="required">* Required Fields</p>
+								<p class="back-link">
+									<a
+										href="<?php echo WEBPATH?>/wishlist"><small>«
+									</small>Back</a>
+								</p>
+								<button type="submit" title="Share Wishlist" class="button">
+									<span><span>Share Wishlist</span></span>
+								</button>
+							</div>
+						</form>
+						<script type="text/javascript">
+//<![CDATA[
+Validation.addAllThese([
+    ['validate-emails', 'Please enter a valid email addresses, separated by commas. For example johndoe@domain.com, johnsmith@domain.com.', function (v) {
+    if(Validation.get('IsEmpty').test(v)) {
+        return true;
+    }
+
+    var valid_regexp = /^[a-z0-9\._-]{1,30}@([a-z0-9_-]{1,30}\.){1,5}[a-z]{2,4}$/i;
+    var emails = v.split(',');
+
+    for (var i=0; i<emails.length; i++) {
+        if(!valid_regexp.test(emails[i].strip())) {
+            return false;
+        }
+    }
+
+    return true;
+    }]
+]);
+var dataForm = new VarienForm('form-validate', true);
+//]]>
+</script>
+					</div>
+				</div>
+				<!-- end chi tiet -->
+			</div>
+		</div>
+	</div>
+</div>

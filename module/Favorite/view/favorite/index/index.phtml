@@ -1,0 +1,142 @@
+<?php
+use Zend\Session\Container;
+$session_user = new Container('userlogin');
+$id_Us = $session_user->idus;
+?>
+<div class="container-fluid thanh-cuoi-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 nopading-360">
+                <div class="col-sm-2 box-tatca-danhmuc "><a href="#menu">TẤT CẢ DANH MỤC <i class="fa fa-arrow-circle-down"></i></a></div>
+                <div class="col-sm-10 box-tieude-danhmuc"> 
+                    <ul class="ul_camera">
+                        <li><a href="#"><?php echo $catalog_detail['name'];?></a></li>  
+
+                        <li><span> <?php echo $data_detail['name']?></span></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<article>
+    <div class="container-fluid toi-trongsuot">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 row-content-top">
+                    <div class="col-sm-2 menudoc-conten-left">
+                        <ul id="tab-menu" class="menu-new">
+                            <?php
+                        foreach ($data_m as $keycat => $valuecat) {
+                            ?>
+                            <li class="menu-cat" ><a class="<?php
+                                if ($keycat == 0) {
+                                    echo 'active-tab';
+                                }
+                                ?>" rel='#category-box<?php echo $valuecat['id'] ?>' href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$valuecat['id']?>">  <?php echo $valuecat['name'] ?></a>
+                                <?php
+                                if($sub_menu[$valuecat['id']] !=null){
+                                ?>
+                                <ul class="sb-menu">
+                                    <?php foreach ($sub_menu[$valuecat['id']] as $key_sub=>$value_sub){?>
+                                    <li><a href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$value_sub['id']?>"><?php echo $value_sub['name'];?></a></li>
+                                    <?php } ?>
+                                </ul>
+                                <?php } ?>
+                            </li>
+                                <?php } ?>
+                        </ul>
+                    </div>
+                     
+                    <div class="col-sm-2  menu-right-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!--accound-->
+        <div class="row margin-top">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="box-sm10">
+                    <h3>Danh sách yêu thích</h3>
+
+                    <div class=" row ">
+
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <?php
+                            if($list_product == null){
+                                echo '<center><h4>Không có sản phẩm nào trong danh sách yêu thích của bạn</h4></center>';
+                            }else{
+                            ?>
+                            <table class="list-wishtlist">
+                                <thead>
+                                <th> Hình ảnh</th>
+                                <th> Tên Sản phẩm</th>
+                                <th>Ngày thêm</th>
+                                <th>Giá</th>
+                                <th></th>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    //print_r($paginator);
+                                    foreach ($list_product as $key=>$value){                                        
+                                        
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value['img']; ?>" width="70" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" />
+                                        </td>
+                                        <td><?php echo $value['name'] ?></br>
+                                            <a href="javascript:void(0);" onclick="deleitemswish(<?php echo $value['product_ID'] ?>,0)"><i class="fa fa-times-circle"></i> Xóa khỏi danh sách</a>
+                                        </td>
+                                        <td><?php echo date('d-m-Y', strtotime($value['date_created']))?></td>
+                                        <td><?php echo $value['price'] ?></td>
+                                        <td>
+                                            <input type="hidden" id="number-pro<?php echo $value['product_ID'];?>" value="<?php echo $value['availability']?>"/>
+                                            <input type="hidden" value="1" id="getqty<?php echo $value['product_ID'] ?>" />
+                                            <button onclick="addcart(<?php echo $value['product_ID'] ?>)">Mua ngay</button>
+                                        </td>
+                                       
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                            <?php } ?>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+</article>
+<div id="md-wsl" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Xóa sản phẩm khỏi danh sách yêu thích</h4>
+      </div>
+      <div class="modal-body">
+        <p>Bạn muốn xóa sản phẩm này ra khỏi danh sách yêu thích?</p>
+      </div>
+      <div class="modal-footer">
+          <span id="md-bt"></span>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

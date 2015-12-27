@@ -1,0 +1,306 @@
+<section id="content">
+
+	<!--breadcrumbs start-->
+	<div id="breadcrumbs-wrapper" class=" grey lighten-3">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<h5 class="breadcrumbs-title">Mana Declaration site</h5>
+					<ol class="breadcrumb">
+						<li><a href="<?php echo WEBPATH;?>/materialize/">Dashboard</a></li>
+						<li><a href="<?php echo WEBPATH;?>/catalog/manacatalo">Edit Structure Declaration</a></li>
+						<li class="active">Declaration</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--breadcrumbs end-->
+
+
+	<!--start container-->
+	<div class="container">
+		<div class="section">
+		
+			<div id="hoverable-table">
+			            <h5 class="header">Edit Structure Declaration</h5>
+			            <div class="col s12 m8 l9">
+			               <div id="float-button" style="float:left;">
+			                      <a href="javascript:void(0)" onclick="history.go(-1)" class="btn waves-effect waves-light indigo"><i class="mdi-action-3d-rotation left"></i>Back</a>
+			                      <a href="<?php echo WEBPATH?>/crowler/index/index" class=" waves-light light-green darken-4 btn"><i class="mdi-action-backup right"></i>List Product took</a>
+			                      <a href="<?php echo WEBPATH?>/crowler/crowler/index" class="btn waves-effect waves-light indigo"><i class="mdi-action-backup right"></i>Get automated news</a>
+			              </div> 
+			              <div id="float-button" style="float:right;">
+			                      <a href="<?php echo WEBPATH?>/crowler/crowler/adddeclaration" title="Add new declaration" data-position="bottom" data-delay="50" data-tooltip="Add new declaration" class="tooltipped btn-floating btn-flat waves-effect waves-light pink accent-2 white-text"><i class="mdi-action-note-add"></i></a>
+			                      <!-- <a href="#" title="Delete Crowler" class="btn-floating waves-effect waves-light red"><i class="mdi-content-clear"></i></a> -->
+			              </div>         
+			            </div>
+			             
+			 </div>
+            <div class="row" style="margin: 10px;"></div>
+          
+            
+            <?php
+             $check_save = $this->check_save;
+             if(isset($check_save) and $check_save !=0) {  ?>
+             
+             <div class="alert alert-success">
+			  <strong>Success!</strong> Edit Structure declarationsite.
+			  <a href="<?php echo WEBPATH;?>/crowler/crowler/declarationsite" class="btn-flat waves-effect pink accent-2 white-text"><i class="mdi-communication-comment left"></i>Mana declarationsite</a>
+			</div>
+               <?php   }  ?>
+               
+               <?php 
+               if(isset($check_save) and $check_save ==0) {  ?>
+                     <div class="alert alert-danger">
+			  <strong>Danger!</strong> Error Add declarationsite.
+			   <a href="<?php echo WEBPATH;?>/crowler/crowler/declarationsite" class="btn-flat waves-effect pink accent-2 white-text"><i class="mdi-communication-comment left"></i>Mana declarationsite</a>
+			
+			</div>       
+                            
+                              <?php   }  ?>
+                              
+            <?php  if(!isset($check_save)) {
+            	$get_deca = $this->data_deca; 
+            	?>
+            
+         <!-- chi tiet -->
+            <div class="col s12 m12 l12">
+                  <div class="card-panel">
+                    <?php 
+                    $NameData = $this->NameData;
+					    
+                    ?>
+                    <div class="row">
+                      <form action="<?php echo WEBPATH?>/crowler/crowler/filedstructure/<?php echo $get_deca->id;?>" method="post" class="col s12">
+                        <div class="row">
+                          <div class="input-field col s12">
+                           
+                            <label for="name" class="active">Name(*)</label>
+                            <select class="browser-default" name="name_id" id="name_id">
+			                    <option value="" disabled="" selected="">Crowler Rohlik</option>
+			                    <?php foreach ($NameData as $keyname=>$name) { 
+			                    	if($keyname==$get_deca->name_id) { $text = 'selected="selected"'; }else $text='null';
+			                      ?>
+			                    <option <?php echo $text;?> value="<?php echo $keyname;?>"><?php echo $name;?></option>
+			                    <?php }?>
+			                  </select>
+                          </div>
+                          <div class="input-field col s12"> 
+                             <a href="#modal1" title="Add New Name declaration" data-addnewname="<?php echo WEBPATH?>/crowler/crowler/addnewname" data-position="left" data-delay="50" data-tooltip="Add New Name declaration" class="modal-trigger tooltipped btn-floating btn-flat waves-effect waves-light pink accent-2 white-text"><i class="mdi-action-note-add"></i></a>
+			              </div>
+			              <p></p>
+                        </div>
+                         <p></p>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="http://adslink.eu" name="host" id="host" type="text" value="<?php echo $get_deca->host;?>">
+                            <label for="host" class="active">Host(*)</label>
+                          </div>
+                        </div>
+                       
+                        <input  name="id" id="id" type="hidden" value="<?php echo $get_deca->id;?>">
+                            
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="http://adslink.eu/product-all" name="url" id="url" type="text" value="<?php echo $get_deca->url;?>">
+                            <label for="url" class="active">URL(*)</label>
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Number of pages to be taken" name="page_taken" id="page_taken" type="text" value="<?php echo $get_deca->page_taken;?>">
+                            <label for="page_taken" class="active">Number of pages to be taken</label>
+                          </div>
+                        </div>
+                        
+                       
+                        
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Name" name="product_name" id="product_name" type="text" value="<?php echo $get_deca->product_name;?>">
+                            <label for="product_name" class="active">Product Name(*)</label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Price" name="product_price" id="product_price" type="text" value="<?php echo $get_deca->product_price;?>">
+                            <label for="product_price" class="active">Product Price(*)</label>
+                          </div>
+                        </div>
+                        
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Images" name="product_images" id="product_images" type="text" value="<?php echo $get_deca->product_images;?>"> 
+                            <label for="product_images" class="active">Product Images(*)</label>
+                          </div>
+                        </div>
+                       
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Avatar Images" name="avatar_images" id="avatar_images" type="text">
+                            <label for="avatar_images" class="active">Avatar Images</label>
+                          </div>
+                        </div>
+                       <!-- 
+                         <div class="row">
+                          <div class="input-field col s12"> 
+                            <label for="catslogue_id" class="active">Insert into categories</label>
+                            <p></p>
+                            <select class="browser-default">
+			                    <option value="" disabled="" selected="">Choose your option</option>
+			                    <option value="1">Option 1</option>
+			                    <option value="2">Option 2</option>
+			                    <option value="3">Option 3</option>
+			                  </select>
+                          </div>
+                         
+                        </div>
+                        -->
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="The directory containing your avatar" name="directoryavatar" id="directoryavatar" type="text" value="<?php echo $get_deca->directoryavatar;?>">
+                            <label for="directoryavatar" class="active">The directory containing your avatar</label>
+                          </div>
+                        </div>
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Description" name="product_descriptstion" id="product_descriptstion" type="text" value="<?php echo $get_deca->product_descriptstion;?>">
+                            <label for="product_descriptstion" class="active">Product Description</label>
+                          </div>
+                        </div>
+                        
+                          <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Detail Product Description" name="detail_product_descriptstion" id="detail_product_descriptstion" type="text" value="<?php echo $get_deca->detail_product_descriptstion;?>">
+                            <label for="detail_product_descriptstion" class="active">Detail Product Description</label>
+                          </div>
+                        </div>
+                       
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Promotion" name="product_promotion" id="product_promotion" type="text" value="<?php echo $get_deca->product_promotion;?>">
+                            <label for="product_promotion" class="active">Product Promotion</label>
+                          </div>
+                        </div>
+                        
+                        
+                          <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product href Detail" name="product_href_detail" id="product_href_detail" type="text" value="<?php echo $get_deca->product_href_detail;?>">
+                            <label for="product_href_detail" class="active">Product href Detail</label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <textarea placeholder="Oh WoW! Let me check this one too." id="message2"  id="product_descriptstion" class="materialize-textarea"> <?php echo $get_deca->product_descriptstion;?></textarea>
+                            <label for="message" class="active">Message</label>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Edit Structure Declaration <i class="mdi-content-send right"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  
+                     <div class="fixed-action-btn">
+                        <a class="btn-floating btn-large red">
+                          <i class="large mdi-editor-mode-edit"></i>
+                        </a>
+                        <ul>
+                          <li><a class="btn-floating red" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;"><i class="large mdi-editor-insert-chart"></i></a>
+                          </li>
+                          <li><a href="<?php echo WEBPATH?>/crowler/crowler/adddeclaration" title="Add new declaration" data-position="left" data-delay="50" data-tooltip="Add new declaration" class="tooltipped btn-floating yellow darken-1" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;"><i class="mdi-av-my-library-add"></i></a>
+                          </li>
+                          <li> 
+                            <a href="#modal1" title="Add New Name declaration" data-addnewname="<?php echo WEBPATH?>/crowler/crowler/addnewname" data-position="left" data-delay="50" data-tooltip="Add New Name declaration" class="modal-trigger tooltipped btn-floating blue" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;"><i class="mdi-action-note-add"></i></a>
+                            
+                          </li>
+                        </ul>
+                      </div>
+            </div>
+              <?php } //end all  if(isset($check_save) }?>    
+                  
+                </div>
+         <!-- end chi tiet -->
+
+		</div>
+		<!-- end section -->
+	</div>
+	<!--end container-->
+</section>   
+
+<div id="modal1" class="modal" style="display: none; opacity: 1; top: 0px; max-height: 95%;">
+              <div class="modal-content">
+                <nav class="red">
+                  <div class="nav-wrapper">
+                    <div class="left col s12 m5 l5">
+                      <ul>
+                        <li><a href="#!" class="email-menu"><i class="modal-action modal-close  mdi-hardware-keyboard-backspace"></i></a>
+                        </li>
+                        <li><a href="#!" class="email-type">Add New Name Of Declaration</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col s12 m7 l7 hide-on-med-and-down">
+                      <ul class="right">
+                        <li><a href="#!"><i class="mdi-editor-attach-file"></i></a>
+                        </li>
+                        <li><a href="#!"><i class="modal-action modal-close  mdi-content-send"></i></a>
+                        </li>
+                        <li><a href="#!"><i class="mdi-navigation-more-vert"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </nav>
+              </div>
+              <div class="model-email-content">
+                <div class="row">
+                  <form action="<?php echo WEBPATH?>/crowler/name/addnewname" method="post" class="col s12">
+                    
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <input placeholder="Crowler Rohlik" name="name" id="name" type="text">
+                            <label for="name" class="active">Name(*)</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <input placeholder="https://www.rohlik.cz/c75591-sladke-a-slane" name="url_alias" id="url_alias" type="text">
+                            <label for="url_alias" class="active">Url-alias(*)</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="subject" type="text" class="validate">
+                        <label for="subject">Subject</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="description_name" name ="description_name" class="materialize-textarea" length="500"></textarea>
+                        <label for="description_name">Description</label>
+                      <span class="character-counter" style="float: right; font-size: 12px; height: 1px;"></span></div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="input-field col s12">
+                         <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Add New Name <i class="mdi-content-send right"></i>
+                              </button>
+                       </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>

@@ -1,0 +1,29 @@
+<?php
+$get_id= $_SESSION['getid'];
+?>
+<?php if ($this->pageCount): ?>
+<div class="clear"></div>
+    <div class="pagination pagination-centered next-trang">
+        <ul class="pagination">
+            <li <?php echo!isset($this->previous) ? 'class="disabled"' : ''; ?>>
+                <a href="<?php echo $this->url('Lazada', array('controller'=>'index', 'action'=>'viewproductcat', 'id'=>$get_id, 'page' => $this->first)); ?>">&laquo;</a></li>
+            <li <?php echo!isset($this->previous) ? 'class="disabled"' : ''; ?>>
+                <a href="<?php echo $this->url('Lazada', array('controller'=>'index', 'action'=>'viewproductcat', 'id'=>$get_id, 'page' => $this->previous)); ?>">&lsaquo;</a></li>
+
+
+            <!-- Numbered page links -->
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <li <?php echo $page == $this->current ? 'class="active"' : ''; ?>><a href="<?php echo $this->url('Lazada', array('controller'=>'index', 'action'=>'viewproductcat', 'id'=>$get_id,'page' => $page)); ?>">
+                        <?php echo $page; ?>
+                    </a></li>
+            <?php endforeach; ?>
+
+            <!-- Next page link -->
+            <li <?php echo!isset($this->next) ? 'class="disabled"' : ''; ?>>
+                <a href="<?php echo $this->url('Lazada', array('controller'=>'index', 'action'=>'viewproductcat', 'id'=>$get_id, 'page' => $this->next)); ?>">&rsaquo;</a></li>
+            <!-- Last page link -->
+            <li <?php echo!isset($this->next) ? 'class="disabled"' : ''; ?>>
+                <a href="<?php echo $this->url('Lazada', array('controller'=>'index', 'action'=>'viewproductcat', 'id'=>$get_id, 'page' => $this->last)); ?>">&raquo;</a></li>
+        </ul>
+    </div>
+<?php endif; ?>

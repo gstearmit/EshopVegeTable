@@ -1,0 +1,45 @@
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url('Contactp', array('controller' => 'Contactp', 'action' => 'add')));
+echo $this->form()->openTag($form);
+?>
+
+
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('name')); ?></label>
+    <div><?php echo $this->formElement($form->get('name')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('name')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('email')); ?></label>
+    <div><?php echo $this->formElement($form->get('email')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('email')); ?></span>
+</div>
+
+
+
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('phone')); ?></label>
+    <div><?php echo $this->formElement($form->get('phone')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('phone')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('content')); ?></label>
+    <div><?php echo $this->formElement($form->get('content')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('content')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('subject_contact')); ?></label>
+    <div><?php echo $this->formElement($form->get('subject_contact')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('subject_contact')); ?></span>
+</div>
+
+<?php echo $this->formElement($form->get('security')); ?>
+<?php echo $this->formElement($form->get('submit')); ?>
+<?php echo $this->form()->closeTag() ?>

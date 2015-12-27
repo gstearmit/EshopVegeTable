@@ -1,0 +1,261 @@
+<style>
+    .input-field.col.s6 input {
+        padding: 5% 0% 5% 0%;
+    }
+</style>
+<div class="container">
+    <div class="section">
+        <h4 class="header2">Setting SEO-KeyWords</h4>
+        <?php
+        $setting = $settings[0];
+        ?>
+
+        <p class="alert-error"></p>
+        <div class="divider"></div>
+        <!--Basic Form-->
+        <div id="basic-form" class="section">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="card-panel">
+                        <div class="row">
+                            <form action="" method="post" name="setting"
+                                  class="form-horizontal" enctype="multipart/form-data"
+                                  id="setting">
+                                <input type="hidden" name="id" value="<?php echo $setting->id; ?>" />
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input name="name" type="text" maxlength="250" class="form-control" id="name" value="<?php echo $setting->name; ?>">
+                                        <label for="name">Settings name</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <input name="seo_keywords" type="text" maxlength="250"
+                                               class="form-control" id="seo_keywords" value="<?php echo $setting->seo_keywords; ?>"> 
+                                        <label for="alias">Seo Keywords</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea name="seo_description"
+                                                  class="materialize-textarea form-control"
+                                                  id="seo_description"><?php echo $setting->seo_description; ?></textarea>
+                                        <label for="seo_description">Seo Description</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <textarea name="detail_product"
+                                                  class="materialize-textarea form-control" id="detail_product"><?php echo $setting->detail_product; ?></textarea>
+                                        <label for="detail_product">Detail product</label>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input name="title" type="text" class="form-control" id="title" value="<?php echo $setting->title; ?>"> 
+                                        <label for="title">Title</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input name="address" type="text" class="form-control" id="address" value="<?php echo $setting->address; ?>"> 
+                                        <label for="promotions">Address</label>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input name="phone" type="tel" class="form-control" id="phone" value="<?php echo $setting->phone; ?>"> 
+                                        <label for="phone">Phone</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input name="yahoo" type="text" class="form-control" id="yahoo" value="<?php echo $setting->yahoo; ?>"> 
+                                        <label for="yahoo">Yahoo</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input name="skype" type="text" class="form-control" id="skype" value="<?php echo $setting->skype; ?>"> 
+                                        <label for="skype">Skype</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input name="mobile" type="tel" class="form-control" id="mobile" value="<?php echo $setting->mobile; ?>"> 
+                                        <label for="mobile">Tel Mobile</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input name="fax" type="text" class="form-control" id="fax" value="<?php echo $setting->fax; ?>"> 
+                                        <label for="fax">Fax</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input name="email" type="email" class="form-control" id="email" value="<?php echo $setting->email; ?>"> 
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input name="url" type="url" class="form-control" id="url" value="<?php echo $setting->url; ?>"> 
+                                        <label for="url">Website name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input name="linkweb" type="url" class="form-control" id="linkweb" value="<?php echo $setting->linkweb; ?>"> 
+                                        <label for="linkweb">Website</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea name="keyword" class="materialize-textarea form-control" id="keyword"><?php echo $setting->keyword; ?></textarea>
+                                        <label for="keyword">Keyword</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <textarea name="description" class="materialize-textarea form-control" id="description"><?php echo $setting->description; ?></textarea>
+                                        <label for="description">Description</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea name="about" class="materialize-textarea form-control" id="about"><?php echo $setting->about; ?></textarea>
+                                        <label for="about">About</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <textarea name="introduction" class="materialize-textarea form-control" id="introduction"><?php echo $setting->introduction; ?></textarea>
+                                        <label for="introduction">Introduction</label>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="file-field input-field col s12 set-label">
+                                        <label for="logo1">Logo (* not support .png , .gif)</label>
+                                        <input class="file-path validate" readonly="" type="text">
+                                        <div class="btn">
+                                            <span>Logo</span> <input type="file" name="logo1"
+                                                                     class="form-control" accept=".jpg, .jpeg, .JPG, .JPEG"
+                                                                     id="logo1">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="file-field input-field col s12 set-label">
+                                        <label for="ico">Ico (* not support .png , .gif)</label>
+                                        <input class="file-path validate" readonly="" type="text">
+                                        <div class="btn">
+                                            <span>Ico</span> <input type="file" name="ico"
+                                                                    class="form-control" accept=".jpg, .jpeg, .JPG, .JPEG"
+                                                                    id="ico">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+      
+
+                                <div class="row">
+                                    <div class="file-field input-field col s12 set-label">
+                                        <label for="logo_footer">Logo footer (* not support .png , .gif)</label>
+                                        <input class="file-path validate" readonly="" type="text">
+                                        <div class="btn">
+                                            <span>Logo footer</span> <input type="file" name="logo_footer"
+                                                                            class="form-control" accept=".jpg, .jpeg, .JPG, .JPEG"
+                                                                            id="logo_footer">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea name="sologen" class="materialize-textarea form-control" id="sologen"><?php echo $setting->sologen; ?></textarea>
+                                        <label for="sologen">Sologen</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <textarea name="printerest" class="materialize-textarea form-control" id="printerest"><?php echo $setting->printerest; ?></textarea>
+                                        <label for="printerest">Printerest</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea name="facebook" class="materialize-textarea form-control" id="facebook"><?php echo $setting->facebook; ?></textarea>
+                                        <label for="facebook">Facebook</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <textarea name="facebook_text" class="materialize-textarea form-control" id="facebook_text"><?php echo $setting->facebook_text; ?></textarea>
+                                        <label for="facebook_text">Facebook Description</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea name="tweets" class="materialize-textarea form-control" id="tweets"><?php echo $setting->tweets; ?></textarea>
+                                        <label for="tweets">Tweets</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <textarea name="tweets_text" class="materialize-textarea form-control" id="tweets_text"><?php echo $setting->tweets_text; ?></textarea>
+                                        <label for="tweets_text">Tweets Description</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea name="github" class="materialize-textarea form-control" id="github"><?php echo $setting->github; ?></textarea>
+                                        <label for="github">Github</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <textarea name="google" class="materialize-textarea form-control" id="google"><?php echo $setting->google; ?></textarea>
+                                        <label for="google">Google</label>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <textarea name="feed" class="materialize-textarea form-control" id="feed"><?php echo $setting->feed; ?></textarea>
+                                        <label for="feed">feed</label>
+                                    </div>
+                                    <div class="input-field col s6">
+
+                                    </div>
+                                     <div class="input-field col s6">
+                                        <textarea name="youtube_acount" class="materialize-textarea form-control" id="feed"><?php echo $setting->feed; ?></textarea>
+                                        <label for="youtube_acount">youtube acount</label>
+                                    </div>
+                                    <div class="input-field col s6">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn cyan waves-effect waves-light right"
+                                                type="submit" name="action">
+                                            Submit <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Form with placeholder -->
+
+    </div>
+</div>

@@ -1,0 +1,391 @@
+<?php
+
+use Zend\Session\Container;
+
+$session_user = new Container('userlogin');
+$user_name = $session_user->username;
+$id_Us =$session_user->idus;
+
+$fb_session = new Container('facebook_share');
+$fb_session->img = WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $data_detail['img'];
+$fb_session->url = WEBPATH . '/lazada/index/detailproduct/' . $data_detail['id'];
+?>
+<div class="container-fluid thanh-cuoi-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 nopading-360">
+                <div class="col-sm-2 box-tatca-danhmuc "><a href="#menu">TẤT CẢ DANH MỤC <i class="fa fa-arrow-circle-down"></i></a></div>
+                <div class="col-sm-10 box-tieude-danhmuc"> 
+                    <ul class="ul_camera">
+                        <li><a href="#"><?php echo $catalog_detail['name']; ?></a></li>  
+
+                        <li><span> <?php echo $data_detail['name'] ?></span></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<article>
+    <div class="container-fluid toi-trongsuot">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 row-content-top">
+                    <div class="col-sm-2 menudoc-conten-left">
+                        <ul id="tab-menu" class="menu-new">
+                            <?php
+                            foreach ($data_m as $keycat => $valuecat) {
+                                ?>
+                                <li class="menu-cat" ><a class="<?php
+                                    if ($keycat == 0) {
+                                        echo 'active-tab';
+                                    }
+                                    ?>" rel='#category-box<?php echo $valuecat['id'] ?>' href="<?php echo WEBPATH . '/lazada/index/viewproductcat/' . $valuecat['id'] ?>">  <?php echo $valuecat['name'] ?></a>
+                                                         <?php
+                                                         if ($sub_menu[$valuecat['id']] != null) {
+                                                             ?>
+                                        <ul class="sb-menu">
+                                            <?php foreach ($sub_menu[$valuecat['id']] as $key_sub => $value_sub) { ?>
+                                                <li><a href="<?php echo WEBPATH . '/lazada/index/viewproductcat/' . $value_sub['id'] ?>"><?php echo $value_sub['name']; ?></a></li>
+                                            <?php } ?>
+                                        </ul>
+                                    <?php } ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-2  menu-right-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="container-detail gioithieusp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        <div class="prod_header_brand_action">
+                            <h1> <?php echo $data_detail['name'] ?>  </h1>
+                            <div class="prod_header_reviews">
+                                <div id="rating">  
+                                    <span class="itm-rat lfloat">
+                                        <span class="itm-ratStars ui-inlineBlock">
+                                            <span style="width: 85%;" class="itm-ratStars itm-ratRating"></span>
+                                        </span>
+                                    </span>
+
+                                    <div itemprop="aggregateRating" itemscope="">
+                                        <meta itemprop="worstRating" content="1">
+                                        <meta itemprop="ratingValue" content="4.2222">
+                                        <meta itemprop="bestRating" content="5">
+                                        <meta itemprop="ratingCount" content="9">
+                                    </div>
+                                </div>
+
+                                <div id="review">
+                                    <a href="#" class="prd-reviews" data-tab-linked="tab-review">
+                                        (9)
+                                    </a>
+                                </div>
+                                <span class="prod_header_reviews_link action_link">
+                                    <a href="#" id="lnk-write-reviews" class="prd-reviews" data-tab-linked="tab-review">
+                                        <i class="fa fa-pencil"></i>
+                                        Mời bạn đánh giá sản phẩm này                                                    </a>
+                                </span>
+                            </div>
+
+                            Thương hiệu:  <a href="#">ABC  </a> <a href="#">
+
+                            </a>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="prod_brand">
+                            <div class="share_link">
+                                <?php
+                                if ($data_detail['id'] == $product_wisht['product_ID'] && $product_wisht['customer_ID'] == $id_Us) {
+                                    echo '<span ><i class="fa-red fa fa-heart"></i></span>';
+                                    echo '<span onclick="deleitemswish(' . $data_detail['id'] . ',2);" style="cursor:pointer; margin-right:15px">Tôi thích sản phẩm này! </span>';
+                                    
+                                } else {
+                                    ?>
+                                    <span class="heart"><i class="fa fa-heart-o"></i></span>
+                                    <span style="cursor:pointer; margin-right:15px"  <?php
+                                    if ($user_name == null) {
+                                        echo 'class="wishlist"';
+                                    } else {
+                                        echo 'onclick="addwishlist(' . $data_detail['id'] . ');"';
+                                    }
+                                    ?>>
+                                        Tôi thích sản phẩm này! 
+                                    </span>
+                                <?php } ?>
+                            </div>
+                            <div class="fb-share-button" data-href="<?php echo WEBPATH . '/lazada/index/detailproduct/' . $data_detail['id'] ?>" data-layout="button_count"></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div> 
+        <div class="contactdetail">
+            <div class="container">	
+                <div class="row">
+                    <div class="col-md-9 col-sm-9">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2">
+                                <ul class="ul_li_image">
+                                    <li><a href="#"><img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $data_detail['img1']; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" ></a></li>
+                                    <li><a href="#"><img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $data_detail['img2']; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" ></a></li>
+                                    <li><a href="#"><img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $data_detail['img3']; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" ></a></li>
+                                    <li><a href="#"><img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $data_detail['img4']; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" ></a></li>
+                                    <li><a href="#"><img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $data_detail['img5']; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" ></a></li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-10 col-sm-10">
+                                <div class="row">
+                                    <div class="col-md-5 col-sm-5 border-image-zoom">
+                                        <img id="image2" border="0" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $data_detail['img']; ?>" class="img-responsive" alt="" style="width:100%"/>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7">
+                                        <div class="row box-border-bottom ">
+                                            <div class="col-md-12">
+                                                <?php echo $data_detail['descripts'] ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div id="product-price-box" class="prod_pricebox price_details">
+                                                    <div class="prod_pricebox_price">
+                                                        <div class="prod_pricebox_price_final">
+                                                            <?php
+															if($data_detail['price'] !=0){
+                                                            if ($data_detail['sale_products'] == 1) {
+                                                                $price = $data_detail['price'] - ($data_detail['price'] * $data_detail['promotions'] / 100);
+                                                                echo '<span id="special_price_box">' . number_format($price,0, ',', '.') . ' VNĐ</span>';
+                                                            } else {
+                                                                echo '<span id="special_price_box">' . number_format($data_detail['price'],0, ',', '.') . ' VNĐ</span>';
+                                                            }
+															}
+                                                            ?>
+
+                                                        </div>
+                                                        <?php
+                                                        if ($data_detail['sale_products'] == 1) {
+                                                            ?>
+                                                            <div id="special_price_area" class=" prod_pricebox_price_special">
+                                                                <span id="product_special_price_label">Giá trước đây</span>
+                                                                <span class="price_erase">
+                                                                    <span id="product_price_prefix" class="price-prefix-detail"></span>
+                                                                    <span id="price_box"><?php if($data_detail['price'] !=0){ echo number_format($data_detail['price'],0, ',', '.');} ?> VNĐ</span>
+                                                                </span>
+                                                                <div class="prod_saving">
+                                                                    <span id="product_saving_label">Tiết kiệm</span>
+                                                                    <span id="product_saving_percentage" class="price_highlight"> <?php echo $data_detail['promotions'] ?>%</span>
+                                                                </div>
+                                                            </div>
+                                                        <?php } ?>
+                                                    </div>
+                                                    <!-- click on the question mark icon to open the tooltip popup -->
+
+                                                    <div class="hidden">
+                                                        <span itemprop="offers">
+                                                            <meta itemprop="availability" content="Còn hàng">
+                                                            <meta itemprop="price" content="2.999.000 VND">
+                                                            <meta itemprop="priceCurrency" content="VND">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-6">
+                                                 <div class="mobile-block"><div class="mobile-price"><?php echo $data_detail['price'] ?></div></div>
+ 
+                                             </div>-->
+
+                                        </div>
+                                        <div class="thanhtoan">
+                                            <?php
+                                            if ($user_name == null) {
+                                                ?>
+                                                <button id="tt" class="no-user">THANH TOÁN NHANH </button>
+                                            <?php } else { ?>
+                                                <button id="tt" class="user" onclick="buynow(<?php echo $data_detail['id']; ?>)">THANH TOÁN NHANH </button>
+                                            <?php } ?>
+                                            <div class="line">
+                                                <hr>
+                                                <p class="text-center or">hoặc</p>
+                                            </div>
+                                            <input type="hidden" id="number-pro<?php echo $data_detail['id']; ?>" value="<?php echo $data_detail['availability'] ?>"/> 
+                                            <input type="hidden" value="1" id="getqty<?php echo $data_detail['id'] ?>" class="">
+                                            <button id="buy" onclick="addcart(<?php echo $data_detail['id'] ?>);">MUA NGAY </button>                                           
+                                            <p>còn hàng</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="bg_lienhe">
+                            <!--<p> Tùy chọn giao hàng</p>	
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="" class="col-sm-4 control-label">Tỉnh/Thành phố:</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control">
+                                            <option>chọn tỉnh thành phố</option>
+                                            <option>Hà Nội</option>
+                                            <option> TP Hồ chí minh</option>
+                                            <option> Đà Nẵng</option>
+                                            <option>Cần Thơ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-4 control-label">Your district:</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control">
+                                            <option>chọn quận huyện</option>
+                                            <option>quận 1 </option>
+                                            <option> quận 2</option>
+                                            <option> quận 3</option>
+                                            <option>Quận 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>-->
+                            <div class="row product__promotion__item">
+                                <div class="col-md-2 col-sm-2">
+                                        <!--<img src="img/money.png"  alt=""/>-->
+                                </div>
+                                <div class="col-md-10 col-sm-10">
+                                    <span>Quý khách có thể "Thanh toán khi nhận hàng" </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg_lienhe">
+                            <p> Được bán & giao hàng bởi <?php echo $_SERVER['HTTP_HOST']; ?></p>
+                            <ul class="lhe">
+                                <li><a href="#">
+                                        <img src="<?php echo ROHLIK_LAZADA; ?>/img/bt.png" alt=""/> bảo vệ người mua hàng 100%</a></li>
+                                <li><a href="#">
+                                        <img src="<?php echo ROHLIK_LAZADA; ?>/img/bt1.png" alt=""/> Đảm bảo sự hài lòng</a></li>
+                            </ul>
+                            <ul class="lhe2">
+                                <li><a href="#">
+                                        hàng chính hãng</a></li>
+                                <li><a href="#">
+                                        Thanh toán đảm bảo</a></li>
+                                <li><a href="#">
+                                        trả hàng trong vòng 30 ngày</a></li>
+                            </ul>
+                            <p><a href="#">xem thêm</a><p>
+
+
+                        </div>
+                        <div class="networde">
+                            <ul>
+                                <li><a href="#"><img src="<?php echo ROHLIK_LAZADA; ?>/img/footer/icon-xh-7.png" class="img-responsive" alt="#"></a></li>
+                                <li><a href="#"><img src="<?php echo ROHLIK_LAZADA; ?>/img/footer/icon-xh-5.png" class="img-responsive" alt="#"></a></li>
+                                <li><a href="#"><img src="<?php echo ROHLIK_LAZADA; ?>/img/footer/icon-xh-3.png" class="img-responsive" alt="#"></a></li>
+                                <li><a href="#"><img src="<?php echo ROHLIK_LAZADA; ?>/img/footer/icon-xh-8.png" class="img-responsive" alt="#"></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row product-description__block">
+            <div class="col-md-9 col-sm-3 border_top_block">
+                <h2> Chi tiết sản phẩm</h2>								
+                <div class="border_top_block">
+                    <?php echo $data_detail['detail_product'] ?>	
+                </div>
+
+            </div>
+            <div class="col-md-3 col-sm-3">
+                    <!--<a href="#"><img src="img/fake-link-v2.jpg"  alt=""/style="width:100%;"></a>-->
+                <div class="row border-top-sp">
+                    <div class="col-md-12 col-sm-12 richRelevance-placeholder-title">
+                        sản phẩm cùng loại                       
+
+                    </div>
+                    <?php
+                    foreach ($product_same[$data_detail['cat_id']] as $key => $value) {
+                        ?>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+
+                                <div class="row row-mang-danhsach">
+                                    <div class="col-sm-12 margin-top-bottom">
+                                        <div class="col-sm-12 box-nopading-980">
+                                            <img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value['img']; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" />
+
+                                        </div>
+                                        <div class="col-sm-12 nopading">
+
+                                            <div class="col-sm-12 box-tieude-top-tren">
+                                                <h4><?php echo $value['name'] ?></h4>
+                                            </div>
+                                            <div class="col-md-12 pricesp">
+                                                <!--<del>17.789.000 VND</del>-->
+                                                <div class=" box-giathuc"><?php if($value['price'] !=0){echo number_format($value['price'],0, ',', '.');} ?> VNĐ</div>
+                                                <!--<div class="product-card__sale">-8%</div>-->
+                                            </div>
+                                            <div class="col-sm-12 box-muangay-an">
+                                                <input type="hidden" id="number-pro<?php echo $value['id']; ?>" value="<?php echo $value['availability'] ?>"/>  
+                                                <input type="hidden" value="1" id="getqty<?php echo $value['id'] ?>" class="">                                           
+                                                <div class="box-mua-ngay"><a href="javascript:void(0);" onclick="addcart(<?php echo $value['id'] ?>);">Mua ngay</a> </div>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    <?php } ?>
+
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>		  
+
+
+
+    </div>
+
+
+</article>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id))
+            return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_EN/sdk.js#xfbml=1&version=v2.4&appId=852025738185909";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>

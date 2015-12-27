@@ -1,0 +1,71 @@
+<table class="table table-bordered">
+	<tr>
+	<!--  
+		<td colspan="13">
+		<a
+			href="<?php echo $this->url('Abuse', array('controller' => 'abuse', 'action' => 'add-news')); ?>">
+			Add</a></td>
+	-->		
+	</tr>
+	<tr>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Email</td>
+		<td>Catalogue</td>
+		<td>Link ads</td>
+		<td>Url reported</td>
+		<td>User forum</td>
+		<td>Abuse Description</td>
+		<td>Human Check</td>
+        <td>Status</td>
+        <td>Action Change Status</td>
+		<!-- <td>Edit</td>  -->
+		<td>Delete</td>
+	</tr>
+    <?php for ($i = 0; $i < count($listNews); $i++) { ?>
+        <tr>
+		<td><?php echo $listNews[$i]->id; ?></td>
+		<td><?php echo $listNews[$i]->name; ?></td>
+		<td><?php echo $listNews[$i]->email; ?></td>
+		<td><?php echo $listNews[$i]->catalogue; ?></td>
+		<td><?php echo $listNews[$i]->linkads; ?></td>
+		<td><?php echo $listNews[$i]->url_reported; ?></td>
+		<td><?php echo $listNews[$i]->user_forum; ?></td>
+		<td><?php echo $listNews[$i]->abuse_description; ?></td>
+		<td><?php echo $listNews[$i]->human_check; ?></td>
+		
+		<td>
+		    <?php if($listNews[$i]->status == 1) { echo '<span class="label label-success">Process</span>'; } ?>
+		    <?php if($listNews[$i]->status == 0) { echo '<span class="label label-important">Not Process</span>'; } ?>
+		   
+		</td>
+		
+       <td>
+         <a href="<?php echo WEBPATH.$this->url('Abuse', array('controller' => 'abuse', 'action' => 'status', 'id' => $listNews[$i]->id ,'status' => '1')); ?>"> Change Active </a>
+         | <a href="<?php echo WEBPATH.$this->url('Abuse', array('controller' => 'abuse', 'action' => 'status', 'id' => $listNews[$i]->id ,'status' => '0')); ?>"> Change Not Active</a>
+	   
+	   </td>
+
+	   <!--  
+		<td><a
+			href="<?php echo $this->url('Abuse', array('controller' => 'abuse', 'action' => 'edit-news', 'id' => $listNews[$i]->id)); ?>">
+			Edit</a>
+		</td>
+		-->
+		
+		<td><a
+			href="<?php echo $this->url('Abuse', array('controller' => 'abuse', 'action' => 'delete-news', 'id' => $listNews[$i]->id)); ?>">Delete</a></td>
+	</tr>
+    <?php } ?>
+    <tr>
+		<td colspan="13">
+            <?php
+												echo $this->paginationControl ( $paginator, 'Sliding', 'layout/paginatorabuse', array (
+														'name' => 'Abuse',
+														'controller' => 'abuse',
+														'action' => 'list-news' 
+												) );
+												?>
+        </td>
+	</tr>
+</table>

@@ -1,0 +1,44 @@
+<?php
+use Zend\Session\Container;
+$session_wish =new Container('wisht_list');
+           
+?>
+<section >
+    <div class="wapper">
+        <div class="row">
+            <div class="container login-wshl">
+                <div class="col-sm-6 col-xs-12">
+                    <center>
+                    <h3> Přihlaste se, prosím</h3>
+                    <h4> Pro přístup na tuto stránku musíte být přihlášen(a).</h4>
+                    <h4>Nemáte účet? <a id="wsl-regis" href="javasscript:void(0);">Registrovat se</a></h4>
+                    </center>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <center >
+                       
+                            <?php
+                                if($session_wish->error !=null){
+                                    echo  '<div class="col-sm-8 alert alert-warning">'.$session_wish->error.'</div>';
+                                }
+                            ?>
+                        
+                        <form id="form-wishl" class="col-sm-8" action="<?php echo WEBPATH.'/customer/loginwishlist'?>" method="post">
+                            <p></p>
+                             <div class="form-group">
+                            <input type="email" class="form-control" name="email" required="" placeholder="Váš e-mail"/>
+                             </div>
+                             <div class="form-group">
+                            <input type="password" class="form-control" name="password" required="" placeholder="Heslo"/>
+                             </div>
+                            <div class="pull-right">
+                                <a id="wsl-forgot" href="javascript:void(0);">Zapomenuté heslo?</a>
+                                <button class="btn">Přihlásit se</button>
+                            </div>
+                        </form>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

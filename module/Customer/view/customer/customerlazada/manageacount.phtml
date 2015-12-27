@@ -1,0 +1,96 @@
+<?php
+use Zend\Session\Container;
+$session_user = new Container('userlogin');
+?>
+<div class="container-fluid thanh-cuoi-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 nopading-360">
+                <div class="col-sm-2 box-tatca-danhmuc "><a href="#menu">TẤT CẢ DANH MỤC <i class="fa fa-arrow-circle-down"></i></a></div>
+                <div class="col-sm-10 box-tieude-danhmuc"> 
+                    <ul class="ul_camera">
+                        <li><a href="#"><?php echo $catalog_detail['name'];?></a></li>  
+
+                        <li><span> <?php echo $data_detail['name']?></span></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<article>
+    <div class="container-fluid toi-trongsuot">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 row-content-top">
+                    <div class="col-sm-2 menudoc-conten-left">
+                        <ul id="tab-menu" class="menu-new">
+                            <?php
+                        foreach ($data_m as $keycat => $valuecat) {
+                            ?>
+                            <li class="menu-cat" ><a class="<?php
+                                if ($keycat == 0) {
+                                    echo 'active-tab';
+                                }
+                                ?>" rel='#category-box<?php echo $valuecat['id'] ?>' href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$valuecat['id']?>">  <?php echo $valuecat['name'] ?></a>
+                                <?php
+                                if($sub_menu[$valuecat['id']] !=null){
+                                ?>
+                                <ul class="sb-menu">
+                                    <?php foreach ($sub_menu[$valuecat['id']] as $key_sub=>$value_sub){?>
+                                    <li><a href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$value_sub['id']?>"><?php echo $value_sub['name'];?></a></li>
+                                    <?php } ?>
+                                </ul>
+                                <?php } ?>
+                            </li>
+                                <?php } ?>
+                        </ul>
+                    </div>
+                     
+                    <div class="col-sm-2  menu-right-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="container">
+				<!--accound-->
+				<div class="row margin-top">
+					
+					<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="box-sm10">
+						<h2> Quản lý tài khoản</h2>
+                                              
+                  <!--<p>Địa chỉ:  <input class="form-control" required="" type="text" name="address" value="<?php echo $session_user->address; ?>"/></p>
+                  <p>Điện thoại: <input class="form-control" required="" type="text" name="phone" value="<?php echo $session_user->phone; ?>"/></p>
+                  <input type="hidden" name="name" value="<?php echo $session_user->fullname; ?>"/>
+                  <input type="hidden" name="email" value="<?php echo $session_user->username; ?>"/>     
+                  <input type="hidden" name="idus" value="<?php echo $session_user->idus; ?>"/>-->
+						<p class="mtm strong">Xin chào <?php echo $session_user->fullname; ?>  </p>
+						<p class="mbm mts">Trong mục quản lý tài khoản, bạn có thể xem các hoạt động gần đây của bạn cũng như quản lý thông tin tài khoản. Chọn một link bên dưới để xem hay chỉnh sửa thông tin.</p>
+						<div class="row">
+							<div class="col-md-12 col-xs-12  col-sm-12 border-box">
+								<h4> Địa chỉ liên hệ</h4>
+								<p class="ptm">
+									<?php echo $session_user->fullname; ?>  <br>
+									<?php echo $session_user->username; ?> - <a href="<?php echo WEBPATH ?>/customer/lazada/changeemail" class="sel-link-change-email">Thay đổi địa chỉ email</a><br>
+								</p>
+								<p class="mtm">
+									<a href="<?php echo WEBPATH ?>/customer/lazada/changepassword" class="sel-link-change-pass">Thay đổi mật khẩu</a>
+								</p>
+								<a class="float_right" href="edit.html">Chỉnh sửa</a>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+					
+					
+				</div>
+				
+			</div>
+			
+			
+		</article>

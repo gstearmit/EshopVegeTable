@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title><![CDATA[Blog]]></title>
+    <link>http://alothemes.com/demo/smije/index.php/blog/</link>
+    <description><![CDATA[Blog]]></description>
+    <pubDate>Wed, 20 May 2015 02:27:01 +0000</pubDate>
+    <generator>Zend_Feed</generator>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <item>
+      <title><![CDATA[Vivienne Westwood ]]></title>
+      <link>http://alothemes.com/demo/smije/index.php/blog/viviennewestwood/</link>
+      <description><![CDATA[<img src="http://alothemes.com/demo/smije/media/wysiwyg/alothemes/static/blog4-fashion.jpg" alt="" />
+I didn't consider myself a fashion designer at all at the time of punk. I was just using fashion as a way to express my resistance and to be rebellious. I came from the country, and by the time I got to London, I considered myself to be very stupid. It was my ambition to understand the world I live in.
+]]></description>
+      <pubDate>Sun, 23 Nov 2014 05:21:26 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Annie Lennox]]></title>
+      <link>http://alothemes.com/demo/smije/index.php/blog/annielennox/</link>
+      <description><![CDATA[<img src="http://alothemes.com/demo/smije/media/wysiwyg/alothemes/static/blog3-fashion.jpg" alt="" />
+We all fight over what the label 'feminism' means but for me it's about empowerment. It's not about being more powerful than men - it's about having equal rights with protection, support, justice. It's about very basic things. It's not a badge like a fashion item.
+]]></description>
+      <pubDate>Sun, 23 Nov 2014 05:18:03 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Dwayne Johnson]]></title>
+      <link>http://alothemes.com/demo/smije/index.php/blog/dwaynejohnson/</link>
+      <description><![CDATA[<img src="http://alothemes.com/demo/smije/media/wysiwyg/alothemes/static/blog2-fashion.jpg" alt="" />
+I love making people laugh and feel good, and that's awesome and special for me to be able to do that, but there really is nothing like kicking ass whether it's on a major scale, or whether it's in more of a dramatic fashion. Being physical and taking care of business the old-fashioned way is something that I love doing.]]></description>
+      <pubDate>Sun, 23 Nov 2014 05:15:29 +0000</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Anne Hathaway]]></title>
+      <link>http://alothemes.com/demo/smije/index.php/blog/annehathaway/</link>
+      <description><![CDATA[<p><img src="http://alothemes.com/demo/smije/media/wysiwyg/alothemes/static/blog1-fashion.jpg" alt="" /> I think fashion is a lot of fun. I love clothes. More than fashion or brand labels, I love design. I love the thought that people put into clothes. I love when clothes make cultural statements and I think personal style is really cool. I also freely recognize that fashion should be a hobby.</p>]]></description>
+      <pubDate>Sun, 23 Nov 2014 05:11:35 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

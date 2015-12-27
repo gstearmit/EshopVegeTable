@@ -1,0 +1,392 @@
+<?php echo $this->doctype(); ?>
+<html lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="robots" content="index,follow">
+		<meta name="googlebot" content="index,follow">
+		<link rel="SHORTCUT ICON" href="/favicon.ico">
+		<link rel="stylesheet" href="/html/index/asset/css/cssfamilyoswald400700robotocondensed400700.css" type="text/css" >
+		<link rel="stylesheet" href="/html/index/asset/css/style.admin.css" type="text/css" media="screen" >
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald:400,700|Roboto+Condensed:400,700" type="text/css" >
+		<link rel="stylesheet" href="/html/index/asset/css/datepicker.min.css" type="text/css" />
+		
+		<link rel='stylesheet' id='wp-pagenavi-style-css'  href='/html/index/asset/css/css3_light_blue_glossy.cssver1.css' type='text/css' media='all' />
+		
+		<link type="text/css" rel="stylesheet" href="/html/index/asset/css/mylivechat.css" />
+		<link type="text/css" rel="stylesheet" href="/html/index/asset/css/font-awesome.css" />
+		
+		 <?php echo $this->headTitle('Visa '. $this->translate('Creat visa'))->setSeparator(' - ')->setAutoEscape(false) ?>
+	
+		 <?php  echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+       
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/icon.ico'))
+                       // ->prependStylesheet($this->basePath() . '/css/style.css')
+                       // ->prependStylesheet($this->basePath() . '/css/sidebar.css')
+                       // ->prependStylesheet($this->basePath() . '/css/carousel.css')
+                       // ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+                       // ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/site-new.css')
+                        //->prependStylesheet($this->basePath() . '/css/fix-all-device.css')
+          ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+           // ->prependFile($this->basePath() . '/js/respond-nav.js')
+            ->prependFile($this->basePath() . '/js/lgform.js')
+            //->prependFile($this->basePath() . '/js/slide.js')
+            ->prependFile($this->basePath() . '/js/popupsign.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            //->prependFile($this->basePath() . '/js/jquery.min.js')
+			->prependFile($this->basePath() . '/html/index/asset/js/jquery-1.10.1.min.js')
+			
+          //  ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+          //  ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+
+        ; ?>
+		  <script type="text/javascript"> jQuery.noConflict(); </script>
+		<script type="text/javascript" async src="/html/index/asset/js/combined.js"></script>
+		<script type="text/javascript" async src="/html/index/asset/js/layout.js"></script>
+		
+		<!-- comodo trusted -->
+		<script language="javascript">
+		</script>
+		<!-- Facebook Conversion Code for Landing visa Vietnam -->
+		 <script type="text/javascript">
+        var doaminname = "<?php echo  WEBPATH;?>";
+        if (localStorage.doaminname) {
+        	 localStorage.setItem("doaminname","<?php echo  WEBPATH;?>");
+        } else {
+        	 localStorage.setItem("doaminname",doaminname);
+        }
+       
+        </script>
+       
+		<script type="text/javascript">
+		jQuery(document).ready(function($){
+		$('#add-person').click(function(){
+			var news=$('#html').html();
+			$('#html').append('<div class="copy"> '+ news+' </div>');
+			console.log("them :" +news);
+		})
+		$('#remove-person').click(function(){
+		$('#html').find(".copy:last").remove();
+		});
+		
+		var setdate = setInterval(function(){ update_date(); }, 100);
+					
+		function update_date() {
+				  $(".date" ).each(function( index ) { 
+   				    $(".date" ).datepicker(); //clearInterval(setdate); 
+				  });
+				}			
+					
+				});
+				
+		jQuery(document).ready(function($){
+				$(".date" ).datepicker();
+				});
+				
+				
+				
+				
+		</script>
+		 <script type="text/javascript" src="/html/index/asset/js/bootstrap-datepicker.min.js"></script>
+	  
+		<?php //admin them ?>
+		<link href="<?php echo WEBPATH_REAL_ADMIN?>/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="<?php echo WEBPATH_REAL_ADMIN?>/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo WEBPATH_REAL_ADMIN?>/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+		 <link href="<?php echo WEBPATH_REAL_ADMIN?>/css/style.css" rel="stylesheet" type="text/css" />
+		
+	</head>
+	
+	<body class="skin-blue" class="home blog layout-2cr">
+		
+		<!-- facebook api -->
+		<div id="fb-root"></div>
+		
+		<!-- end facebook api -->
+		<div id="shield-layer"></div>
+		<div id="scroll-top" class="hidden-xs"> <span class="glyphicon glyphicon-chevron-up"></span></div>
+		<div class="header">
+			<div class="container">
+				<a id="logo" class="col-xs-12 col-sm-6" title="e-VisaVietnam | Vietnam visa on arrival service" href="#">e-VisaVietnam</a>
+				<?php
+				 date_default_timezone_set('Asia/Ho_Chi_Minh');
+                 $date = date('Y/m/d h:i:s a', time());
+				?>
+				<div id="clock" class="col-xs-12 col-sm-6">
+					<div class=" part">Current time in Vietnam: <span><?php echo $date;?></span> (GMT +7)</div>
+					<div class="clearfix"></div>
+					<div class="fb-like part"  data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+					<div class="twitter part">
+						<a href="#" class="twitter-share-button" data-dnt="true" data-count="none" data-via="vietvisa">Tweet</a>
+						<script async type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+				</div>
+				
+				<div>
+					 <?php $getuser=$this->layout()->getuser;
+						if(isset($getuser->username)){ //var_dump($getuser);?>
+						<ul class="nav navbar-nav navbar-right" style="font-size: 12px;">
+							<li><a href="<?php echo  WEBPATH;?>/main/profile">Hello <?php echo $this->escapeHtml($getuser->username);?></a></li>
+							<li class="dropdown">
+								<div  class="dropdown-toggle " data-toggle="dropdown" >
+								<a href="/admin">
+								 <img src="<?php echo WEBPATH.$getuser->avatar;?>" width="46" height="46" style="padding:2px;border-radius:50px;"/>
+								 </a>
+								 </div>
+								<ul class="dropdown-menu">
+									<?php if($getuser->group=="supperadmin"||$getuser->group=="admin"||$getuser->group=="adsmanager"){?>
+									<li class=""><a href="<?php echo  WEBPATH;?>/admin">Admin Pannel</a></li>
+									<?php }?>
+									<li><a href="<?php echo  WEBPATH;?>/main/profile">Account</a></li>
+									<li class="divider"></li>
+									<li><a href="<?php echo  WEBPATH;?>/admin/logout">Logout</a></li>
+								</ul>
+							</li>
+						</ul>
+						
+							
+					   <?php }  else{?>
+				<ul class="nav navbar-nav navbar-right" style="font-size: 12px;">
+					<li><a data-toggle="modal" href="#myModal" class="sigin_pop" >Sign in</a></li>
+					<li><a  data-toggle="modal" href="#myModal" class="sigup_pop" >Sing up </a></li>
+				</ul>
+				<?php }?>
+				</div>
+				
+				
+			</div>
+		</div>
+		<div class="container menu-locate phuc-red">
+			<div class="mainmenu">
+				<ul id="menu-menu" class="col-lg-10">
+				  <li id="menu-item-847" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-847">
+				   <a href="<?php echo WEBPATH;?>">
+ 				      <b class="f_ctt">Home</b>
+				   </a>
+				  </li>
+				<li id="menu-item-848" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-848">
+				  <a href="vietnam-visa-fees/"><b>Visa Fees</b></a></li>
+				  <li id="menu-item-1017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1017"><a href="<?php echo WEBPATH;?>/visa-requirements"><b>Visa Requirement</b></a></li>
+				  <li id="menu-item-846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846"><a href="<?php echo WEBPATH;?>/apply-vietnam-visa"><b>Apply Vietnam Visa</b></a></li>
+				  
+				<!-- 
+				<li id="menu-item-876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-876"><a href="rush-vietnam-visa"><b>Urgent Visa</b></a></li>
+				<li id="menu-item-1020" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1020"><a href="vietnam-embassy-consulate/"><b>Find Embassy</b></a></li>
+				<li id="menu-item-2377" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2377"><a href="country/"><b>Vietnam Visa Tutorials</b></a></li>
+				 -->
+				<li id="menu-item-880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-880"><a href="<?php echo WEBPATH;?>/contact-us"><b>Contact Us</b></a></li>
+				<?php $getuser=$this->layout()->getuser;
+						if(isset($getuser->username)){ //var_dump($getuser);?>
+				<li id="menu-item-880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-880"><a href="<?php echo WEBPATH?>/admin"><b>Admin Panel</b></a></li>
+				   <?php }//?>
+				
+			</ul>	
+			<div class="toggle-menu glyphicon  hidden-lg disable-select"><span class="edit"><i class="fa fa-chevron-down"></i></span>
+			<ul></ul></div>
+		</div>
+	</div>
+	
+	<header id="p-header" class="header">
+            <a href="index.html" class="logo">
+                Admin
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <?php /* ?>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>admin <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="logout.html" class="btn btn-default btn-flat">logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                */
+                ?>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas" style="margin-top: 7%;">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="<?php echo WEBPATH_REAL_ADMIN?>/img/avatar3.png" class="img-circle" alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p>Hello, Admin</p>
+
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                    <!-- search form -->
+                    <form action="#" method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                            <span class="input-group-btn">
+                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                      <ul class="sidebar-menu">
+                        <li class="treeview">
+                            <a href="#">
+                              <i class="fa fa-star"></i><span>Slider</span>
+							  <i class="fa fa-angle-left pull-right"> </i>
+                            </a>
+							<ul class="treeview-menu">
+								 <li><a href="slider.html"><i class="fa fa-angle-double-right"></i> Manage slide</a></li>
+                                <li><a href="addslide.html"><i class="fa fa-angle-double-right"></i>Add Slide</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span> Visa</span>
+                                <i class="fa fa-angle-left pull-right"> </i>
+                            </a>
+                          <ul class="treeview-menu">
+                                <li><a href="/"><i class="fa fa-angle-double-right"></i>Quick Apply Visa</a></li>
+                                <li><a href="/"><i class="fa fa-angle-double-right"></i>Information of visa</a></li>
+                                <li><a href="/"><i class="fa fa-angle-double-right"></i>Visa Fee for country</a></li>
+                                  <li><a href="/"><i class="fa fa-angle-double-right"></i> Contact information </a></li>
+                            </ul>
+                        </li>
+						
+						 <li class="active">
+                            <a href="PERSONAL.html">
+                                <i class="fa fa-asterisk"></i> <span>customer information</span>
+                            </a>
+                        </li>
+						<li class="active">
+                            <a href="order.html">
+                                <i class="fa fa-star"></i><span>Your Order</span>
+                            </a>
+                        </li>
+						<li class="active">
+                            <a href="other.html">
+                                <i class="fa fa-asterisk"></i> <span> Other</span>
+                            </a>
+                        </li>
+						 
+						 
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                       Home
+                    </h1>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+					 <div class="box-body table-responsive no-padding customer ">
+								<?php echo $this->content; ?>									
+                     </div><!-- class="box-body table-responsive no-padding customer " -->
+                </section>
+                <!-- footer -->
+				<div class="footer">
+					<div class="flinks container">
+						
+						<div class="clr"></div>
+						<div class="hline"></div>
+						<div class="payment-method col-sm-12">
+							<div>
+								<div class="g2s"></div>
+								<div class="paypal2"></div>
+								<div class="truste"></div>
+								<div class="accredited"></div>
+								<div class="certification-authorities"></div>
+							</div>
+						</div>
+						<div class="clr"></div>
+						<div class="hline"></div>
+						<div class="copyright" style="position:relative">Copyright © 2015 - <a href="#" >Vietnam Visa</a> Immigration Service</div>
+						<div class="clr"></div>
+					</div>
+				</div>
+            </aside>
+        </div><!-- ./wrapper -->
+
+		<!-- Modal delete-->
+			<div class="modal fade bs-example-modal-sm" id="showdelete" tabindex="-1" role="dialog" aria-labelledby="myModal1Label" aria-hidden="true">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						
+						<div class="modal-body">
+							<p>You want to Delete</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							<button type="button" class="btn btn-primary">ok</button>
+						</div>
+					</div>
+				</div>
+			</div>	
+		<!--end delete-->
+         <script src="<?php echo WEBPATH_REAL_ADMIN?>/js/jquery.min.js"></script>
+        <!-- jQuery UI 1.10.3 -->
+        <script src="<?php echo WEBPATH_REAL_ADMIN?>/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+        <!-- Bootstrap -->
+        <script src="<?php echo WEBPATH_REAL_ADMIN?>/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- Morris.js charts -->
+        <!-- AdminLTE App -->
+        <script src="<?php echo WEBPATH_REAL_ADMIN?>/js/AdminLTE/app.js" type="text/javascript"></script>
+	<script>
+			$(document).ready(function(){
+			$('.arler').click(function(){
+				$('#showdelete').modal('show');
+				});
+			$('.detail').click(function(){
+				$('#showchitiet').modal('show');
+				});
+				$('.detail1').click(function(){
+				$('#showchitiet1').modal('show');
+				});
+			});
+		</script>
+	
+	
+	
+ <!-- <script type="text/javascript" src="/html/index/asset/js/chatinline.js"></script> -->
+    
+ <script type="text/javascript" defer="defer" src="https://mylivechat.com/chatinline.aspx?hccid=35565043"></script>
+ 
+</body>
+</html>

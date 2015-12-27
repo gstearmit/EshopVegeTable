@@ -1,0 +1,142 @@
+<?php if (!$this->layout()->getuser) die("Error") ?>
+<!-- font chu icon http://fortawesome.github.io/Font-Awesome/icons/ -->
+<div class="main-container col2-left-layout">
+    <div class="container">
+        <div class="main">
+
+            <div class="row show-grid">
+                <div
+                    class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+                    <!--  <div id="leftcatalogue"></div> -->
+                    <!-- leftcatalogue -->
+
+                    <div id="myacountaja"></div>
+                    <!-- myacountaja -->
+                    <div id="myproductaja"></div>
+
+                    <div id="mycartaja"></div>
+
+
+                    <div id="compareproductaja"></div>
+                    <!-- compareproductaja -->
+
+
+                    <p></p>
+                </div>
+
+                <!--thay trang chi tiet vao--->
+                <div
+                    class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+                    <div class="pageheader">
+                        <h1 class="title-admin page-title">
+                            <i class="glyphicon glyphicon-plus"></i>Add Tags:
+                        </h1>
+                    </div>
+
+                    <div class="buttons-set buttons-set2" style="float: right;">
+                        <a href="<?php echo WEBPATH ?>/tags/index">
+                            <button type="button" name="Mana Tags" title="Mana Tags"
+                                    class="butoon button btn-share">
+                                <span><span>Mana Tags</span></span>
+                            </button>
+                        </a> <a href="<?php echo WEBPATH ?>/tags/add">
+                            <button type="button" title="AddNew"
+                                    class="butoon button btn-add">
+                                <span><span>Add new Tags</span></span>
+                            </button>
+                        </a>
+
+                    </div>
+                    <div class=""> 
+                        <?php
+                       
+                        if (isset($check) && $check == 1 || $id_cata != '') {
+                            echo '<div class="alert alert-success" role="alert">Tags has been Add success.</div>';
+                        }
+                        ?>
+                        <?php
+                        if (isset($check) && $check == 0) {
+                            echo '<div class="alert alert-danger" role="alert">Error!!.</div>';
+                        }
+                        ?>
+                        <?php if (!isset($check) || $check == 'NULL') { ?>
+                            <div class="col-sm-6">
+                                <?php
+                                $form = $this->catalogform;
+                                $form->prepare();
+                                echo $this->form()->openTag($form);
+                                ?>
+                                <?php echo $this->formElement($form->get('id')); ?>
+                                <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('id')); ?></span>   
+
+
+                                <?php echo $this->formlabel($form->get('name')); ?>
+                                <?php echo $this->formElement($form->get('name')); ?>
+                                <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('name')); ?></span>
+
+                                <?php echo $this->formlabel($form->get('alias')); ?>
+                                <?php echo $this->formElement($form->get('alias')); ?>
+                                <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('alias')); ?></span>
+
+
+                                <?php echo $this->formLabel($form->get('img')); ?>
+                                <div class="form-control imgnew">
+                                    <?php if ($this->img_thumb != '') { ?>
+                                        <img
+                                            class="img-responsive"
+                                            src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $this->img_thumb; ?>" />
+
+                                    <?php } ?>
+                                </div>
+                                <?php echo $this->formFile($form->get('img')); ?>
+                                <span class="common-error-msg" style="color:red;font-size: 16px;"><?php echo $this->formElementErrors($form->get('img')); ?></span>
+
+                                <?php echo $this->formlabel($form->get('description')); ?>
+                                <?php echo $this->formElement($form->get('description')); ?>
+                                <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('description')); ?></span>
+
+
+                                <?php echo $this->formlabel($form->get('parent')); ?>
+                                <?php echo $this->formElement($form->get('parent')); ?>
+                                <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('parent')); ?></span>
+
+
+                                <label for="parent">Status</label>
+                                <div class="form-control">
+                                    <?php echo $this->formElement($form->get('status')); ?>
+                                    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('status')); ?></span>
+                                </div>
+
+
+
+                                <p></p>
+                                <?php echo $this->formElement($form->get('submit')); ?>
+                                <?php echo $this->form()->closeTag($form); ?>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <!-- end chi tiet -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function get_alias() {
+            var str = (document.getElementById("name").value);
+            str = str.toLowerCase();
+            str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+            str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+            str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+            str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+            str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+            str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+            str = str.replace(/đ/g, "d");
+            str = str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g, "-");
+            str = str.replace(/-+-/g, "-");
+            str = str.replace(/^\-+|\-+$/g, "");
+            document.getElementById("alias").value = str;
+            return str;
+        }
+    </script>

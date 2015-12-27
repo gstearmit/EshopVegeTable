@@ -1,0 +1,134 @@
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+					<!--  <div id="leftcatalogue"></div> --> <!-- leftcatalogue -->
+
+					<div id="myacountaja"></div> <!-- myacountaja -->
+					<div id="myproductaja"></div>
+
+					<div id="mycartaja"></div>
+
+
+					<div id="compareproductaja"></div> <!-- compareproductaja -->
+					
+					<?php
+					 /* ?>
+					<div id="populartags"></div>
+					<!-- populartags -->
+
+					<div id="containernone"></div>
+					<!-- container-none -->
+					*/
+					?>
+
+					<p></p>
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div
+					class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="my-account">
+						<div class="dashboard">
+							<div class="page-title">
+								<h1>My Dashboard</h1>
+								<?php $user = $this->layout()->getuser;?>
+							</div>
+							<div class="welcome-msg">
+								<p class="hello">
+									<strong>Hello, <?php echo $user->username;?>!</strong>
+								</p>
+								<p>From your My Account Dashboard you have the ability to view a
+									snapshot of your recent account activity and update your
+									account information. Select a link below to view or edit
+									information.</p>
+							</div>
+							<div class="box-account box-info">
+								<div class="box-head">
+									<h2>Account Information</h2>
+								</div>
+								<div class="col2-set">
+									<div class="col-1">
+										<div class="box">
+											<div class="box-title">
+												<h3>Contact Information</h3>
+												<a
+													href="<?php echo WEBPATH;?>/accountedit">Edit</a>
+											</div>
+											<div class="box-content">
+												<p>
+													<?php echo $user->username;?><br> <?php echo $user->email;?><br> 
+													<a href="<?php echo  WEBPATH?>/accountchangepass/<?php echo $user->id;?>">Change Password</a>
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-2">
+										<div class="box">
+											<div class="box-title">
+												<h3>Newsletters</h3>
+												<a href="<?php echo WEBPATH?>/newsletter/newslettermanage">Edit</a>
+											</div>
+											<div class="box-content">
+												<p>You are currently not subscribed to any newsletter.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col2-set">
+									<div class="box">
+										<div class="box-title">
+											<h3>Address Book</h3>
+											<a
+												href="<?php echo WEBPATH;?>/addressmanage">Manage
+												Addresses</a>
+										</div>
+										<div class="box-content">
+											<div class="col-1">
+												<h4>Default Billing Address</h4>
+												<address>
+													You have not set a default billing address.<br> <a
+														href="<?php echo WEBPATH;?>/addressedit">Edit
+														Address</a>
+												</address>
+											</div>
+											<div class="col-2">
+												<h4>Default Shipping Address</h4>
+												<address>
+													You have not set a default shipping address.<br> <a
+														href="<?php echo WEBPATH;?>/addressedit">Edit
+														Address</a>
+												</address>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end chi tiet -->
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+		     var domainnew ='<?php echo WEBPATH;?>';var glob=2;
+			 jQuery(document).ready(function($) {
+				 e = location.pathname;
+				 $.ajax({
+		               type: "POST",
+		               url: domainnew + "/main/myproduct",
+		               data: {idcode:e,page:glob},
+		               success: function(data){
+			               //alert(data);console.log( $('.leftcatalogue').html(data));
+		                            $('#myproductaja').html(data);
+		                             glob++;
+		                       }
+		         });
+			 });
+				</script>
+				 

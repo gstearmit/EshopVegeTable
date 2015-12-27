@@ -1,0 +1,316 @@
+<?php
+//use Crowler\View\Helper\Async;
+//echo $this->helloWorldHelper();
+
+//run view helper
+//var_dump($this->test_helper("hoangphuc","uc"));
+//echo $this->staticLink('my_picture.jpg', StaticLink\View\Helper\StaticLink::IMAGE, array('profiles', 'admins'));
+//echo $this->staticLink('avatar.jpg', StaticLink\View\Helper\StaticLink::ADMINTHEME, array('images'));
+//run crolwe
+
+// $Async = new Async("file_get_contents", array("https://www.rohlik.cz/c75533-napoje?paginator-page=14&do=paginator-loadMore"));
+// var_dump($Async);
+
+
+// $future = Async::call("file_get_contents", array("https://www.rohlik.cz/c75533-napoje?paginator-page=14&do=paginator-loadMore"));
+// /* here's us counting the bytes out, note, __toString() magic joined so no need to join explicitly */
+// printf("Got %d bytes from php.net\n", strlen((string)$future));
+// /* you can reference again as a string because you cached the result, YOU CANNOT JOIN TWICE */
+// printf("First 16 chars: %s\n", substr((string)$future, 0, 16));
+// /* if you have no __toString(): */
+
+
+//  $response = $future->result;  
+//  var_dump($response);
+//  die("chet di diiii");
+?>
+<?php  ?>
+<section id="content">
+
+	<!--breadcrumbs start-->
+	<div id="breadcrumbs-wrapper" class=" grey lighten-3">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<h5 class="breadcrumbs-title">Mana Declaration site</h5>
+					<ol class="breadcrumb">
+						<li><a href="<?php echo WEBPATH;?>/materialize/">Dashboard</a></li>
+						<li><a href="<?php echo WEBPATH;?>/catalog/manacatalo">Automated</a></li>
+						<li class="active">Get News Products</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--breadcrumbs end-->
+
+	<h5 class="header" style="padding-left: 1%;">Get automated news</h5>
+	<div class="row">
+		<div class="col s12 m6 l10">
+			<a href="javascript:void(0)" onclick="history.go(-1)"
+				class="btn waves-effect waves-light indigo"><i
+				class="mdi-action-3d-rotation left"></i>Back</a> 
+		    <a
+				href="<?php echo WEBPATH?>/crowler/index/listtookproduct"
+				class="waves-effect waves-light  btn"><i
+				class="mdi-action-backup right"></i>List Product took</a>
+		  <a
+				href="<?php echo WEBPATH?>/crowler/index/index"
+				class=" waves-light light-green darken-4 btn"><i
+				class="mdi-action-backup right"></i>Product</a>		
+		</div>
+		<div class="col s12 m6 l2">
+			<button title="Product Crowler" onclick="feed_data();"
+				class="btn-floating btn-flat waves-effect waves-light pink accent-2 white-text">
+				<i class="mdi-file-cloud-download"></i>
+			</button>	
+			<?php  if(isset($items)and $items == null and $items_details == 0 and $save_cmd == '' ){?> <?php } else { if(isset($items)and $items != null and $items_details == 0 ) { ?> <button
+				onclick="feed_data_detail();" title="Get Detail Product"
+				class="btn-floating waves-effect waves-light blue-grey">
+				<i class="mdi-editor-insert-comment"></i>
+			</button> <?php } }?>
+			
+			<?php  if(isset($items)and $items and $items_details ==1  and  $save_cmd == 'feeddetails' ){?> <button
+				onclick="insert_data();" title="Insert Database"
+				class="btn-floating btn-flat waves-effect waves-light pink accent-2 white-text">
+				<i class="mdi-file-file-download"></i>
+			</button><?php }?>
+		</div>
+
+		<div class="fixed-action-btn">
+			<button class="btn-floating btn-large red">
+				<!-- onclick="feed_data();" -->
+				<i class="mdi-file-cloud-download"></i>
+			</button>
+			<ul>
+			    <li>
+			    <?php  if(isset($items)and $items == null and $items_details == 0 and $save_cmd == '' ){?> <?php } else { if(isset($items)and $items != null and $items_details == 0 ) { ?> 
+			    <button
+				onclick="feed_data_detail();" title="Get Detail Product"
+			    data-position="left" data-delay="50" data-tooltip="Get Detail Product"
+				class="tooltipped btn-floating waves-effect waves-light blue-grey"
+				style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;">
+				<i class="mdi-editor-insert-comment"></i>
+			    </button> <?php } }?>
+			    </li>
+			    
+				<li><button onclick="feed_data();" title="Get Crowler"
+						data-addnewname="<?php echo WEBPATH;?>/crowler/crowler/index"
+						data-position="left" data-delay="50" data-tooltip="Get Crowler"
+						class="tooltipped btn-floating blue"
+						style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;">
+						<i class="mdi-file-cloud-download"></i>
+					</button></li>
+				<li>
+					<button onclick="feed_data_delete();" title="Delete All"
+						data-position="left" data-delay="50" data-tooltip="Delete All"
+						class="tooltipped btn-floating red"
+						style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;">
+						<i class="mdi-action-delete"></i>
+					</button>
+				</li>
+
+				<li><a href="<?php echo WEBPATH?>/crowler/crowler/adddeclaration"
+					title="Add new declaration" data-position="left" data-delay="50"
+					data-tooltip="Add new declaration"
+					class="tooltipped btn-floating yellow darken-1"
+					style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;"><i
+						class="mdi-av-my-library-add"></i></a>
+				</li>
+				
+
+				<!--  
+                          <li> 
+                            <a href="#modal1" title="Add New Name declaration" 
+	                            data-addnewname="<?php echo WEBPATH;?>/crowler/crowler/addnewname" 
+	                            data-position="left" data-delay="50" data-tooltip="Add New Name declaration" 
+	                            class="modal-trigger tooltipped btn-floating blue" 
+	                            style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;">
+	                            <i class="mdi-action-note-add"></i>
+                            </a>
+                            
+                          </li>
+                          -->
+			</ul>
+		</div>
+
+	</div>
+	
+	<?php if(!empty($_array_delete)) { ?>
+		<div id="modal1" class="modal" style="display: block; opacity: 1; top: 10%; max-height: 95%;">
+		<div class="modal-content" style="padding: 0px 2px 2px 0px;">
+			<nav class="red">
+				<div class="nav-wrapper">
+					<div class="left col s12 m5 l5">
+						<ul>
+							<li><a href="#!" class="email-menu"><i
+									class="modal-action modal-close  mdi-hardware-keyboard-backspace"></i></a>
+							</li>
+							<li><a href="#!" class="email-type">Delete Declaration</a></li>
+						</ul>
+					</div>
+					<div class="col s12 m7 l7 hide-on-med-and-down">
+						<ul class="right">
+							<li><a href="#!"><i class="mdi-editor-attach-file"></i></a></li>
+							<li><a href="#!"><i
+									class="modal-action modal-close  mdi-content-send"></i></a></li>
+							<li><a href="#!"><i class="mdi-navigation-more-vert"></i></a></li>
+						</ul>
+					</div>
+
+				</div>
+			</nav>
+		</div>
+		<div class="model-email-content" style="padding: 0px;">
+			<h5 class="header"
+				style="padding-left: 1%; text-align: center; color: red; font-size: 2.5em;">Delete Success!
+			</h5>
+			<div class="input-field col s12 butoin">
+                         <a style="margin: 3% 40% 5% 0%;" href="<?php echo  WEBPATH;?>/crowler/crowler/index" class="btn cyan waves-effect waves-light right"  name="action">OKI <i class="mdi-content-send right"></i>
+                        </a>
+            </div>	
+		</div>
+	</div>
+	<div id="lean-overlay" class="" style="display: block; opacity: 0.5;"></div>
+	<?php
+	}
+	?>
+
+	<!--start container-->
+	<div class="container">
+		<div class="section">
+
+			<!-- chi tiet -->
+			<div class="row">
+				<div class="col s12 m12 l6">
+					<form name="feedForm" method="post">
+						<input type="hidden" name="cmd" value="" id="cmd" />
+						<table class="hoverable">
+							<thead>
+								<tr>
+									<td>
+										<div class="collection-item dismissable"
+											style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+											<input type="checkbox" id="task0"
+												id="DeclarationSite_all_checkbox"
+												onclick="select_all_checkbox(this.checked);" title="Tất cả"
+												value="0"> <label for="task0"
+												style="text-decoration: line-through;"> </label>
+										</div>
+									</td>
+									<th data-field="id">Samples taken</th>
+									<th data-field="url">#link</th>
+									<th data-field="catalogue">Directory Upload</th>
+									<th>#</th>
+								</tr>
+							</thead>
+							<tbody>
+						  <?php  
+                   
+                    for($i = 0; $i < count ( $listNews ); $i ++) {
+                         $task = 'task'.$listNews[$i]->id;
+                    ?>
+						 <tr>
+									<td>
+										<div class="collection-item dismissable"
+											style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+											<input type="checkbox" id="<?php echo $task;?>"
+												name="temps[<?php echo $listNews[$i]->id;?>]"
+												id="temps[<?php echo $listNews[$i]->id;?>]"
+												value="<?php echo $listNews[$i]->id;?>"> <label
+												for="<?php echo $task;?>"
+												style="text-decoration: line-through;"> </label>
+
+										</div>
+									</td>
+									<td id="<?php echo $listNews[$i]->id;?>"><a
+										href="<?php echo $listNews[$i]->url;?>"><?php echo $listNews[$i]->name;?></a>
+									</td>
+									<td><?php echo $listNews[$i]->url;?></td>
+									<td><?php echo $listNews[$i]->directoryavatar;?></td>
+									<td>
+										<div id="linview" style="width: 166px;">
+											<a class="btn-floating waves-effect waves-light red"
+												href="<?php echo WEBPATH;?>/crowler/crowler/edit/<?php echo $listNews[$i]->id;?>"><i
+												class="mdi-editor-border-color"></i></a> <a
+												class="btn-floating waves-effect waves-light red"
+												href="<?php echo WEBPATH;?>/crowler/crowler/delete/<?php echo $listNews[$i]->id;?>"><i
+												class="mdi-action-delete"></i></a>
+											<!-- 
+											<a href="<?php echo WEBPATH;?>/crowler/crowler/status/<?php echo $listNews[$i]->id;?>"><span
+											class="label label-primary lin color-primary waves-effect waves-light light-green darken-4 btn bequa phuc"><i
+												class="mdi-action-done"></i> Ch.status</span></a> 
+											 -->
+
+											<a href="<?php echo $listNews[$i]->url;?>" target="_blank"> <span
+												class="label label-primary lin color-primary btn waves-effect waves-light yellow darken-4 bequa phuc">
+													<i class="mdi-action-pageview"></i> View
+											</span>
+											</a>
+											<!--  
+											<a 	href="<?php echo WEBPATH;?>/crowler/crowler/getproductcrowler/<?php echo $listNews[$i]->id;?>"
+											title="Get Product Crowler">
+											<span class="label label-primary lin color-primary waves-effect waves-light blue btn bequa phuc">
+											 <i class="mdi-file-cloud-download"></i> Get Product Crowler</span>
+										   </a>
+										   -->
+
+
+										</div>
+									</td>
+								</tr>
+							
+							  <?php } // end for ?>	  
+                       
+			                    <tr>
+									<td colspan="6">
+									  <?php
+										 	echo $this->paginationControl ( $paginator, 'Sliding', 'layout/paginatorcrowlerviewindex', array (
+																											'name' => 'Crowler',
+																											'controller' => 'crowler',
+																											'action' => 'index' 
+																									) );
+										 ?>
+									 </td>
+								</tr>
+
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<!-- Form with validation -->
+				<div class="col s12 m12 l6">
+					<div align="center">
+						<img
+							src="<?php echo APOTRAVINY_ADMIN?>/images/animated_loading.gif"
+							class="loading" />
+					</div>
+				   <?php if(isset($items) and $items){ ?>    
+					<div class="template-data fr" style="float: right; width: 80%;">
+					<?php 
+					
+					if(isset($items)and $items and $items_details ==1 ){ ?> <h4
+							class="header" style="color: red; margin: 0px; padding: 0px;">Get
+							Product Details Succeess!</h4> <?php }?>
+					<?php if(isset($items_details) and $items and $items_details == 0){ ?>
+					 <h4 class="header">The data was taken Succeess(save tmp)</h4> 
+					 <a href="<?php echo WEBPATH;?>/crowler/index/listtookproduct" >
+					 <h6 class="header" style="  text-align: center; ">Click View details</h6></a>
+					 <?php } ?>
+					    <ol id="data_result">
+							<?php echo $items;?>
+						</ol>
+
+					</div>
+			    <?php } //if(isset($items) and $items){  end?>	
+				</div>
+			</div>
+			<!-- end chi tiet  -->
+
+		</div>
+		<!-- end section -->
+	</div>
+	<!--end container-->
+</section>
+
+

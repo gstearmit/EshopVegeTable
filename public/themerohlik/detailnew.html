@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en"> <!--<![endif]-->
+	<head>  	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">     
+		<title>rohlik.cz</title>
+		
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-theme.css" rel="stylesheet">
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
+		<link type="text/css" rel="stylesheet" href="css/jquery.bxslider.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script> 
+		
+		<script type="text/javascript" src="js/jquery.bxslider.js"></script>
+		 <script type="text/javascript" src="js/jquery.mmenu.min.all.js"></script>
+		<script>
+		$(document).ready(function(){
+		$("#res").click(function(){
+        $("#dn").modal();
+		});
+		$(".map").click(function(){
+        $("#map").modal();
+		});
+		$(".do").click(function(){
+        $("#map").modal();
+		});
+		$(".detailclick").click(function(){
+        $("#sp").modal();
+		});
+		$("#poslat").click(function(){
+        $("#poslat1").modal();
+		});
+		$('.droppmenu').hide();
+		$("#seo").click(function(){
+        $(".droppmenu").toggle();
+		});
+
+		
+   if(screen.width < 767){
+  $('.slider1').bxSlider({
+   pager:false,
+   auto:false,
+   slideWidth: 100,
+    minSlides: 2,
+    maxSlides: 3,
+    slideMargin: 10
+  });
+  }else{
+    $('.slider1').bxSlider({
+		 pager:false,
+		auto:false,
+		controls:true,
+		slideWidth: 210,
+		minSlides: 5,
+		maxSlides: 5,
+		slideMargin: 10
+  });
+  }
+  
+     if(screen.width < 767){
+  $('.slider2').bxSlider({
+   pager:false,
+   auto:false,
+   slideWidth: 100,
+    minSlides: 2,
+    maxSlides: 2,
+    slideMargin: 10
+  });
+  }else{
+    $('.slider2').bxSlider({
+		 pager:false,
+		auto:false,
+		controls:true,
+		slideWidth: 180,
+		minSlides: 4,
+		maxSlides: 4,
+		slideMargin: 10
+  });
+  }
+$('.example').hide();
+    $("#aa").click(function(){
+       $('.example').toggle();
+    });
+	
+	
+	
+		
+		
+		});
+		
+			jQuery(window).load(function() {
+	    $("#nav > li > a").click(function (e) { // binding onclick
+	        if ($(this).parent().hasClass('selected')) {
+	            $("#nav .selected div div").slideUp(100); // hiding popups
+	            $("#nav .selected").removeClass("selected");
+        } else {
+	            $("#nav .selected div div").slideUp(100); // hiding popups
+	            $("#nav .selected").removeClass("selected");
+ 
+	            if ($(this).next(".subs").length) {
+                $(this).parent().addClass("selected"); // display popup
+                $(this).next(".subs").children().slideDown(200);
+	            }	        }
+	        e.stopPropagation();
+	    });
+ 
+	    $("body").click(function () { // binding onclick to body
+	        $("#nav .selected div div").slideUp(100); // hiding popups
+	        $("#nav .selected").removeClass("selected");
+    });
+	
+ 
+	});
+		
+			
+			(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+		</script>
+	</head>
+    <body>
+		<header >
+		<div id="header">
+		<div class="container">
+		<div class="headermargin">
+		<div class="row">
+			<div class="col-md-1 col-sm-1 col-xs-6">
+			<img src="img/header-logo-brown-lighter.png" class="img-responsive" alt="" />
+			</div>
+			<div class="col-md-2 col-sm-2 col-md-offset-1 col-xs-6">
+			<img src="img/header-badge.png" class="img-responsive" alt=""/>
+			
+			</div>
+			<div class="col-md-5 col-sm-4 col-xs-12">
+			<div class="input-group">
+			<input type="text" class="form-control" placeholder="Hledat název, kategorii nebo značku" aria-describedby="basic-addon2">
+			<a class="input-group-addon" id="basic-addon2"><i class="fa fa-search"></i></a>
+			</div>
+			</div>
+			<div class="col-md-3 col-sm-4 col-xs-12 centersmall">
+			<ul class="regis">
+			<li id="res"><a href="#">Registrovat se <i class="fa fa-angle-down"></i></a> </li>
+			<li id="seo"><a href="#">Přihlásit se <i class="fa fa-angle-down"></i></a></li>
+			</ul>
+			<p class="map"><a href="#">Nastavit adresu doručení</a></p>
+			<div class="droppmenu">
+		<p class="fb"><a href="#" title="Zaregistrovat přes Facebook">Zaregistrovat přes facebook  <i class="fa fa-facebook"></i></a></p>
+		<p class="center"><span class="bgtext">nebo</span></p>
+		<form>
+		<div class="input-group">
+	<input type="text" class="form-control" placeholder="E-mail" aria-describedby="basic-addon2">
+	<span class="input-group-addon" id="basic-addon2"><i class="fa fa-user"></i></span>
+	</div>
+		<div class="input-group">
+	<input type="text" class="form-control" placeholder="Helso" aria-describedby="basic-addon2">
+	<span class="input-group-addon" id="basic-addon2"><i class="fa fa-key"></i></span>
+	</div>
+		</form> 
+		<div class="footerdroppmenu">
+		<p>Zapomenuté heslo?</p>
+		<button class="btn ">Přihlásit se</button>
+		</div>
+			
+		</div>
+		
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		<div class="menuheader">
+		<div class="container">
+		<ul class="mainmenu">
+		<li><a href="#"><span class="fav"> <i class="fa fa-heart"></i> </span>Mé oblíbené </a></li>
+		<li><a href="#"><span class="disc"> &#37 </span>Last minute </a></li>
+		<li> <a href="#"> Farmářské</a>
+		<div class="catolog">
+		<ul>
+		<li> <a href="#"> <img src="img/childer.png" alt=""/>Maso a uzeniny   </a></Li>
+		<li> <a href="#"><img src="img/apple.png" alt=""/>  České bio ovoce a zelenina   </a></Li>
+		<li> <a href="#"> <img src="img/cup.png" alt=""/> Mléčné výrobky a vejce   </a></Li>
+		<li> <a href="#"> <img src="img/cake.png" alt=""/> Lahůdky  </a></Li>
+		</ul>
+		</div>
+		
+		</li>
+		<li> <a href="#"> Čerstvé</a>
+		<div class="catolog">
+		<ul>
+		<li> <a href="#">  <img src="img/apple.png" alt=""/>Ovoce a zelenina  </a></Li>
+		<li> <a href="#">  <img src="img/banana.png" alt=""/>Pečivo </a></Li>
+		<li> <a href="#">  <img src="img/cup.png" alt=""/>Mléčné výrobky a vejce </a></Li>
+		<li> <a href="#">  <img src="img/childer.png" alt=""/>Maso, ryby </a></Li>
+		<li> <a href="#">  <img src="img/box.png" alt=""/>Masné výrobky, uzeniny </a></Li>
+		<li> <a href="#">  <img src="img/cake.png" alt=""/>Lahůdky </a></Li>
+		</ul>
+		</div>
+		</li>
+		
+		<li><a href="#"> Trvanlivé</a>
+				<div class="catolog">
+		<ul>
+		<li> <a href="#"> <img src="img/box.png" alt=""/> Ovoce a zelenina  </a></Li>
+		<li> <a href="#"> <img src="img/clock.png" alt=""/> Pečivo </a></Li>
+		<li> <a href="#"> <img src="img/flower.png" alt=""/> Mléčné výrobky a vejce </a></Li>
+		<li> <a href="#"> <img src="img/care.png" alt=""/> Maso, ryby </a></Li>
+		<li> <a href="#"> <img src="img/bone.png" alt=""/> Masné výrobky, uzeniny </a></Li>
+	
+		</ul>
+		</div>
+		
+		
+		</li>
+		<li><a href="#"> Sladké a slané</a>
+			<div class="catolog">
+		<ul>
+		<li> <a href="#"> <img src="img/kkk.png" alt=""/>  Ovoce a zelenina  </a></Li>
+		<li> <a href="#"> <img src="img/aa.png" alt=""/>  Pečivo </a></Li>
+		<li> <a href="#"> <img src="img/phone.png" alt=""/>  Mléčné výrobky a vejce </a></Li>
+		<li> <a href="#"> <img src="img/caput.png" alt=""/>  Maso, ryby </a></Li>
+		<li> <a href="#"> <img src="img/nap.png" alt=""/>  Masné výrobky, uzeniny </a></Li>
+		<li> <a href="#"> <img src="img/aaa.png" alt=""/>  Lahůdky </a></Li>
+		</ul>
+		</div>
+		
+		</li>
+		<li><a href="#">Speciální </a>
+			<div class="catolog">
+		<ul>
+		<li> <a href="#"> <img src="img/star.png" alt=""/>  Ovoce a zelenina  </a></Li>
+		<li> <a href="#"> <img src="img/ride.png" alt=""/>  Pečivo </a></Li>
+		<li> <a href="#"> <img src="img/boxkey.png" alt=""/>  Mléčné výrobky a vejce </a></Li>
+		<li> <a href="#"> <img src="img/leaf.png" alt=""/>  Maso, ryby </a></Li>
+		<li> <a href="#"> <img src="img/text.png" alt=""/>  Masné výrobky, uzeniny </a></Li>
+		<li> <a href="#"> <img src="img/fgh.png" alt=""/>  Lahůdky </a></Li>
+		<li> <a href="#">  DIA </a></Li>
+		<li> <a href="#"> <img src="img/a1.png" alt=""/>  Lahůdky </a></Li>
+			<li> <a href="#">  Lahůdky </a></Li>
+		</ul>
+		</div>
+		
+		</li>
+		<li><a href="#">  Nápoje</a>
+			<div class="catolog">
+			<ul>
+			<li> <a href="#"> <img src="img/a3.png" alt=""/>  Ovoce a zelenina  </a></Li>
+			<li> <a href="#"> <img src="img/rtyui.png" alt=""/>  Pečivo </a></Li>
+			<li> <a href="#"> <img src="img/fghj.png" alt=""/> Mléčné výrobky a vejce </a></Li>
+			<li> <a href="#"> <img src="img/door.png" alt=""/> Maso, ryby </a></Li>
+			<li> <a href="#"> <img src="img/cafe.png" alt=""/> Masné výrobky, uzeniny </a></Li>
+			<li> <a href="#"> <img src="img/tea.png" alt=""/> Lahůdky </a></Li>
+			</ul>
+			</div>
+		</li>
+		<li><a href="#"> Alkohol a tabák</a>
+					<div class="catolog">
+					<ul>
+				<li> <a href="#">  <a href="#"> <img src="img/watter.png" alt=""/>   Ovoce a zelenina  </a></Li>
+				<li> <a href="#"> <a href="#"> <img src="img/ly.png" alt=""/> Pečivo </a></Li>
+				<li> <a href="#"> <a href="#"> <img src="img/kaka.png" alt=""/> Mléčné výrobky a vejce </a></Li>
+				<li> <a href="#"> <a href="#"> <img src="img/tla.png" alt=""/> Maso, ryby </a></Li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="#"> Drogerie a domácnost</a>
+				<div class="catolog">
+			<ul>
+			<li> <a href="#"> <a href="#"> <img src="img/tron.png" alt=""/> Ovoce a zelenina  </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/fghj.png" alt=""/> Pečivo </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/rtyui.png" alt=""/>  Mléčné výrobky a vejce </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/colaga.png" alt=""/> Maso, ryby </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/tron.png" alt=""/> Masné výrobky, uzeniny </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/m.png" alt=""/> Lahůdky </a></Li>
+			<li> <a href="#"><a href="#"> <img src="img/claue.png" alt=""/> Masné výrobky, uzeniny </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/a2j.png" alt=""/> Lahůdky </a></Li>
+			<li> <a href="#"><a href="#"> <img src="img/home.png" alt=""/> Masné výrobky, uzeniny </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/add.png" alt=""/> Lahůdky </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/gift.png" alt=""/> Lahůdky </a></Li>
+			</ul>
+			</div>
+		
+		</li>
+		<li><a href="#">  Dítě</a>
+				<div class="catolog">
+			<ul>
+			<li> <a href="#"> <a href="#"> <img src="img/b.png" alt=""/> Ovoce a zelenina  </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/cup.png" alt=""/> Pečivo </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/ducrk.png" alt=""/> Mléčné výrobky a vejce </a></Li>
+			</ul>
+			</div>
+		</li>
+		<li><a href="#">   Zvířata</a>
+					<div class="catolog">
+			<ul>
+			<li> <a href="#"> <a href="#"> <img src="img/pig.png" alt=""/> Ovoce a zelenina  </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/gau.png" alt=""/> Pečivo </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/tho.png" alt=""/> Mléčné výrobky a vejce </a></Li>
+			<li> <a href="#"> <a href="#"> <img src="img/first.png" alt=""/> Maso, ryby </a></Li>
+		
+			</ul>
+			</div>
+		
+		</li>
+		</ul>
+		
+		</div>
+		
+		</div>
+		<!--menusmall-->
+		 <div class="menu_fix_small">
+		<a id="aa" href="#"> <span class="font-width"> <i class="fa fa-bars"></i></span></a>
+		<div class="example">
+		<div class="menu">
+        <span>
+	            <ul id="nav">
+	                <li><a href="#">Mé oblíbené </a></li>
+					 <li><a href="#">Last minute </a></li>
+                <li><a href="#">Farmářské <span class="rightfont"> <i class="fa fa-angle-down"></i>
+</span> </a>
+	                    <div class="subs">
+						<div>
+								<ul>
+                                        <li> <a href="#"> Maso a uzeniny </a></Li>
+										<li> <a href="#"> České bio ovoce a zelenina  </a></Li>
+										<li> <a href="#"> Mléčné výrobky a vejce </a></Li>
+										<li> <a href="#"> Lahůdky  </a></Li>
+	                            </ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#">Čerstvé <span class="rightfont"><i class="fa fa-angle-down"></i>
+</span> </a>
+	                    <div class="subs">
+						<div>
+					<ul>
+                         <li> <a href="#">Ovoce a zelenina  </a></Li>
+						 <li> <a href="#">Pečivo </a></Li>
+						 <li> <a href="#">Mléčné výrobky a vejce </a></Li>
+						 <li> <a href="#">Maso, ryby </a></Li>
+						<li> <a href="#">Mléčné výrobky a vejce </a></Li>
+						 <li> <a href="#">Maso, ryby </a></Li>
+	                </ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#">Trvanlivé <span class="rightfont"><i class="fa fa-angle-down"></i>
+</span> </a>
+	                    <div class="subs">
+						<div>
+								<ul>
+                                        <li> <a href="#">Ovoce a zelenina  </a></Li>
+										<li> <a href="#">Pečivo </a></Li>
+										<li> <a href="#">Mléčné výrobky a vejce </a></Li>
+										<li> <a href="#">Maso, ryby </a></Li>
+										<li> <a href="#">Masné výrobky, uzeniny </a></Li>
+										<li> <a href="#">Lahůdky </a></Li>
+	                            </ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#">Sladké a slané <span class="rightfont"><i class="fa fa-angle-down"></i>
+</span> </a>
+	                    <div class="subs">
+						<div>
+								<ul>
+                                       <li> <a href="#"> Ovoce a zelenina  </a></Li>
+										<li> <a href="#">  Pečivo </a></Li>
+										<li> <a href="#"> Mléčné výrobky a vejce </a></Li>
+										<li> <a href="#">  Maso, ryby </a></Li>
+										<li> <a href="#"> Masné výrobky, uzeniny </a></Li>
+										<li> <a href="#"> ahůdky </a></Li>
+	                            </ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#">Speciální <span class="rightfont"> <i class="fa fa-angle-down"></i>
+</span></a>
+	                    <div class="subs">
+						<div>
+								<ul>
+                                         <li> <a href="#"> Ovoce a zelenina  </a></Li>
+										<li> <a href="#">  Pečivo </a></Li>
+										<li> <a href="#"> Mléčné výrobky a vejce </a></Li>
+										<li> <a href="#"> Maso, ryby </a></Li>
+										<li> <a href="#">  Masné výrobky, uzeniny </a></Li>
+										<li> <a href="#"> Lahůdky </a></Li>
+	                            </ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#">Nápoje<span class="rightfont"> <i class="fa fa-angle-down"></i>
+</span></a>
+	                    <div class="subs">
+						<div>
+								<ul>
+                                         <li> <a href="#">Ovoce a zelenina </a></Li>
+										<li> <a href="#">Pečivo </a></Li>
+										<li> <a href="#">  Mléčné výrobky a vejce </a></Li>
+										<li> <a href="#"> Maso, ryby </a></Li>
+										<li> <a href="#">Masné výrobky, uzeniny </a></Li>
+										<li> <a href="#">Lahůdky </a></Li>
+	                            </ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#">Alkohol a tabák <span class="rightfont"> <i class="fa fa-angle-down"></i></span></a>
+	                    <div class="subs">
+						<div>
+								<ul>
+                                         <li> <a href="#"> Ovoce a zelenina  </a></Li>
+										<li> <a href="#"> Pečivo </a></Li>
+										<li> <a href="#"> Mléčné výrobky a vejce </a></Li>
+										<li> <a href="#"> Maso, ryby </a></Li>
+										<li> <a href="#"> Masné výrobky, uzeniny </a></Li>
+										<li> <a href="#"> Lahůdky </a></Li>
+	                            </ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#"> Drogerie a domácnost <span class="rightfont"> <i class="fa fa-angle-down"></i>
+</span> </a>
+	                    <div class="subs">
+						<div>
+						<ul>
+								<li> <a href="#">Ovoce a zelenina  </a></Li>
+								<li> <a href="#">Pečivo </a></Li>
+								<li> <a href="#">Mléčné výrobky a vejce </a></Li>
+								<li> <a href="#">Maso, ryby </a></Li>
+								<li> <a href="#">Masné výrobky, uzeniny </a></Li>
+								<li> <a href="#">Lahůdky </a></Li>
+								<li> <a href="#">Masné výrobky, uzeniny </a></Li>
+								<li> <a href="#">Lahůdky </a></Li>
+						</ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#"> Dítě <span class="rightfont"> <i class="fa fa-angle-down"></i>
+</span></a>
+	                    <div class="subs">
+						<div>
+								<ul>
+								<li> <a href="#">Ovoce a zelenina  </a></Li>
+								<li> <a href="#">Pečivo </a></Li>
+								<li> <a href="#">Mléčné výrobky a vejce </a></Li>
+								</ul>
+						</div>
+						</div>
+	                </li>
+					<li><a href="#">Zvířata <i class="fa fa-angle-down"></i>
+</a>
+	                    <div class="subs">
+						<div>
+								<ul>
+							<li> <a href="#">Ovoce a zelenina  </a></Li>
+							<li> <a href="#">Pečivo </a></Li>
+							<li> <a href="#">Mléčné výrobky a vejce </a></Li>
+							<li> <a href="#">Maso, ryby </a></Li>
+						
+							</ul>
+						</div>
+						</div>
+	                </li>
+					
+	            </ul>
+	        </span>
+	    </div>
+	</div>
+	</div>
+		<!--end-->
+		
+		
+		</header>
+		<!--end header-->
+		<!--first contact-->
+		<section>
+		<div class="wapper">
+			<div class="breadcrumb hidden-xs ">
+					<div class="container">
+					<div class="row">
+					<div class="col-md-2 col-sm-2 col-xs-12 rohlik">
+					<h4><a href="#"> <i class="fa fa-angle-left"></i> </a> Zpět na úvod</h4>
+					</div>
+					<div class="col-md-5 col-sm-5">
+					<ul class="lastul">
+						<li> <a href="index.html"> Rohlik.cz</a></li>
+						<li> > </li>
+						<li> <a href="#" > Last minute</a></li>
+					</ul>
+					</div>
+					<div class="col-md-2 col-sm-2 zadge">
+					<a href="#"><img src="img/badge.png" alt="" > Získej až 2000 Kč</a>
+					</div>
+					<div class="col-md-3 col-sm-3 fixhead">
+					<p> <i class="fa fa-cart-plus"> </i></span>Košík <span>1</span>
+					</p>
+					</div>
+					
+					</div>
+					</div>
+			</div>
+			<div class="content">
+			<div class="container">
+			<div class="row scrolltotop">
+				<div class="col-md-3 col-xs-12 col-sm-3 ">
+				<div class="borderfull">
+					<strong> Podkategorie</strong>
+					<ul class="menudetail"> 
+						<li> <a href="#"> Bio výrobky</a></li>
+						<li> <a href="#"> Lahůdky</a></li>
+						<li> <a href="#"> Lahůdky</a></li>
+						<li><a href="#">Maso a uzeniny</a></li>
+							<li><a href="#">Maso, ryby</a></li>
+							<li><a href="#">Mléčné výrobky a vejce</a></li>
+							<li><a href="#">Mléčné výrobky a vejce</a></li>
+						
+					</ul>
+					<strong>Značky</strong>
+					
+					<ul class="ul_checkbox">
+			<li>
+				<label>
+					<input type="checkbox" checked="">
+
+					<span class="like-checkbox"></span> Delta
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" >
+
+					<span class="like-checkbox"></span> Farma Pěnčín
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" >
+
+					<span class="like-checkbox"></span> Hradecka pekarna
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" >
+
+					<span class="like-checkbox"></span> Ježkův statek
+				</label>
+			</li>
+			<li class="hiddenBrandFilters">
+				<label>
+					<input type="checkbox" >
+
+					<span class="like-checkbox"></span> Knedlíky Láznička
+				</label>
+			</li>
+			<li class="hiddenBrandFilters">
+				<label>
+					<input type="checkbox" >
+
+					<span class="like-checkbox"></span> Mlékárna Kunín
+				</label>
+			</li>
+			<li class="hiddenBrandFilters">
+				<label>
+					<input type="checkbox" >
+
+					<span class="like-checkbox"></span> Penam
+				</label>
+			</li>
+			<li class="hiddenBrandFilters">
+				<label>
+					<input type="checkbox">
+
+					<span class="like-checkbox"></span> Rehberg
+				</label>
+				</li>
+			<li class="more">
+				<a href="#" class="toggle" >Rozbalit seznam</a>
+			</li>
+		</ul>
+		
+		
+		</div>
+		<div class="row bg_produkt">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<p> Chybí vám zde nějaký produkt?</p>
+			<button id="poslat" class="btn btn-success"> poslat tip na zboží</button>
+		
+		</div>
+		</div>
+
+		
+				</div>
+			
+				<div class="col-md-9 col-xs-12 col-sm-9 contactten ">
+			<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+			<h1>Zvířata</h1>	
+				<div class="filter">
+					<ul>
+						<li><label><input type="radio" checked=""  class="noreplace onChangeAjax" name="filter"><span class="like-radio"></span>Podle oblíbenosti</label></li>
+						<li><label><input type="radio"  class="noreplace onChangeAjax" name="filter"><span class="like-radio"></span>Od nejdražšího</label></li>
+						<li><label><input type="radio"  class="noreplace onChangeAjax" name="filter"><span class="like-radio"></span>Od nejlevnějšího</label></li>
+
+						<li class="checkbox"><label><input type="checkbox" class="noreplace onChangeAjax pushCheckToGtm" value="" name="filter"><span class="like-checkbox"></span>mé oblíbené</label></li>
+					</ul>
+				</div>	
+				</div>
+				</div>
+				<div class="row detailborder-bottom">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(99);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty99" class="">
+				<i  onclick="congqty(99);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				</div>
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/820153-1414863529-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<i  onclick="truqty(7);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty7" class="">
+				<i  onclick="congqty(7);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/714767-1414863696-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<i  onclick="truqty(8);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty8" class="">
+				<i  onclick="congqty(8);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				</div>
+				
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287901-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+				
+				</div>
+				<div class="row detailborder-bottom">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</p>
+				
+				</div>
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/820153-1414863529-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/714767-1414863696-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				</div>
+				
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287901-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+				
+				</div>
+				<div class="row detailborder-bottom">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				
+				</div>
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/820153-1414863529-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/714767-1414863696-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				</div>
+				
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287901-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+				
+				</div>
+				<div class="row detailborder-bottom">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				
+				</div>
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/820153-1414863529-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/714767-1414863696-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<a href="#">-</a>
+				<input type="text" class="">
+				<a href="#"> + </a>
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				</div>
+				
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287901-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<i  onclick="truqty(5);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty5" class="">
+				<i  onclick="congqty(5);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+				
+				</div>
+				<div class="row detailborder-bottom">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<i  onclick="truqty(4);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty4" class="">
+				<i  onclick="congqty(4);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				
+				</div>
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/820153-1414863529-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<i  onclick="truqty(3);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty3" class="">
+				<i  onclick="congqty(3);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/714767-1414863696-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<i  onclick="truqty(2);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty2" class="">
+				<i  onclick="congqty(2);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				
+				</div>
+				
+				
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287901-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span></p>
+				<p class="adddetail">
+				<i  onclick="truqty(1);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty1" class="">
+				<i  onclick="congqty(1);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>
+				</div>
+				
+				</div>	
+			</div>
+				<div id="backtop" class="hidden-xs scrolltop">
+				<a href="#top" class="scrollToTop bottom" style="display: inline;"><img src="img/icon_gototop.png" alt=""/> </a>
+				</div>
+<script>
+$(document).ready(function(){
+
+	// hide #back-top first
+	$('#backtop').hide();
+	
+	// fade in #back-top
+	$(function (){
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 100) {
+				$('#backtop').fadeIn();
+			} else {
+				$('#backtop').fadeOut();
+			}
+		});
+
+		// scroll body to 0px on click
+		$('#backtop').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			},800);
+			return false;
+		});
+	});
+
+});
+function truqty(key){
+	var qty=$('#getqty'+key).val();
+	
+	if(qty > 1){
+	var qtynew=parseInt(qty)-1;
+	$('#getqty'+key).val(qtynew);
+	}else{
+	$('#getqty'+key).val('1');
+	}
+}
+function congqty(key){
+	var qty=$('#getqty'+key).val();
+	
+	var qtynew=parseInt(qty)+1;
+	$('#getqty'+key).val(qtynew);
+}
+</script>
+				
+			</div>
+			</div>
+		<footer>
+			<div class="container">
+			<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-12">
+			<section class="contact">
+				<ul>
+					<li class="phone"><strong><span>840&nbsp;730&nbsp;740</span></strong> <span>Každý den&nbsp;od&nbsp;10&nbsp;do&nbsp;23&nbsp;hodin<span></span></span></li>
+					<li class="mail"><a href="mailto:zakaznici@rohlik.cz">zakaznici@rohlik.cz</a> <span>Na e-mail se snažíme odpovídat okamžitě</span></li>
+				</ul>
+			</section>
+			
+			</div>
+			<div class="col-md-5 col-xs-12 col-sm-5">
+			<div class="row">
+			<div class="col-md-7 col-sm-8 col-xs-12">
+			<section class="custommers">
+					<h5>Pro zákazníky</h5>
+					<ul>
+						<li><a title="Rohlik.cz Premium" href="#">Rohlik.cz Premium</a></li>
+						<li><a title="Mobilní aplikace" href="#">Mobilní aplikace</a></li>
+						<li><a title="Garance spokojenosti" href="#">Garance spokojenosti</a></li>
+						<li><a title="Doprava a mapa dovozu" href="#">Doprava a mapa dovozu</a></li>
+						<li><a title="Doprava na první objednávku zdarma" href="#">Doprava na první objednávku zdarma</a></li>
+						<li><a title="Nakoupíme za Vás" href="#">Nakoupíme za Vás</a></li>
+					</ul>
+				</section>
+			
+			</div>
+			<div class="col-md-5 col-sm-4col-xs-12">
+			<section class="about">
+					<h5>O nás</h5>
+					<ul>
+						<li><a title="Kontakt" href="#">Kontakt</a></li>
+						<li><a title="Podmínky užití" href="#">Podmínky užití</a></li>
+						<li><a title="Volná místa" href="#">Volná místa</a></li>
+					</ul>
+				</section>
+			</div>
+			</div>
+			<p>Alkohol a cigarety prodáváme pouze osobám starším 18 let. Při převzetí zboží bude ověřen váš věk.</p>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12 ">
+			<section class="like">
+			<img src="img/logofooter.png" class="img-responsive" alt="">
+			<div class="fb-like" data-href="http://s11.bestmediainvestgroup.eu/home.ads" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+			<div class="box">
+			<img src="img/user.jpg" alt="" class="img-responsive" />
+			</div>
+			<div class="fss fwn fcg"><a class="uiLinkSubtle" target="_blank" href="https://www.facebook.com/help/?page=209089222464503">Plugin pro sociální síť Facebook</a></div>
+			</section> 
+			</div>
+			
+		
+			</div>
+			
+			</div>
+			
+			</footer>
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		</section>
+		<!--end contact-->
+		<!--modan-->
+		<div id="dn" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+	    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <div class="headmodan">
+		<h2>100&nbsp;Kč na nákup a doprava zdarma</h2>
+		<p>Zaregistrujte se právě teď a získáte 100&nbsp;Kč a dopravu zdarma na první objednávku</p>
+	</div>
+	<div class="bodymodan">
+	<div class="row">
+	<div class="col-md-6 col-sm-6 col-xs-12 center">
+	<h3>  Registrace přes e-mail</h3>
+	<div class="box">
+	<form>
+	<div class="input-group">
+	<input type="text" class="form-control" placeholder="E-mail" aria-describedby="basic-addon2">
+	<span class="input-group-addon" id="basic-addon2"><i class="fa fa-user"></i></span>
+	</div>
+	<div class="input-group">
+	<input type="text" class="form-control" placeholder="Helso" aria-describedby="basic-addon2">
+	<span class="input-group-addon" id="basic-addon2"><i class="fa fa-key"></i></span>
+	</div>
+	<div class="input-group">
+	<input type="text" class="form-control" placeholder="Telefon" aria-describedby="basic-addon2">
+	<span class="input-group-addon" id="basic-addon2"><i class="fa fa-phone"></i></span>
+	</div>
+	<button type="submit" name="_submit" value="Zaregistrovat se">Pokračovat</button>
+	</form>
+	<p>V příštím kroku ověříme váš telefon</p>
+	</div>
+	
+	</div>
+	<div class="col-md-6 col-xs-12 col-sm-6 center">
+	<h3>Registrace přes Facebook</h3>
+	<div class="box">
+	<p class="fb"><a href="#" title="Zaregistrovat přes Facebook">Zaregistrovat přes facebook  <i class="fa fa-facebook"></i></a></p>
+
+	<p>V příštím kroku ověříme váš telefon</p>
+	</div>
+	</div>
+	</div>
+	
+	</div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->	
+
+<div id="map" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+	    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <div class="modanaddress">
+		&nbsp
+	</div>
+	<div class="modanmap">
+	<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12 center">
+	<h3>Nastavte si vaši přesnou adresu</h3>
+	<p>Abychom věděli, zda k vám můžeme nákup doručit, musíme znát vaši přesnou adresu.</p>
+	</div>
+	<div class="col-md-12 col-xs-12 col-sm-12 center">
+	<form>
+	 <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Napište zde svou adresu, např. Pobřežní 46, Praha">
+	</div>
+	<div class="form-group" style="text-align:center; width:100%; height:auto;">
+	<button type="button" class="btn btn-warning">Nastavit adresu</button>
+	</div>
+	</form>
+	
+	</div>
+	</div>
+	
+	</div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->	
+
+<div id="sp" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+	    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	 <div class="row">
+	 <div class="col-md-6 col-xs-12 col-sm-6">
+	 <img src="img/724189-1430743798-260.jpg" class="img-responsive" alt=""/>
+	 
+	 </div>
+	 <div class="col-md-6 col-xs-12 col-sm-6 mixa">
+	 <h1> Mixa Baby Extra vyživující mycí gel na tělo a vlásky 250ml </h1>
+	 <h3>
+		<b>119&nbsp;Kč</b><span> / </span>
+		<i>476&nbsp;Kč/l</i>
+	</h3>
+	<p> 
+	<p class="adddetail">
+				<i onclick="truqty(30);" class="fa fa-minus-square-o"></i>
+				<input type="text" value="1" id="getqty30" style="text-align:center;" >
+				<i  onclick="congqty(30);" class="fa fa-plus-square-o"></i> 	
+	<button class="btn btn-success"> Přidat do košíku</button>
+	
+	</p>
+	<ul>
+	<li class="country">Země původu:<strong>Francie</strong>
+								
+	</li>
+	<li class="code">Kód zboží: <strong>1291603</strong></li>
+	</ul>
+	 
+	 </div>
+	 
+	 </div>
+	<div class="modanmap">
+	<div class="row">
+	<div class="col-md-12 col-xs-12 col-sm-12">
+		<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+   
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-12">
+		<h3> Popis produktu</h3>
+		<p> Mixa Baby je speciálně určená pro potřeby dětské pokožky a vlasů, které jsou citlivější na negativní vnější vlivy a každodenní nepříjemnosti. Extra vyživující mycí gel na tělo a vlásky Velmi jemné složení bez mýdla šetrně myje tělo i vlásky Vašeho </p>
+		
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-12">
+		<h3> Složení</h3>
+		<p> Aqua/water Sodium laureth sulfate PEG-200 hydrogenated glyceryl palmate Glycerin Coco-betaine Sodium chloride PPG-5-ceteth-20 Polysorbate 20 PEG-7 glyceryl cocoate PEG-60 hydrogenated castor oil Parfum / fragrance Sodium benzoate Sodium hydroxide Prunus amygdalus dulcis oil / sweet almond oil Citric acid Polyquaternium-10</p>
+		<a href="#">je žádné alergenní složky.</a>
+		</div>
+		<p> Upozorňujeme, že tento produkt může obsahovat alergeny.
+Přesné složení a alergeny jsou k dispozici na obalu výrobku. Prosíme, zkontrolujte před konzumací.</p>
+		</div>
+	
+	</div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+	<div class="row">
+		<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(24);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty24" class="">
+				<i  onclick="congqty(24);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success">Do košíku </button>
+				</p>
+				</div>	
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(24);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty24" class="">
+				<i  onclick="congqty(24);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>	
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(24);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty24" class="">
+				<i  onclick="congqty(24);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>	
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(24);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty24" class="">
+				<i  onclick="congqty(24);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>	
+		</div>
+	
+	</div>
+	
+
+	 
+	
+	</div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(20);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty20" class="">
+				<i  onclick="congqty(20);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>	
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(21);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty21" class="">
+				<i  onclick="congqty(21);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>	
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(22);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty22" class="">
+				<i  onclick="congqty(22);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>	
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="imgslider">
+				<span><i class="fa fa-heart"></i></span>
+				<div class="oldprice"> -33 %</div>
+				<img src="img/1287889-1414863796-260.jpg" class="img-responsive" alt=""/>
+				<p class="">Datum spotřeby 2.6.2015</p>
+				</div>
+				<div class="mota">
+				<p class="detailclick">
+				<a href="#">Garnier Fructis Style Ultra </a></p>
+				<p>	<strong>98&nbsp;Kč</strong>
+				<del>17&nbsp;Kč</del>
+				<span>(515.78&nbsp;Kč/kg)</span>
+				</p>
+				<p class="adddetail">
+				<i onclick="truqty(23);" class="fa fa-minus-circle"></i>
+				<input type="text" value="1" id="getqty23" class="">
+				<i  onclick="congqty(23);" class="fa fa-plus-circle"></i> 
+				<button class="btn btn-success do">Do košíku </button>
+				</p>
+				</div>	
+		</div>
+	
+	</div>
+		
+	</div>
+   
+  </div>
+
+		
+	
+	</div>
+	</div>
+	
+	</div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->			
+
+		<!------------------------------->
+		
+		</div>
+		<div id="poslat1" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+	    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+	<h3 style="color:#D77103">Odeslat tip na zboží</h3>
+	<form>
+	  <div class="form-group">
+		  <label for="exampleInputEmail1">Chybí vám konkrétní produkt nebo celá kategorie sortimentu?</label>
+		<textarea row="5" class="form-control" placeholder="Váš tip nám můžete dát i na více produktů, nezapomeňte prosím uvést i výrobce, pokud ho znáte">
+			
+		</textarea>
+	  </div>
+	  <div class="row">
+	  <div class="col-md-7 col-sm-7 col-xs-12">
+	   <div class="form-group">
+		  <label for="exampleInputEmail1">Email na Vás, abychom se mohli dozeptat nebo potvrdit zařazení</label>
+		  <input type="email" class="form-control"  placeholder="Váš email">
+	  </div>
+	  </div>
+	  <div class="col-md-5 col-sm-5 col-xs-12 margintop_btn">
+	  <button class="btn btn-primary">odeslat tip na zboží</button>
+	  </div>
+	  </div>
+	  
+	</form>
+	
+	</div>
+	
+	</div>
+	
+
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->	
+		<script lang="javascript">
+(function() {var _h1= document.getElementsByTagName('title')[0] || false;
+var product_name = ''; if(_h1){product_name= _h1.textContent || _h1.innerText;}var ga = document.createElement('script'); ga.type = 'text/javascript';
+ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=a2f7de6855ab69842e15bb20d7ac2e7f&data=eyJzc29faWQiOjI1MTE4OTIsImhhc2giOiI3ZjNiNDMzZGJjY2E5ZjVmMTA1NDUyZmI0OWU3NjhkYyJ9&pname='+product_name;
+var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();
+</script>		
+</body>
+
+		</html>

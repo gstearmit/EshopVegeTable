@@ -1,0 +1,229 @@
+@media (min-width: 1200px) {
+  	.weekly-produc .flexisel-content .item{width: 145.5px !important;}
+	.slide-home .iview .iviewSlider{transform:none !important;}	
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* 960px <= width < 1200px */
+@media only screen and (min-width: 960px) and (max-width: 1200px) {
+}
+
+/* Design for a width of 960-1024 px
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+/* 940px <= width < 1170px */
+@media (min-width: 940px) and (max-width: 1170px) {
+  .vmagicmenu .block-title{padding:0 10px !important;}
+  .block-creare-twitter .block-content ul li .twitter-links{width:160px;}
+  .bestsellers-positionlef .per-product .images-container,
+  .product-bestsellers .per-product .images-container{ height: 87px;margin-right: 10px; width: 70px;}
+  .product-view .product-shop .add-to-links a{font-size: 13px; padding-right: 6px;}
+  .magicmenu .nav-desktop .level0 .level-top{font-size:12px;padding:0 20px;}
+  .cutom-top.menu-extra .banner-inner1 .block-custom1{ padding: 50px 0 36px 20px;}
+  .magicmenu .nav-desktop .level0 .level-top-mega .caret-down.caret-down2 {background-position: 275px 0;}
+  .magicmenu .nav-desktop .level0 .level-top-mega .caret-down.caret-down3 {background-position: 600px 0;}
+
+}	
+
+@media (min-width: 768px) and (max-width: 991px) {
+   .header .links li{padding:0 10px;}
+   span.mt-cart-label-label{display:none;}
+   .media-body h3, .media-body h4{font-size:11px; line-height: 14px;}
+   .vmagicmenu .block-title{padding:0 5px;}
+   .vmagicmenu .block-title .vmagicmenu-subtitle{padding:0;}
+   .vmagicmenu .block-title span{font-size:11px;}
+   .vmagicmenu .level0{line-height:35px;}
+   .vmagicmenu .level0 .level-top{padding:0 0 0 10px;}
+   .vmagicmenu .level0 .level-top span{font-size:12px;}
+   .magicmenu .nav-desktop .level0 .level-top,.magicmenu .nav-desktop .level0 .level-top span.icon-text{font-size:11px;padding:0 10px;}
+   .magicmenu .nav-desktop .level0 .level-top .short_desc{font-size:11px;}
+   .magicmenu .nav-desktop .level0 .level-top span.icon-text{padding-left:0;}
+   .vmagicmenu .level0 .level-top-mega .content-mega{padding:14px;}
+   .vmagicmenu .level0 .level-top-mega .mage-column .children{width:170px;}
+   .vmagicmenu .level0 .level-top-mega .children .level-3 a{font-size:12px;}
+   .vmagicmenu .level0 .level-top-mega .mega-block-bottom .menu-ul{padding: 5px 10px;}
+   .cutom-top.menu-extra.custommenu .banner-inner1{width:185px;padding-right: 15px;}
+   .cutom-top.menu-extra.custommenu .banner-inner2{width:289px;}
+   .cutom-top.menu-extra.custommenu .banner-inner3{width:211px;}
+   .magicmenu .nav-desktop .level0 .level-top-mega .custom-width{padding:13px 10px;}
+   .magicmenu .nav-desktop .level0 .level-top-mega .caret-down.caret-down1{background-position: 160px 0;}
+   .magicmenu .nav-desktop .level0 .level-top-mega .caret-down.caret-down2{background-position: 370px 0;}
+   .magicmenu .nav-desktop .level0 .level-top-mega .caret-down.caret-down3{background-position: 490px 0;}
+   .cutom-top.menu-extra.cutom-new .block-custom1{margin: 0 auto 0 180px;}
+  .cutom-top.menu-extra .banner-inner1 .block-custom1{ padding: 45px 0 32px 10px;}
+   .product-bestsellers .per-product .images-container{width:95px;}
+   .bestsellers-positionlef .per-product .images-container{margin-right: 6px;width: 60px;}
+   .bestsellers-positionlef .per-product .products-textlink{ width: 89px;}
+   .bestsellers-positionlef .per-product .products-textlink .ratings .rating-box{float:none;margin-bottom: 5px;}
+   .alo-testimonial{ background-position: 0 237px;background-size: 156px 22px;}
+   .block .block-title strong span,.block-footer-top .footer h3 span,.testimonials h3 span,.blog-static .section-title span,.magictabs .item span,.magic-category .block-title-tabs h3{font-size: 11px;}
+   .block-creare-twitter .block-content ul li .twitter-links{width:100px;}
+   
+   .product-view .product-shop .add-to-links a{padding-right: 17px;}
+   .alo-social-networks a{margin: 0 8px 0 0;}
+ 
+}
+
+/* Iphone 5 landscape */
+@media(max-width:767px) {
+	.header-block1.pull-left,.header-top-left.pull-right ,.box-support ul li,.header .links li{float: none !important;display:inline-block;text-align:center;line-height:25px;}
+	.box-support,.header .top-form-language,.header .currency_top,.header-top-right.pull-right{display:inline-block;text-align:center;}
+	.header h1.logo,.header .logo{text-align:center;}
+	.header h1.logo img,.header .logo img{display:inline-block;}
+	.box-support .box-phone .media-body p, .box-email .media-body p{margin:0;}
+	.box-support ul{margin:0;}
+	.support .box-services{text-align:center;padding: 5px 0;}
+	.support .box-services.box-services1 .pull-left{margin-left:0;}
+	.media-body{text-align:left;}
+	.box2 .media-body{margin:0 0 0 10px;}
+	.support .box-services .media-body{margin-top:3px;}
+	.custom-menu{display:none;}
+	.social-icons{display:none;}
+	.slide-home{margin:20px 0 0;}
+	.slide-home .iview-directionNav .iview-nextNav,.slide-home .iview-directionNav .iview-prevNav{background-size: 75% 75%;}
+	.slide-home .iview-directionNav .iview-nextNav{background-position: 9px 0;}
+	.iview-directionNav a{top:40%;}
+	.product-bestsellers .per-product .images-container{float:none;width:auto;height:auto;margin-right:0;}
+	#magicshop_quickview_handler{display:none !important;}
+	.banner-top img{width:100%;}
+	.alo-testimonial{background-image:none;}
+	.alo-testimonial .nbs-flexisel-container{border-bottom:1px solid #ededed;}
+	.social-links a{display:inline-block;float:none;}
+	.block-content-statick{margin-bottom:10px;}
+    .paypal{float:none;display:inline-block;width:100%;}
+	.static-alo{margin-bottom:20px;}
+	.paypal img{display:inline;}
+	.magictabs .item span{font-size:12px;}
+	.header-content-right{padding-left:15px;}
+	.miniCartWrap{width: 100%;}
+	.mini-maincart{text-align:center;}
+	.mini-maincart .mini-contentCart{width:100%;}
+	.mini-maincart .mini-products-list .product-details,.mini-contentCart .block-content .block-subtitle{text-align:left;}
+	.item.images-container .actions-no {bottom: 0;}
+	.item:hover .images-container .actions-no .add-to-links a,
+	.product-bestsellers .item:hover .actions-no .add-to-links a{width:33px;}
+	#fancybox-wrap ,#fancybox-overlay{display: none !important;}
+	.alo-brands .nbs-flexisel-item img{display:inline-block;}
+	#backtotop{display:none !important;}
+	.product-view .product-img-box{margin-bottom:50px;}
+	.product-view .toggle-tabs .item{margin-bottom:5px;padding:10px;font-size:13px;}
+	.product-view .box-tags .form-add input.input-text{margin-bottom:10px;}
+	.data-table thead th{padding:10px 3px;}
+	.nobr{font-size:12px;}
+	.cart-table .btn-continue,.cart-table .btn-update, .cart-table .btn-empty{float:none;margin-left: 0;}
+	.cart-table button.button{margin-top:3px;margin-bottom:3px;}
+	.cart-table td{padding:30px 10px;}
+	.cart .page-title{padding:10px 0;}
+	.cart .crosssell{margin:20px 0 0 0;}
+	.breadcrumbs li{background-position: 0 65%;}
+	.blog-postbox .button-set{margin-bottom:15px;}
+	.title-heading-left{padding:10px 0 5px;}
+	
+}
+
+/* 768px <= width < 960px */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+#fancybox-wrap ,#fancybox-overlay{display: none !important;}
+}
+
+/* 480px <= width < 768px */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+   
+}
+
+/* width < 320px */
+@media only screen and (max-width: 319px) {
+
+}
+
+/* Iphone 4 landscape */
+
+@media (max-width: 320px) {
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  
+	table#wishlist-table,table#shopping-cart-table, table#checkout-review-table, table#my-orders-table {border: 0 none;outline: medium none;}
+	table#wishlist-table td, 
+	table#wishlist-table th table#product-review-table td, 
+	table#shopping-cart-table td, 
+	table#shopping-cart-table th, 
+	table#checkout-review-table td, 
+	table#checkout-review-table th, 
+	table#my-orders-table th, 
+	table#my-orders-table td {display: block;float: none;text-align: center !important;}
+	.data-table th, .data-table td.last { border-bottom: 1px solid #DDDDDD !important;}
+	.data-table tfoot {border-bottom: none;}
+	.checkout-cart-index .col-main .page-title h1, .checkout-cart-index .col-main .page-title h2 {float: none;text-align: center;}
+	.data-table thead.hidden-phone{display:none;}
+	.cart .title-buttons .checkout-types,.cart .title-buttons .checkout-types li{float: none;text-align:center;}
+	.cart .title-buttons .checkout-types{margin-top:10px;}
+	.col2-set,.col2-set2 { float: none;width: 100%;margin-bottom: 10px;}
+	.account-login .col2-set,.account-login .col2-set2 { float: none;width: 100%;margin-bottom: 10px;}
+	.multiple-checkout .col2-set .col-1,.multiple-checkout .col2-set .col-2 {float: none;width: 100%;margin-bottom: 10px;}
+	.my-wishlist .buttons-set {text-align: center; padding: 20px 0 0;}
+	.my-wishlist thead.hidden-phone{display:none;}
+	a.btn-edit, a.btn-remove{margin:0 auto;float:none;}
+	.mini-contentCart .product-details a.btn-remove,.mini-contentCart .product-details a.btn-edit{float: left;margin: 0 5px 0 0;}
+	.footer .store-switcher{margin:0;}
+	.magic-category .block-title-tabs .magictabs{float:left;}
+	.magic-category .magictabs .item:first-child{padding-left:0;}
+	.product-bestsellers .per-product .actions-no{bottom:-100px;}
+	.product-bestsellers .flexisel-content .item  .per-product{overflow:hidden;}
+	.product-bestsellers .per-product .images-container{margin-bottom:15px;}
+	.product-bestsellers .flexisel-content .item{height:353px;}
+	.product-bestsellers .item:hover .actions-no{bottom:77px;}
+	#toPopup{left:18%;top: 10%;}
+	.box-support ul li{margin-top:10px;}
+	.header .links li.last{background:none;}
+	.cloud-zoom-big,.cloud-zoom-lens{display:none !important;}
+	.wrapper{overflow:hidden;}
+	.blog-static .flexisel-content .item{margin-bottom:15px;}
+	.testimonial .nbs-flexisel-item{margin-bottom:20px;}
+	.product-view .product-img-box .more-views .nbs-flexisel-item img{display:inline;}
+	.box-up-sell{margin-bottom:15px;}
+	.product-view .product-img-box .more-views{width:16%;}
+	.product-view .product-img-box .product-image{width:82%;}
+	
+} 
+
+/* IPHONE 4 + 5 Portrait */
+@media only screen and (min-width: 240px) and (max-width: 320px) {
+    .wrapper{overflow:hidden;}
+	.box-support ul li.first{padding-top:15px;padding-left:18px;}
+	.box-support ul li,.header .links li{line-height:20px;}
+	.box-support ul li{margin:0;}
+	.product-view .product-img-box .product-image{width:80%;}
+	.product-view .product-img-box .product-image{ margin: 0 0 0 4%;}
+	.cloud-zoom-big,.cloud-zoom-lens{display:none !important;}
+	.magictabs .item .title, .magic-category .block-title-tabs h3, .block .block-title strong span, .testimonials h3 span, .media-body h3, .media-body h4, .footer h3, .account-login .content h2,.magic-category .block-title-tabs h3,.magictabs .item.single .title,.blog-static .section-title span,.block-footer-top .footer h3 span{font-size:12px;}
+	.col-mobile-12{width:100%;}
+	.magic-category .magictabs .item{margin-bottom:5px;padding: 0 5px 0 0;}
+	.magic-category .magictabs .item:first-child{padding-left:0;}
+	.mage-magictabs .ratings .rating-box{float:none;margin:5px 0;}
+	.footer .store-switcher{margin:0;}
+	.sorter .view-mode,.sorter .sort-by,.sorter .limiter{ display: inline-block;float: none;width: 100%;padding: 5px 0;}
+	.product-bestsellers .flexisel-content .item{height:270px;}
+	.product-bestsellers .item:hover .actions-no{bottom: 96px;}
+	.header .links li.last{background-image:none;}
+	.box-support,.header .top-form-language,.header .currency_top,.header-top-right.pull-right{padding-top:0;}
+	#products-list .item .product-shop{ margin-top: 20px;}
+	.product-view .product-shop .add-to-links a{margin-bottom:10px;display:inline-block;}
+	.box-support ul li{background:none;}
+	#toPopup{left:3%;}
+	.blog-static .flexisel-content .item{margin-bottom:15px;}
+	.testimonial .nbs-flexisel-item{margin-bottom:20px;}
+	.box-up-sell{margin-bottom:15px;}
+	
+}
+
+
+
+
+
+
+
+

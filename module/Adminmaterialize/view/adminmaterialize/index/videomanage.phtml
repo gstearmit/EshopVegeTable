@@ -1,0 +1,1 @@
+<script>$.ajax({	type: "POST",	url: "http://eclip.tv/main/adminmanage",		beforeSend : function(){		console.log("testing");		$('body >.container').html('<img src="http://eclip.tv/img/loading.gif">');	},	success: function(data){		if(!data){			$('body >.container').html('Error!!!'); 		}else 		{			$('body >.container').html(data);		}	}});</script>

@@ -1,0 +1,68 @@
+
+<?php
+$title = 'My album';
+$this->headTitle($title);
+$url_order = 'ASC';
+if ($order_by == 'title')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+elseif ($order_by == 'artist')
+    $url_order = $order == 'ASC' ? 'DESC' : 'ASC';
+?>
+ <?php 
+ /*
+<img src="<?php echo WEB_PATH_IMG;?>/book1/car_magazine_1.jpg" style="width: 50px;height:40px;">
+*/
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a href="<?php
+echo $this->url('album', array(
+    'action' => 'add'));
+?>">Add new album</a></p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <a href="<?php echo $this->url('album', array('order_by' => 'title', 'order' => $url_order)); ?>">Title Name <?php if ($order_by == 'title'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>
+        <th>
+            <a href="<?php echo $this->url('album', array('order_by' => 'artist', 'order' => $url_order)); ?>">Artist <?php if ($order_by == 'artist'): ?><i class="icon-chevron-<?php echo $url_order == 'ASC' ? 'down' : 'up' ?>"></i><?php endif; ?></a>
+        </th>     
+        <th><a href="#">Action</a></th>
+    </tr>
+    <?php foreach ($paginator as $album) : ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($album->title); ?></td>
+            <td><?php echo $this->escapeHtml($album->artist); ?></td>
+            <td>
+        <a href="<?php echo $this->url('album',
+            array('action'=>'edit', 'id' => $album->id));?>">Edit</a>
+        <a href="<?php echo $this->url('album',
+            array('action'=>'delete', 'id' => $album->id));?>">Delete</a>
+    </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php
+
+//     echo $this->paginationControl(
+//             $paginator, 'Sliding', 'paginator-album', array('order_by' => $order_by, 'order' => $order)
+//     );
+    ?>
+    
+      <?php // add at the end of the file after the table
+echo $this->paginationControl(
+    // the paginator object
+    $paginator,
+    // the scrolling style; see http://zf2.readthedocs.org/en/release-2.1.4/modules/zend.paginator.usage.html#rendering-pages-with-view-scripts
+    'sliding',
+    // the partial to use to render the control
+    array('partial/paginator.phtml', 'album'),
+    // the route to link to when a user clicks a control link
+    array(
+        'route' => 'album'
+    )
+);
+?>

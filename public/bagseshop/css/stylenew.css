@@ -1,0 +1,22 @@
+.lin {
+  float: left;
+  margin: 2px;
+}
+#linview{
+	display: inline-block;
+}
+.bequa {
+  padding: 6px;
+  height: 24px;
+}
+
+button.butoon {
+  margin: 0px 2px 0px 0px;
+}
+.form-control.imgnew {
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  border: none;
+  padding-bottom: 4%;
+}

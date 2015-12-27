@@ -1,0 +1,93 @@
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div
+					class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+					<div id="leftcatalogue"></div>
+					<!-- leftcatalogue -->
+
+					<div id="myacountaja"></div>
+					<!-- myacountaja -->
+
+					<div id="mycartaja"></div>
+
+
+					<div id="compareproductaja"></div>
+					<!-- compareproductaja -->
+					<div id="populartags"></div>
+					<!-- populartags -->
+
+					<div id="containernone"></div>
+					<!-- container-none -->
+
+					<p></p>
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div
+					class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="my-account">
+						<div class="page-title">
+							<h1>Newsletter Subscription</h1>
+						</div>
+						
+						<?php 
+						
+					 $status_subscription = $this->layout()->Newsletter_status;
+					 if($status_subscription === 90)
+					 {
+					 
+					 	echo '<ul class="messages">  <li class="error-msg"><ul><li><span>subscription extis!</span></li></ul></li></ul>';
+					 
+					 }
+                       if($status_subscription === 0)
+						{
+						
+							echo '<ul class="messages">  <li class="error-msg"><ul><li><span>Error subscription!please try agian1</span></li></ul></li></ul>';
+							 
+						}
+						
+						if($status_subscription == 1)
+						{
+							echo '<ul class="messages"><li class="success-msg"><ul><li><span>The subscription has been saved.</span></li></ul></li></ul>';
+						}
+						
+						?>
+						
+						<form action="<?php echo WEBPATH?>/newsletter/newslettermanage" method="post" id="form-validate">
+							<div class="fieldset">
+								<input name="form_key" type="hidden" value="TJe9ZW28Frll1zts">
+								<h2 class="legend">Newsletter Subscription</h2>
+								<ul class="form-list">
+									<li class="control"><input type="checkbox" name="is_subscribed"
+										id="subscription" value="1" title="General Subscription"
+										class="checkbox"><label for="subscription">General
+											Subscription</label></li>
+								</ul>
+							</div>
+							<div class="buttons-set">
+								<p class="back-link">
+									<a
+										href="<?php echo WEBPATH?>/mydashboard"><small>«
+									</small>Back</a>
+								</p>
+								<button type="submit" title="Save" class="button">
+									<span><span>Save</span></span>
+								</button>
+							</div>
+						</form>
+						<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+//]]>
+</script>
+					</div>
+				</div>
+				<!-- end chi tiet -->
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,51 @@
+<div id="login-page" class="row">
+	<div class="col s12 z-depth-4 card-panel">
+            <form class="login-form" action="<?php echo WEBPATH.'/pageregister'?>" method="post" id="page-register">
+			<div class="row">
+				<div class="input-field col s12 center">
+					<h4>Register</h4>
+					<p class="center">Join to our community now !</p>
+                                        <p class="center" style="color: #f00;"><?php if(isset($alert)){ echo $alert;}?></p>
+				</div>
+			</div>
+			<div class="row margin">
+				<div class="input-field col s12">
+					<i class="mdi-social-person-outline prefix"></i> 
+                                        <input id="username" name="username" type="text" required="">
+                                        <label for="username" class="center-align">Username</label>
+				</div>
+			</div>
+			<div class="row margin">
+				<div class="input-field col s12">
+					<i class="mdi-communication-email prefix"></i> 
+                                        <input id="email" type="email" name="email" required=""> 
+                                        <label for="email" class="center-align">Email</label>
+				</div>
+			</div>
+			<div class="row margin">
+				<div class="input-field col s12">
+					<i class="mdi-action-lock-outline prefix"></i> 
+                                        <input id="password" name="password" type="password"> 
+                                        <label for="password">Password</label>
+				</div>
+			</div>
+			<div class="row margin">
+				<div class="input-field col s12">
+					<i class="mdi-action-lock-outline prefix"></i>
+                                        <input id="passwordagain" name="passwordagain" type="password">
+                                        <label for="password-again">Password again</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<button class="btn waves-effect waves-light col s12">Register Now</button>
+				</div>
+				<div class="input-field col s12">
+					<p class="margin center medium-small sign-up">
+						Already have an account? <a href="<?php echo WEBPATH;?>/loginmaster">Login</a>
+					</p>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

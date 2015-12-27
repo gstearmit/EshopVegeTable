@@ -1,0 +1,33 @@
+@media (min-width: 1202px) {
+.footer {  position: absolute;
+  top: 1000px; left: 18%;}
+	
+}
+/* Large desktop */
+@media (min-width: 999px) and (max-width: 1200px) {
+.footer {  position: absolute;
+  top: 1000px; left: 18%;}
+	
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	.footer { 
+    	position: absolute;
+        top: 1100px;}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	.footer { 
+    	position: absolute;
+        top: 1200px;}
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	.footer { 
+    	position: absolute;
+        top: 1200px;}
+}
+

@@ -1,0 +1,108 @@
+  
+  
+  <link rel="stylesheet" href="<?php echo WEBPATH?>/kendo/styles/kendo.material.min.css" />
+		    <link rel="stylesheet" href="<?php echo WEBPATH?>/kendo/styles/kendo.common.min.css" />
+			<!--  <link rel="stylesheet" href="<?php echo WEBPATH?>/kendo/styles/kendo.common-material.min.css" /> -->
+			
+		    <!-- <link rel="stylesheet" href="styles/kendo.default.min.css" /> 
+		    <link rel="stylesheet" href="styles/kendo.dataviz.min.css" />
+		    <link rel="stylesheet" href="styles/kendo.dataviz.default.min.css" /> -->
+		
+		    <script src="<?php echo APOTRAVINY_ADMIN?>/js/jquery-1.11.2.min.js"></script> 
+		    <script src="<?php echo WEBPATH?>/kendo/js/kendo.all.min.js"></script> 
+       <div class="row">
+                  <form  id="addnewname" class="col s12"> 
+                   <input name="urlaction" id="urlaction" type="hidden" value="<?php echo WEBPATH?>/crowler/name/edit/<?php echo $id;?>" />
+                   <input name="id" id="id" type="hidden" value="<?php echo $id;?>" />
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <label for="parent" class="active required">Parent(*)</label>
+                            <select class="browser-default" name="parent" id="parent" class="k-textbox"  required validationMessage="Enter {0}" style="width: 100%;">
+			                    <option value=""  selected=""></option>
+			                    <?php foreach ($NameData as $keyname=>$name) {
+			                      if($Data->parent == $keyname) { $text = 'selected="selected"';} else { $text ='';} 
+			                    	?>
+			                    <option <?php echo $text;?> value="<?php echo $keyname;?>"><?php echo $name;?></option>
+			                    <?php }?>
+			               </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <input placeholder="Crowler Rohlik" name="name" id="name" value="<?php echo $Data->name;?>" type="text" class="k-textbox" required validationMessage="Enter {0}" style="width: 100%;" >
+                            <label for="name" class="active required">Name(*)</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <input placeholder="<?php echo WEBPATH;?>/c75591-sladke-a-slane" name="url_alias"  value="<?php echo $Data->alias;?>" id="url_alias" type="text" class="k-textbox" required validationMessage="Enter {0}" style="width: 100%;">
+                            <label for="url_alias" class="active required">Url-alias(*)</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="subject" type="text" >
+                        <label for="subject">Subject</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="description_name" name ="description_name" class="materialize-textarea" > <?php echo $Data->description;?></textarea>
+                        <label for="description_name">Description</label>
+                      <span class="character-counter" style="float: right; font-size: 12px; height: 1px;"></span></div>
+                    </div>
+                    
+                   
+                      <div class="input-field col s12 butoin">
+                         <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Edit Name <i class="mdi-content-send right"></i>
+                              </button>
+                       </div>
+                   
+                    <li class="statusadd">  </li>
+                  </form>
+                  
+                   <script>
+				            jQuery.noConflict();
+				            jQuery( document ).ready(function( $ ) { 
+				                    var validator = $("#addnewname").kendoValidator().data("kendoValidator");
+				                     var status1 = $(".statusadd"), urlaction = $("#urlaction").val();
+				
+				                    $("form").submit(function(event) {
+				                        event.preventDefault();
+				                        if (validator.validate()) {
+				                            status1.text("Hooray! Your tickets has been booked!")
+				                                   .removeClass("invalid")
+				                                   .addClass("valid");
+			                                console.log("urlaction" + urlaction);
+			                                var parent = $("#parent").val(),name = $("#name").val(),
+			                                    url_alias = $("#url_alias").val(),subject = $("#subject").val(),
+			                                    description_name = $("#description_name").val(),id=$("#id").val();
+		                                       
+			                                $.ajax({
+			             		               type: "POST",
+			             		               url: urlaction,
+			             		               data: {id:id,parent:parent,name:name,url_alias:url_alias,subject:subject,description_name:description_name},
+			             		               success: function(data){
+			             		            	  console.log("data" + data);
+			             		            	  status1.text(data);
+			             		            	  $(".butoin").html('<button class="btn cyan waves-effect waves-light right" onClick="reloadaddde();">Oki <i class="mdi-content-send right"></i></button>');
+			             		                       }
+			             		             });
+			             			                                
+				                        } else {
+				                            status1.text("Oops! There is invalid data in the form.")
+				                                .removeClass("valid")
+				                                .addClass("invalid");
+				                        }
+				                    });
+				                });
+
+			                function reloadaddde()
+			                {
+				                var urlred = '<?php echo WEBPATH;?>/crowler/name/index';
+				                window.location.href = urlred;
+				             }
+				            </script>
+                </div>
+             
+            

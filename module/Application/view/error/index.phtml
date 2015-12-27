@@ -1,0 +1,102 @@
+<h1><?php echo $this->translate('An error occurred') ?></h1>
+<h2><?php echo $this->message ?></h2>
+
+<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
+
+<?php if(isset($this->exception) && $this->exception instanceof Exception): ?>
+<hr/>
+<h2><?php echo $this->translate('Additional information') ?>:</h2>
+<h3><?php echo get_class($this->exception); ?></h3>
+<dl>
+    <dt><?php echo $this->translate('File') ?>:</dt>
+    <dd>
+        <pre class="prettyprint linenums"><?php echo $this->exception->getFile() ?>:<?php echo $this->exception->getLine() ?></pre>
+    </dd>
+    <dt><?php echo $this->translate('Message') ?>:</dt>
+    <dd>
+        <pre class="prettyprint linenums"><?php echo $this->exception->getMessage() ?></pre>
+    </dd>
+    <dt><?php echo $this->translate('Stack trace') ?>:</dt>
+    <dd>
+        <pre class="prettyprint linenums"><?php echo $this->exception->getTraceAsString() ?></pre>
+    </dd>
+</dl>
+<?php
+    $e = $this->exception->getPrevious();
+    if ($e) :
+?>
+<hr/>
+<h2><?php echo $this->translate('Previous exceptions') ?>:</h2>
+<ul class="unstyled">
+    <?php while($e) : ?>
+    <li>
+        <h3><?php echo get_class($e); ?></h3>
+        <dl>
+            <dt><?php echo $this->translate('File') ?>:</dt>
+            <dd>
+                <pre class="prettyprint linenums"><?php echo $e->getFile() ?>:<?php echo $e->getLine() ?></pre>
+            </dd>
+            <dt><?php echo $this->translate('Message') ?>:</dt>
+            <dd>
+                <pre class="prettyprint linenums"><?php echo $e->getMessage() ?></pre>
+            </dd>
+            <dt><?php echo $this->translate('Stack trace') ?>:</dt>
+            <dd>
+                <pre class="prettyprint linenums"><?php echo $e->getTraceAsString() ?></pre>
+            </dd>
+        </dl>
+        <?php
+                $e = $e->getPrevious();
+            endwhile;
+        ?>
+    </li>
+</ul>
+<?php endif; ?>
+
+<?php else: ?>
+
+<h3><?php echo $this->translate('No Exception available') ?></h3>
+
+<?php endif ?>
+
+<?php endif ?>
+
+	
+<?php /* ?>	
+	<div class="main-container col2-left-layout">
+				<div class="container">
+					
+		<link rel="stylesheet" href="<? echo  THEME_EROR_404;?>/asset/css/style.cssv2.css" type="text/css" media="screen" >
+		<link type="text/css" rel="stylesheet" href="<? echo  THEME_EROR_404;?>/asset/css/font-awesome.css" />
+	    <link rel="stylesheet" href="<? echo  THEME_EROR_404;?>/asset/css/style.css" type="text/css"/>
+        <script type="text/javascript">
+           $(".menu-locate").remove();
+        </script>
+		<div class="mainbody-error" style="background-image: url('../../img/bg-error.png');  min-height: 469px; position: relative;  top: 81px">
+				<div class="container">
+				    <div class="row">
+				        <div class="col-md-12">
+				            <div class="error-template">
+				                <h1>
+				                    Oops!</h1>
+				                <h2>
+				                    404 Not Found</h2>
+				                <div class="error-details">
+				                    Sorry, an error has occured, Requested page not found!
+				                </div>
+				                <div class="error-actions">
+				                    <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+				                       Take Me Home </a>
+				                  <a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+    </div>
+     <!-- body -->
+
+</div>
+</div>
+*/
+?>

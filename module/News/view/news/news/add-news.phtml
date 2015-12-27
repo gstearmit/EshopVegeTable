@@ -1,0 +1,50 @@
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url('News', array('controller' => 'news', 'action' => 'add-news')));
+echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('news_name')); ?></label>
+    <div><?php echo $this->formElement($form->get('news_name')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('news_name')); ?></span>
+</div>
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('url_static')); ?></label>
+    <div><?php echo $this->formElement($form->get('url_static')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('url_static')); ?></span>
+</div>
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('news_thumbnail')); ?></label>
+    <div><?php echo $this->formElement($form->get('news_thumbnail')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('news_thumbnail')); ?></span>
+</div>
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('news_content')); ?></label>
+    <div><?php echo $this->formElement($form->get('news_content')); ?></div>
+    <?php echo $this->formElementErrors($form->get('news_content')); ?>
+</div>
+<?php echo $this->formElement($form->get('security')); ?>
+<?php echo $this->formElement($form->get('submit')); ?>
+<?php echo $this->form()->closeTag() ?>
+
+<script>
+function get_static(){
+	console.log("get_static");
+	
+	var str = (document.getElementById("news_name").value);
+	str= str.toLowerCase();
+	str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+	str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+	str= str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+	str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+	str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+	str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
+	str= str.replace(/đ/g,"d");
+	str= str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g,"-");
+	str= str.replace(/-+-/g,"-"); //thay thế 2- thành 1-
+	str= str.replace(/^\-+|\-+$/g,"");//cắt bỏ ký tự - ở đầu và cuối chuỗi
+	document.getElementById("url_static").value = str;
+	return str;
+}
+</script>

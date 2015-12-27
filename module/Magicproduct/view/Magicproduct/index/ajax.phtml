@@ -1,0 +1,114 @@
+<?php
+// echo "Product__NEW_PRODUCTS </br>"; 
+// echo "<pre>";
+// print_r(($Product_NEW_PRODUCTS));
+// echo "</pre>";
+
+?>
+<div class="mage-magictabs mc-newproduct">
+	<ul class="flexisel-content products-grid newproduct zoomOut play">
+ <?php 
+                                       $delay_efex_fea = 0;
+											foreach ($Product_NEW_PRODUCTS as $key =>$Product_WEEKLY_FEATURED_newproduct)
+											{
+												//$delay_efex_fea = $delay_efex_fea + 500;
+												$style = 'style="-webkit-animation-delay: '.$delay_efex_fea.'ms; -moz-animation-delay: '.$delay_efex_fea.'ms; -o-animation-delay: '.$delay_efex_fea.'ms; animation-delay: '.$delay_efex_fea.'ms;"';
+												//img
+										         $img_featured = '';
+												 if($Product_WEEKLY_FEATURED_newproduct->img !='' || $Product_WEEKLY_FEATURED_newproduct->img != null) { $img_featured =$Product_WEEKLY_FEATURED_newproduct->img; }
+												 if( ($Product_WEEKLY_FEATURED_newproduct->img =='' and $Product_WEEKLY_FEATURED_newproduct->img0 !='' ) || ($Product_WEEKLY_FEATURED_newproduct->img == null and $Product_WEEKLY_FEATURED_newproduct->img0 !='' ) ) { $img_featured =$Product_WEEKLY_FEATURED_newproduct->img0; }
+												 if($Product_WEEKLY_FEATURED_newproduct->img =='' and $Product_WEEKLY_FEATURED_newproduct->img0 =='' and $Product_WEEKLY_FEATURED_newproduct->img1 !='' ) { $img_featured =$Product_WEEKLY_FEATURED_newproduct->img1; }
+												 if($Product_WEEKLY_FEATURED_newproduct->img == null and $Product_WEEKLY_FEATURED_newproduct->img0 ==null and $Product_WEEKLY_FEATURED_newproduct->img1 !='' ) { $img_featured =$Product_WEEKLY_FEATURED_newproduct->img1; }
+												 if($Product_WEEKLY_FEATURED_newproduct->img == null and $Product_WEEKLY_FEATURED_newproduct->img0 ==null and $Product_WEEKLY_FEATURED_newproduct->img1 == null ) { $img_featured = 'default.jpg'; }
+												 
+												 //rate
+												 if($Product_WEEKLY_FEATURED_newproduct->rating !='' || $Product_WEEKLY_FEATURED_newproduct->rating != null) {
+												 	if(is_numeric($Product_WEEKLY_FEATURED_newproduct->rating) and $Product_WEEKLY_FEATURED_newproduct->rating >=0 )
+												 	{
+												 		$rate_featured = @floor((($Product_WEEKLY_FEATURED_newproduct->rating)/10)*100);
+												 	}else $rate_featured = 0;
+												 } else $rate_featured = 0;
+												 
+												 //price
+												 if($Product_WEEKLY_FEATURED_newproduct->price !='' || $Product_WEEKLY_FEATURED_newproduct->price != null) {
+												 	if(is_numeric($Product_WEEKLY_FEATURED_newproduct->price) and $Product_WEEKLY_FEATURED_newproduct->price >=0 )
+												 	{
+												 		$number_featured = $Product_WEEKLY_FEATURED_newproduct->price;
+												 		$format_number_featured = number_format($number_featured, 0, '', '.');
+												 	}else  {  $format_number_featured = 0; }
+												 }else  $format_number_featured = 0;
+																	 
+												?>
+		<li <?php echo $style;?>
+			class="item item-animate">
+			<div class="per-product">
+				<div class="images-container">
+					<div class="product-hover">
+						<?php if($Product_WEEKLY_FEATURED_newproduct->new_products!='' and $Product_WEEKLY_FEATURED_newproduct->new_products==1) {?> <span class="sticker top-left"><span class="labelnew">New</span></span> <?php }//?>
+						<?php if($Product_WEEKLY_FEATURED_newproduct->promotions!='' and is_numeric($Product_WEEKLY_FEATURED_newproduct->promotions)) {?><span class="sticker top-right"><span class="labelsale"><?php echo $Product_WEEKLY_FEATURED_newproduct->promotions;?>%</span></span> <?php } //?>
+																		
+						<a href="<?php echo WEBPATH?>/product/index/view/<?php echo $Product_WEEKLY_FEATURED_newproduct->id;?>"
+							title="<?php echo $Product_WEEKLY_FEATURED_newproduct->name;?>" class="product-image"> 
+							<img
+							class="img-responsive"
+							src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.'/'.$img_featured; ?>"
+							width="290" height="372" alt="<?php echo $Product_WEEKLY_FEATURED_newproduct->name;?>" /> <span
+							class="product-img-back"> 
+							<img class="img-responsive"
+								src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.'/'.$img_featured; ?>"
+								width="290" height="372" alt="<?php echo $Product_WEEKLY_FEATURED_newproduct->name;?>" />
+						</span>
+						</a>
+					</div>
+					<div class="actions-no">
+						<div class="actions">
+							<button type="button" title="Add to Cart"
+								class="pull-left button btn-cart"
+								onclick="setLocation('<?php echo WEBPATH?>/checkout/cart/add/uenc/aHR0cDovL2Fsb3RoZW1lcy5jb20vZGVtby9zbWlqZS9pbmRleC5waHAvbWFnaWNwcm9kdWN0L2luZGV4L2FqYXgv/product/25/form_key/Z9IuKHJORkq6jWdh/')">
+								<span><span>Add to Cart</span></span>
+							</button>
+							<ul class="add-to-links pull-left">
+								<li class="pull-left"><a
+									href="<?php echo WEBPATH?>/wishlist/index/add/product/25/form_key/Z9IuKHJORkq6jWdh/"
+									title="Add to Wishlist" class="link-wishlist">Add to Wishlist</a></li>
+								<li class="pull-right"><span class="separator">|</span> <a
+									href="<?php echo WEBPATH?>/catalog/product_compare/add/product/25/uenc/aHR0cDovL2Fsb3RoZW1lcy5jb20vZGVtby9zbWlqZS9pbmRleC5waHAvbWFnaWNwcm9kdWN0L2luZGV4L2FqYXgv/form_key/Z9IuKHJORkq6jWdh/"
+									title="Add to Compare" class="link-compare">Add to Compare</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="products-textlink clearfix">
+					<h2 class="product-name">
+						<a href="<?php echo WEBPATH?>/product/index/view/<?php echo $Product_WEEKLY_FEATURED_newproduct->id;?>"
+							title="<?php echo $Product_WEEKLY_FEATURED_newproduct->name;?>"><?php echo $Product_WEEKLY_FEATURED_newproduct->name;?></a>
+					</h2>
+					<div class="ratings">
+						<div class="rating-box">
+							<div class="rating" style="width: <?php echo $rate_featured;?>%"></div>
+						</div>
+						<span class="amount"><a href="#"
+							onclick="var t = opener ? opener.window : window; t.location.href='<?php echo WEBPATH?>/review/product/list/id/25/'; return false;">1 Review(s)</a></span>
+					</div>
+
+
+
+					<div class="price-box">
+						<span class="regular-price" id="product-price-25"> <span
+							class="price">$<?php echo $format_number_featured;?></span>
+						</span>
+
+					</div>
+
+				</div>
+			</div>
+		</li>
+		
+		
+		
+
+		<?php }// end for?>
+	</ul>
+</div>
+
+

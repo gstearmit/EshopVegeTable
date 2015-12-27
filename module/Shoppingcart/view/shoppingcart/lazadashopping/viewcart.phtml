@@ -1,0 +1,215 @@
+<?php
+
+use Zend\Session\Container;
+
+$container = new Container('shopcart');
+$arraycart = $container->cart;
+?>
+<!--first contact-->
+<section>
+    <div class="container">	
+        <h3>Ostatní zákazníci doporučují</h3>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="slider1">
+                    <?php foreach ($product_hot as $key => $value) { ?>
+                        <div class="slide">
+                            <div class="imgslider">
+                                <span><i class="fa fa-heart"></i></span>
+                                <!--<div class="oldprice"> -33 %</div>-->
+                                <img onclick="productdetail(<?php echo $value['id']; ?>)" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value['img']; ?>" alt=""/>
+                            </div>
+                            <div class="mota">
+                                <p class="detailclick" onclick="productdetail(<?php echo $value['id']; ?>)">
+                                    <a href="#"><?php echo $value['name'] ?> </a></p>
+                                <p>	<strong><?php echo $value['price'] ?> &nbsp;Kč</strong>
+                                    <del>17&nbsp;Kč</del>
+                                    <!--<span>(515.78&nbsp;Kč/kg)</span>--></p>
+                            </div>
+                        </div>
+
+                    <?php } ?>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <h3>Rekapitulace objednávky</h3>
+                <?php
+                if ($arraycart != null) {
+                    ?>
+                    <table>
+                        <tbody>
+                            <?php
+                            foreach ($listproduct as $key => $value) {
+                                $qty = $arraycart[$value['id']];
+                                ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value['img']; ?>" width="70"/>
+                                    </td>
+                                    <td>
+                                        <?php echo $value['name'] ?>
+                                    </td>
+                                    <td>
+                                        <img src="<?php echo ROHLIK_APOTRAVINY ?>/img/blue.gif" width="25" class='load' id='load-img<?php echo $value['id']; ?>'/>
+                                        <i class="fa fa-minus-circle" onclick="minuscart(<?php echo $value['id'] ?>)"></i>
+                                        <input style="width:25px;" type="text" name="qty" value="<?php echo $qty ?>" id="qty<?php echo $value['id'] ?>" >
+                                        <input type="hidden" name="id-product" id="qty_old<?php echo $value['id'] ?>"  value="<?php echo $qty ?>" >    
+                                        <i class="fa fa-plus-circle" onclick="pluscart(<?php echo $value['id'] ?>)"></i>
+                                        <button class="btn btn-primary btn-xs" onclick="updatecart(<?php echo $value['id'] ?>);"><i class="fa fa-refresh"></i> </button>
+
+                                    </td>
+                                    <td>
+                                        <?php echo $value['price'] ?> Kč
+                                    </td>
+                                    <td>
+                                        <?php echo $qty * $value['price']; ?> Kč
+                                    </td>
+                                    <td>
+                                        <a href="<?php echo WEBPATH . '/shoppingcart/delcart/' . $value['id'] ?>">
+                                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php
+                                $total_price += $qty * $value['price'];
+                            }    // End foreach                     
+                            ?>
+                            <tr>
+                                <td style="text-align:right; line-height: 50px;"colspan="4"><strong>Celková cena</strong></td>
+                                <td><strong><?php echo $total_price; ?> Kč</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="<?php echo WEBPATH . '/shoppingcart/clearallcart' ?>">
+                        <button class='btn btn-primary'><i class="fa fa-remove"></i> Vyprázdnit košík</button>
+                    </a>
+                    <h3>Fakturační Údaje</h3>
+                    <form id="form-checkout" action="" method="post" class="form-horizontal form-checkout">
+                        <input type="hidden" name="totalprice" value="<?php echo $total_price; ?>" />
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">JMÉNO A PŘÍJMENÍ</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="name" name="name" class="form-control" id="inputEmail3" placeholder="JMÉNO A PŘÍJMENÍ">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">TELEFON</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="phone" name="phone" class="form-control " id="inputEmail3" placeholder="TELEFON">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">VÁŠ E-MAIL</label>
+                            <div class="col-sm-6">
+                                <input type="email" id="email" name="email" class="form-control " id="inputEmail3" placeholder="VÁŠ E-MAIL">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">ADRESA DORUČENÍ</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="address" name="address" class="form-control " id="inputEmail3" placeholder="ADRESA DORUČENÍ">
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">KDY CHCETE NÁKUP DORUČIT?</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="time" id="time" title="Please select something!" required>
+                                    <option value="">--- Vyberte čas dodání ---</option>
+                                    <option value="8:30-9:00">8:30-9:00</option>
+                                    <option value="9:00-10:00">9:00-10:00</option>
+                                    <option value="10:00-10:30">10:00-10:30</option>
+                                    <option value="10:30-11:00">10:30-11:00</option>
+                                    <option value="11:00-11:30">11:00-11:30</option>
+                                    <option value="11:30-12:00">11:30-12:00</option>
+                                    <option value="12:00-12:30">12:00-12:30</option>
+                                    <option value="12:30-13:00">12:30-13:00</option>
+                                    <option value="13:00-13:30">13:00-13:30</option>
+                                    <option value="13:30-14:00">13:30-14:00</option>
+                                    <option value="14:00-14:30">14:00-14:30</option>
+                                    <option value="14:30-15:00">14:30-15:00</option>
+                                    <option value="15:00-15:30">15:00-15:30</option>
+                                    <option value="15:30-16:00">15:30-16:00</option>
+                                    <option value="16:00-16:30">16:00-16:30</option>
+                                    <option value="16:30-17:00">16:30-17:00</option>
+                                    <option value="17:00-17:30">17:00-17:30</option>
+                                    <option value="17:30-18:00">17:30-18:00</option>
+                                    <option value="18:00-18:30">18:00-18:30</option>
+                                    <option value="18:30-19:00">18:30-19:00</option>
+                                    <option value="19:00-19:30">19:00-19:30</option>
+                                    <option value="19:30-20:00">19:30-20:00</option>
+                                    <option value="20:00-20:30">20:00-20:30</option>
+                                    <option value="20:30-21:00">20:30-21:00</option>
+                                    <option value="21:00-21:30">21:00-21:30</option>
+                                    <option value="21:30-22:00">21:30-22:00</option>
+                                    <option value="22:00-22:30">22:00-22:30</option>
+                                    
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">ZPŮSOB PLATBY</label>
+                            <div class="col-sm-6">
+                                <label class="checkbox-inline">
+                                    <input id="checkout" onclick="get_valuecheckout();" type="radio" class="radio-checkout" name="checkout" id="inlineCheckbox1" value="0">
+                                    <span  class="btn btn-success">Platba na dobírku</span>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input id="checkout" onclick="get_valuecheckout();" type="radio" class="radio-checkout" name="checkout" id="inlineCheckbox2" value="1"> 
+                                    <span  class="btn btn-primary"><i class="fa fa-cc-paypal"></i> Platba přes PayPal</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-6">
+                                <button class="btn btn-checkout">Dokončit objednávku</button>
+                            </div>
+                        </div>
+                    </form>
+                    <?php
+                } else {
+                    echo '<center><h3>Váš košík je momentálně není prázdný</h3></center>';
+                }
+                ?>
+            </div>
+        </div>    
+    </div>
+</section>
+<!--end contact-->
+
+<div id="sp" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body product-detail">
+
+
+                <!--CONTENT AJAX -->
+
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->			
+</div>
+<style>
+    .load{
+        display: none;
+        float: left;
+
+    }
+    table>tbody>tr:nth-child(even){
+        background: #e1e1e1;
+    }
+    table>tbody>tr:last-child{
+        background: #fff !important;
+    }
+    table>tbody>tr>td{
+        padding: 0 30px;
+    }
+</style>

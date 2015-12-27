@@ -1,0 +1,171 @@
+<?php if (!$this->layout()->getuser) die("Error") ?>
+    <section id="content">
+
+        <!--breadcrumbs start-->
+        <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m7 l7">
+                        <h5 class="breadcrumbs-title">Mana Tags</h5>
+                        <ol class="breadcrumb">
+                            <li><a href="<?php echo WEBPATH; ?>/materialize/">Dashboard</a></li>
+                        <li><a href="<?php echo WEBPATH; ?>/tags/masterindex">Tags</a></li>
+                        <li class="active">Add New Tags</li>
+                    </ol>
+
+                </div>
+                <div class="col s12 m5 l5 btn-manage">
+                    <a href="<?php echo WEBPATH; ?>/tags/masterindex" class="waves-effect waves-light  btn">Manager Tags</a>
+                    <a href="<?php echo WEBPATH; ?>/tags/masteradd" class="waves-effect waves-light  btn">Add New Tags</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs end-->
+
+
+    <!--start container-->
+    <div class="container">
+        <div class="section">        
+            <?php
+            $sucess = $this->sucess;
+            if (isset($sucess)) {
+                echo '<div class="alert alert-success" role="alert">' . $sucess . '</div>';
+            }
+            ?>
+            <div class="divider"></div>
+            <!--Basic Form-->
+            <div id="basic-form" class="section">
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card-panel">
+                            <!--<h4 class="header2">Basic Form</h4>-->
+                            <div class="row">
+
+                                <?php
+                                $data = $this->data_tags;
+                                $form = $this->catalogform;
+                                $form->prepare();
+                                echo $this->form()->openTag($form);
+                                ?>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <?php echo $this->formElement($form->get('name')); ?>
+                                        <label for="first_name">Tags name</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <?php echo $this->formElement($form->get('alias')); ?>
+                                        <label for="alias">Tags alias</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="file-field input-field col s12 set-label">
+                                        <?php echo $this->formLabel($form->get('img')); ?>
+                                        <input class="file-path validate valid" type="text">
+                                        <div class="btn">
+                                            <span>Img</span>
+                                            <?php echo $this->formFile($form->get('img')); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6 style-textarea">
+                                        <?php echo $this->formElement($form->get('description')); ?>                                            
+                                        <?php echo $this->formlabel($form->get('description')); ?>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <?php //echo $this->formElement($form->get('parent'));  ?>
+                                        <?php //echo $this->formlabel($form->get('parent')); ?>
+
+                                        <select name="parent" >
+                                            <option value="0"></option>
+                                            <?php
+                                            foreach ($data as $key => $value) {
+                                                if ($value->parent == NULL || $value == 0) {
+                                                    $tags = $this->tags[$value->id];
+                                                    ?>
+                                                    <option value="<?php echo $value->id ?>"><?php echo $value->name ?></option>
+                                                    <?php
+                                                    foreach ($tags as $keys => $values) {
+                                                        $tags_1 = $this->tags[$values->id];
+                                                        echo '<option value="' . $values->id . '">-- ' . $values->name . '</option>';
+                                                        foreach ($tags_1 as $keys_1 => $values_1) {
+                                                            echo '<option value="' . $values_1->id . '">---- ' . $values_1->name . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                        <label>Parent</label>
+                                    </div>                       
+
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12 l12">
+                                        <label for="parent">Status</label>
+                                        <div class="row">
+                                            <div class="col s12 m12 l6">
+                                                <input name="status" type="radio" value="0" id="test1" > <label for="test1">Pause</label>
+                                                <p></p>
+                                            </div>
+                                            <div class="col s12 m12 l6">
+                                                <input name="status" type="radio" value="1" checked id="test2"> <label for="test2">Active</label>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>                     
+
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                            <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+<?php echo $this->form()->closeTag($form); ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- Form with placeholder -->
+
+            </div>
+        </div>
+
+        <!-- Form with icon prefixes -->
+
+    </div>
+
+
+
+
+
+
+</div>
+</section>
+<script type="text/javascript">
+    function get_alias() {
+        var str = (document.getElementById("name").value);
+        str = str.toLowerCase();
+        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+        str = str.replace(/đ/g, "d");
+        str = str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g, "-");
+        str = str.replace(/-+-/g, "-");
+        str = str.replace(/^\-+|\-+$/g, "");
+        document.getElementById("alias").value = str;
+        return str;
+    }
+</script>
+
+

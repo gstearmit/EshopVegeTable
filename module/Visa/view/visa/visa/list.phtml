@@ -1,0 +1,57 @@
+<table class="table table-bordered">
+	<tr>
+		<td colspan="11"><a
+			href="<?php echo $this->url('Visa', array('controller' => 'visa', 'action' => 'add')); ?>">Add</a></td>
+	</tr>
+	<tr>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Email</td>
+		<td>Phone</td>
+		<td>Date Creat</td>
+		<td>Content</td>
+		<td>Subject Contact</td>
+        <td>Status</td>
+        <td>Action Change Status</td>
+		<td>Edit</td>
+		<td>Delete</td>
+	</tr>
+    <?php for ($i = 0; $i < count($listNews); $i++) { ?>
+        <tr>
+		<td><?php echo $listNews[$i]->id; ?></td>
+		<td><?php echo $listNews[$i]->name; ?></td>
+		<td><?php echo $listNews[$i]->email; ?></td>
+		<td><?php echo $listNews[$i]->phone; ?></td>
+		<td><?php echo $listNews[$i]->date_creat; ?></td>
+		<td><?php echo $listNews[$i]->content; ?></td>
+		<td><?php echo $listNews[$i]->subject_contact; ?></td>
+		<td>
+		    <?php if($listNews[$i]->status == 1) { echo '<span class="label label-success">Process</span>'; } ?>
+		    <?php if($listNews[$i]->status == 0) { echo '<span class="label label-important">Not Process</span>'; } ?>
+		   
+		</td>
+		
+       <td>
+         <a href="<?php echo WEBPATH.$this->url('Visa', array('controller' => 'visa', 'action' => 'status', 'id' => $listNews[$i]->id ,'status' => '1')); ?>"> Change Active </a>
+         | <a href="<?php echo WEBPATH.$this->url('Visa', array('controller' => 'visa', 'action' => 'status', 'id' => $listNews[$i]->id ,'status' => '0')); ?>"> Change Not Active</a>
+	   
+	   </td>
+
+		<td><a
+			href="<?php echo $this->url('Visa', array('controller' => 'visa', 'action' => 'edit', 'id' => $listNews[$i]->id)); ?>">Edit</a></td>
+		<td><a
+			href="<?php echo $this->url('Visa', array('controller' => 'visa', 'action' => 'delete', 'id' => $listNews[$i]->id)); ?>">Delete</a></td>
+	</tr>
+    <?php } ?>
+    <tr>
+		<td colspan="11">
+            <?php
+												echo $this->paginationControl ( $paginator, 'Sliding', 'layout/paginatorvisa', array (
+														'name' => 'Visa',
+														'controller' => 'visa',
+														'action' => 'list' 
+												) );
+												?>
+        </td>
+	</tr>
+</table>

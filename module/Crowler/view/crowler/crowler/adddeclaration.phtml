@@ -1,0 +1,485 @@
+ <style>                       li {  list-style: none;}
+				                .select-wrapper { display: none; }
+				                .k-textbox {
+				                    width: 11.8em;
+				                }
+				
+				                .demo-section {
+				                    width: 800px;
+				                    padding: 0;
+				                }
+				                
+				               #tickets {
+								  width: 100%;
+								  background: url('../../kendo/content/web/validator/tickets.png') transparent no-repeat 30px 52%;
+								  background-color: #3f51b5;
+								}
+				                #tickets form {
+				                    padding: 30px;
+				                    margin-left: 150px;
+				                }
+				                #tickets h3 {
+				                    font-weight: normal;
+				                    font-size: 1.4em;
+				                    margin: 0;
+				                    padding: 0 0 20px;
+				                }
+				
+				                #tickets ul {
+				                    list-style-type: none;
+				                    margin: 0;
+				                    padding: 0;
+				                }
+				                #tickets li {
+				                    margin: 5px 0;
+				                }
+				/*
+				                label {
+				                    display: inline-block;
+				                    width: 100px;
+				                    text-align: right;
+				                    padding-right: 10px;
+				                }
+				*/
+				                .required {
+				                    font-weight: bold;
+				                }
+				
+				                .accept, .status {
+				                    padding-left: 90px;
+				                }
+				                .confirm {
+				                    text-align: right;
+				                }
+				
+				                .valid {
+				                    color: green;
+				                }
+				
+				                .invalid {
+				                    color: red;
+				                }
+				                span.k-tooltip {
+				                    margin-left: 6px;
+				                }
+		</style>
+				            
+<section id="content">
+
+	<!--breadcrumbs start-->
+	<div id="breadcrumbs-wrapper" class=" grey lighten-3">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<h5 class="breadcrumbs-title">Mana Declaration site</h5>
+					<ol class="breadcrumb">
+						<li><a href="<?php echo WEBPATH;?>/materialize/">Dashboard</a></li>
+						<li><a href="<?php echo WEBPATH;?>/catalog/manacatalo">Add Declaration</a></li>
+						<li class="active">Site</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--breadcrumbs end-->
+
+
+	<!--start container-->
+	<div class="container">
+		<div class="section">
+		
+			<div id="hoverable-table">
+			            <h5 class="header">Add Declaration</h5>
+			            <div class="col s12 m8 l9">
+			               <div id="float-button" style="float:left;">
+			                      <a href="javascript:void(0)" onclick="history.go(-1)" class="btn waves-effect waves-light indigo"><i class="mdi-action-3d-rotation left"></i>Back</a>
+			                      <a href="<?php echo WEBPATH?>/crowler/index/index" class=" waves-light light-green darken-4 btn"><i class="mdi-action-backup right"></i>List Product took</a>
+			                      <a href="<?php echo WEBPATH?>/crowler/crowler/index" class="btn waves-effect waves-light indigo"><i class="mdi-action-backup right"></i>Get automated news</a>
+			              </div> 
+			              <div id="float-button" style="float:right;">
+			                      <a href="<?php echo WEBPATH?>/crowler/crowler/adddeclaration" title="Add new declaration" data-position="bottom" data-delay="50" data-tooltip="Add new declaration" class="tooltipped btn-floating btn-flat waves-effect waves-light pink accent-2 white-text"><i class="mdi-action-note-add"></i></a>
+			                      <!-- <a href="#" title="Delete Crowler" class="btn-floating waves-effect waves-light red"><i class="mdi-content-clear"></i></a> -->
+			              </div>         
+			            </div>
+			             
+			 </div>
+            <div class="row" style="margin: 10px;"></div>
+          
+            
+            <?php
+             $check_save = $this->check_save;
+             if(isset($check_save) and $check_save !=0) {  ?>
+             
+             <div class="alert alert-success">
+			  <strong>Success!</strong> Add declarationsite.
+			  <a href="<?php echo WEBPATH;?>/crowler/crowler/declarationsite" class="btn-flat waves-effect pink accent-2 white-text"><i class="mdi-communication-comment left"></i>Mana declarationsite</a>
+			</div>
+               <?php   }  ?>
+               
+               <?php 
+               if(isset($check_save) and $check_save ==0) {  ?>
+                     <div class="alert alert-danger">
+			  <strong>Danger!</strong> Error Add declarationsite.
+			   <a href="<?php echo WEBPATH;?>/crowler/crowler/declarationsite" class="btn-flat waves-effect pink accent-2 white-text"><i class="mdi-communication-comment left"></i>Mana declarationsite</a>
+			
+			</div>       
+                            
+                              <?php   }  ?>
+                              
+            <?php  if(!isset($check_save)) { ?>
+            
+         <!-- chi tiet -->
+            <div class="col s12 m12 l12">
+                  <div class="card-panel">
+                    <?php 
+                    $NameData = $this->NameData; 
+                    ?>
+                    <div class="row">
+                      <form name="adddeclaration" id="adddeclaration"   method="post" class="col s12">
+                        <div class="row">
+                         <input type="hidden" value="<?php echo WEBPATH?>/crowler/crowler/adddeclarationapost" id="url_adddeclaration" name="url_adddeclaration" >
+                          <div class="input-field col s12">
+                           
+                            <label for="name" class="active required">Name(*)</label>
+                            <select class="browser-default" name="name_id" id="name_id">
+			                    <option value="" selected=""></option>
+			                    <?php foreach ($NameData as $keyname=>$name) {?>
+			                    <option value="<?php echo $keyname;?>"><?php echo $name;?></option>
+			                    <?php }?>
+			                  </select>
+                          </div>
+                          <div class="input-field col s12"> 
+                             <a href="#modal1" title="Add New Name declaration" data-addnewname="<?php echo WEBPATH?>/crowler/crowler/addnewname" data-position="left" data-delay="50" data-tooltip="Add New Name declaration" class="modal-trigger tooltipped btn-floating btn-flat waves-effect waves-light pink accent-2 white-text"><i class="mdi-action-note-add"></i></a>
+			              </div>
+			              <!--  
+			               <div class="input-field col s12"> 
+                             <a href="#modal2" title="Add ticket test"  data-position="left" data-delay="50" data-tooltip="Add ticket" class="modal-trigger tooltipped btn-floating btn-flat waves-effect waves-light pink accent-2 white-text"><i class="mdi-action-note-add"></i></a>
+			              </div>
+			              -->
+			              <p></p>
+                        </div>
+                         <p></p>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="<?php echo WEBPATH;?>" name="host" id="host" type="url" class="k-textbox" required  validationMessage="Enter {0}" data-fv-uri-message="The input is not a valid website address" data-fv-field="website">
+                            <label for="host" class="active required">Host(*)</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="<?php echo WEBPATH;?>/product-all" name="url" id="url" type="url" class="k-textbox" required   validationMessage="Enter {0}" >
+                            <label for="url" class="active required">URL(*)</label>
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Number of pages to be taken" name="page_taken" id="page_taken" type="number" min="1" max="100" value="1" required data-max-msg="Enter value between 1 and 100" style="width: 220px;" />
+                            <label for="page_taken" class="active">Number of pages to be taken</label>
+                          </div>
+                        </div>
+                        
+                       
+                        
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Name" name="product_name" id="product_name" type="text" required   validationMessage="Enter {0}"> <!-- pattern="^[a-zA-Z0-9]+$+." -->
+                            <label for="product_name" class="active">Product Name(*)</label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Price" name="product_price" id="product_price" type="text" required   validationMessage="Enter {0}"> <!-- pattern="^.[a-zA-Z0-9]+$+." -->
+                            <label for="product_price" class="active">Product Price(*)</label>
+                          </div>
+                        </div>
+                        
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Images" name="product_images" id="product_images" type="text" required  validationMessage="Enter {0}" > <!--  pattern="^.[a-zA-Z0-9]+$+." -->
+                            <label for="product_images" class="active">Product Images(*)</label>
+                          </div>
+                        </div>
+                        <!--  
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Avatar Images" name="avatar_images" id="avatar_images" type="text">
+                            <label for="avatar_images" class="active">Avatar Images</label>
+                          </div>
+                        </div>
+                         <div class="row">
+                          <div class="input-field col s12"> 
+                            <label for="catslogue_id" class="active">Insert into categories</label>
+                            <p></p>
+                            <select class="browser-default">
+			                    <option value="" disabled="" selected="">Choose your option</option>
+			                    <option value="1">Option 1</option>
+			                    <option value="2">Option 2</option>
+			                    <option value="3">Option 3</option>
+			                  </select>
+                          </div>
+                        </div>
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="The directory containing your avatar" name="directoryavatar" id="directoryavatar" type="text">
+                            <label for="directoryavatar" class="active">The directory containing your avatar</label>
+                          </div>
+                        </div>
+                        
+                        
+                        -->
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Description" name="product_descriptstion" id="product_descriptstion" type="text">
+                            <label for="product_descriptstion" class="active">Product Description</label>
+                          </div>
+                        </div>
+                        
+                          <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Detail Product Description" name="detail_product_descriptstion" id="detail_product_descriptstion" type="text">
+                            <label for="detail_product_descriptstion" class="active">Detail Product Description</label>
+                          </div>
+                        </div>
+                        
+                         <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product Promotion" name="product_promotion" id="product_promotion" type="text">
+                            <label for="product_promotion" class="active">Product Promotion</label>
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product country of origin" name="countryoforigin" id="countryoforigin" type="text">
+                            <label for="countryoforigin" class="active">Product country of origin</label>
+                          </div>
+                        </div>
+                        
+                        
+                          <div class="row">
+                          <div class="input-field col s12">
+                            <input placeholder="Product href Detail" name="product_href_detail" id="product_href_detail" type="text">
+                            <label for="product_href_detail" class="active">Product href Detail</label>
+                          </div>
+                        </div>
+                       
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <textarea placeholder="Oh WoW! Let me check this one too." id="message2" class="materialize-textarea"></textarea>
+                            <label for="message" class="active">Message</label>
+                          </div>
+                          <div class="row">
+                            <li class="statusadddeclaration" style="color:red;font-size:18px;">  </li>
+                            <div class="input-field col s12">
+                            <div class="butoinadddeclaration">
+                                <button class="btn cyan waves-effect waves-light right" 
+                                        type="submit" name="actionadddec">Add Declaration 
+                                        <i class="mdi-content-send right"></i>
+                                </button>
+                            </div>
+                            
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  
+                     <div class="fixed-action-btn">
+                        <a class="btn-floating btn-large red">
+                          <i class="large mdi-editor-mode-edit"></i>
+                        </a>
+                        <ul>
+                          <li><a class="btn-floating red" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;"><i class="large mdi-editor-insert-chart"></i></a>
+                          </li>
+                          <li><a href="<?php echo WEBPATH?>/crowler/crowler/adddeclaration" title="Add new declaration" data-position="left" data-delay="50" data-tooltip="Add new declaration" class="tooltipped btn-floating yellow darken-1" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;"><i class="mdi-av-my-library-add"></i></a>
+                          </li>
+                          <li> 
+                            <a href="#modal1" title="Add New Name declaration" data-addnewname="<?php echo WEBPATH?>/crowler/crowler/addnewname" data-position="left" data-delay="50" data-tooltip="Add New Name declaration" class="modal-trigger tooltipped btn-floating blue" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px); opacity: 0;"><i class="mdi-action-note-add"></i></a>
+                            
+                          </li>
+                        </ul>
+                      </div>
+            </div>
+              <?php } //end all  if(isset($check_save) }?>    
+                  
+                </div>
+         <!-- end chi tiet -->
+
+		</div>
+		<!-- end section -->
+	</div>
+	<!--end container-->
+</section>   
+
+            <link rel="stylesheet" href="<?php echo WEBPATH?>/kendo/styles/kendo.material.min.css" />
+		    <link rel="stylesheet" href="<?php echo WEBPATH?>/kendo/styles/kendo.common.min.css" />
+			<!--  <link rel="stylesheet" href="<?php echo WEBPATH?>/kendo/styles/kendo.common-material.min.css" /> -->
+			
+		    <!-- <link rel="stylesheet" href="styles/kendo.default.min.css" /> 
+		    <link rel="stylesheet" href="styles/kendo.dataviz.min.css" />
+		    <link rel="stylesheet" href="styles/kendo.dataviz.default.min.css" /> -->
+		
+		    <script src="<?php echo APOTRAVINY_ADMIN?>/js/jquery-1.11.2.min.js"></script> 
+		    <script src="<?php echo WEBPATH?>/kendo/js/kendo.all.min.js"></script>
+
+<div id="modal1" class="modal" style="display: none; opacity: 1;   top: 5%; max-height: 95%;">
+              <div class="modal-content" style="padding: 0px 2px 2px 0px; ">
+                <nav class="red">
+                  <div class="nav-wrapper">
+                    <div class="left col s12 m5 l5">
+                      <ul>
+                        <li><a href="#!" class="email-menu"><i class="modal-action modal-close  mdi-hardware-keyboard-backspace"></i></a>
+                        </li>
+                        <li><a href="#!" class="email-type">Add New Name Of Declaration</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col s12 m7 l7 hide-on-med-and-down">
+                      <ul class="right">
+                        <li><a href="#!"><i class="mdi-editor-attach-file"></i></a> </li>
+                        <li><a href="#!"><i class="modal-action modal-close  mdi-content-send"></i></a> </li>
+                        <li><a href="#!"><i class="mdi-navigation-more-vert"></i></a></li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </nav>
+              </div>
+              <div class="model-email-content" style="padding:0px;">
+                <div class="row">
+                  <form  name="addnewname" id="addnewname" class="col s12">
+                   <input name="urlaction" id="urlaction" type="hidden" value="<?php echo WEBPATH?>/crowler/name/addnewname" />
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <label for="parent" class="active required">Parent(*)</label>
+                            <select class="browser-default" name="parent" id="parent" class="k-textbox"  required validationMessage="Enter {0}" style="width: 100%;">
+			                    <option value="0"  selected="">Null</option>
+			                    <?php foreach ($NameData as $keyname=>$name) {?>
+			                    <option value="<?php echo $keyname;?>"><?php echo $name;?></option>
+			                    <?php }?>
+			               </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <input placeholder="Crowler Rohlik" name="name" id="name" type="text" class="k-textbox" required validationMessage="Enter {0}" style="width: 100%;" >
+                            <label for="name" class="active required">Name(*)</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <input placeholder="<?php echo WEBPATH;?>/c75591-sladke-a-slane" name="url_alias" id="url_alias" type="text" class="k-textbox" required validationMessage="Enter {0}" style="width: 100%;">
+                            <label for="url_alias" class="active required">Url-alias(*)</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="subject" type="text" >
+                        <label for="subject">Subject</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="description_name" name ="description_name" class="materialize-textarea" ></textarea>
+                        <label for="description_name">Description</label>
+                      <span class="character-counter" style="float: right; font-size: 12px; height: 1px;"></span></div>
+                    </div>
+                    
+                   
+                      <div class="input-field col s12 butoin">
+                         <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Add New Name <i class="mdi-content-send right"></i>
+                              </button>
+                       </div>
+                   
+                    <li class="statusadd" style="color:red;font-size:18px;">  </li>
+                  </form>
+                  
+                   <script>
+				            jQuery.noConflict();
+				            jQuery( document ).ready(function( $ ) { 
+				                    var validator = $("#addnewname").kendoValidator().data("kendoValidator");
+				                     $("form[name='addnewname']").submit(function(event) {
+				                        event.preventDefault();
+					                    var status1 = $(".statusadd"), urlaction = $("#urlaction").val();
+				                        if (validator.validate()) {
+				                            status1.text("Hooray! Your tickets has been booked!")
+				                                   .removeClass("invalid")
+				                                   .addClass("valid");
+			                                console.log("urlaction" + urlaction);
+			                                var parent = $("#parent").val(),name = $("#name").val(),
+			                                    url_alias = $("#url_alias").val(),subject = $("#subject").val(),
+			                                    description_name = $("#description_name").val();
+			                                $.ajax({
+			             		               type: "POST",
+			             		               url: urlaction,
+			             		               data: {parent:parent,name:name,url_alias:url_alias,subject:subject,description_name:description_name},
+			             		               success: function(data){ 
+			             		            	  console.log("data" + data);
+			             		            	  status1.text(data);
+			             		            	  $(".butoin").html('<span class="btn cyan waves-effect waves-light right" onClick="reloadaddde();">Oki <i class="mdi-content-send right"></i></span>');
+			             		                       }
+			             		             });
+			             			                                
+				                        } else {
+				                            status1.text("Oops! There is invalid data in the form.")
+				                                .removeClass("valid")
+				                                .addClass("invalid");
+				                        }
+				                    });
+
+
+					           //validate form add adddeclaration   
+				                     var adddeclaration = $("#adddeclaration").kendoValidator().data("kendoValidator");
+				                     $("form[name='adddeclaration']").submit(function(event) {
+					                        event.preventDefault();
+					                        var statusadddeclaration = $(".statusadddeclaration");
+					                        if (adddeclaration.validate()) { 
+				                                var  post_adddeclaration =  $("form[name='adddeclaration']").serialize();
+				                                var url_adddeclaration =   $("#url_adddeclaration").val() ; 
+				                                $.ajax({
+				             		               type: "POST",
+				             		               url: url_adddeclaration,
+				             		               data: post_adddeclaration,
+				             		               success: function(data){  
+				             		            	  console.log("data : "+data);
+				             		            	  $(".butoinadddeclaration").html('<span class="btn cyan waves-effect waves-light right" onClick="reloadaddde2();">Oki <i class="mdi-content-send right"></i></span>');
+				             		            	     statusadddeclaration.text('Ooops! Your adddeclaration has been add!')
+					                                                         .removeClass("invalid")
+					                                                         .addClass("valid");
+				             		                       }
+				             		             });
+				             			                                
+					                        } else {
+					                        	statusadddeclaration.text('Oops! There is invalid data in the form.')
+					                                .removeClass("valid")
+					                                .addClass("invalid");
+					                        }
+					                    });
+				                     
+				                });
+
+			                function reloadaddde()
+			                {
+				              //  var urlred = '<?php echo WEBPATH;?>/crowler/crowler/adddeclaration';
+				              //  window.location.href = urlred; 
+			                	$("#lean-overlay").css("display","none");
+			                	$("#modal1").css("display","none");
+			                    $("form[name='addnewname']").remove();
+			                    document.location.reload(true);
+				             }
+
+			                function reloadaddde2()
+			                {
+				              var urlred = "<?php echo WEBPATH;?>/crowler/crowler/declarationsite";
+				              window.location.href = urlred; 
+			                	
+				             }
+				            </script>
+                </div>
+              </div>
+            </div>
+            

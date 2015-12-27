@@ -1,0 +1,166 @@
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div
+					class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+					<div id="leftcatalogue"></div>
+					<!-- leftcatalogue -->
+
+					<div id="myacountaja"></div>
+					<!-- myacountaja -->
+
+					<div id="mycartaja"></div>
+
+
+					<div id="compareproductaja"></div>
+					<!-- compareproductaja -->
+					
+					<?php
+					/*
+					 * ?> <div id="populartags"></div> <!-- populartags --> <div id="containernone"></div> <!-- container-none -->
+					 */
+					?>
+
+					<p></p>
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div
+					class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="my-account">
+						<div class="page-title">
+							<h1>Edit Account Information</h1>
+						</div>
+						<?php
+						  $user = $this->layout()->getuser;
+						  $statuschangepass =  $this->layout()->statuschangepass;
+						 
+                            if($statuschangepass === 1)
+                            {
+                            
+                              echo '<ul class="messages">  <li class="error-msg"><ul><li><span>Invalid current password</span></li></ul></li></ul>';
+                            	
+                            }
+                            
+                            if($statuschangepass === 0)
+                            {
+                            	echo '<ul class="messages"><li class="success-msg"><ul><li><span>The account information has been saved.</span></li></ul></li></ul>';
+                            	
+                            }
+                       
+						?>
+						
+						<form action="<?php echo WEBPATH?>/accountchangepass" 	method="post" id="form-validate" autocomplete="off">
+							<div class="fieldset">
+								<input name="form_key" type="hidden" value="zetr6mXRc2BEWuXU">
+								<h2 class="legend">Account Information</h2>
+								<ul class="form-list">
+									<li class="fields">
+										<div class="customer-name">
+											<div class="field name-firstname">
+												<label for="firstname" class="required"><em>*</em>First Name</label>
+												<div class="input-box">
+													<input type="text" id="firstname" name="firstname"
+														value="<?php echo $user->firstname;?>" title="First Name" maxlength="255"
+														class="input-text required-entry">
+												</div>
+											</div>
+											<div class="field name-lastname">
+												<label for="lastname" class="required"><em>*</em>Last Name</label>
+												<div class="input-box">
+													<input type="text" id="lastname" name="lastname"
+														value="<?php echo $user->lastname;?>" title="Last Name" maxlength="255"
+														class="input-text required-entry">
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><label for="email" class="required"><em>*</em>Email Address</label>
+										<div class="input-box">
+											<input type="text" name="email" id="email"
+												value="gstearmit@gmail.com" title="Email Address"
+												class="input-text required-entry validate-email">
+										</div></li>
+									<li class="control"><input type="checkbox"
+										name="change_password" id="change_password" value="1"
+										onclick="setPasswordForm(this.checked)"
+										title="Change Password" checked="checked" class="checkbox"><label
+										for="change_password">Change Password</label></li>
+								</ul>
+							</div>
+							<div class="fieldset">
+								<h2 class="legend">Change Password</h2>
+								<ul class="form-list">
+									<li><label for="current_password" class="required"><em>*</em>Current
+											Password</label>
+										<div class="input-box">
+											<!-- This is a dummy hidden field to trick firefox from auto filling the password -->
+											<input type="text" class="input-text no-display" name="dummy"
+												id="dummy"> <input type="password" title="Current Password"
+												class="input-text required-entry" name="current_password"
+												id="current_password">
+										</div></li>
+									<li class="fields">
+										<div class="field">
+											<label for="password" class="required"><em>*</em>New Password</label>
+											<div class="input-box">
+												<input type="password" title="New Password"
+													class="input-text validate-password required-entry"
+													name="password" id="password">
+											</div>
+										</div>
+										<div class="field">
+											<label for="confirmation" class="required"><em>*</em>Confirm
+												New Password</label>
+											<div class="input-box">
+												<input type="password" title="Confirm New Password"
+													class="input-text validate-cpassword required-entry"
+													name="confirmation" id="confirmation">
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="buttons-set">
+								<p class="required">* Required Fields</p>
+								<p class="back-link">
+									<a
+										href="http://alothemes.com/demo/smije/index.php/customer/account/"><small>«
+									</small>Back</a>
+								</p>
+								<button type="submit" title="Save" class="button">
+									<span><span>Save</span></span>
+								</button>
+							</div>
+						</form>
+						<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    function setPasswordForm(arg){
+        if(arg){
+            $('current_password').up(3).show();
+            $('current_password').addClassName('required-entry');
+            $('password').addClassName('required-entry');
+            $('confirmation').addClassName('required-entry');
+
+        }else{
+            $('current_password').up(3).hide();
+            $('current_password').removeClassName('required-entry');
+            $('password').removeClassName('required-entry');
+            $('confirmation').removeClassName('required-entry');
+        }
+    }
+
+            setPasswordForm(true);
+    //]]>
+</script>
+					</div>
+				</div>
+				<!-- end chi tiet -->
+			</div>
+		</div>
+	</div>
+</div>

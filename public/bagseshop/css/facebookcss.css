@@ -1,0 +1,26 @@
+/******************facebook****************************/
+.sp_plugin-button.sx_plugin-button_favblue {
+  background-position: 0 -42px;
+}
+i.img {
+  -ms-high-contrast-adjust: none;
+  _overflow: hidden;
+}
+.sp_plugin-button {
+  background-image: url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y1/r/LVx-xkvaJ0b.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+}
+.pluginButtonIcon {
+  height: 14px;
+  left: 0;
+  margin: 0 4px 0 4px;
+  position: relative;
+  top: 3px;
+  vertical-align: top;
+  width: 14px;
+}
+/*******************end facebook***************************/

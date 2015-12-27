@@ -1,0 +1,133 @@
+<?php
+$title = 'Delete catalogue';
+$this->headTitle($title);
+?>
+<!-- font chu icon http://fortawesome.github.io/Font-Awesome/icons/ -->
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div
+					class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+					<!--  <div id="leftcatalogue"></div> -->
+					<!-- leftcatalogue -->
+
+					<div id="myacountaja"></div>
+					<!-- myacountaja -->
+					<div id="mySlideshowaja"></div>
+
+					<div id="mycartaja"></div>
+
+
+					<div id="compareSlideshowaja"></div>
+					<!-- compareSlideshowaja -->
+					
+
+					<p></p>
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div
+					class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="pageheader">
+						<h1 class="title-admin page-title">
+							<i class="glyphicon glyphicon-plus"></i>Delete Slideshow:
+						</h1>
+					</div>
+					
+					<div class="buttons-set buttons-set2" style="float: right;  margin: 0px;">
+							<a href="<?php echo WEBPATH?>/Slideshow/index">
+								<button type="button" name="Manacatalogue"
+									title="Share Wishlist" class="butoon button btn-share">
+									<span><span>Manage Slideshow</span></span>
+								</button>
+							</a> <a href="<?php echo WEBPATH?>/Slideshow/add">
+								<button type="button" title="AddNew"
+									class="butoon button btn-add">
+									<span><span>Add new Slideshow</span></span>
+								</button>
+							</a>
+
+					</div>
+					
+					<div id=""formdelete>
+					  <p>Are you sure that you want to delete Slideshow Name is : <span style="font-style: bold;">'<?php echo $this->escapeHtml($this->Slideshow->name); ?>' </span>?
+						</p>
+						<h4>Note: If you delete this list, it will affect the list containing it. Or do you think more carefully before deleting</h4>
+						<form action="" method="post">
+						<div>
+						  <input type="submit" name="del" value="Yes" class="btn btn-primary" />
+						   <input type="submit" name="del" value="No" class="btn btn-primary" />
+						</div>
+						</form>
+					</div><!-- end form delete -->
+					<!-- end chi tiet -->
+				</div>
+			</div>
+		</div>
+	</div><?php
+$title = 'Delete catalogue';
+$this->headTitle($title);
+?>
+<!-- font chu icon http://fortawesome.github.io/Font-Awesome/icons/ -->
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div
+					class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+					<div id="myacountaja"></div>
+					<!-- myacountaja -->
+					<div id="mySlideshowaja"></div>
+					<div id="mycartaja"></div>
+					<div id="compareProductaja"></div>
+					<!-- compareSlideshowaja -->
+					
+
+					<p></p>
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div
+					class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="pageheader">
+						<h1 class="title-admin page-title">
+							<i class="glyphicon glyphicon-plus"></i>Delete Tags:
+						</h1>
+					</div>
+					
+					<div class="buttons-set buttons-set2" style="float: right;">
+						<a href="<?php echo WEBPATH?>/tags/index">
+							<button type="button" name="Mana Tags" title="Mana Tags"
+								class="butoon button btn-share">
+								<span><span>Mana Tags</span></span>
+							</button>
+						</a> <a href="<?php echo WEBPATH?>/tags/add">
+							<button type="button" title="AddNew"
+								class="butoon button btn-add">
+								<span><span>Add new Tags</span></span>
+							</button>
+						</a>
+
+					</div>
+					<div id=""formdelete>
+					  <p>Are you sure that you want to delete Catalogue Name is : <span style="font-style: bold;">'<?php echo $this->escapeHtml($this->catalogue->name); ?>' </span>?
+						</p>
+						<h4>Note: If you delete this list, it will affect the list containing it. Or do you think more carefully before deleting</h4>
+						$url = $this->url('Tags', array('action' => 'delete', 'id'=>$this->id)); ?>
+						<form action="" method="post">
+						<div>
+						  <input type="hidden" name="id" value="<?php echo (int)$this->tags->id; ?>" />
+						  <input type="submit" name="del" value="Yes" class="btn btn-primary" />
+						  <input type="submit" name="del" value="No" class="btn btn-primary" />
+						</div>
+						</form>
+					</div><!-- end form delete -->
+					<!-- end chi tiet -->
+				</div>
+			</div>
+		</div>
+	</div>

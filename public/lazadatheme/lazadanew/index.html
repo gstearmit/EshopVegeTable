@@ -1,0 +1,6552 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+	<title>lazada</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/jquery.mmenu.all.css" rel="stylesheet" type="text/css"/>
+	<script src="js/jquery-2.1.3.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="fonts/font-awesome.css" rel="stylesheet" type="text/css"/>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	
+	
+	<script src="js/jquery.mmenu.min.all.js" type="text/javascript"></script>
+	
+	
+	<script>
+		$(document).ready(function(){
+			$('.box-thanhtoan').click(function(){
+				$('#product').modal('show');
+			});
+		});
+		function scrollWin(x, y) {
+			window.scrollBy(x, y);
+		}
+	</script>
+	
+	<script type="text/javascript">
+		
+		$(function () {
+			$("#menu")
+			.mmenu({
+			})
+			.on("click", "a[href=\"#\"]",
+			function () {
+				//alert("Thank you for clicking, but that's a demo link.");
+				return false;
+			}
+			);
+		});
+	</script>
+	
+	<script>
+		$(function () {
+			$('#house a').click(function () {
+				$('.box-danngnhap').toggle();
+			});
+		});
+		
+		$(function () {
+			
+			/*$('.video-tv').click(function(){
+				$(".box-khuyenmai").hide();
+				$('.box-tivi-video').show();
+			});*/
+			$('#tab-menu li a').hover(function () {
+				$('#tab-menu li a').removeAttr('class');
+				$('.div-tab').hide();
+				$('.hinhtron').hide();
+				var showtab = $(this).attr("href");
+				var active = showtab.replace("#", "");
+				//alert(active);
+				$(this).addClass(active);
+				$(showtab).show();
+				//console.log($(active).find('.hinhtron'));
+				$(this).find('.hinhtron').css('display','block');
+				$(active,'.hinhtron').addClass('display');
+				//$(this '.hinhtron').css('display','block');
+			});
+			$('.show-div').click(function () {
+				
+			});
+		});
+		
+		
+		
+		/*   --------------------------------------------------- */
+		
+		
+		/*   --------------------------------------------------- */
+		function showdiv(key) {
+			$('html, body').animate({scrollTop: $('#tang-' + key).position().top - 30}, 'slow');
+			
+			
+		}
+		
+		/*   --------------------------------------------------- */
+		function showDiv() {
+			if ($(window).scrollTop() > 100) {
+				$(".logo-timkiem-mua-fluid").css({"position": "fixed", "top": "0px"});
+				} else {
+				$(".logo-timkiem-mua-fluid").css({"position": "relative", "top": "0px"});
+			}
+		}
+		$(window).scroll(showDiv);
+		showDiv();
+		
+		function truqty(key){
+			var qty=$('#getqty'+key).val();
+			
+			if(qty > 1){
+				var qtynew=parseInt(qty)-1;
+				$('#getqty'+key).val(qtynew);
+				}else{
+				$('#getqty'+key).val('1');
+			}
+		}
+		function congqty(key){
+			var qty=$('#getqty'+key).val();
+			
+			var qtynew=parseInt(qty)+1;
+			$('#getqty'+key).val(qtynew);
+		}
+	</script>
+</head>
+<body>
+	
+
+	<header>
+		
+		<nav class="navbar navbar-default thaydoinavbar">
+			<div class="container-fluid domaumenufluid">
+				<div class="container">
+					<div class="row row-menu-top">
+						<div class="col-sm-12 menu-top-top">
+							<div class="col-sm-3 header-top-left"></div>
+							
+							<div class="col-sm-9 header-top-right">
+								<div class="container-fluid">
+									<!-- Brand and toggle get grouped for better mobile display -->
+									<div class="navbar-header header-trencung-mobi">
+										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+											<span class="sr-only">Toggle navigation</span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+										<a class="navbar-brand" href="#">
+											<img alt="Brand name" src="img/header/logo_nho.png"  />
+										</a>
+									</div>
+									
+									<!-- Collect the nav links, forms, and other content for toggling -->
+									<div class="collapse navbar-collapse menu-container" id="bs-example-navbar-collapse-1">
+										<ul class="nav navbar-nav ulmenu">
+											
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CHĂM SÓC KHÁCH HÀNG <span class="caret"></span></a>
+												<ul class="dropdown-menu" role="menu">
+													<li><a href="#"><i class="fa fa-caret-right"></i> Trung tâm hỗ trợ</a></li>
+													<li><a href="#"><i class="fa fa-caret-right"></i> Đơn hàng & Thanh toán</a></li>
+													<li><a href="#"><i class="fa fa-caret-right"></i> Giao hàng & Nhận hàng</a></li>
+													<li><a href="#"><i class="fa fa-caret-right"></i> Đổi trả hàng & Hoàn tiền <button class="btn-danger">Mới</button></a></li>
+												</ul>
+											</li>
+											<li class="dropdown" id="house">
+												<a href="#" class="dropdown"  data-toggle="dropdown" role="button" >KIỂM TRA ĐƠN HÀNG <span class="caret"></span></a>
+												
+												
+												<div class="box-danngnhap">
+													<div class="col-sm-12 margin-top-bottom">
+														<div class="col-sm-12 box-tieude-login">
+															<span class="text-tieude-login">  ĐĂNG NHẬP</span>
+														</div>
+														<div class="col-sm-12 margin-top">
+															<span class="text-thuong">Vui lòng nhập mã đơn hàng:</span>
+														</div>
+														<div class="col-sm-12">
+															<input type="text" class="form-control">
+														</div>
+														<div class="col-sm-12 margin-top">
+															<span class="text-thuong"> Vui lòng nhập địa chỉ email:</span>
+														</div>
+														<div class="col-sm-12">
+															<input type="text" class="form-control">
+														</div>
+														<div class="col-sm-12 margin-top">
+															<span class="text-thuong">  Nếu bạn có thắc mắc nào khác, <a href="#"><span class="maudo">Nhấn vào đây</span></a></span>
+														</div>
+														<div class="col-sm-12 margin-top">
+															<button class="btn btn-success btnkiemtra">  Kiểm tra</button>
+														</div>
+														
+														
+													</div>
+												</div>       
+												
+												
+												
+											</li>
+											
+											<li class="dropdown">
+												
+												<!-- Large modal -->
+												<a data-toggle="modal" data-target=".popup_dangki">ĐĂNG KÍ<span class="caret"></span></a>
+												
+												<div class="modal fade bs-example-modal-lg popup_dangki" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+													<div class="modal-dialog modal-lg">
+														<div class="modal-content dangki-vuavua">
+															<div class="row">
+																<div class="col-sm-12 margin-top-bottom">
+																	<div class="col-sm-12 box-tieude-login">
+																		<span class="text-tieude-login">ĐĂNG KÍ</span>
+																	</div>
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3 box-text-label">Họ Tên : <span class="maudo">*</span> </div>
+																		<div class="col-sm-9">
+																			<input type="text" class="form-control" id="inputSuccess1">
+																		</div>
+																	</div>
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3 box-text-label">Email : <span class="maudo">*</span> </div>
+																		<div class="col-sm-9">
+																			<input type="text" class="form-control" id="inputSuccess1">
+																		</div>
+																	</div>
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3 box-text-label">Mật Khẩu : <span class="maudo">*</span> </div>
+																		<div class="col-sm-9">
+																			<input type="text" class="form-control" id="inputSuccess1">
+																		</div>
+																	</div>
+																	<div class="col-sm-12">
+																		<div class="col-sm-3"></div>
+																		<div class="col-sm-9">
+																			<span>ít nhất gồm 6 kí tự gồm chữ và số</span>
+																		</div>
+																	</div>
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3 box-text-label">Nhập lại MK : <span class="maudo">*</span></div>
+																		<div class="col-sm-9">
+																			<input type="text" class="form-control" id="inputSuccess1">
+																		</div>
+																	</div>
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3 box-text-label">Ngày sinh :</div>
+																		<div class="col-sm-3"> 
+																			<select class="form-control">
+																				
+																				<option>1950</option>
+																				<option>1951</option>
+																				<option>1952</option>
+																				<option>1953</option>
+																				<option>1954</option>
+																				<option>1955</option>
+																				<option>1956</option>
+																				<option>1957</option>
+																				<option>1958</option>
+																				<option>1959</option>
+																				<option>1960</option>
+																				<option>1961</option>
+																				<option>1962</option>
+																				<option>1963</option>
+																				<option>1964</option>
+																				<option>1965</option>
+																				<option>1966</option>
+																				<option>1967</option>
+																				<option>1968</option>
+																				<option>1969</option>
+																				<option>1970</option>
+																				<option>1971</option>
+																				<option>1972</option>
+																				<option>1973</option>
+																				<option>1974</option>
+																				<option>1975</option>
+																				<option>1976</option>
+																				<option>1977</option>
+																				<option>1978</option>
+																				<option>1979</option>
+																				<option>1980</option>
+																				<option>1981</option>
+																				<option>1982</option>
+																				<option>1983</option>
+																				<option>1984</option>
+																				<option>1985</option>
+																				<option>1986</option>
+																				<option>1987</option>
+																				<option>1988</option>
+																				<option>1989</option>
+																				<option>1990</option>
+																				<option>1991</option>
+																				<option>1992</option>
+																				<option>1993</option>
+																				<option>1994</option>
+																				<option>1995</option>
+																				<option>1996</option>
+																				<option>1997</option>
+																				<option>1998</option>
+																				<option>1999</option>
+																				<option>2000</option>
+																				<option>2001</option>
+																				<option>2002</option>
+																				<option>2003</option>
+																				<option>2004</option>
+																				<option>2005</option>
+																				<option>2006</option>
+																			</select>
+																		</div>
+																		<div class="col-sm-3 media-margin">
+																			<select class="form-control">
+																				<option>January</option>
+																				<option>February</option>
+																				<option>March</option>
+																				<option>April</option>
+																				<option>May</option>
+																				<option>June</option>
+																				<option>July</option>
+																				<option>August</option>
+																				<option>September</option>
+																				<option>October</option>
+																				<option>November</option>
+																				<option>December</option>
+																			</select>
+																		</div>
+																		<div class="col-sm-3 media-margin">
+																			<select class="form-control">
+																				<option>01</option>
+																				<option>02</option>
+																				<option>03</option>
+																				<option>04</option>
+																				<option>05</option>
+																				<option>06</option>
+																				<option>07</option>
+																				<option>08</option>
+																				<option>09</option>
+																				<option>10</option>
+																				<option>11</option>
+																				<option>12</option>
+																				<option>13</option>
+																				<option>14</option>
+																				<option>15</option>
+																				<option>16</option>
+																				<option>17</option>
+																				<option>18</option>
+																				<option>19</option>
+																				<option>21</option>
+																				<option>22</option>
+																				<option>23</option>
+																				<option>24</option>
+																				<option>25</option>
+																				<option>26</option>
+																				<option>27</option>
+																				<option>28</option>
+																				<option>29</option>
+																				<option>30</option>
+																				
+																			</select>
+																		</div>
+																	</div>
+																	
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3 box-text-label">Giới Tính :</div>
+																		<div class="col-sm-9">
+																			<select class="form-control">
+																				<option>Nam</option>
+																				<option>Nữ</option>
+																			</select>
+																		</div>
+																	</div>
+																	
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3"></div>
+																		<div class="col-sm-6">
+																			<span class="text-thuong">  Tôi đã đọc và đồng ý với <span class="maudo">các điều khoản của ABC</span></span>
+																		</div>
+																		<div class="col-sm-3">
+																			
+																			<span class="text-thuong"> (<span class="maudo">*</span>) Thông tin bắt buộc</span>
+																		</div>
+																		
+																	</div>
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3"></div>
+																		<div class="col-sm-9">
+																			<button class="btn btn-danger">Đăng Kí</button>
+																		</div>
+																	</div>
+																	
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											
+											<li class="dropdown">
+												
+												<a data-toggle="modal" data-target=".bs-example-modal-sm">ĐĂNG NHẬP<span class="caret"></span></a>
+												
+												<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+													<div class="modal-dialog modal-sm">
+														<div class="modal-content dangnhap-reponsive">
+															<div class="row">
+																<div class="col-sm-12 margin-top-bottom">
+																	<div class="col-sm-12 box-tieude-login">
+																		<span class="text-tieude-login">ĐĂNG NHẬP</span>
+																	</div>
+																	<div class="col-sm-12 margin-top-nopading">
+																		<div class="col-sm-4 box-text-label">Email: <span class="maudo">*</span></div>
+																		<div class="col-sm-8">
+																			<input type="text" class="form-control" id="inputSuccess1">
+																		</div>
+																	</div>
+																	<div class="col-sm-12 margin-top-nopading">
+																		<div class="col-sm-4 box-text-label">Mật Khẩu:<span class="maudo">*</span></div>
+																		<div class="col-sm-8">
+																			<input type="text" class="form-control" id="inputSuccess1">
+																		</div>
+																	</div>
+																	<div class="col-sm-12 margin-top">
+																		<div class="col-sm-3"></div>
+																		<div class="col-sm-5 box-wuenmatkhau-dangnhap">
+																			<a href="#">Quên mật khẩu?</a>
+																		</div>
+																		<div class="col-sm-4 box-wuenmatkhau-dangnhap">
+																			<a href="#"> Đăng Kí</a>
+																		</div>
+																	</div>
+																	<div class="col-sm-12 margin-top-nopading">
+																		<div class="col-sm-4"></div>
+																		<div class="col-sm-8">
+																			<button class="btn btn-danger">ĐĂNG NHẬP</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											
+										</ul>
+										
+										
+									</div><!-- /.navbar-collapse -->
+								</div>
+							</div><!-- /.container-fluid -->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="container-fluid logo-timkiem-mua-fluid">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 menu-top-giua">
+						<div class="col-sm-2 box-chua_logo">
+							<img src="img/header/vn.png"  class="img-responsive anhlogo" alt="#">
+						</div>
+						<div class="col-sm-6 box-chua-search">
+							<div class="input-group input-group-lg">
+								<input type="text" class="form-control input-search" placeholder="Tìm kiếm theo sản phẩm, danh mục...." aria-describedby="sizing-addon1">
+								<span class="input-group-addon button-timkiem" id="sizing-addon1"><span class="timkiem_an">Tìm kiếm</span><i class="fa fa-search fa-timkiem"></i></span>
+								
+							</div>
+						</div>
+						<div class="col-sm-2 box-chua_thanhtoan">
+							<div class="box-thanhtoan">
+								<span class="text-giohang">1</span>
+								<img src="img/header/thanhtoan.png"  class="anh-thanhtoan" alt="#">
+								
+							</div>
+						</div>
+						<div class="col-sm-2 oclock-header">
+							
+							<div class="thoigian-oclock">08:48:53</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid menu-top-nho-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 menu-group-menu-header-bottom"> 
+						<div class="col-sm-2">
+							
+						</div>
+						<div class="col-sm-8 menu-header-bottom">
+							<menu>
+								<ul>
+									<li> <a href="#">Xu hướng</a></li>
+									<li><a href="#">Voucher</a></li>
+									<li><a href="#">Tai nghe</a></li>
+									<li><a href="#">Đồng hồ</a></li>
+									<li><a href="#">Iphone 6</a></li>
+									<li><a href="#">Iphone 4s</a></li>
+									<li><a href="#">Nokia</a></li>
+									<li><a href="#">Loa vi tính</a></li>
+								</ul>
+							</menu>
+						</div>
+						<div class="col-sm-2">
+							<span class="text-header-bottom-right">Daily Deals mới, khám phá ngay <i class="fa fa-arrow-circle-o-right"></i></span>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<article>
+		
+		<div class="container">
+			<div class="row box-an-767">
+				
+				<div  class="col-sm-12">
+					<div id="abc" class="carousel slide" data-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+							
+							
+						</ol>
+						
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner " role="listbox">
+							<div class="item active">
+								<div class="box-anhjs">
+									<a href="#"> 
+										<img src="img/slide-360/s1.jpg" class="img-responsive" alt="#"/>
+									</a>
+								</div>
+								
+								
+								
+							</div>
+							<div class="item">
+								<div class="box-anhjs">
+									<a href="#"> 
+										<img src="img/slide-360/s2.jpg" class="img-responsive" alt="#"/>
+									</a>
+								</div>
+								
+								
+							</div>
+							
+							<div class="item">
+								<div class="box-anhjs">
+									<a href="#"> 
+										<img src="img/slide-360/s3.jpg" class="img-responsive" alt="#"/>
+									</a>
+								</div>
+								
+								
+							</div>
+							
+							<div class="item">
+								<div class="box-anhjs">
+									<a href="#"> 
+										<img src="img/slide-360/s4.jpg" class="img-responsive" alt="#"/>
+									</a>
+								</div>
+								
+								
+							</div>
+							
+						</div>
+						
+						<!-- Controls -->
+						<a class="left carousel-control icon-right" href="#abc" role="button" data-slide="prev">
+							<span class="fa fa-chevron-circle-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control icon-right" href="#abc" role="button" data-slide="next">
+							<span class="fa fa-chevron-circle-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+						
+					</div> 
+				</div>
+				
+				<div class="col-sm-12 margin-top-nhieu">
+					<div class="menu">
+						
+						<div class="menuresponsive">
+							<a href="#menu">
+								
+								<div class="col-sm-12 box-the-li">
+									TẤT CẢ DANH MỤC
+								</div>
+							</a>
+						</div>
+						
+						
+					</div>
+				</div>
+				<div class="col-sm-12 margin-top">
+					<div class="col-sm-12 box-the-li">
+						SẢN PHẨM BÁN CHẠY
+					</div>
+					
+					
+				</div>
+				<div class="col-sm-12 box-full-tuongtu">
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-4%</div>
+							<img src="img/trangbay-lop1/iphone1.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Apple iPhone 6 16GB (Vàng) - Hàng chính hãng</div>
+							<div class="box-text-deation-giua">17.789.000 VND</div>
+							<div class="box-text-giathuc">16.789.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 8 chỉ còn: 30</div>
+							
+						</div>
+						
+						
+					</div>
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-9%</div>
+							<img src="img/trangbay-lop1/asus.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Asus Zenfone 5 A501 1G-8GB (Trắng) - Hàng nhập khẩu</div>
+							<div class="box-text-deation-giua">4.066.800 VND</div>
+							<div class="box-text-giathuc">2.739.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 12 chỉ còn: 3</div>
+							
+						</div>
+						
+						
+					</div>
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-8%</div>
+							<img src="img/trangbay-lop1/samsung.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Samsung Galaxy V 4GB 2SIM (Đen)</div>
+							<div class="box-text-deation-giua"> 2.290.000 VND</div>
+							<div class="box-text-giathuc">1.739.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 43 chỉ còn: 1</div>
+							
+						</div>
+						
+						
+					</div>
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-14%</div>
+							<img src="img/trangbay-lop1/ipad1.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Máy tính bảng Apple iPad Air 2 64GB 4G (Vàng)</div>
+							<div class="box-text-deation-giua">16.290.000 VND</div>
+							<div class="box-text-giathuc">13.990.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 8 chỉ còn: 30</div>
+							
+						</div>
+						
+						
+					</div>
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-10%</div>
+							<img src="img/trangbay-lop1/iphone2.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Apple iPhone 6 32GB (Vàng) - Hàng chính hãng</div>
+							<div class="box-text-deation-giua">16.489.000 VND</div>
+							<div class="box-text-giathuc">15.780.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 15 chỉ còn: 13</div>
+							
+						</div>
+						
+						
+					</div>
+				</div>
+				
+				<div class="col-sm-12 margin-top">
+					<div class="col-sm-12 box-the-li">
+						SẢN PHẨM MỚI
+					</div>
+					
+					
+				</div>
+				<div class="col-sm-12 box-full-tuongtu">
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-48%</div>
+							<img src="img/trangbay-lop1/lumia.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Nokia Lumia 730 8GB 2 SIM (Đen)</div>
+							<div class="box-text-deation-giua">6.990.000 VND</div>
+							<div class="box-text-giathuc">3.628.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 32 chỉ còn: 4</div>
+							
+						</div>
+						
+						
+					</div>
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-7%</div>
+							<img src="img/trangbay-lop1/lenovo.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Lenovo P70 16GB (Đen)</div>
+							<div class="box-text-deation-giua"> 5.390.000 VND</div>
+							<div class="box-text-giathuc">4.990.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 21 chỉ còn: 23</div>
+							
+						</div>
+						
+						
+					</div>
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-38%</div>
+							<img src="img/trangbay-lop1/lumia1.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Nokia Lumia 630 8GB (Đen)</div>
+							<div class="box-text-deation-giua">3.500.000 VND</div>
+							<div class="box-text-giathuc">2.179.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 24 chỉ còn: 12</div>
+							
+						</div>
+						
+						
+					</div>
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-10%</div>
+							<img src="img/trangbay-lop1/asus1.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Asus Zenfone C ZC451CG 8GB 2 SIM (Trắng)</div>
+							<div class="box-text-deation-giua">2.550.000 VND</div>
+							<div class="box-text-giathuc">2.290.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 24 chỉ còn: 32</div>
+							
+						</div>
+						
+						
+					</div>
+					<div class="col-sm-12 box-sanpham-tuongtu">
+						
+						
+						
+						<div class="box-chua-anh-giamgia">
+							<div class="text-tron-giamgia">-4%</div>
+							<img src="img/trangbay-lop1/iphone1.jpg" class="anh360" alt=""/>
+							
+						</div>
+						<div class="box-chua-thongtin">
+							<div class="box-ten-sanpham">Apple iPhone 6 Plus 64GB (Bạc) - Hàng nhập khẩu</div>
+							<div class="box-text-deation-giua">23.879.000 VND</div>
+							<div class="box-text-giathuc">22.099.000 VND</div>
+							<div class="box-text-xemngay">XEM NGAY</div>
+							<div class="box-text-daban-chicon">Đã bán: 43 chỉ còn: 2</div>
+							
+						</div>
+						
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="container box-an-360">
+			<div class="row">
+				<div class="col-sm-12 row-content-top" id="row-content-top1">
+					<div class="col-sm-2 menu_doc_left ">
+						<ul id="tab-menu">
+							<li ><a class="box-khuyenmai" href="#box-khuyenmai">  <div class="hinhtron ">Tầng 1</div>sladkosti a slané snacky</a></li>
+							<li ><a href="#box-tivi-video">  <div class="hinhtron ">Tầng 2</div> nealko nápoje</a></li>
+							<li><a href="#box-dienthoai-tablet"><div class="hinhtron ">Tầng 3</div> cigarety</a></li>
+							<li><a href="#box-maytinh-laptop"> <div class="hinhtron ">Tầng 4</div> alkohol</a></li>
+							<li><a href="#box-mayanh-mayuayphim"> <div class="hinhtron ">Tầng 5</div>drogerie</a></li>
+							<li><a href="#box-me-be"> <div class="hinhtron">Tầng 6</div> domácnost</a></li>
+							<li><a href="#box-nhacua-doisong"> <div class="hinhtron ">Tầng 7</div>konzervy </a></li>
+							<li><a href="#box-thoitrang-phukien"> <div class="hinhtron ">Tầng 8</div> mazlícci</a></li>
+							<li><a href="#box-phukien-otoxemay"> <div class="hinhtron ">Tầng 9</div> vaření a pečení</a></li>
+							<li><a href="#box-suckhoe-sacdep"> <div class="hinhtron">Tầng 10</div>  zdravá výživa</a></li>
+							<li><a href="#box-mayanh-mayuayphim"> <div class="hinhtron">Tầng 11</div> krása  </a></li>
+							<li><a href="#box-maytinh-laptop"> <div class="hinhtron">Tầng 12</div> pro děti </a></li>
+						</ul>
+					</div>
+					
+					<div class="col-sm-10 div-tab" id="box-khuyenmai">
+						<div class="col-sm-12 nopading">
+							<div class="row nomargin">
+								<div class="col-sm-3 box-tablet-50">
+									<div class="col-sm-12 box-an-980">
+									<img src="img/VN.2015-06-11.MO.0.4.fcd0bae2647ee3cd7d31c43acb9fb559.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-12 box-an-980">
+									<img src="img/VN.2015-06-11.MO.0.6.de4726eb2269bd1ebc4c5fce6d615a19.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-12 box-an-980">
+									<img src="img/VN.2015-06-08.MO.8.2.e7c093120ad678343a4d698fd8e29699.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+								<div class="col-sm-6 nopading">
+									<div class="col-sm-12 nopading">
+										<img src="img/li.khuyenmai/400x355.jpg" class="img-responsive" alt="#">  
+									</div>
+									<div class="col-sm-12 nopading">
+										<div class="col-sm-6 nopading">
+											<img src="img/li.khuyenmai/bt1.jpg" class="img-responsive" alt="#"/>
+										</div>
+										<div class="col-sm-6 nopading">
+											<img src="img/li.khuyenmai/bt2.jpg" class="img-responsive" alt="#"/>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3 box-an-980">
+									<div class="col-sm-12 nopading">
+										<img src="img/li.khuyenmai/bt3.jpg"  class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-12 nopading">
+										<img src="img/li.khuyenmai/bt4.jpg"  class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-12 nopading">
+										<img src="img/li.khuyenmai/bt5.jpg"  class="img-responsive" alt="#"/>
+									</div>
+								</div>
+								
+							</div>
+							
+							
+							
+							
+						</div>
+					</div>
+					<div class="col-sm-10 div-tab " id="box-tivi-video">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.tivi_video_amthanh/bt1.jpg" class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.tivi_video_amthanh/bt2.jpg" class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.khuyenmai/VN.2015-06-09.MO.9.3.cbd2d680119f4c8ead1a63a70c6bd03b.jpg" class="img-responsive" alt="#"/>
+								</div>
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.tivi_video_amthanh/400x355.jpg" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.tivi_video_amthanh/bt7.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.tivi_video_amthanh/bt8.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.tivi_video_amthanh/bt3.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.tivi_video_amthanh/bt4.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.tivi_video_amthanh/bt5.jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="col-sm-10 div-tab " id="box-maytinh-laptop">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.vitinh_laptop/1.jpg" class="img-responsive" alt="#"/>
+								</div>
+									<div class="col-sm-12 box-an-980">
+									<img src="img/li.tivi_video_amthanh/bt5.jpg" class="img-responsive" alt="#"/>
+								</div>
+									<div class="col-sm-12 box-an-980">
+									<img src="img/li.tivi_video_amthanh/bt5.jpg" class="img-responsive" alt="#"/>
+								</div>
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.vitinh_laptop/400x355.jpg" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.vitinh_laptop/2.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.vitinh_laptop/3.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.vitinh_laptop/4.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.vitinh_laptop/6.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.vitinh_laptop/7.jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-10 div-tab " id="box-mayanh-mayuayphim">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.mayanh_mayuayphim/bt1.jpg" class="img-responsive" alt="#"/>
+								</div>
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.mayanh_mayuayphim/400x355.jpg" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.mayanh_mayuayphim/bt2.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.mayanh_mayuayphim/bt3.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.mayanh_mayuayphim/bt4.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.mayanh_mayuayphim/bt5.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.mayanh_mayuayphim/bt6.jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-10 div-tab " id="box-me-be">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.me_be/200x355.jpg" class="img-responsive" alt="#"/>
+								</div>
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.me_be/400x354.png" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.me_be/bt1.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.me_be/bt2.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.me_be/bt2.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.me_be/bt3.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.me_be/bt4.jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-10 div-tab " id="box-nhacua-doisong">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.nhacua_doisong/bt6.jpg" class="img-responsive" alt="#"/>
+								</div>
+								
+								
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.nhacua_doisong/400x355.jpg" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.nhacua_doisong/bt1.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.nhacua_doisong/bt2.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.nhacua_doisong/bt3.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.nhacua_doisong/bt4.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.nhacua_doisong/bt5.jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-10 div-tab " id="box-thoitrang-phukien">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.thoitrang_phukien/200x355.jpg" class="img-responsive" alt="#"/>
+								</div>
+								
+								
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.thoitrang_phukien/400x354.jpg" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.thoitrang_phukien/bt1.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.thoitrang_phukien/bt2.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.thoitrang_phukien/bt3.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.thoitrang_phukien/bt4.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.thoitrang_phukien/bt5.jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div> 
+					
+					<div class="col-sm-10 div-tab " id="box-phukien-otoxemay">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+							
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.oto-xemay/bt6.jpg" class="img-responsive" alt="#"/>
+								</div>
+								
+								
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.oto-xemay/400x355.jpg" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.oto-xemay/bt1.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.oto-xemay/bt2.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.oto-xemay/bt3.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.oto-xemay/bt4.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.oto-xemay/bt5.jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-10 div-tab " id="box-suckhoe-sacdep">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.dienthoai_tablet/VN.2015-06-08.MO.8.5.a03fec1e3d2169b492c282086b718b44.jpg" class="img-responsive" alt="#"/>
+								</div>
+							<div class="col-sm-12 box-an-980">
+									<img src="img/li.dienthoai_tablet/VN.2015-06-05.MO.8.3.cab801a444968640f2d23c3a77f51d6c.jpg" class="img-responsive" alt="#"/>
+								</div>
+							
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.suckhoe_sacdep/400x355.1.jpg" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.suckhoe_sacdep/bt2.jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.suckhoe_sacdep/bt3.jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.suckhoe_sacdep/bt4.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.suckhoe_sacdep/bt5.jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.suckhoe_sacdep/bt6.jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-10 div-tab" id="box-dienthoai-tablet">
+						<div class="col-sm-12 nopading">
+							<div class="col-sm-3 box-tablet-50">
+								
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.dienthoai_tablet/VN.2015-04-(6).jpg" class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 box-an-980">
+									<img src="img/li.dienthoai_tablet/hang_refur(3).jpg" class="img-responsive" alt="#"/>
+								</div>
+								
+							</div>
+							<div class="col-sm-6 nopading">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.dienthoai_tablet/VN.2015-04-(400x355).jpg" class="img-responsive" alt="#">  
+								</div>
+								<div class="col-sm-12 nopading">
+									<div class="col-sm-6 nopading">
+										<img src="img/li.dienthoai_tablet/4gb_2sim(1).jpg" class="img-responsive" alt="#"/>
+									</div>
+									<div class="col-sm-6 nopading">
+										<img src="img/li.dienthoai_tablet/hang_refur(3).jpg" class="img-responsive" alt="#"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 box-an-980">
+								<div class="col-sm-12 nopading">
+									<img src="img/li.dienthoai_tablet/VN.2015-04-(4).jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.dienthoai_tablet/sacduphong(5).jpg"  class="img-responsive" alt="#"/>
+								</div>
+								<div class="col-sm-12 nopading">
+									<img src="img/li.dienthoai_tablet/VN.2015-04-(6).jpg"  class="img-responsive" alt="#"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+				
+				
+				
+				
+			</div>
+			
+			<div id="tang-1" class="row content-magin-top">
+				<div class="col-sm-12">
+					<div class="col-sm-12 content-tang-mobile-tablet">
+						<div class="col-sm-12 content-tang-mobile-tablet-nho">
+							<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+							<div class="col-sm-10 mobi-tablet-nho-right">
+								<div class="col-sm-1 nopading">
+									<div class="so-tang-1">1</div>
+								</div>
+								<div class="col-sm-9 mobi-tablet-nho-nho-center">
+									<a href="#">alkohol</a>
+								</div>
+								<div class="col-sm-2">
+									<div class="icon-giua-left">
+										<i onclick="showdiv(2);" class="show-div fa fa-angle-down"></i>
+									</div>
+									<div class="icon-giua-center">
+										<i class="fa fa-bolt"></i>
+									</div>
+								</div>
+							</div> 
+						</div>
+					</div>
+					<div class="col-sm-12 contet-menu-img">
+						<div class="col-sm-2 menu-bottom-left">
+							<div class="col-sm-12 tieude-menu-left">alkohol</div>
+							<ul>
+								
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">brandy a koňak
+											</label>
+										</div>
+									</a>
+								</li>
+								
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">gin, tequila a ostatní lihoviny
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">likéry, aperitivy a míchané nápoje
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">pálenky
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">pivo
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">pivo nealkoholické
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">pivo ochucené
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">rum
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">sekt
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">víno bílé
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">víno červené
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">víno ostatní
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">víno růžové
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">vodka
+											</label>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">whisky a bourbon
+											</label>
+										</div>
+									</a>
+								</li>
+							</ul>
+							<div class="bg-header-ul-li">
+								<ul class="none-bg">
+									<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+									
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Vše
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Balconi
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Bobík
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Boni
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Danone
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Dr. Oetker
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Ehrmann
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Kinder
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Krajanka
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">KMadeta
+												</label>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox">Madeta
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox">Milko
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox">Mlékárna Kunín
+														</div>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<div class="checkbox">
+															<label>
+																<input type="checkbox">Müller
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<div class="checkbox">
+																<label>
+																	<input type="checkbox">Olma
+																</div>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<div class="checkbox">
+																	<label>
+																		<input type="checkbox">Pilos
+																	</div>
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	<div class="checkbox">
+																		<label>
+																			<input type="checkbox">Pribina TPK
+																		</div>
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<div class="checkbox">
+																			<label>
+																				<input type="checkbox">Ríša
+																			</div>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">Zott
+																				</div>
+																			</a>
+																		</li>
+																		<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+																		
+																	</ul>
+																	
+																</div>
+																
+															</div>
+															
+															<div class="col-sm-10 nopading">
+																<div class="row">
+																	<div class="col-md-12">
+																		<div class="filter">
+																			<ul>
+																				<li><label><input type="radio" name="filter" class="noreplace onChangeAjax"  checked=""><span class="like-radio"></span>Podle oblíbenosti</label></li>
+																				<li><label><input type="radio" name="filter" class="noreplace onChangeAjax"><span class="like-radio"></span>Od nejdražšího</label></li>
+																				<li><label><input type="radio" name="filter" class="noreplace onChangeAjax"><span class="like-radio"></span>Od nejlevnějšího</label></li>
+																				
+																				<li class="checkbox"><label><input type="checkbox" name="filter" value="" class="noreplace onChangeAjax pushCheckToGtm"><span class="like-checkbox"></span>mé oblíbené</label></li>
+																			</ul>
+																		</div>
+																		
+																		
+																	</div>
+																</div>
+																<div class="row top-bottom">
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				<div class="giamprice"> -33 %</div>
+																				<img src="img/dezert-monte-zott_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 128 Kč</span>
+																					<del>  190 Kč </del>
+																					<span class="priceold"> (950&nbsp;Kč/kg)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(1);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty1" class="">
+																					<i  onclick="congqty(1);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				<div class="giamprice"> -33 %</div>
+																				<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 10,90 Kč</span>
+																					<del> 14,90&nbsp;Kč </del>
+																					<span class="priceold"> (8,38 Kč / 100 g)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(2);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty2" class="">
+																					<i  onclick="congqty(2);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				
+																				<img src="img/pudinkovy-dezert-se-slehackou-olma-1_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																					
+																					<span class="priceold">(9,90&nbsp;Kč)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(3);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty3" class="">
+																					<i  onclick="congqty(3);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				
+																				<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																					
+																					<span class="priceold">(9,90&nbsp;Kč)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(4);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty4" class="">
+																					<i  onclick="congqty(4);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	
+																</div>
+																<div class="row top-bottom">
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				<div class="giamprice"> -33 %</div>
+																				<img src="img/dezert-monte-zott_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 128 Kč</span>
+																					<del>  190 Kč </del>
+																					<span class="priceold"> (950&nbsp;Kč/kg)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(5);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty5" class="">
+																					<i  onclick="congqty(5);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				<div class="giamprice"> -33 %</div>
+																				<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 10,90 Kč</span>
+																					<del> 14,90&nbsp;Kč </del>
+																					<span class="priceold"> (8,38 Kč / 100 g)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(6);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty6" class="">
+																					<i  onclick="congqty(6);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				
+																				<img src="img/pudinkovy-dezert-se-slehackou-olma-1_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																					
+																					<span class="priceold">9,90&nbsp;Kč</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(7);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty7" class="">
+																					<i  onclick="congqty(7);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				
+																				<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																					
+																					<span class="priceold">9,90&nbsp;Kč</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(8);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty8" class="">
+																					<i  onclick="congqty(8);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	
+																</div>	
+																<div class="row top-bottom">
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				<div class="giamprice"> -33 %</div>
+																				<img src="img/dezert-monte-zott_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 128 Kč</span>
+																					<del>  190 Kč </del>
+																					<span class="priceold"> (950&nbsp;Kč/kg)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty9" class="">
+																					<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				<div class="giamprice"> -33 %</div>
+																				<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 10,90 Kč</span>
+																					<del> 14,90&nbsp;Kč </del>
+																					<span class="priceold"> (8,38 Kč / 100 g)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty10" class="">
+																					<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				
+																				<img src="img/pudinkovy-dezert-se-slehackou-olma-1_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																					
+																					<span class="priceold">9,90&nbsp;Kč</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty7" class="">
+																					<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				
+																				<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																					
+																					<span class="priceold">9,90&nbsp;Kč</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty12" class="">
+																					<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	
+																</div>	
+																<div class="row top-bottom">
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				<div class="giamprice"> -33 %</div>
+																				<img src="img/dezert-monte-zott_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 128 Kč</span>
+																					<del>  190 Kč </del>
+																					<span class="priceold"> (950&nbsp;Kč/kg)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty9" class="">
+																					<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				<div class="giamprice"> -33 %</div>
+																				<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 10,90 Kč</span>
+																					<del> 14,90&nbsp;Kč </del>
+																					<span class="priceold"> (8,38 Kč / 100 g)</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty10" class="">
+																					<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				
+																				<img src="img/pudinkovy-dezert-se-slehackou-olma-1_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																					
+																					<span class="priceold">9,90&nbsp;Kč</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty7" class="">
+																					<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	<div class="col-md-3 col-sm-6">
+																		<div class="img-detail-main">
+																			<div class="img-sp-fav">
+																				<span><i class="fa fa-heart"></i></span>
+																				
+																				<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+																				
+																			</div>
+																			<div class="title-detail">
+																				<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																				</span>
+																				<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																					
+																					<span class="priceold">9,90&nbsp;Kč</span>
+																				</p>
+																				<p class="adddetail">
+																					<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+																					<input type="text" value="1" id="getqty12" class="">
+																					<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+																					<button class="btn btn-success">Do košíku</button>
+																				</p>
+																				
+																			</div>
+																			
+																			
+																		</div>
+																	</div>
+																	
+																</div>	
+															</div>
+															
+														</div>
+													</div>
+												</div>
+												
+												<div id="tang-2" class="row content-magin-top">
+													<div class="col-sm-12">
+														<div class="col-sm-12 content-tang-maytinh-laptop">
+															<div class="col-sm-12 content-tang-mobile-tablet-nho">
+																<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+																<div class="col-sm-10 mobi-tablet-nho-right">
+																	<div class="col-sm-1 nopading">
+																		<div class="so-tang-2">2</div>
+																	</div>
+																	<div class="col-sm-9 mobi-tablet-nho-nho-center">
+																		<a href="#">domácnost</a>
+																	</div>
+																	<div class="col-sm-2">
+																		<div class="icon-giua-left">
+																			<i onclick="showdiv(3);" class="fa fa-angle-down"></i>
+																		</div>
+																		<div class="icon-giua-center">
+																			<i class="fa fa-bolt"></i>
+																		</div>
+																		<div class="icon-giua-right">
+																			<i onclick="showdiv(1);" class="fa fa-angle-up"></i>
+																		</div>
+																		
+																		
+																	</div>
+																</div> 
+															</div>
+														</div>
+														<div class="col-sm-12 contet-menu-img">
+															<div class="col-sm-2 menu-bottom-left">
+																<div class="col-sm-12 tieude-menu-left">domácnost</div>
+																<ul>
+																	
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">auto, moto
+																				</label>
+																			</div>
+																		</a>
+																	</li>
+																	
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">drobné elektro
+																				</label>
+																			</div>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">fólie a obaly
+																				</label>
+																			</div>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">kuchyňské potřeby
+																				</label>
+																			</div>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">ostatní potřeby pro domácnost
+																				</label>
+																			</div>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">prostředky proti hmyzu
+																				</label>
+																			</div>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">svíčky
+																				</label>
+																			</div>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="#">
+																			<div class="checkbox">
+																				<label>
+																					<input type="checkbox">vůně do bytu
+																				</label>
+																			</div>
+																		</a>
+																	</li>
+																</ul>
+																<div class="bg-header-ul-li">
+																	<ul class="none-bg">
+																		<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+																		
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Vše
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Balconi
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Bobík
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Boni
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Danone
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Dr. Oetker
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Ehrmann
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Kinder
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Krajanka
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">KMadeta
+																					</label>
+																				</div>
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				<div class="checkbox">
+																					<label>
+																						<input type="checkbox">Madeta
+																					</div>
+																				</a>
+																			</li>
+																			<li>
+																				<a href="#">
+																					<div class="checkbox">
+																						<label>
+																							<input type="checkbox">Milko
+																						</div>
+																					</a>
+																				</li>
+																				<li>
+																					<a href="#">
+																						<div class="checkbox">
+																							<label>
+																								<input type="checkbox">Mlékárna Kunín
+																							</div>
+																						</a>
+																					</li>
+																					<li>
+																						<a href="#">
+																							<div class="checkbox">
+																								<label>
+																									<input type="checkbox">Müller
+																								</div>
+																							</a>
+																						</li>
+																						<li>
+																							<a href="#">
+																								<div class="checkbox">
+																									<label>
+																										<input type="checkbox">Olma
+																									</div>
+																								</a>
+																							</li>
+																							<li>
+																								<a href="#">
+																									<div class="checkbox">
+																										<label>
+																											<input type="checkbox">Pilos
+																										</div>
+																									</a>
+																								</li>
+																								<li>
+																									<a href="#">
+																										<div class="checkbox">
+																											<label>
+																												<input type="checkbox">Pribina TPK
+																											</div>
+																										</a>
+																									</li>
+																									<li>
+																										<a href="#">
+																											<div class="checkbox">
+																												<label>
+																													<input type="checkbox">Ríša
+																												</div>
+																											</a>
+																										</li>
+																										<li>
+																											<a href="#">
+																												<div class="checkbox">
+																													<label>
+																														<input type="checkbox">Zott
+																													</div>
+																												</a>
+																											</li>
+																											<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+																											
+																										</ul>
+																										
+																									</div>
+																									
+																								</div>
+																								<div class="col-sm-10 nopading">
+																									<div class="row">
+																										<div class="col-md-12">
+																											<div class="filter">
+																												<ul>
+																													<li><label><input type="radio" name="filter" class="noreplace onChangeAjax"  checked=""><span class="like-radio"></span>Podle oblíbenosti</label></li>
+																													<li><label><input type="radio" name="filter" class="noreplace onChangeAjax"><span class="like-radio"></span>Od nejdražšího</label></li>
+																													<li><label><input type="radio" name="filter" class="noreplace onChangeAjax"><span class="like-radio"></span>Od nejlevnějšího</label></li>
+																													
+																													<li class="checkbox"><label><input type="checkbox" name="filter" value="" class="noreplace onChangeAjax pushCheckToGtm"><span class="like-checkbox"></span>mé oblíbené</label></li>
+																												</ul>
+																											</div>
+																											
+																											
+																										</div>
+																									</div>
+																									<div class="row top-bottom">
+																										<div class="col-md-3 col-sm-6">
+																											<div class="img-detail-main">
+																												<div class="img-sp-fav">
+																													<span><i class="fa fa-heart"></i></span>
+																													<div class="giamprice"> -33 %</div>
+																													<img src="img/dezert-monte-zott_box_120_140.jpg" alt=""/>
+																													
+																												</div>
+																												<div class="title-detail">
+																													<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																													</span>
+																													<p> <span class="pricebuy"> 128 Kč</span>
+																														<del>  190 Kč </del>
+																														<span class="priceold"> (950&nbsp;Kč/kg)</span>
+																													</p>
+																													<p class="adddetail">
+																														<i  onclick="truqty(1);" class="fa fa-minus-circle"></i>
+																														<input type="text" value="1" id="getqty1" class="">
+																														<i  onclick="congqty(1);" class="fa fa-plus-circle"></i> 
+																														<button class="btn btn-success">Do košíku</button>
+																													</p>
+																													
+																												</div>
+																												
+																												
+																											</div>
+																										</div>
+																										<div class="col-md-3 col-sm-6">
+																											<div class="img-detail-main">
+																												<div class="img-sp-fav">
+																													<span><i class="fa fa-heart"></i></span>
+																													<div class="giamprice"> -33 %</div>
+																													<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+																													
+																												</div>
+																												<div class="title-detail">
+																													<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																													</span>
+																													<p> <span class="pricebuy"> 10,90 Kč</span>
+																														<del> 14,90&nbsp;Kč </del>
+																														<span class="priceold"> (8,38 Kč / 100 g)</span>
+																													</p>
+																													<p class="adddetail">
+																														<i  onclick="truqty(2);" class="fa fa-minus-circle"></i>
+																														<input type="text" value="1" id="getqty2" class="">
+																														<i  onclick="congqty(2);" class="fa fa-plus-circle"></i> 
+																														<button class="btn btn-success">Do košíku</button>
+																													</p>
+																													
+																												</div>
+																												
+																												
+																											</div>
+																										</div>
+																										<div class="col-md-3 col-sm-6">
+																											<div class="img-detail-main">
+																												<div class="img-sp-fav">
+																													<span><i class="fa fa-heart"></i></span>
+																													
+																													<img src="img/pudinkovy-dezert-se-slehackou-olma-1_box_120_140.jpg" alt=""/>
+																													
+																												</div>
+																												<div class="title-detail">
+																													<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																													</span>
+																													<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																														
+																														<span class="priceold">(9,90&nbsp;Kč)</span>
+																													</p>
+																													<p class="adddetail">
+																														<i  onclick="truqty(3);" class="fa fa-minus-circle"></i>
+																														<input type="text" value="1" id="getqty3" class="">
+																														<i  onclick="congqty(3);" class="fa fa-plus-circle"></i> 
+																														<button class="btn btn-success">Do košíku</button>
+																													</p>
+																													
+																												</div>
+																												
+																												
+																											</div>
+																										</div>
+																										<div class="col-md-3 col-sm-6">
+																											<div class="img-detail-main">
+																												<div class="img-sp-fav">
+																													<span><i class="fa fa-heart"></i></span>
+																													
+																													<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+																													
+																												</div>
+																												<div class="title-detail">
+																													<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																													</span>
+																													<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+																														
+																														<span class="priceold">(9,90&nbsp;Kč)</span>
+																													</p>
+																													<p class="adddetail">
+																														<i  onclick="truqty(4);" class="fa fa-minus-circle"></i>
+																														<input type="text" value="1" id="getqty4" class="">
+																														<i  onclick="congqty(4);" class="fa fa-plus-circle"></i> 
+																														<button class="btn btn-success">Do košíku</button>
+																													</p>
+																													
+																												</div>
+																												
+																												
+																											</div>
+																										</div>
+																										
+																									</div>
+																									<div class="row top-bottom">
+																										<div class="col-md-3 col-sm-6">
+																											<div class="img-detail-main">
+																												<div class="img-sp-fav">
+																													<span><i class="fa fa-heart"></i></span>
+																													<div class="giamprice"> -33 %</div>
+																													<img src="img/dezert-monte-zott_box_120_140.jpg" alt=""/>
+																													
+																												</div>
+																												<div class="title-detail">
+																													<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																													</span>
+																													<p> <span class="pricebuy"> 128 Kč</span>
+																														<del>  190 Kč </del>
+																														<span class="priceold"> (950&nbsp;Kč/kg)</span>
+																													</p>
+																													<p class="adddetail">
+																														<i  onclick="truqty(5);" class="fa fa-minus-circle"></i>
+																														<input type="text" value="1" id="getqty5" class="">
+																														<i  onclick="congqty(5);" class="fa fa-plus-circle"></i> 
+																														<button class="btn btn-success">Do košíku</button>
+																													</p>
+																													
+																												</div>
+																												
+																												
+																											</div>
+																										</div>
+																										<div class="col-md-3 col-sm-6">
+																											<div class="img-detail-main">
+																												<div class="img-sp-fav">
+																													<span><i class="fa fa-heart"></i></span>
+																													<div class="giamprice"> -33 %</div>
+																													<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+																													
+																												</div>
+																												<div class="title-detail">
+																													<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+																													</span>
+																													<p> <span class="pricebuy"> 10,90 Kč</span>
+																														<del> 14,90&nbsp;Kč </del>
+																														<span class="priceold"> (8,38 Kč / 100 g)</span>
+																													</p>
+																													<p class="adddetail">
+																														<i  onclick="truqty(6);" class="fa fa-minus-circle"></i>
+																														<input type="text" value="1" id="getqty6" class="">
+																														<i  onclick="congqty(6);" class="fa fa-plus-circle"></i> 
+																														<button class="btn btn-success">Do košíku</button>
+																													</p>
+																													
+																												</div>
+																												
+																												
+																											</div>
+																										</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/pudinkovy-dezert-se-slehackou-olma-1_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(7);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(7);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(8);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty8" class="">
+	<i  onclick="congqty(8);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>	
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/dezert-monte-zott_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/pudinkovy-dezert-se-slehackou-olma-1_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>	
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>	
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="tang-3" class="row content-magin-top">
+<div class="col-sm-12">
+<div class="col-sm-12 content-tang-maytinh-laptop">
+<div class="col-sm-12 content-tang-video-amthanh">
+<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+<div class="col-sm-10 mobi-tablet-nho-right">
+<div class="col-sm-1 nopading">
+<div class="so-tang-3">3</div>
+</div>
+<div class="col-sm-9 mobi-tablet-nho-nho-center">
+<a href="#">sladkosti a slané snacky</a>
+</div>
+<div class="col-sm-2">
+<div class="icon-giua-left">
+<i  onclick="showdiv(4);" class="fa fa-angle-down"></i>
+</div>
+<div class="icon-giua-center">
+<i class="fa fa-bolt"></i>
+</div>
+<div class="icon-giua-right">
+<i onclick="showdiv(2);" class="fa fa-angle-up"></i>
+</div>
+
+
+</div>
+</div> 
+</div>
+</div>
+<div class="col-sm-12 contet-menu-img">
+<div class="col-sm-2 menu-bottom-left">
+<div class="col-sm-12 tieude-menu-left">sladkosti a slané snacky</div>
+<ul>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">sladkosti a slané snacky
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">nealko nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">BILLA
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">COOP
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ENAPO
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">Globus
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">Hruška
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">JIP
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">Lidl
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">Norma
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">Penny Market
+</label>
+</div>
+</a>
+</li>
+
+
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Balconi
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Bobík
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Boni
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Danone
+	</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Ehrmann
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Kinder
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Krajanka
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">KMadeta
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Madeta
+	</div>
+</a>
+</li>
+							<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="col-sm-10 nopading">
+					<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div id ="tang-4" class="row content-magin-top">
+		<div class="col-sm-12">
+			<div class="col-sm-12 content-tang-suckhoe-sacdep">
+				<div class="col-sm-12 content-tang-mobile-tablet-nho">
+					<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+					<div class="col-sm-10 mobi-tablet-nho-right">
+						<div class="col-sm-1 nopading">
+							<div class="so-tang-4">4</div>
+						</div>
+						<div class="col-sm-9 mobi-tablet-nho-nho-center">
+							<a href="#"> zdravá výživa</a>
+						</div>
+						<div class="col-sm-2">
+							<div class="icon-giua-left">
+								<i onclick="showdiv(5)" class="fa fa-angle-down"></i>
+							</div>
+							<div class="icon-giua-center">
+								<i class="fa fa-bolt"></i>
+							</div>
+							<div class="icon-giua-right">
+								<i onclick="showdiv(3)" class="fa fa-angle-up"></i>
+							</div>
+							
+							
+						</div>
+					</div> 
+				</div>
+			</div>
+			<div class="col-sm-12 contet-menu-img">
+				<div class="col-sm-2 menu-bottom-left">
+					
+<div class="col-sm-12 tieude-menu-left">sladkosti a slané snacky</div>
+<ul>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">sladkosti a slané snacky
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">nealko nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">BILLA
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">COOP
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ENAPO
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">Globus
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">Penny Market
+</label>
+</div>
+</a>
+</li>
+
+
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Balconi
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Bobík
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Kinder
+	</label>
+</div>
+</a>
+</li>
+
+
+							<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+							
+						</ul>
+					
+				</div>
+				</div>
+				<div class="col-sm-10 nopading">
+					<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+					
+					
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div id="tang-5" class="row content-magin-top">
+		<div class="col-sm-12">
+			<div class="col-sm-12 content-tang-me-be">
+				<div class="col-sm-12 content-tang-mobile-tablet-nho">
+					<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+					<div class="col-sm-10 mobi-tablet-nho-right">
+						<div class="col-sm-1 nopading">
+							<div class="so-tang-5">5</div>
+						</div>
+						<div class="col-sm-9 mobi-tablet-nho-nho-center">
+							<a href="#"> sladkosti a slané snacky</a>
+						</div>
+						<div class="col-sm-2">
+							<div class="icon-giua-left">
+								<i onclick="showdiv(6)" class="fa fa-angle-down"></i>
+							</div>
+							<div class="icon-giua-center">
+								<i class="fa fa-bolt"></i>
+							</div>
+							<div class="icon-giua-right">
+								<i onclick="showdiv(4)"  class="fa fa-angle-up"></i>
+							</div>
+							
+							
+						</div>
+					</div> 
+				</div>
+			</div>
+			<div class="col-sm-12 contet-menu-img">
+				<div class="col-sm-2 menu-bottom-left-me-be">
+					<div class="col-sm-12 tieude-menu-left-tang-5">sladkosti a slané snacky</div>
+					<ul>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">sladkosti a slané snacky
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">nealko nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">BILLA
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">COOP
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ENAPO
+</label>
+</div>
+</a>
+</li>
+
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Balconi
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Bobík
+	</label>
+</div>
+</a>
+</li>
+
+							<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+							
+						</ul>
+					
+				</div>
+
+</div>
+<div class="col-sm-10 nopading">
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+<div id="tang-6" class="row content-magin-top">
+<div class="col-sm-12">
+<div class="col-sm-12 content-tang-mobile-tablet">
+<div class="col-sm-12 content-tang-mobile-tablet-nho">
+<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+<div class="col-sm-10 mobi-tablet-nho-right">
+<div class="col-sm-1 nopading">
+	<div class="so-tang-1">6</div>
+</div>
+<div class="col-sm-9 mobi-tablet-nho-nho-center">
+	<a href="#">  sladkosti a slané snacky</a>
+</div>
+<div class="col-sm-2">
+	
+	<div class="icon-giua-left">
+		<i  onclick="showdiv(7)" class="fa fa-angle-down"></i>
+	</div>
+	<div class="icon-giua-center">
+		<i class="fa fa-bolt"></i>
+	</div>
+	<div class="icon-giua-right">
+		<i onclick="showdiv(5)" class="fa fa-angle-up"></i>
+	</div>
+</div>
+</div> 
+</div>
+</div>
+<div class="col-sm-12 contet-menu-img">
+<div class="col-sm-2 menu-bottom-left">
+<div class="col-sm-12 tieude-menu-left">sladkosti a slané snacky</div>
+<ul>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">sladkosti a slané snacky
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">nealko nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">BILLA
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">COOP
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ENAPO
+</label>
+</div>
+</a>
+</li>
+
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Balconi
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Bobík
+	</label>
+</div>
+</a>
+</li>
+
+							<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+							
+						</ul>
+					
+				</div>
+</div>
+<div class="col-sm-10 nopading">
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+<div id="tang-7" class="row content-magin-top">
+<div class="col-sm-12">
+<div class="col-sm-12 content-tang-maytinh-laptop">
+<div class="col-sm-12 content-tang-mobile-tablet-nho">
+<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+<div class="col-sm-10 mobi-tablet-nho-right">
+<div class="col-sm-1 nopading">
+	<div class="so-tang-2">7</div>
+</div>
+<div class="col-sm-9 mobi-tablet-nho-nho-center">
+	<a href="#">lékárna</a>
+</div>
+<div class="col-sm-2">
+	<div onclick="showdiv(8)" class="icon-giua-left">
+		<i class="fa fa-angle-down"></i>
+	</div>
+	<div class="icon-giua-center">
+		<i class="fa fa-bolt"></i>
+	</div>
+	<div class="icon-giua-right">
+		<i onclick="showdiv(6)"  class="fa fa-angle-up"></i>
+	</div>
+	
+	
+</div>
+</div> 
+</div>
+</div>
+<div class="col-sm-12 contet-menu-img">
+<div class="col-sm-2 menu-bottom-left-laptop-maytinh">
+<div class="col-sm-12 tieude-menu-left-tang-2">lékárna</div>
+<ul>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">sladkosti a slané snacky
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">nealko nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">BILLA
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">COOP
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ENAPO
+</label>
+</div>
+</a>
+</li>
+
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Balconi
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Bobík
+	</label>
+</div>
+</a>
+</li>
+
+							<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+							
+						</ul>
+					
+				</div>
+</div>
+<div class="col-sm-10 nopading">
+	<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+<div id="tang-8" class="row content-magin-top">
+<div class="col-sm-12">
+<div class="col-sm-12 content-tang-maytinh-laptop">
+<div class="col-sm-12 content-tang-video-amthanh">
+<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+<div class="col-sm-10 mobi-tablet-nho-right">
+<div class="col-sm-1 nopading">
+	<div class="so-tang-3">8</div>
+</div>
+<div class="col-sm-9 mobi-tablet-nho-nho-center">
+	<a href="#">maso, uzeniny a ryby</a>
+</div>
+<div class="col-sm-2">
+	<div class="icon-giua-left">
+		<i onclick="showdiv(9)"  class="fa fa-angle-down"></i>
+	</div>
+	<div class="icon-giua-center">
+		<i class="fa fa-bolt"></i>
+	</div>
+	<div class="icon-giua-right">
+		<i onclick="showdiv(7)"  class="fa fa-angle-up"></i>
+	</div>
+	
+	
+</div>
+</div> 
+</div>
+</div>
+<div class="col-sm-12 contet-menu-img">
+<div class="col-sm-2 menu-bottom-left-video-amthanh">
+<div class="col-sm-12 tieude-menu-left-tang-3">maso, uzeniny a ryby</div>
+<ul>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">drůbež
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">hovězí maso
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">marinované a uzené maso
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">mražené maso, drůbež a ryby
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ostatní maso
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ostatní uzeniny
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">párky a klobásy
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ryby a mořské plody
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">šunky a salámy
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">vepřové maso
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">zvěřina
+</label>
+</div>
+</a>
+</li>
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Deluxe
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Dobré maso
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Globus
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Moje Maso
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">naše Bio
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Tesco
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Tesco Finest
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">U Řeznického mistra
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vocílka
+	</label>
+</div>
+</a>
+</li>
+<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+							
+						</ul>
+					
+</div>
+
+</div>
+<div class="col-sm-10 nopading">
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+<div  id= "tang-9" class="row content-magin-top">
+<div class="col-sm-12">
+<div class="col-sm-12 content-tang-suckhoe-sacdep">
+<div class="col-sm-12 content-tang-mobile-tablet-nho">
+<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+<div class="col-sm-10 mobi-tablet-nho-right">
+<div class="col-sm-1 nopading">
+	<div class="so-tang-4">9</div>
+</div>
+<div class="col-sm-9 mobi-tablet-nho-nho-center">
+	<a href="#">mazlíčci </a>
+</div>
+<div class="col-sm-2">
+	<div class="icon-giua-left">
+		<i onclick="showdiv(10)"  class="fa fa-angle-down"></i>
+	</div>
+	<div class="icon-giua-center">
+		<i class="fa fa-bolt"></i>
+	</div>
+	<div class="icon-giua-right">
+		<i onclick="showdiv(8)"  class="fa fa-angle-up"></i>
+	</div>
+	
+	
+</div>
+</div> 
+</div>
+</div>
+<div class="col-sm-12 contet-menu-img">
+<div class="col-sm-2 menu-bottom-left-sackhoe-sacdep">
+<div class="col-sm-12 tieude-menu-left-tang-4">mazlíčci</div>
+<ul>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ostatní výrobky a krmivo
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">výrobky a krmivo pro kočky
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">výrobky a krmivo pro psy
+</label>
+</div>
+</a>
+</li>
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Deluxe
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Dobré maso
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Globus
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Moje Maso
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">naše Bio
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Tesco
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Tesco Finest
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">U Řeznického mistra
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vocílka
+	</label>
+</div>
+</a>
+</li>
+<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+</ul>
+					
+</div>
+</div>
+<div class="col-sm-10 nopading">
+<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div  id="tang-10" class="row content-magin-top">
+<div class="col-sm-12">
+<div class="col-sm-12 content-tang-me-be">
+<div class="col-sm-12 content-tang-mobile-tablet-nho">
+<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+<div class="col-sm-10 mobi-tablet-nho-right">
+<div class="col-sm-1 nopading">
+	<div class="so-tang-5">10</div>
+</div>
+<div class="col-sm-9 mobi-tablet-nho-nho-center">
+	<a href="#"> mléčné výrobky a vejce</a>
+</div>
+<div class="col-sm-2">
+	<div class="icon-giua-left">
+		<i onclick="showdiv(11)"  class="fa fa-angle-down"></i>
+	</div>
+	<div class="icon-giua-center">
+		<i class="fa fa-bolt"></i>
+	</div>
+	<div class="icon-giua-right">
+		<i onclick="showdiv(9)"  class="fa fa-angle-up"></i>
+	</div>
+	
+	
+</div>
+</div> 
+</div>
+</div>
+<div class="col-sm-12 contet-menu-img">
+<div class="col-sm-2 menu-bottom-left-me-be">
+<div class="col-sm-12 tieude-menu-left-tang-5">mléčné výrobky a vejce</div>
+<ul>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">dezerty a pudinky
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">jogurty
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">margaríny
+</label>
+</div>
+</a>
+</li>
+<li>
+	<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">mléčné a jogurtové nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">mléko
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ostatní mléčné výrobky
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">pomazánková másla a krémy
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">smetany
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">sýry
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">tavené sýry a žervé
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">tvaroh
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">vejce
+</label>
+</div>
+</a>
+</li>
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Deluxe
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Dobré maso
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Globus
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Moje Maso
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">naše Bio
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Tesco
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Tesco Finest
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">U Řeznického mistra
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vocílka
+	</label>
+</div>
+</a>
+</li>
+<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+</ul>
+					
+</div>
+</div>
+<div class="col-sm-10 nopading">
+	<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+	<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+<div  id="tang-11" class="row content-magin-top">
+<div class="col-sm-12">
+<div class="col-sm-12 content-tang-maytinh-laptop">
+<div class="col-sm-12  content-tang-video-amthanh">
+<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+<div class="col-sm-10 mobi-tablet-nho-right">
+<div class="col-sm-1 nopading">
+	<div class="so-tang-11">11</div>
+</div>
+<div class="col-sm-9 mobi-tablet-nho-nho-center">
+	<a href="#">mražené a instantní potraviny</a>
+</div>
+<div class="col-sm-2">
+	<div class="icon-giua-left">
+		<i onclick="showdiv(12)"  class="fa fa-angle-down"></i>
+	</div>
+	<div class="icon-giua-center">
+		<i class="fa fa-bolt"></i>
+	</div>
+	<div class="icon-giua-right">
+		<i onclick="showdiv(10)"  class="fa fa-angle-up"></i>
+	</div>
+	
+	
+</div>
+</div> 
+</div>
+</div>
+<div class="col-sm-12 contet-menu-img">
+<div class="col-sm-2 menu-bottom-left-video-amthanh">
+<div class="col-sm-12 tieude-menu-left-tang-3" style="line-height:inherit;">mražené a instantní potraviny </div>
+<ul>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">hotová mražená jídla
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">instantní jídla a směsi
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">instantní polévky
+</label>
+</div>
+</a>
+</li>
+<li>
+	<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">mražená pizza
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">mražená zelenina
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">mražené ovoce
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">mražené přílohy
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ostatní mražené potraviny
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">zmrzliny
+</label>
+</div>
+</a>
+</li>
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Deluxe
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Dobré maso
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Globus
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Moje Maso
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">naše Bio
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Tesco
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Tesco Finest
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">U Řeznického mistra
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vocílka
+	</label>
+</div>
+</a>
+</li>
+<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+</ul>
+					
+</div>
+</div>
+<div class="col-sm-10 nopading">
+	<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+	<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+<div id="tang-12" class="row content-magin-top">
+<div class="col-sm-12">
+<div class="col-sm-12 content-tang-me-be">
+<div class="col-sm-12 content-tang-mobile-tablet-nho">
+<div class="col-sm-2 mobi-tablet-nho-left">TẦNG</div>
+<div class="col-sm-10 mobi-tablet-nho-right">
+
+<div class="col-sm-1 nopading">
+	<div class="so-tang-2">12</div>
+</div>
+<div class="col-sm-9 mobi-tablet-nho-nho-center">
+	<a href="#">nealko nápoje</a>
+</div>
+<div class="col-sm-2">
+	
+	<div class="icon-giua-center">
+		<i class="fa fa-bolt"></i>
+	</div>
+	<div class="icon-giua-right">
+		<i onclick="showdiv(11)"  class="fa fa-angle-up"></i>
+	</div>
+	
+	
+</div>
+</div> 
+</div>
+</div>
+<div class="col-sm-12 contet-menu-img">
+<div class="col-sm-2 menu-bottom-left-me-be">
+<div class="col-sm-12 tieude-menu-left-tang-5">nealko nápoje</div>
+<ul>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">čaj
+</label>
+</div>
+</a>
+</li>
+
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">džusy, nektary, nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">energetické a iontové nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">instantní nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">káva
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ledové čaje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ledové kávy
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">limonády
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">minerální a pramenité vody
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">ostatní teplé nápoje
+</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+<label>
+	<input type="checkbox">sirupy a koncentráty
+</label>
+</div>
+</a>
+</li>
+</ul>
+<div class="bg-header-ul-li">
+<ul class="none-bg">
+<p class="title-color-li"><strong>	VÝROBCE, ZNAČKA </strong></p>
+
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Vše
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Balconi
+	</label>
+</div>
+</a>
+</li>
+<li>
+<a href="#">
+<div class="checkbox">
+	<label>
+		<input type="checkbox">Bobík
+	</label>
+</div>
+</a>
+</li>
+
+
+
+
+
+<li class="addthieu"> <a href="#"> Rozbalit seznam</a></li>
+							
+	</ul>
+					
+</div>
+</div>
+<div class="col-sm-10 nopading">
+	<div class="row top-bottom">
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/paprika-zluta_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 128 Kč</span>
+	<del>  190 Kč </del>
+	<span class="priceold"> (950&nbsp;Kč/kg)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(9);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty9" class="">
+	<i  onclick="congqty(9);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+<div class="giamprice"> -33 %</div>
+<img src="img/pribinacek_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 10,90 Kč</span>
+	<del> 14,90&nbsp;Kč </del>
+	<span class="priceold"> (8,38 Kč / 100 g)</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(10);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty10" class="">
+	<i  onclick="congqty(10);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/banany-2_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(11);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty7" class="">
+	<i  onclick="congqty(11);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+<div class="col-md-3 col-sm-6">
+<div class="img-detail-main">
+<div class="img-sp-fav">
+<span><i class="fa fa-heart"></i></span>
+
+<img src="img/dezert-pribinacek-piskotik_box_120_140.jpg" alt=""/>
+
+</div>
+<div class="title-detail">
+<span class="title-sp"><a href="#" >Dezert tvarohový ochucený Milko</a>
+</span>
+<p> <span class="pricebuy"> 7,90&nbsp;Kč</span>
+	
+	<span class="priceold">9,90&nbsp;Kč</span>
+</p>
+<p class="adddetail">
+	<i  onclick="truqty(12);" class="fa fa-minus-circle"></i>
+	<input type="text" value="1" id="getqty12" class="">
+	<i  onclick="congqty(12);" class="fa fa-plus-circle"></i> 
+	<button class="btn btn-success">Do košíku</button>
+</p>
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-12 ">
+<div class="col-sm-12 box-san-pham-ban-chay"> <h4>NHỮNG SẢN PHẨM BÁN CHẠY HÀNG ĐẦU</h4></div>
+</div>
+<div class="col-sm-12 margin-top">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+<ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+
+
+</ol>
+
+<!-- Wrapper for slides -->
+<div class="carousel-inner " role="listbox">
+<div class="item active">
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/1.jpg" class="img-responsive" alt="#"/>
+		<h5>Apple iPhone 6 16GB (Vàng)</h5>
+		<div class="gia-sanpham">429.000 VND</div>
+	</a>
+	
+</div>
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/2.jpg" class="img-responsive" alt="#"/>
+		<h5>Bếp gas hồng ngọa Kokoro KR</h5>
+		<div class="gia-sanpham">419.000 VND</div>
+	</a>
+</div>
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/3.jpg" class="img-responsive" alt="#"/>
+		<h5>Bộ máy khoan búa BLACK & DECKER HD560K-B1</h5>
+		<div class="gia-sanpham">949.000 VND</div>
+	</a>
+</div>
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/4.jpg" class="img-responsive" alt="#"/>
+		<h5>Máy hút bụi cầm tay Omi Nanny V1(Xanh lá)</h5>
+		<div class="gia-sanpham">499.000 VND</div>
+	</a>
+</div>
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/5.jpg" class="img-responsive" alt="#"/>
+		<h5>Nokia Lumia 630 8GB(Đen)</h5>
+		<div class="gia-sanpham">2.628.000 VND</div>
+	</a>
+</div>
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/6.jpg" class="img-responsive" alt="#"/>
+		<h5>Nokkia Lumia 730 8GB 2 SIM (Đen)</h5>
+		<div class="gia-sanpham">3.429.000 VND</div>
+	</a>
+</div>
+
+</div>
+<div class="item">
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/7.jpg" class="img-responsive" alt="#"/>
+		<h5>Nokia Lumia 630 8GB(Đen)</h5>
+		<div class="gia-sanpham">2.429.000 VND</div>
+	</a>
+</div>
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/8.jpg" class="img-responsive" alt="#"/>
+		
+		<h5>ĐTDĐ Suntek A8+ 2 SIM kiêm pin sạc dự phòng (Đen)</h5>
+		<div class="gia-sanpham">429.000 VND</div>
+	</a>
+</div>
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/9.jpg" class="img-responsive" alt="#"/>
+		<h5>Đồng hồ camera ngụy trang SC 8GB Hongkong electronics(Bạc)</h5>
+		<div class="gia-sanpham">479.000 VND</div>
+	</a>
+</div>
+<div class="box-chua-anhjs">
+	<a href="#"> 
+		<img src="img/slide-java/10.jpg" class="img-responsive" alt="#"/>
+		<h5>ĐTDĐ Suntek A8+ 2 SIM kiêm pin sạc dự phòng (Đen)</h5>
+		<div class="gia-sanpham">429.000 VND</div>
+		</a>
+	</div>
+	<div class="box-chua-anhjs">
+		<a href="#"> 
+			<img src="img/slide-java/3.jpg" class="img-responsive" alt="#"/>
+			<h5>Bộ máy khoan búa BLACK & DECKER HD560K-B1</h5>
+			<div class="gia-sanpham">429.000 VND</div>
+		</a>
+	</div>
+	<div class="box-chua-anhjs">
+		<a href="#"> 
+			<img src="img/slide-java/5.jpg" class="img-responsive" alt="#"/>
+			<h5>Nokia Lumia 630 8GB(Đen)</h5>
+			<div class="gia-sanpham">2.628.000 VND</div>
+		</a>
+	</div>
+	
+</div>
+
+
+
+</div>
+
+<!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">abc</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">bgb</span>
+</a>
+
+</div> 
+</div>
+</div>
+</div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<div class="container box-an-360">
+<div class="row margin-top">
+<div class="col-sm-3">
+<div class="col-sm-12 Ten-muc-footer-top">CHĂM SÓC KHÁCH HÀNG</div>
+<div class="col-sm-12 menu-footer-chua-link">
+<ul>
+<li><a href="#">Trung tâm hỗ trợ</a></li>
+<li><a href="#">Thanh toán</a></li>
+<li><a href="#">Hướng dẫn đặt hàng</a></li>
+<li><a href="#">Giao hàng & Nhận hàng</a></li>
+<li><a href="#">Hướng dẫn đổi trả hàng</a></li>
+<li><a href="#">Bảo hành</a></li>
+</ul>
+</div>
+<div class="col-sm-12 menu-footer-khong-chua-link">
+<ul>
+<li>HCM (08) 3942 xxxx </li>
+<li>HN (04) 7300 xxxx</li>
+<li>Thứ 2 - thứ 6: 7h - 20h</li>
+<li>Thứ 7, CN & ngày lễ: 8h - 17h</li>
+<li>Hoặc gửi yêu cầu <a href="#">tại đây</a></li>
+<li>Thông báo hàng giả (08) 7300 xxxx</li>
+
+</ul>
+</div>
+</div> 
+<div class="col-sm-3">
+<div class="col-sm-12 Ten-muc-footer-top">ABC VIỆT NAM</div>
+<div class="col-sm-12 menu-footer-chua-link">
+<ul>
+<li><a href="#">Về abc Việt Nam</a></li>
+<li><a href="#">Chương trình abc</a></li>
+<li><a href="#">Tuyển dụng</a></li>
+<li><a href="#">Điều khoản mua bán hàng hóa</a></li>
+<li><a href="#">Chính sách bảo mật</a></li>
+<li><a href="#">Báo chí</a></li>
+<li><a href="#">Bán hàng cùng abc</a></li>
+<li><a href="#">Thương hiệu tại abc</a></li>
+<li><a href="#">Danh mục sản phẩm</a></li>
+<li><a href="#"> Phát hiện hàng giả </a></li>
+</ul>
+</div>
+</div> 
+<div class="col-sm-3">
+<div class="col-sm-12 Ten-muc-footer-top">ĐĂNG KÍ NHẬN TIN</div>
+<div class="col-sm-12 menu-footer-chua-link">
+<div class="col-sm-12 box-dangki-tin">Đăng ký nhận tin từ abc và nhận voucher 50.000 VND</div>
+<div class="col-sm-12 box-dangki-tin">Email:</div>
+<div class="col-sm-12 box-dangki-tin">
+<input type="text" class="form-control" placeholder="Địa chỉ email của bạn">
+</div>
+<div class="col-sm-12 margin-top-bottom-nopadding">
+<div class="col-sm-6">
+	<button class="btn btn-danger button-footer">Nam</button>
+	
+</div>
+<div class="col-sm-6">
+	<button class="btn btn-danger button-footer">Nữ</button>
+</div>
+</div>
+<div class="col-sm-12 box-dangki-tin">
+Thông tin của bạn sẽ được giữ kín tuyệt đối, và bạn có thể hủy đăng ký bất cứ lúc nào. Mỗi khách hàng chỉ tham gia chương trình 1 lần. Chương trình chỉ dành cho khách hàng mới.
+</div>
+<div class="col-sm-12 box-dangki-tin">
+Bằng việc đăng ký nhận tin từ abc, bạn xác nhận rằng bạn đã đọc và hiểu <a href="#">chính sách bảo mật</a> của chúng tôi.
+</div>
+
+</div>
+</div> 
+<div class="col-sm-3">
+<div class="col-sm-12 Ten-muc-footer-top">TẢI NGAY ỨNG DỤNG</div>
+<div class="col-sm-12 margin-top-nopading">
+<img src="img/footer/ungdung1.png"  class="img-responsive" alt="#"/>
+</div>
+<div class="col-sm-12 margin-top-nopading">
+<img src="img/footer/ungdung2.png"  class="img-responsive" alt="#"/>
+</div>
+</div> 
+<div class="col-sm-12"><div class="col-sm-12 border-footer"></div></div>
+</div>
+<div class="row">
+<div class="col-sm-12 nopading">
+<div class="col-sm-2 border-dotted-right">
+<div class="col-sm-12 Ten-muc-footer-top">CÁCH THỨC THANH TOÁN</div>
+<div class="col-sm-12">
+<img src="img/footer/visa.png" class="img-responsive" alt="#"/>
+</div> 
+</div>
+
+<div class="col-sm-3 border-dotted-right">
+<div class="col-sm-12 Ten-muc-footer-top">ĐƯỢC CHỨNG NHẬN</div>
+<div class="col-sm-6 nopading">
+<img src="img/footer/clcik.png" class="img-responsive" alt="#"/>
+</div>
+<div class="col-sm-6">
+<a href="#">  <img src="img/footer/tindung.png" class="img-responsive" alt="#"/></a>
+</div>
+<div class="col-sm-12 Ten-muc-footer-top">DỊCH VỤ THANH TOÁN</div>
+<div class="col-sm-12  nopading">
+<img src="img/footer/kery.png" class="img-responsive" alt="#"/>
+</div>
+</div>
+<div class="col-sm-7">
+<div class="col-sm-12 Ten-muc-footer-top">SẢN PHẨM NỔI BẬT</div>
+<div class="col-sm-12 menu-footer-khong-chua-link">
+<ul>
+	<li>Điện thoại: Nokia, Samsung, Oppo, BlackBerry, Sony, Smartphone, iPhone 4s, iPhone 4, iPhone 6, iPhone 5</li>
+	<li>Máy tính bảng: iPad mini, iPad air, iPad air 2, iPad mini 2, iPad mini 3, Máy tính bảng Samsung, Máy tính bảng Acer, Máy tính bảng Lenovo</li>
+	<li>
+		Tivi: Tivi Sony, Tivi LG, Tivi Toshiba, Tivi LED, Tivi LCD, Smart Tivi, Tivi TCL, Tivi Sharp, Tivi Led Sony, Tivi Led Samsung, Tivi 3D, Tivi Samsung
+	</li>
+	<li>Tủ lạnh: Tủ lạnh mini, Tủ lạnh Sanyo, Tủ lạnh Electrolux, Tủ lạnh Panasonic, Tủ lạnh Toshiba, Tủ lạnh Samsung</li>
+	<li>Máy giặt: Máy giặt Electrolux, Máy giặt Sanyo, Máy giặt Toshiba, Máy giặt LG,</li>
+	<li>Lò vi sóng: Lò vi sóng Sharp, Lò vi sóng Electrolux, Lò vi sóng Sanyo</li>
+	<li>Laptop: Laptop Dell, Laptop Asus, Laptop Apple, Laptop Sony, Laptop Lenovo, Laptop Acer</li>
+	<li>Máy ảnh: Canon, Nikon, Máy ảnh Sony, Fujifilm, Máy ảnh chuyên nghiệp, Máy ảnh DSLR, Camera</li>
+	<li>Thời trang nam: Áo khoác nam, Áo thun trơn, Áo sơ mi nam, Áo thun nam, Túi đeo chéo, Giày lười nam</li>
+	<li>Thời trang nữ: Áo sơ mi nữ, Áo khoác nữ, Đầm công sở, Quần legging, Chân váy, Bikini, Đồ lót nữ, Giày thể thao nữ, Giày mọi nữ, Giày Oxford nữ, Quần jean nữ, Giày búp bê, Giày cao gót</li>
+	<li>Trang điểm: Bộ trang điểm, The face shop, Maybelline, Shiseido, Skinfood, Lancome, L'Oreal, Innisfree, Nature Republic, NYX, Bourjois, Essence, Mascara, Son môi, Mặt nạ</li>
+	<li>Collagen, Bao cao su, Sữa ong chúa, Vitamin, Tẩy tế bào chết, Máy sấy tóc, Chăm sóc da mặt, Xịt khoáng</li>
+	<li>Nước hoa, Nước hoa nam, Nước hoa nữ, Kem chống nắng, Máy cạo râu, Gel bôi trơn</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-sm-12"> <div class="col-sm-12 border-footer-moi"></div></div>
+
+</div>
+<div class="row">
+
+<div class="col-sm-12">    <div class="col-sm-12 Ten-muc-footer-top">ABC - KÊNH MUA SẮM TRỰC TUYẾN HÀNG ĐẦU VIỆT NAM!</div></div>
+<div class="col-sm-12 box-text-bt">
+<span class="text-dam">    Mua hàng trực tuyến (mua hàng online)</span> mang lại sự tiện lợi, lựa chọn đa dạng hơn và các dịch vụ tốt hơn cho người tiêu dùng, thế nhưng người tiêu dùng Việt Nam vẫn chưa tận hưởng được những tiện ích đó. Chính vì vậy ABC Việt Nam được triển khai với mong muốn trở thành trung tâm mua sắm trực tuyến số 1 tại Việt Nam, nơi bạn có thể chọn lựa mọi thứ, từ các mặt hàng điện tử như laptop, điện thoại di động giá rẻ, thiết bị gia dụng như máy lạnh, máy lọc không khí, máy hút bụi mini gia đình, nội thất phòng ngủ… Chúng tôi có tất cả!
+</div>
+<div class="col-sm-12 box-text-bt">
+Tại ABC.vn bạn có thể mua đồ điện tử giá rẻ, cũng như các loại mặt hàng khác với rất nhiều các chương trình khuyến mãi hàng tháng. Ngoài ra bạn cũng có thể tham gia bán hàng trực tuyến thông qua hệ thống marketplace của ABC với rất nhiều hỗ trợ và dịch vụ hấp dẫn.
+</div>
+<div class="col-sm-12 box-text-bt">
+Bây giờ bạn có thể trải nghiệm mua hàng online thỏa thích mà ABC mang lại chỉ với 1 click chuột. Dù bạn là một nhà quản lý bận rộn với công việc hay là người nội trợ với danh sách dài việc phải làm, chắc chắn bạn cũng sẽ yêu thích trải nghiệm mua hàng tại <span class="text-dam">ABC Việt Nam - mua hàng trực tuyến dễ dàng hơn, thuận tiện hơn và tiết kiệm thời gian.</span>
+</div>
+<div class="col-sm-12 margin-top-bottom">
+<div class="col-sm-3 footer-cuoi-left">
+<div class="col-sm-6 nopading">
+ABC South-East Asia
+</div>
+<div class="col-sm-6 nopading">
+<div class="la-co">
+	<a href="#"> 
+		<img src="img/footer/icon1.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="la-co">
+	<a href="#"> 
+		<img src="img/footer/iocn2.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="la-co">
+	<a href="#"> 
+		<img src="img/footer/icon3.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="la-co">
+	<a href="#"> 
+		<img src="img/footer/icon4.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="la-co">
+	<a href="#"> 
+		<img src="img/footer/icon5.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="la-co">
+	<a href="#"> 
+		<img src="img/footer/icon6.png" class="img-responsive" alt="#"/>
+	</a>
+	
+</div>
+</div>
+</div>
+<div class="col-sm-4"></div>
+<div class="col-sm-5 footer-cuoi-right">
+<div class="col-sm-3 nopading">
+Kết nối chúng tôi
+</div>
+<div class="col-sm-9 nopading">
+<div class="mangxahoi">
+	<a href="#"> 
+		<img src="img/footer/icon-xh-1.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="mangxahoi">
+	<a href="#"> 
+		<img src="img/footer/iocn-xh-2.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="mangxahoi">
+	<a href="#"> 
+		<img src="img/footer/icon-xh-3.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="mangxahoi">
+	<a href="#"> 
+		<img src="img/footer/icon-xh-4.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="mangxahoi">
+	<a href="#"> 
+		<img src="img/footer/icon-xh-5.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="mangxahoi">
+	<a href="#"> 
+		<img src="img/footer/icon-xh-6.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="mangxahoi">
+	<a href="#"> 
+		<img src="img/footer/icon-xh-7.png" class="img-responsive" alt="#"/>
+	</a>
+</div>
+<div class="mangxahoi">
+	<a href="#"> 
+		<img src="img/footer/icon-xh-8.png" class="img-responsive" alt="#"/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<div class="container-fluid footer-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6 ">
+					<div class="col-sm-12 can-giua-box-top">Công ty CPĐTPT Công Nghệ Mơi Alatca</div>
+					<div class="col-sm-12 can-giua-box-bottom">
+						168 Kim Giang, Phường Đại Kim, Quận Hoàng Mai, Hà Nội
+					</div>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</footer>
+<!--modan mua hang------------------------------------------------------->
+<div id="product" class="modal fade">
+<div class="modal-dialog">
+	<div class="modal-content bgwhilt">
+		
+		<div class="modal-body">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<span class="cartintro">Bạn có 2 sản phẩm trong giỏ hàng.<br>
+			<a style="color:#6f0000; font-size:10px;" href="http://www.lazada.vn/uu-dai-thanh-toan-the/" target="_blank" title="Ưu đãi thẻ">Thanh toán bằng thẻ tín dụng/ghi nợ hoặc ATM nội địa để giảm thêm 10.000 VND trên tổng giá trị đơn hàng (*)</a></span>
+			
+			<table class="table stylefonttable" >
+				<thead>
+					<tr>
+						<td colspan="2"></td>
+						<td >Giá</td>
+						<td >Số lượng</td>
+						<td >Tổng cộng</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr> 
+						<td> <a href="/may-nh-kts-fujifilm-s9400w-16-2mp-va-zoom-quang-50x-en-941937.html?mp=1">
+							<img src="img/catalog.jpg" width="117" height="117" alt="Máy ảnh KTS Fujifilm S9400W 16.2MP và Zoom quang 50x (Đen)" >
+						</a>
+						</td>
+						<td >
+							<div class="productdescription">Máy ảnh KTS Fujifilm S9400W 16.2MP và Zoom quang 50x (Đen)</div>
+							<div class="productdetails">Fujifilm</div>
+							<span class="stock instock">
+							<i class="fa fa-check"></i> Còn hàng </span>
+							
+							<span class="productlink">
+								<a href="#"  data-price="4399000" class="cart-product-actions-link sel-product-move-to-wishlist">
+								Thêm vào danh sách yêu thích                                        </a>
+							</span>
+							<span class="productlink">
+								<a  data-price="4399000" href="#" class="cart-product-actions-link cartItemRemove sel-cart-remove-item-FU404ELAU6SXVNAMZ-459211">
+								Xóa   </a>
+							</span>
+						</td>
+						<td class="price_center">
+							<span>4.399.000 VND</span><br>
+							<span class="mbs cart-product-oldprice-value">
+								<del>7.000.000 VND</del>
+							</span><br>
+							<span class="txtGreen strong">
+								Giảm giá 37%
+							</span>
+						</td>
+						<td class="width_10 price center">
+							<select data-sku="FU404ELAU6SXVNAMZ-459211" data-price="4399000" class="sel-cart-quantity-FU404ELAU6SXVNAMZ-459211 cart-product-actions-select cart-product-item-cell-qty-select" name="qty_FU404ELAU6SXVNAMZ-459211"  title="Số lượng">
+								<option>1</option>
+								<option selected="">2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</td>
+						<td class="width_20 right_align price lastcolumn">
+							
+							8.798.000 VND
+							<div style="color:green">- 439.900 VND</div>
+							
+							
+							
+						</td>
+						
+					</tr>
+					<tr>
+						<td colspan="2"></td>
+						<td colspan="2"> Tổng cộng</td>
+						<td> 8.798.000 VND</td>
+						
+					</tr>
+					<tr>
+						<td colspan="2"></td>
+						<td colspan="2"> <strong>Thành Tiền</strong></td>
+						<td> <strong>8.798.000 VND</strong></br>
+							Đã bao gồm VAT
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+				<div class="col-md-6">
+					<a href="#"><span><i class="fa fa-caret-right"></i> Thêm sản phẩm khác vào giỏ hàng</span></a>
+				</div>
+				<div class="col-md-6 btn_right">
+					<button class="btn btn-warning">Tiến hành đặt hàng <i class="fa fa-angle-double-right"></i>  <i class="fa fa-play-circle-o"></i></button>
+				</div>
+			</div>
+			
+			
+			
+		</div>
+		
+	</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+</html>
+																						

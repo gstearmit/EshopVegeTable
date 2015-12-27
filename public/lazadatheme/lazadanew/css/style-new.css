@@ -1,0 +1,163 @@
+/* set up */
+
+.domaumenufluid{
+	background:#69bd45;
+}
+
+.logo-timkiem-mua-fluid{
+	background:white !important;
+}
+
+.input-search{
+	border-radius:30px !important;
+}
+.button-timkiem {
+    border-radius: 30px !important;
+    background-color: #69bd45 !important;
+    border: 1px !important;
+    font-size: 12px !important;
+	color:white;
+}
+
+.menu-top-nho-bottom {
+	
+    background-color: #69bd45 !important;
+}
+
+#tab-menu li a {
+    padding-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+}
+.hinhtron {
+    float: left;
+    width: 30px !important;
+    height: 20px !important;
+    font-size: 8px;
+    line-height: 20px !important;
+    margin-right: 10px !important;
+    margin-top: 10px !important;
+    background: #fff;
+    color: green !important;
+    display: none;
+}
+
+.menu_doc_left {
+	
+    border: 1px solid #eee;
+    padding: 0px;
+    background: rgb(255, 255, 255);
+    box-shadow: 1px 1px 5px #eee;
+}/* set up */
+
+.domaumenufluid{
+	background:#69bd45 !important;
+}
+
+.logo-timkiem-mua-fluid{
+	background:white !important;
+}
+
+.input-search{
+	border-radius:30px !important;
+}
+.button-timkiem {
+    border-radius: 30px !important;
+    background-color: #69bd45 !important;
+    border: 1px !important;
+    font-size: 12px !important;
+	color:white;
+}
+.nopading{
+	padding:0px 15px !important;
+}
+
+.div-tab:first-child{
+	box-shadow:4px 4px 10px #eee;
+}
+
+.icon-giua-left {
+    color: #CA248E;
+}
+.icon-giua-center {
+    color: #CA248E;
+	border-color:#CA248E;
+}
+.icon-giua-right {
+    color: #CA248E;
+}
+.img-detail-main .title-detail a {
+    display: block;
+    margin-top: 50px;
+	min-height:0px !important;
+	border:none;
+}
+
+.img-detail-main {
+    min-height: 0px !important;
+}
+
+.img-detail-main:hover .img-sp-fav i {
+	
+    color: #ca248e !important;
+}
+
+.tieude-menu-left {
+    width: 100% !important;
+    margin-left: 0px !important;
+}
+
+.menu-bottom-left ul {
+    width: 100% !important;
+    height: auto;
+	margin-left:0px !important;
+    
+    margin-bottom: 0px !important;
+    margin-top: 50px;
+}
+
+.img-detail-main:hover {
+    border: 1px solid pink !important;
+}
+
+.img-detail-main .title-detail a {
+    display: block;
+    margin-top: 80px !important;
+    min-height: 0px !important;
+    border: none;
+}
+.footer-bottom {
+    background-color: #69db45 !important;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #69db45 !important;
+    border-color: #69db45 !important;
+}
+
+#tang-4 .content-tang-mobile-tablet {
+    background-color: red !important;
+}
+
+#tang-5 .content-tang-mobile-tablet {
+    background-color: #0094d4 !important;
+}
+
+#tang-6 .content-tang-mobile-tablet {
+    background-color: #69db45 !important;
+}
+.modal-content {
+    background-color: #fff !important;
+}
+
+.menu-container ul li a {
+    font-size: 12px !important;
+}
+@media(max-width:767px){
+	.domaumenufluid{
+		background:#F37540 !important;
+	}
+}

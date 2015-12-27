@@ -1,0 +1,192 @@
+<?php
+use Zend\Session\Container;
+$container = new Container('shopcart');
+$arraycart = $container->cart;
+ $session_user = new Container('userlogin');
+$username=$session_user->username;
+$id_Us = $session_user->idus;
+?>
+
+<!--first contact-->
+		<section>
+		<div class="wapper">
+			<div class="breadcrumb ">
+					<div class="container">
+					<div class="row">
+					<div class="col-md-7 col-sm-7 col-xs-12 rohlik">
+					<p> Rohlik.cz - <b>netahejte se s taškami. Za 30 minut Vám doručíme nákup až ke dveřím</b> </p>
+					</div>
+					<div class="col-md-2 col-sm-2 zadge">
+					<a href="#"><img src="<?php echo ROHLIK_APOTRAVINY;?>/img/badge.png" alt="" > Získej až 2000 Kč</a>
+					</div>
+					<div class="col-md-3 col-sm-3 fixhead">
+                                            <p>  
+                                                <i class="fa fa-cart-plus"> </i> </span>Košík <span class='count-cart'><?php echo count($arraycart);?></span>
+                                                 <a href="<?php echo WEBPATH .'/shoppingcart/viewcart'?>">
+                                            <button class="btn btn-xs btn-viewcart">Objednat</button>
+                                         </a>
+                                            </p>
+                                       
+					</div>
+					</div>
+					</div>
+			</div>
+			<div class=" hdslide">
+				<div class="boximage">
+				&nbsp;
+				</div>
+				<div class="container">				
+					<ul class="slidernav">
+					<li class="hienthi">
+					<a href="#">Akce: doprava zdarma při nákupu balení vod</a>
+					<div class="hoverbox">
+					<div class="slideone">
+					<a href="#">
+					&nbsp;
+					</a>
+					</div>
+					</div>
+					</li>
+					<li ><a href="#">Premium členství = doprava zdarma</a>
+					<div class="hoverbox">
+						<div class="slidetwo">
+					<a href="#">
+					&nbsp;
+					</a>
+					
+					</div>
+					</div>
+					
+					</li>
+					<li><a href="#">Téma: 8 tipů jak grilovat</a>
+					<div class="hoverbox">
+						<div class="slidethree">
+					
+					<a href="#">
+					&nbsp;
+					</a>
+				
+					</div>
+					</div>
+					
+					</li>
+					<li><a href="#">Ručně dělané těstoviny</a>
+					<div class="hoverbox">
+					<div class="slidefour">
+					
+					<a href="#">
+					&nbsp;
+					</a>
+					</div>
+					</div>
+					</li>
+					<li><a href="#" >Vítejte na Rohlik.cz</a>   
+					<div class="hoverbox">
+					<div class="slidefive">
+					<a href="#">
+					&nbsp;
+					</a>
+					
+					</div>
+					</div>
+					</li>
+					</ul>
+				</div>
+				</div>
+			<div class="row">
+			<div class="col-md-12 col-xs-12 col-sm-12">
+			<div class="slider1">
+                            <?php foreach ($product_hot as $key=>$value){?>
+				<div class="slide">
+				<div class="imgslider">
+				<?php
+				$id_product = $value['id'];
+				if($id_Us == $product_wisht[$id_product]['customer_ID'] && $id_product == $product_wisht[$id_product]['product_ID']){
+					echo '<span onclick="deleitemswish('.$id_product.',1)"><i class="fa fa-red fa-heart"></i></span>';
+					}else{
+				?>
+                                <span <?php if($username == null){ echo 'class="wishlist"';}else{echo 'onclick="addwishlist('.$value['id'].')"';}?>><i class="fa fa-heart"></i></span>
+					<?php } ?>
+				<!--<div class="oldprice"> -33 %</div>-->
+				<img onclick="productdetail(<?php echo $value['id'];?>)" src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ .$value['img'];?>" alt="" onerror=this.src="<?php echo ROHLIK_APOTRAVINY; ?>/img/no-product.png" />
+				</div>
+				<div class="mota">
+				<p class="detailclick" onclick="productdetail(<?php echo $value['id'];?>)">
+				<a href="#"><?php echo $value['name']?> </a></p>
+				<p>
+                                    <?php if($value['sale_products'] == 1){?>
+                                    <strong><?php echo $value['price'] - ($value['price'] * $value['promotions']/100)?> &nbsp;Kč</strong>
+				<del><?php echo $value['price']?></del>
+                                    <?php } else{
+                                         echo '<strong>'. $value['price'].'&nbsp;Kč</strong>';
+                                    }?>
+				<!--<span>(515.78&nbsp;Kč/kg)</span>--></p>
+				</div>
+				</div>
+				
+                            <?php } ?>
+				
+				
+			</div>
+		</div>
+		</div>
+		
+		<div class="bannerBox">
+			<div class="container">
+			<div class="row bannerbg_roh">
+			<div class="col-md-4 col-sm-12 col-xs-12 styletk ">
+			
+			<h3>Čerstvé rohlíky do e-mailu</h3>
+			<p>To nejzajímavější z Rohliku můžete mít ve své schránce</p>
+			<div class="input-group">
+			<input type="text" id="email-rg" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+                        <a onclick="registeremail()" class="input-group-addon" id="basic-addon2">Přihlásit</a>
+			</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12 margintop">
+			<div class="imgbanner">
+			<a title="Recepty Rohlík.cz" href="#">
+					<img src="<?php echo ROHLIK_APOTRAVINY;?>/img/banner-hp-duben-2015.jpg" alt="Recepty Rohlík.cz" class="img-responsive">
+
+					<p class="textbaner"><b class="bold">Nevíte, co vařit k večeři? </b>  </br>Přes 100 receptů pro vaši inspiraci  <span class="angle"><i class="fa fa-angle-right"></i></span></p>
+					
+				</a>
+			
+			</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12 margintop">
+			<div class="imgbanner">
+			<a title="Recepty Rohlík.cz" href="#">
+					<img src="<?php echo ROHLIK_APOTRAVINY;?>/img/superfood.jpg" alt="Recepty Rohlík.cz" class="img-responsive">
+
+					<p class="textbaner"><b class="bold">Superfood a raw </b>  </br>Co je to za potraviny a proč je jíst?<span class="angle"><i class="fa fa-angle-right"></i></span></p>
+					
+				</a>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			
+		
+		
+		
+		</div>
+		</section>
+		<!--end contact-->
+		
+	
+<div id="sp" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body product-detail">
+	 
+	 
+	 <!--CONTENT AJAX -->
+	
+	
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->			
+</div>

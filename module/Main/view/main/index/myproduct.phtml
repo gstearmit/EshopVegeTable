@@ -1,0 +1,87 @@
+<div class="block block-account">
+	<div class="block-title">
+		<strong><span>My Product</span></strong>
+	</div>
+	<div class="block-content">
+	<?php 
+	 $uri =  $_SERVER['HTTP_REFERER'];//echo $uri.'111';
+	 ?>
+		<ul>
+			<li ><a
+				href="<?php echo WEBPATH;?>/catalog/manacatalogue">Catalogue</a></li>
+			<li ><a
+				href="<?php echo WEBPATH;?>/catalog/add">Catalogue add</a></li>
+			<li ><a
+				href="<?php echo WEBPATH;?>/manamanufacturer">Manufacturer</a></li>
+			<li ><a
+				href="<?php echo WEBPATH;?>/manufactureradd">Manufacturer</a></li>	
+			<li ><a
+				href="<?php echo  WEBPATH;?>/product/index/index">Product</a></li>
+			<li ><a
+				href="<?php echo WEBPATH;?>/product/index/add">Add Product</a></li>
+			<li ><a
+				href="<?php echo  WEBPATH;?>/tags/index/index">Tags</a></li>
+			<li ><a
+				href="<?php echo WEBPATH;?>/tags/index/add">Add Tags</a></li>	
+			
+		</ul>
+	</div>
+</div>
+
+
+<div class="block block-account">
+	<div class="block-title">
+		<strong><span>My Slideshow</span></strong>
+	</div>
+	<div class="block-content">
+	<?php 
+	 $uri =  $_SERVER['HTTP_REFERER'];//echo $uri.'111';
+	 ?>
+		<ul>
+			<li ><a href="<?php echo WEBPATH;?>/slideshow/index">Slideshow</a></li>
+			<li ><a href="<?php echo WEBPATH;?>/slideshow/add">Add slide</a></li>
+		</ul>
+	</div>
+</div>
+
+
+
+<?php /*
+<div class="block block-account">
+	<div class="block-title">
+		<strong><span>My Account</span></strong>
+	</div>
+	<div class="block-content">
+	<?php 
+	 $uri =  $_SERVER['HTTP_REFERER'];
+	 ?>
+		<ul>
+			<li <?php if($uri == WEBPATH.'/mydashboard') { echo 'class="current"'; }?>><a
+				href="<?php echo WEBPATH;?>/mydashboard">Account Dashboard</a></li>
+			<li <?php if($uri == WEBPATH.'/accountedit') { echo 'class="current"'; }?>><a
+				href="<?php echo WEBPATH;?>/accountedit">Account Information</a></li>
+			<li <?php if($uri == WEBPATH.'/addressnew') { echo 'class="current"'; }?>><a
+				href="<?php echo  WEBPATH;?>/addressnew">Address Book</a></li>
+			<li <?php if($uri == WEBPATH.'/sales/order/history') { echo 'class="current"'; }?>><a
+				href="<?php echo WEBPATH;?>/sales/order/history">My Orders</a></li>
+			<li <?php if($uri == WEBPATH.'/sales/billing_agreement') { echo 'class="current"'; }?>><a
+				href="<?php echo WEBPATH;?>/sales/billing_agreement">Billing
+					Agreements</a></li>
+			<li <?php if($uri == WEBPATH.'/sales/recurring_profile') { echo 'class="current"'; }?>><a
+				href="<?php echo WEBPATH;?>/sales/recurring_profile">Recurring
+					Profiles</a></li>
+			<li <?php if($uri == WEBPATH.'/reviewcustomer') { echo 'class="current"'; }?>><a
+				href="<?php echo WEBPATH;?>/reviewcustomer">My
+					Product Reviews</a></li>
+			<li <?php if($uri == WEBPATH.'/tag/customer') { echo 'class="current"'; }?>><a href="<?php echo WEBPATH;?>/tag/customer">My Tags</a></li>
+			<li <?php if($uri == WEBPATH.'/wishlist') { echo 'class="current"'; }?>><strong>My Wishlist</strong></li>
+			<li <?php if($uri == WEBPATH.'/oauthtoken') { echo 'class="current"'; }?>><a
+				href="<?php echo WEBPATH;?>/oauthtoken">My Applications</a></li>
+			<li <?php if($uri == WEBPATH.'/newslettermanage') { echo 'class="current"'; }?>><a
+				href="<?php echo WEBPATH;?>/newslettermanage">Newsletter Subscriptions</a></li>
+			<li class="last"><a
+				href="<?php echo WEBPATH;?>/downloadableproducts">My Downloadable Products</a></li>
+		</ul>
+	</div>
+</div>
+*/?>

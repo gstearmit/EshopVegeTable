@@ -1,0 +1,121 @@
+﻿<?php $paginator=$this->layout()->paginator;
+		$err=$this->layout()->err;?>
+<div class="col-md-12 col-sm-12 col-xs-8">
+<?php if($err){ $ii=0; $arr=array(); $arr[0]='supperadmin';$arr[1]='admin';$arr[2]='adsmanager';$arr[3]='member';?>
+<table class="table table-bordered" id="table-dstaikhoan">
+                  <tr>
+                    <th class="title-1">ID</td>
+                    <th class="title-2" style="width:250px;">Username</td>
+                    <th class="title-3" style="width:250px;">Channel</td>
+                    <th class="title-6">Date Creat</td>
+                    <th class="title-7">Email</td>
+					<th class="title -12">Server</th>
+					<th class="title-11">Folder</td>
+                    <th class="title-8">Group</td>		
+					
+                    <th class="title-10">Delete</td>
+                  </tr>
+<?php foreach($paginator as $value){if($value->id==1)continue;?>
+
+
+                  <tr <?php if($ii%2==0){echo "class='hightlight'";} $ii++;?>>
+                    <td><?php echo $this->escapeHtml($value->id);?></td>
+                    <td><?php echo $this->escapeHtml($value->username);?></td>
+                    <td><?php echo $this->escapeHtml($value->channel_code);?></td>
+
+                    <td><?php echo $this->escapeHtml($value->datetime);?></td>
+                   <td><?php echo $this->escapeHtml($value->email);?></td>
+				   <td class="folder-server"><?php if($value->externalsv_id){ echo $this->escapeHtml($value->externalsv_id);}else echo "None";?></td>
+				   <td class="folder-user"><?php if($value->folder_name){ echo $this->escapeHtml($value->folder_name);}else echo "None";?><button class="btn btn-primary">change</button></td>
+					
+                    <td >
+						<form action="" method="POST" class="edit-user">
+							<input  type="hidden" name="id" value="<?php echo $this->escapeHtml($value->id);?>" />
+							<select class="edit-select <?php echo $this->escapeHtml($value->group);?>" name="group">
+								
+								<option value="<?php echo $this->escapeHtml($value->group);?>"><?php echo $this->escapeHtml($value->group);?></option>
+								<?php for($i=0;$i<4;$i++){
+										if($arr[$i]==$value->group){continue;}else{
+										echo '<option value="'.$arr[$i].'">'.$arr[$i].'</option>';
+										}}?>
+							</select>        
+							<button >Change</button>
+
+						</form>
+					</td>
+
+                    <td>
+                      
+						<button class="delete-video" style="float:right;" data-toggle="modal" data-target="#Modal-delete" value="<?php echo $this->escapeHtml($value->id);?>">Xóa</button>
+                    </td>
+                  </tr>                
+                
+          
+
+<?php }?>
+    </table>
+<div class="modal fade " id="Modal-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-small">
+	<div class="modal-content">
+	  <div class="modal-header ">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h4 class="alert alert-danger" id="myModalLabel" style="margin-right: 15px; margin-left:15px;">Do you want delete this user?</h4>
+	  </div>
+	  <div class="modal-body ">
+		<form id="video-delete">
+			 <div style="width:200px;margin:0 auto;">				
+				 <input class="video-id" type="hidden" name="id" value="" />												
+				 <button type="button-check" class="check-delete button-check btn btn-primary" style="margin-right:15px;">Yes</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left:15px;">No</button>
+			 </div>
+		</form>
+		<div class="result-delete"></div>
+	  </div>
+	</div>
+  </div>
+</div>
+<script>
+$('button.delete-video').click(function(){
+	$('form#video-delete>div>input.video-id').val($(this).val());
+});
+$('form#video-delete>div>button.check-delete').click(function(){
+var seriecode=$('form#video-delete>div>input.video-id').val();
+//var code=$('form#video-delete>div>input.playlist-code').val();
+
+
+$.ajax({
+		type: "POST",
+		url: "http://clipmediagroup.eu/admin/delete",
+		
+		data: {id:seriecode},
+		beforeSend : function(){
+			//console.log("testing");
+			$('.choose-content').html('<img src="http://clipmediagroup.eu/img/loading.gif">');
+		},
+		success: function(data){
+			$('.result-delete').html('<div class="alert alert-success">Đã xóa!</div> ');
+				location.reload();
+		}
+	});
+	return false;
+
+});
+$('form.edit-user').submit(function(){
+	var $form=$(this);
+	//var selec=$('edit-select').val();
+	//console.log($form);
+   $.ajax({
+	   type: "POST",
+	   url: "http://clipmediagroup.eu/admin/edit",
+	   data: $form.serialize(),
+	   success: function(data){
+					alert(data);
+					location.reload();
+			   }
+   });
+   return false;
+});
+
+</script>	
+	<?php }?>
+	</div>

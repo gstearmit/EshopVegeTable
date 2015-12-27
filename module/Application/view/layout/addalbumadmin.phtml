@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
+    <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
+    <title>apotraviny.cz Design Admin Template</title>
+
+    <!-- Favicons-->
+    <link rel="icon" href="<?php echo APOTRAVINY_ADMIN?>/images/favicon/favicon-32x32.png" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="<?php echo APOTRAVINY_ADMIN?>/images/favicon/apple-touch-icon-152x152.png">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="<?php echo APOTRAVINY_ADMIN?>/images/favicon/mstile-144x144.png">
+    <!-- For Windows Phone -->
+
+
+    <!-- CORE CSS-->    
+    <link href="<?php echo APOTRAVINY_ADMIN?>/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="<?php echo APOTRAVINY_ADMIN?>/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->    
+    <link href="<?php echo APOTRAVINY_ADMIN?>/css/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="<?php echo APOTRAVINY_ADMIN?>/css/jquery-jvectormap.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="<?php echo APOTRAVINY_ADMIN?>/css/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="<?php echo APOTRAVINY_ADMIN?>/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
+  
+   <link href="<?php echo APOTRAVINY_ADMIN?>/css/cssadmin.css" type="text/css" rel="stylesheet" media="screen,projection">
+        
+</head>
+
+<body>
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>        
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="cyan">
+                <div class="nav-wrapper">
+                <?php 
+                $getuser = $this->layout()->getuser;
+             
+                ?>
+                    <h1 class="logo-wrapper"><a href="<?php echo WEBPATH;?>/materialize/" class="brand-logo darken-1"><img src="<?php echo APOTRAVINY_ADMIN?>/images/materialize-logo.png" alt="materialize logo"></a> <span class="logo-text">Apotraviny.cz</span></h1>
+                    <ul class="right hide-on-med-and-down">
+                        <li class="search-out">
+                            <input type="text" class="search-out-text">
+                        </li>
+                        <li>    
+                            <a href="javascript:void(0);" class="waves-effect waves-block waves-light show-search"><i class="mdi-action-search"></i></a>                              
+                        </li>
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
+                        </li>
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-social-notifications"></i></a>
+                        </li>
+                        <!-- Dropdown Trigger -->                        
+                        <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+    <!-- END HEADER -->
+    
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+
+            <!-- START LEFT SIDEBAR NAV-->
+            <aside id="left-sidebar-nav">
+                <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                    <li class="user-details cyan darken-2">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                            <?php 
+				                $getuser = $this->layout()->getuser;
+				               $avantar_img='';
+				               $avantar = $getuser->avatar;
+				               if( $avantar =='' || $avantar == null) { 
+				                   $avantar_img = APOTRAVINY_ADMIN.'/imgages/avatar.jpg'; }
+				               else {
+				               	 $avantar_img = $avantar;
+				               }
+				               
+				               /*
+				                *  <img style="  max-width: 100px; max-height: 100px;" src="<?php echo $avantar_img;?>" alt="" 
+				                                class="circle responsive-img valign profile-image">
+				                * */
+               
+                              ?>
+                                <img src="<?php echo $avantar_img;?>" alt="" class="circle responsive-img activator card-profile-image">
+                            </div>
+                            <div class="col col s8 m8 l8">
+                                <ul id="profile-dropdown" class="dropdown-content">
+                                    <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                                    </li>
+                                    <li><a href="<?php echo WEBPATH?>/logout"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    </li>
+                                </ul>
+                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $getuser->username;?><i class="mdi-navigation-arrow-drop-down right"></i></a>
+                                <?php 
+                                if($getuser->group =='supperadmin') { echo '<p class="user-roal">Administrator</p>'; }
+                                else { echo '<p class="user-roal">'.$getuser->group.'</p>'; }
+                                ?>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bold"><a href="<?php echo WEBPATH;?>/materialize/" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a> </li>
+                    <li class="bold"><a href="<?php echo WEBPATH;?>/catalog/manacatalo" class="waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i> Catalogue <span class="new badge">4</span></a> </li>
+                                        
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+	                         <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-editor-insert-comment"></i> Tags</a>
+	                                <div class="collapsible-body">
+	                                    <ul>
+                                            <li><a href="<?php echo WEBPATH;?>/tags/masterindex">Mana Tags</a>  </li>
+	                                        <li><a href="<?php echo WEBPATH;?>/tags/masteradd">Add Tags</a> </li>
+	                                        
+	                                    </ul>
+	                                </div>
+	                          </li>
+                                  <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i> Product</a>
+	                                <div class="collapsible-body">
+	                                    <ul>
+	                                        <li><a href="<?php echo WEBPATH?>/masteproduct/index/index">Mana Product</a>  </li>
+	                                        <li><a href="<?php echo WEBPATH?>/masteproduct/index/add">Add New Product</a> </li>
+	                                        <li><a href="#">Seach Product</a> </li> 
+	                                    </ul>
+	                                </div>
+	                          </li>
+                            <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Crowler</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="<?php echo WEBPATH?>/crowler/crowler/declarationsite">Manager Crowler</a>
+                                        </li>                                        
+                                        <li><a href="<?php echo WEBPATH?>/crowler/name/index">Name</a>
+                                        </li>
+                                        <!--  
+                                        <li><a href="css-shadow.html">Shadow</a>
+                                        </li>
+                                        <li><a href="css-media.html">Media</a>
+                                        </li>
+                                        <li><a href="css-sass.html">Sass</a>
+                                        </li>
+                                        -->
+                                    </ul>
+                                </div>
+                            </li>
+                           
+                           
+                            
+                           
+                        </ul>
+                    </li>
+                </ul>
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu" ></i></a>
+            </aside>
+            <!-- END LEFT SIDEBAR NAV-->
+
+            <!-- //////////////////////////////////////////////////////////////////////////// -->
+            
+            
+    
+    <?php echo $this->content; ?>
+    
+    
+    
+     <!-- //////////////////////////////////////////////////////////////////////////// -->
+            <!-- START RIGHT SIDEBAR NAV-->
+            <aside id="right-sidebar-nav">
+                <ul id="chat-out" class="side-nav rightside-navigation">
+                    <li class="li-hover">
+                    <a href="#" data-activates="chat-out" class="chat-close-collapse right"><i class="mdi-navigation-close"></i></a>
+                    <div id="right-search" class="row">
+                        <form class="col s12">
+                            <div class="input-field">
+                                <i class="mdi-action-search prefix"></i>
+                                <input id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix">Search</label>
+                            </div>
+                        </form>
+                    </div>
+                    </li>
+                    <li class="li-hover">
+                        <ul class="chat-collapsible" data-collapsible="expandable">
+                        <li>
+                            <div class="collapsible-header teal white-text active"><i class="mdi-social-whatshot"></i>Recent Activity</div>
+                            <div class="collapsible-body recent-activity">
+                                <div class="recent-activity-list chat-out-list row">
+                                    <div class="col s3 recent-activity-list-icon"><i class="mdi-action-add-shopping-cart"></i>
+                                    </div>
+                                    <div class="col s9 recent-activity-list-text">
+                                        <a href="#">just now</a>
+                                        <p>Jim Doe Purchased new equipments for zonal office.</p>
+                                    </div>
+                                </div>
+                                <div class="recent-activity-list chat-out-list row">
+                                    <div class="col s3 recent-activity-list-icon"><i class="mdi-device-airplanemode-on"></i>
+                                    </div>
+                                    <div class="col s9 recent-activity-list-text">
+                                        <a href="#">Yesterday</a>
+                                        <p>Your Next flight for USA will be on 15th August 2015.</p>
+                                    </div>
+                                </div>
+                                <div class="recent-activity-list chat-out-list row">
+                                    <div class="col s3 recent-activity-list-icon"><i class="mdi-action-settings-voice"></i>
+                                    </div>
+                                    <div class="col s9 recent-activity-list-text">
+                                        <a href="#">5 Days Ago</a>
+                                        <p>Natalya Parker Send you a voice mail for next conference.</p>
+                                    </div>
+                                </div>
+                                <div class="recent-activity-list chat-out-list row">
+                                    <div class="col s3 recent-activity-list-icon"><i class="mdi-action-store"></i>
+                                    </div>
+                                    <div class="col s9 recent-activity-list-text">
+                                        <a href="#">Last Week</a>
+                                        <p>Jessy Jay open a new store at S.G Road.</p>
+                                    </div>
+                                </div>
+                                <div class="recent-activity-list chat-out-list row">
+                                    <div class="col s3 recent-activity-list-icon"><i class="mdi-action-settings-voice"></i>
+                                    </div>
+                                    <div class="col s9 recent-activity-list-text">
+                                        <a href="#">5 Days Ago</a>
+                                        <p>Natalya Parker Send you a voice mail for next conference.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header light-blue white-text active"><i class="mdi-editor-attach-money"></i>Sales Repoart</div>
+                            <div class="collapsible-body sales-repoart">
+                                <div class="sales-repoart-list  chat-out-list row">
+                                    <div class="col s8">Target Salse</div>
+                                    <div class="col s4"><span id="sales-line-1"></span>
+                                    </div>
+                                </div>
+                                <div class="sales-repoart-list chat-out-list row">
+                                    <div class="col s8">Payment Due</div>
+                                    <div class="col s4"><span id="sales-bar-1"></span>
+                                    </div>
+                                </div>
+                                <div class="sales-repoart-list chat-out-list row">
+                                    <div class="col s8">Total Delivery</div>
+                                    <div class="col s4"><span id="sales-line-2"></span>
+                                    </div>
+                                </div>
+                                <div class="sales-repoart-list chat-out-list row">
+                                    <div class="col s8">Total Progress</div>
+                                    <div class="col s4"><span id="sales-bar-2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header red white-text"><i class="mdi-action-stars"></i>Favorite Associates</div>
+                            <div class="collapsible-body favorite-associates">
+                                <div class="favorite-associate-list chat-out-list row">
+                                    <div class="col s4"><img src="<?php echo APOTRAVINY_ADMIN?>/images/avatar.jpg" alt="" class="circle responsive-img online-user valign profile-image">
+                                    </div>
+                                    <div class="col s8">
+                                        <p>Eileen Sideways</p>
+                                        <p class="place">Los Angeles, CA</p>
+                                    </div>
+                                </div>
+                                <div class="favorite-associate-list chat-out-list row">
+                                    <div class="col s4"><img src="<?php echo APOTRAVINY_ADMIN?>/images/avatar.jpg" alt="" class="circle responsive-img online-user valign profile-image">
+                                    </div>
+                                    <div class="col s8">
+                                        <p>Zaham Sindil</p>
+                                        <p class="place">San Francisco, CA</p>
+                                    </div>
+                                </div>
+                                <div class="favorite-associate-list chat-out-list row">
+                                    <div class="col s4"><img src="<?php echo APOTRAVINY_ADMIN?>/images/avatar.jpg" alt="" class="circle responsive-img offline-user valign profile-image">
+                                    </div>
+                                    <div class="col s8">
+                                        <p>Renov Leongal</p>
+                                        <p class="place">Cebu City, Philippines</p>
+                                    </div>
+                                </div>
+                                <div class="favorite-associate-list chat-out-list row">
+                                    <div class="col s4"><img src="<?php echo APOTRAVINY_ADMIN?>/images/avatar.jpg" alt="" class="circle responsive-img online-user valign profile-image">
+                                    </div>
+                                    <div class="col s8">
+                                        <p>Weno Carasbong</p>
+                                        <p>Tokyo, Japan</p>
+                                    </div>
+                                </div>
+                                <div class="favorite-associate-list chat-out-list row">
+                                    <div class="col s4"><img src="<?php echo APOTRAVINY_ADMIN?>/images/avatar.jpg" alt="" class="circle responsive-img offline-user valign profile-image">
+                                    </div>
+                                    <div class="col s8">
+                                        <p>Nusja Nawancali</p>
+                                        <p class="place">Bangkok, Thailand</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <!-- LEFT RIGHT SIDEBAR NAV-->
+
+        </div>
+        <!-- END WRAPPER -->
+
+    </div>
+    <!-- END MAIN -->
+    
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START FOOTER -->
+    <footer class="page-footer">
+       
+        <div class="footer-copyright">
+            <div class="container">
+                Copyright © 2015 <a class="grey-text text-lighten-4" href="#" target="_blank">Alatca</a> All rights reserved.
+                <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="#">Alatca</a></span>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+
+    <!-- ================================================
+    Scripts
+    ================================================ -->
+    
+    <!-- jQuery Library -->
+    <script type="text/javascript" src="<?php echo APOTRAVINY_ADMIN?>/js/jquery-1.11.2.min.js"></script>    
+    <!--materialize js-->
+    <script type="text/javascript" src="<?php echo APOTRAVINY_ADMIN?>/js/materialize.min.js"></script>
+   <!-- chartist -->
+    <script type="text/javascript" src="<?php echo APOTRAVINY_ADMIN?>/js/chartist.min.js"></script>   
+
+   
+
+
+    
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src="<?php echo APOTRAVINY_ADMIN?>/js/plugins.js"></script>
+    <!-- Toast Notification -->
+    <script type="text/javascript">
+    // Toast Notification
+    $(window).load(function() {
+        setTimeout(function() {
+            Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);
+        }, 3000);
+        setTimeout(function() {
+            Materialize.toast('<span>You can swipe me too!</span>', 3000);
+        }, 5500);
+        setTimeout(function() {
+            Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);
+        }, 18000);
+    });
+    
+    </script>
+    
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.tooltipped').tooltip({delay: 50});
+        addalbum();
+      });
+    </script>
+    
+                   
+                	<!-- drag -->
+	    <style type="text/css">
+      img {border-width: 0}
+      * {font-family:'Lucida Grande', sans-serif;}
+    </style>
+<link href="<?php echo BAG_REAL_HTML; ?>/css/uploadfilemulti.css" rel="stylesheet">
+<!-- <script src="<?php echo BAG_REAL_HTML; ?>/js/jquery-1.8.0.min.js"></script> -->
+<script>
+/*!
+ * jQuery Upload File Plugin
+ * version: 3.1.2
+ * @requires jQuery v1.5 or later & form plugin
+ * Copyright (c) 2013 Ravishanker Kusuma
+ * http://hayageek.com/
+ */
+(function(b) {
+    if (b.fn.ajaxForm == undefined) {
+        b.getScript("<?php echo WEBPATH?>/js/jquery.form.js")
+		//http://malsup.github.io/jquery.form.js
+    }
+    var a = {};
+    a.fileapi = b("<input type='file'/>").get(0).files !== undefined;
+    a.formdata = window.FormData !== undefined;
+    b.fn.uploadFile = function(t) {
+        var r = b.extend({
+            url: "",
+            method: "POST",
+            enctype: "multipart/form-data",
+            formData: null,
+            returnType: null,
+            allowedTypes: "*",
+            fileName: "file",
+            formData: {},
+            dynamicFormData: function() {
+                return {}
+            },
+            maxFileSize: -1,
+            maxFileCount: 10,//-1,
+            multiple: true,
+            dragDrop: true,
+            autoSubmit: true,
+            showCancel: true,
+            showAbort: true,
+            showDone: true,
+            showDelete: false,
+            showError: true,
+            showStatusAfterSuccess: true,
+            showStatusAfterError: true,
+            showFileCounter: true,
+            fileCounterStyle: "). ",
+            showProgress: false,
+            onSelect: function(s) {
+                return true
+            },
+            onSubmit: function(s, u) {},
+            onSuccess: function(u, s, v) {},
+            onError: function(v, s, u) {},
+            deleteCallback: false,
+            afterUploadAll: false,
+            uploadButtonClass: "upload",
+            dragDropStr: "<span><b>Drag &amp; Drop Files</b></span>",
+            abortStr: "Abort",
+            cancelStr: "Cancel",
+            deletelStr: "Delete",
+            doneStr: "Done",
+            multiDragErrorStr: "Multiple File Drag &amp; Drop is not allowed.",
+            extErrorStr: "is not allowed. Allowed extensions: ",
+            sizeErrorStr: "is not allowed. Allowed Max size: ",
+            uploadErrorStr: "Upload is not allowed",
+            maxFileCountErrorStr: " is not allowed. Maximum allowed files are:"
+        }, t);
+        this.fileCounter = 1;
+        this.selectedFiles = 0;
+        this.fCounter = 0;
+        this.sCounter = 0;
+        this.tCounter = 0;
+        var d = "upload-" + (new Date().getTime());
+        this.formGroup = d;
+        this.hide();
+        this.errorLog = b("<div></div>");
+        this.after(this.errorLog);
+        this.responses = [];
+        if (!a.formdata) {
+            r.dragDrop = false
+        }
+        if (!a.formdata) {
+            r.multiple = false
+        }
+        var m = this;
+        var e = b("<div>" + b(this).html() + "</div>");
+        b(e).addClass(r.uploadButtonClass);
+        (function k() {
+            if (b.fn.ajaxForm) {
+                if (r.dragDrop) {
+                    var s = b('<div class="ajax-upload-dragdrop" style="vertical-align:top;"></div>');
+                    b(m).before(s);
+                    b(s).append(e);
+                    b(s).append(b(r.dragDropStr));
+                    f(m, r, s)
+                } else {
+                    b(m).before(e)
+                }
+                q(m, d, r, e)
+            } else {
+                window.setTimeout(k, 10)
+            }
+        })();
+        this.startUpload = function() {
+            b("." + this.formGroup).each(function(u, s) {
+                if (b(this).is("form")) {
+                    b(this).submit()
+                }
+            })
+        };
+        this.stopUpload = function() {
+            b(".upload-red").each(function(u, s) {
+                if (b(this).hasClass(m.formGroup)) {
+                    b(this).click()
+                }
+            })
+        };
+        this.getResponses = function() {
+            return this.responses
+        };
+        var g = false;
+
+        function j() {
+            if (r.afterUploadAll && !g) {
+                g = true;
+                (function s() {
+                    if (m.sCounter != 0 && (m.sCounter + m.fCounter == m.tCounter)) {
+                        r.afterUploadAll(m);
+                        g = false
+                    } else {
+                        window.setTimeout(s, 100)
+                    }
+                })()
+            }
+        }
+
+        function f(w, u, v) {
+            v.on("dragenter", function(s) {
+                s.stopPropagation();
+                s.preventDefault();
+                b(this).css("border", "2px solid #000000")
+            });
+            v.on("dragover", function(s) {
+                s.stopPropagation();
+                s.preventDefault()
+            });
+            v.on("drop", function(x) {
+                b(this).css("border", "2px solid #000000");
+                x.preventDefault();
+                w.errorLog.html("");
+                var s = x.originalEvent.dataTransfer.files;
+                if (!u.multiple && s.length > 1) {
+                    if (u.showError) {
+                        b("<div style='color:red;'>" + u.multiDragErrorStr + "</div>").appendTo(w.errorLog)
+                    }
+                    return
+                }
+                if (u.onSelect(s) == false) {
+                    return
+                }
+                l(u, w, s)
+            });
+            b(document).on("dragenter", function(s) {
+                s.stopPropagation();
+                s.preventDefault()
+            });
+            b(document).on("dragover", function(s) {
+                s.stopPropagation();
+                s.preventDefault();
+                v.css("border", "2px solid #000000")
+            });
+            b(document).on("drop", function(s) {
+                s.stopPropagation();
+                s.preventDefault();
+                v.css("border", "2px solid #000000")
+            })
+        }
+
+        function i(s) {
+            var v = "";
+            var u = s / 1024;
+            if (parseInt(u) > 1024) {
+                var w = u / 1024;
+                v = w.toFixed(2) + " MB"
+            } else {
+                v = u.toFixed(2) + " KB"
+            }
+            return v
+        }
+
+        function o(x) {
+            var y = [];
+            if (jQuery.type(x) == "string") {
+                y = x.split("&")
+            } else {
+                y = b.param(x).split("&")
+            }
+            var u = y.length;
+            var s = [];
+            var w, v;
+            for (w = 0; w < u; w++) {
+                y[w] = y[w].replace(/\+/g, " ");
+                v = y[w].split("=");
+                s.push([decodeURIComponent(v[0]), decodeURIComponent(v[1])])
+            }
+            return s
+        }
+
+        function l(H, B, u) {
+            for (var C = 0; C < u.length; C++) {
+                if (!c(B, H, u[C].name)) {
+                    if (H.showError) {
+                        b("<div style='color:red;'><b>" + u[C].name + "</b> " + H.extErrorStr + H.allowedTypes + "</div>").appendTo(B.errorLog)
+                    }
+                    continue
+                }
+                if (H.maxFileSize != -1 && u[C].size > H.maxFileSize) {
+                    if (H.showError) {
+                        b("<div style='color:red;'><b>" + u[C].name + "</b> " + H.sizeErrorStr + i(H.maxFileSize) + "</div>").appendTo(B.errorLog)
+                    }
+                    continue
+                }
+                if (H.maxFileCount != -1 && B.selectedFiles >= H.maxFileCount) {
+                    if (H.showError) {
+                        b("<div style='color:red;'><b>" + u[C].name + "</b> " + H.maxFileCountErrorStr + H.maxFileCount + "</div>").appendTo(B.errorLog)
+                    }
+                    continue
+                }
+                B.selectedFiles++;
+                var D = H;
+                var w = new FormData();
+                var A = H.fileName.replace("[]", "");
+                w.append(A, u[C]);
+                var y = H.formData;
+                if (y) {
+                    var F = o(y);
+                    for (var z = 0; z < F.length; z++) {
+                        if (F[z]) {
+                            w.append(F[z][0], F[z][1])
+                        }
+                    }
+                }
+                D.fileData = w;
+                var E = new p(B, H);
+                var G = "";
+                if (H.showFileCounter) {
+                    G = B.fileCounter + H.fileCounterStyle + u[C].name
+                } else {
+                    G = u[C].name
+                }
+                E.filename.html(G);
+                var v = b("<form style='display:block; position:absolute;left: 150px;' class='" + B.formGroup + "' method='" + H.method + "' action='" + H.url + "' enctype='" + H.enctype + "'></form>");
+                v.appendTo("body");
+                var x = [];
+                x.push(u[C].name);
+                n(v, D, E, x, B);
+                B.fileCounter++
+            }
+        }
+
+        function c(w, v, y) {
+            var x = v.allowedTypes.toLowerCase().split(",");
+            var u = y.split(".").pop().toLowerCase();
+            if (v.allowedTypes != "*" && jQuery.inArray(u, x) < 0) {
+                return false
+            }
+            return true
+        }
+
+        function h(u, w) {
+            if (u.showFileCounter) {
+                var v = b(".upload-filename").length;
+                w.fileCounter = v + 1;
+                b(".upload-filename").each(function(A, y) {
+                    var s = b(this).html().split(u.fileCounterStyle);
+                    var x = parseInt(s[0]) - 1;
+                    var z = v + u.fileCounterStyle + s[1];
+                    b(this).html(z);
+                    v--
+                })
+            }
+        }
+
+        function q(y, B, D, u) {
+            var A = "ajax-upload-id-" + (new Date().getTime());
+            var w = b("<form method='" + D.method + "' action='" + D.url + "' enctype='" + D.enctype + "'></form>");
+            var v = "<input type='file' id='" + A + "' name='" + D.fileName + "'/>";
+            if (D.multiple) {
+                if (D.fileName.indexOf("[]") != D.fileName.length - 2) {
+                    D.fileName += "[]"
+                }
+                v = "<input type='file' id='" + A + "' name='" + D.fileName + "' multiple/>"
+            }
+            var z = b(v).appendTo(w);
+            z.change(function() {
+                y.errorLog.html("");
+                var K = D.allowedTypes.toLowerCase().split(",");
+                var G = [];
+                if (this.files) {
+                    for (H = 0; H < this.files.length; H++) {
+                        G.push(this.files[H].name)
+                    }
+                    if (D.onSelect(this.files) == false) {
+                        return
+                    }
+                } else {
+                    var I = b(this).val();
+                    var F = [];
+                    G.push(I);
+                    if (!c(y, D, I)) {
+                        if (D.showError) {
+                            b("<div style='color:red;'><b>" + I + "</b> " + D.extErrorStr + D.allowedTypes + "</div>").appendTo(y.errorLog)
+                        }
+                        return
+                    }
+                    F.push({
+                        name: I,
+                        size: "NA"
+                    });
+                    if (D.onSelect(F) == false) {
+                        return
+                    }
+                }
+                h(D, y);
+                u.unbind("click");
+                w.hide();
+                q(y, B, D, u);
+                w.addClass(B);
+                if (a.fileapi && a.formdata) {
+                    w.removeClass(B);
+                    var J = this.files;
+                    l(D, y, J)
+                } else {
+                    var E = "";
+                    for (var H = 0; H < G.length; H++) {
+                        if (D.showFileCounter) {
+                            E += y.fileCounter + D.fileCounterStyle + G[H] + "<br>"
+                        } else {
+                            E += G[H] + "<br>"
+                        }
+                        y.fileCounter++
+                    }
+                    if (D.maxFileCount != -1 && (y.selectedFiles + G.length) > D.maxFileCount) {
+                        if (D.showError) {
+                            b("<div style='color:red;'><b>" + E + "</b> " + D.maxFileCountErrorStr + D.maxFileCount + "</div>").appendTo(y.errorLog)
+                        }
+                        return
+                    }
+                    y.selectedFiles += G.length;
+                    var s = new p(y, D);
+                    s.filename.html(E);
+                    n(w, D, s, G, y)
+                }
+            });
+            w.css({
+                margin: 0,
+                padding: 0
+            });
+            var C = b(u).width() + 10;
+            if (C == 10) {
+                C = 120
+            }
+            var x = u.height() + 10;
+            if (x == 10) {
+                x = 35
+            }
+            u.css({
+                position: "relative",
+                overflow: "hidden",
+                cursor: "default"
+            });
+            z.css({
+                position: "absolute",
+                cursor: "pointer",
+                top: "0px",
+                width: C,
+                height: x,
+                left: "0px",
+                "z-index": "100",
+                opacity: "0.0",
+                filter: "alpha(opacity=0)",
+                "-ms-filter": "alpha(opacity=0)",
+                "-khtml-opacity": "0.0",
+                "-moz-opacity": "0.0"
+            });
+            w.appendTo(u)
+        }
+
+        function p(v, u) {
+            this.statusbar = b("<div class='upload-statusbar'></div>");
+            this.filename = b("<div class='upload-filename'></div>").appendTo(this.statusbar);
+            this.progressDiv = b("<div class='upload-progress'>").appendTo(this.statusbar).hide();
+            this.progressbar = b("<div class='upload-bar " + v.formGroup + "'></div>").appendTo(this.progressDiv);
+            this.abort = b("<div class='upload-red " + v.formGroup + "'>" + u.abortStr + "</div>").appendTo(this.statusbar).hide();
+            this.cancel = b("<div class='upload-red'>" + u.cancelStr + "</div>").appendTo(this.statusbar).hide();
+            this.done = b("<div class='upload-green'>" + u.doneStr + "</div>").appendTo(this.statusbar).hide();
+            this.del = b("<div class='upload-red'>" + u.deletelStr + "</div>").appendTo(this.statusbar).hide();
+            v.errorLog.after(this.statusbar);
+            return this
+        }
+
+        function n(z, y, u, w, A) {
+            var x = null;
+            var v = {
+                cache: false,
+                contentType: false,
+                processData: false,
+                forceSync: false,
+                data: y.formData,
+                formData: y.fileData,
+                dataType: y.returnType,
+                beforeSubmit: function(F, C, E) {
+                    if (y.onSubmit.call(this, w) != false) {
+                        var B = y.dynamicFormData();
+                        if (B) {
+                            var s = o(B);
+                            if (s) {
+                                for (var D = 0; D < s.length; D++) {
+                                    if (s[D]) {
+                                        if (y.fileData != undefined) {
+                                            E.formData.append(s[D][0], s[D][1])
+                                        } else {
+                                            E.data[s[D][0]] = s[D][1]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        A.tCounter += w.length;
+                        j();
+                        return true
+                    }
+                    u.statusbar.append("<div style='color:red;'>" + y.uploadErrorStr + "</div>");
+                    u.cancel.show();
+                    z.remove();
+                    u.cancel.click(function() {
+                        u.statusbar.remove()
+                    });
+                    return false
+                },
+                beforeSend: function(B, s) {
+                    u.progressDiv.show();
+                    u.cancel.hide();
+                    u.done.hide();
+                    if (y.showAbort) {
+                        u.abort.show();
+                        u.abort.click(function() {
+                            B.abort();
+                            A.selectedFiles -= w.length
+                        })
+                    }
+                    if (!a.formdata) {
+                        u.progressbar.width("5%")
+                    } else {
+                        u.progressbar.width("1%")
+                    }
+                },
+                uploadProgress: function(E, s, D, C) {
+                    if (C > 98) {
+                        C = 98
+                    }
+                    var B = C + "%";
+                    if (C > 1) {
+                        u.progressbar.width(B)
+                    }
+                    if (y.showProgress) {
+                        u.progressbar.html(B);
+                        u.progressbar.css("text-align", "center")
+                    }
+                },
+                success: function(B, s, C) {
+                    A.responses.push(B);
+                    u.progressbar.width("100%");
+                    if (y.showProgress) {
+                        u.progressbar.html("100%");
+                        u.progressbar.css("text-align", "center")
+                    }
+                    u.abort.hide();
+                    y.onSuccess.call(this, w, B, C);
+                    if (y.showStatusAfterSuccess) {
+                        if (y.showDone) {
+                            u.done.show();
+                            u.done.click(function() {
+                                u.statusbar.hide("slow");
+                                u.statusbar.remove()
+                            })
+                        } else {
+                            u.done.hide()
+                        }
+                        if (y.showDelete) {
+                            u.del.show();
+                            u.del.click(function() {
+                                u.statusbar.hide().remove();
+                                if (y.deleteCallback) {
+                                    y.deleteCallback.call(this, B, u)
+                                }
+                                A.selectedFiles -= w.length;
+                                h(y, A)
+                            })
+                        } else {
+                            u.del.hide()
+                        }
+                    } else {
+                        u.statusbar.hide("slow");
+                        u.statusbar.remove()
+                    }
+                    z.remove();
+                    A.sCounter += w.length
+                },
+                error: function(C, s, B) {
+                    u.abort.hide();
+                    if (C.statusText == "abort") {
+                        u.statusbar.hide("slow").remove();
+                        h(y, A)
+                    } else {
+                        y.onError.call(this, w, s, B);
+                        if (y.showStatusAfterError) {
+                            u.progressDiv.hide();
+                            u.statusbar.append("<span style='color:red;'>ERROR: " + B + "</span>")
+                        } else {
+                            u.statusbar.hide();
+                            u.statusbar.remove()
+                        }
+                        A.selectedFiles -= w.length
+                    }
+                    z.remove();
+                    A.fCounter += w.length
+                }
+            };
+            if (y.autoSubmit) {
+                z.ajaxSubmit(v)
+            } else {
+                if (y.showCancel) {
+                    u.cancel.show();
+                    u.cancel.click(function() {
+                        z.remove();
+                        u.statusbar.remove();
+                        A.selectedFiles -= w.length;
+                        h(y, A)
+                    })
+                }
+                z.ajaxForm(v)
+            }
+        }
+        return this
+    }
+}(jQuery));
+</script><!-- end mutiupload form -->
+
+</body>
+
+</html>
+    
+    

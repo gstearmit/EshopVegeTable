@@ -1,0 +1,56 @@
+<div id="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+      <form acion="<?php echo WEBPATH?>/loginmaster" method="post" class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <img src="<?php echo APOTRAVINY_ADMIN?>/images/login-logo.png" alt="" class="circle responsive-img valign profile-image-login">
+            <p class="center login-form-text">Material Design Admin Template</p>
+          </div>
+        </div>
+        
+        <?php 
+        $k = $this->layout()->ErrorCode;
+        if( (isset($k) and $k==1) || (isset($k) and $k==2) ) {?>
+        <div class="row margin">
+          <h3 class="center login-form-text" style="  color: red;  text-transform: uppercase;    letter-spacing: 0px;    font-size: 0.9em;">Incorrect Username or password ! Please Try agian!</h3>
+        </div>
+        
+        <?php }?>
+        
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix active"></i>
+            <input name="email" id="email" type="text" required="required">
+            <label for="email" class="center-align active">Email</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-action-lock-outline prefix active"></i>
+            <input name="password" id="password" type="password" required="required">
+            <label for="password" class="active">Password</label>
+          </div>
+        </div>
+        <div class="row">          
+          <div class="input-field col s12 m12 l12  login-text">
+              <input type="checkbox" id="remember-me">
+              <label for="remember-me">Remember me</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <button type="submit" class="btn waves-effect waves-light col s12">Login</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><a href="<?php echo WEBPATH;?>/pageregister">Register Now!</a></p>
+          </div>
+          <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a href="<?php echo WEBPATH;?>/forgotpassword ">Forgot password ?</a></p>
+          </div>          
+        </div>
+
+      </form>
+    </div>
+  </div>

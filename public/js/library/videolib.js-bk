@@ -1,0 +1,220 @@
+function closeembed()
+{
+		$(".popup").remove();
+		$(".overlay").remove();
+}
+function embedz()
+{
+var myPlayer = videojs('myvideo');
+myPlayer.pause();
+console.log(document.URL);
+var url=document.URL;
+var newurl=url.replace('embed','play');
+				var txt2='<a class="overlay"></a>'
+				+'<div class="popup">'
+					+'<h2>Share This Video!</h2>'
+					+'<h3 class="social">Social:</h3>'
+					+'<ul>'
+						+'<li><a href="https://www.facebook.com/sharer.php?app_id=790246271009293&sdk=joey&u='+newurl+'&display=popup" target="_blank"><img src="http://clipmediagroup.eu/img/face_button.png"></a></li>'
+						+'<li><a href="https://twitter.com/intent/tweet?hashtags=TwitterStories%2C&amp;original_referer='+document.URL+'&amp;related=jasoncosta&amp;share_with_retweet=never&amp;text='+newurl+'&amp;tw_p=tweetbutton" target="_blank"><img src="http://clipmediagroup.eu/img/twitter_button.png"></a></li>'
+					+'</ul>'
+					+'<h3 class="embcode">Embed Code:</h3>'
+					+'<textarea class="iframe" onclick="sselect()">'
+						+"&lt;iframe seamless frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"true\"  mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\" width=\"500\" height=\"281\" src='"+document.URL+"'&gt; &lt;&#47;iframe&gt;"
+
+					+'</textarea>'
+					+'</br>'
+					+'<select id="mySelect" onclick="getsizeembed()">'
+						+'<option value="default" data-width="500" data-height="281">500x281</option>'
+						+'<option value="medium" data-width="720" data-height="405">720x405</option>'
+						+'<option value="hd" data-width="960" data-height="540">960x540</option>'
+						+'<option value="custom" data-width="" data-height="">custom</option>'
+						
+					+'</select>'
+					+'<div id="custom"></div>'
+
+					+'<a class="close" onclick="closeembed()"></a>'
+				+'</div>';
+				$("div#myvideo").append(txt2); 
+				
+}
+function sselect()
+{
+	console.log('adaf');
+	$('.iframe').select();
+}
+function getsizeembed()
+{
+	if($('#mySelect option:selected').val()!="custom")
+	{
+		var width=$('#mySelect option:selected').data('width');
+		var height=$('#mySelect option:selected').data('height');
+		$(".iframe").html("&lt;iframe seamless frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"true\"  mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\" width="+width+" height="+height+" src='"+document.URL+"'&gt; &lt;&#47;iframe&gt;");
+	}
+	else
+	{
+		var txt="<form class='cust'>"
+					+"<input class='width' type='number' min='200' max='1600'>"
+					+"x"
+					+"<input class='height' type='number' min='112' max='900'>"
+				+"</form>"
+		$('#custom').html(txt);
+		$('.width').keyup(function()
+		{
+			var width=$(this).val();
+			var height=Math.round(width*9/16);
+			$('.height').val(height);
+			$(".iframe").html("&lt;iframe seamless frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"true\"  mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\" width="+width+" height="+height+" src='"+document.URL+"'&gt; &lt;&#47;iframe&gt;");
+		})
+	}
+}
+/*
+	Add ads first
+*/
+window.j=1;
+function zclose()
+{
+    window.j=1;
+	var myPlayer = videojs('myvideo');
+	var whereYouAt = myPlayer.currentTime();
+	var isPaused = myPlayer.paused();
+	if(isPaused){ myPlayer.play();}
+	$("#overlay").remove();
+       
+}
+
+//set cookie
+		
+function startTime(x,zlink,szx,szy)
+{
+	if(window.j==1){
+//add clock
+		var xx=window.innerWidth-20;
+		var yy=window.innerHeight-20;
+		var sx=parseInt(szx);
+		var sy=parseInt(szy);
+		var left=(xx-szx)/2;
+		var top=(yy-szy)/2;
+		//var txt2='<div id="demo" ></div>';  
+		var txt4='<div id="demo" ></div><iframe id="ads"   style="position:absolute;top:'+top+'px;left:'+left+'px;width:'+sx+'px;height:'+sy+'px;" src='+zlink+' frameborder="0" sameless scrolling="no" ></iframe>';
+		//$(".overlay").prepend(txt2);    
+		$(".overlay").prepend(txt4);  
+		var h= new Date();
+//set 5s
+		window.k= h.getTime()+parseInt(x);
+		var myVar=setInterval(function(){myTimer()},1000);
+		
+		
+}
+}
+		window.j++;
+
+
+ 	  
+ 	 function myTimer()
+		{
+ 		    console.log('myTimer insert demo');
+			var d=new Date();
+			var t=window.k-d.getTime();
+			var i=Math.round(t/1000);
+			if(i>=0){
+				document.getElementById("demo").innerHTML='Skip Ads in '+Math.round(t/1000)+' s';}
+				if(i==-1) {
+
+			//add close button
+				var txt3="<div id='tat' onclick='zclose()' > [close and play]</div>"; 
+				$("#demo").remove();  
+				$(".overlay").append(txt3); 
+				clearInterval(myVar);
+							}
+		}
+
+ function midTime(zlink,szx,szy)
+{
+
+//add clock
+		var xx=window.innerWidth-20;
+		var yy=window.innerHeight-20;
+		var sx=parseInt(szx);
+		var sy=parseInt(szy);
+		var left=(xx-szx)/2;
+		var top=(yy-szy)/2;
+		var txt4='<iframe id="ads"   style="position:absolute;top:'+top+'px;left:'+left+'px;width:'+sx+'px;height:'+sy+'px;" src='+zlink+' frameborder="0" sameless scrolling="no" ></iframe>';
+		$("#overlay").prepend(txt4);  
+		//add close button
+		var txt3="<div id='tat' onclick='zclose()' > [close and play]</div>"; 
+		$("#overlay").append(txt3); 
+
+}
+
+/*
+add ads on mid video
+*/
+	function toggle_visibility(id) {
+       var e = document.getElementById(id);
+	   f=document.getElementById('midads');
+       if(e.style.display == 'block'){
+          e.style.display= 'none';
+		  }
+       else{
+          e.style.display= 'block';
+		  }
+    }
+	function setAdsmid(zlink)
+	{
+		var x=window.innerWidth-20;
+		var y=window.innerHeight-20;
+		var txt="<div id='mid' onclick='toggle_visibility(\"midads\")' style='position:absolute;bottom:40px;left:50%;color:#ff0000;z-index:999'>show/hide</div>";
+		$("#myvideo").append(txt);  
+		var txt1="<div id='midads' style='position: relative; left: -50%;' ></div>";              // Create text with HTML           // Create text with DOM
+		$("#mid").append(txt1);        // Append new elements
+		var ifram='<iframe id="ads2"   style="width:720px;height:90px;" src='+zlink+' frameboder="0" seamless ></iframe>';
+		$("#midads").append(ifram); 
+	};
+//----------------------------playlist---------------------------
+	if($('.playlist_right').length){
+	var myVar=setInterval(function(){playlist()},1000);
+	function playlist()
+	{
+		var myPlayer = videojs('myvideo');
+		var whereYouAt = myPlayer.currentTime();
+		if(whereYouAt>1){
+			if(myPlayer.currentTime()==myPlayer.duration()){			
+				var kkk=$('.playlist_right>li.playing').next().find('a').attr('href');
+				console.log(kkk);
+				var check=kkk.indexOf("http://clipmediagroup.eu/main/play/");
+				if(check==-1){window.location.href=kkk;}
+				else{window.top.location.href=kkk;}
+			}
+			
+		}
+	};
+	playlist();
+	}
+	function nextvideo()
+	{
+		var kkk=$('.playlist_right>li.playing').next().find('a').attr('href');				
+		var check=kkk.indexOf("http://clipmediagroup.eu/main/play/");
+		if(check==-1){window.location.href=kkk;}	
+		else{window.top.location.href=kkk;}
+	}
+	function prevvideo()
+	{
+		var kkk=$('.playlist_right>li.playing').prev().find('a').attr('href');				
+		var check=kkk.indexOf("http://clipmediagroup.eu/main/play/");
+		if(check==-1){window.location.href=kkk;}	
+		else{window.top.location.href=kkk;}
+	}
+	 var setemb=setInterval(function(){setembed()},1000);
+	 function setembed()
+	 {
+		if($("div#myvideo").length){
+			var txt="<div id='embed' onclick='embedz()' style='position:absolute;top:40px;right:40px;color:#fff;z-index:999;font-size:20px;font-weight:bold;'></div>";
+			$("div#myvideo").append(txt);
+			clearInterval(setemb);
+		}
+	 };
+
+
+
+

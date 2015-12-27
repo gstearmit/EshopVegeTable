@@ -1,0 +1,106 @@
+<div class="container-fluid thanh-cuoi-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 nopading-360">
+                <div class="col-sm-2 box-tatca-danhmuc "><a href="#menu">TẤT CẢ DANH MỤC <i class="fa fa-arrow-circle-down"></i></a></div>
+                <div class="col-sm-10 box-tieude-danhmuc"> 
+                    <!--<ul class="ul_camera">
+                        <li><a href="#"><?php echo $catalog_detail['name'];?></a></li>  
+
+                        <li><span> <?php echo $data_detail['name']?></span></li>
+                    </ul>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<article>
+            <div class="container-fluid toi-trongsuot">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 row-content-top">
+                    <div class="col-sm-2 menudoc-conten-left">
+                        <ul id="tab-menu" class="menu-new">
+                            <?php
+                        foreach ($data_m as $keycat => $valuecat) {
+                            ?>
+                            <li class="menu-cat" ><a class="<?php
+                                if ($keycat == 0) {
+                                    echo 'active-tab';
+                                }
+                                ?>" rel='#category-box<?php echo $valuecat['id'] ?>' href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$valuecat['id']?>">  <?php echo $valuecat['name'] ?></a>
+                                <?php
+                                if($sub_menu[$valuecat['id']] !=null){
+                                ?>
+                                <ul class="sb-menu">
+                                    <?php foreach ($sub_menu[$valuecat['id']] as $key_sub=>$value_sub){?>
+                                    <li><a href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$value_sub['id']?>"><?php echo $value_sub['name'];?></a></li>
+                                    <?php } ?>
+                                </ul>
+                                <?php } ?>
+                            </li>
+                                <?php } ?>
+                        </ul>
+                    </div>
+                     
+                    <div class="col-sm-2  menu-right-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="container">
+				<!--forgot-->
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="box_forget">
+							<h2> Quên mật khẩu?</h2>
+                                                        <?php
+                                                        if(isset($error)){ echo $error; }
+                                                        ?>
+                                                        <form class="form-horizontal" action="" method="post" id="form-forgetpass">
+							<div class=" row box-border-forget">
+								<div class="col-md-6 col-xs-6 col-sm-6">
+									<p class="pbs strong fsm">Xin vui lòng nhập địa chỉ email của bạn. Chúng tôi sẽ gửi bạn đường link để thay đổi mật khẩu.</p>
+									
+										<div class="form-group">
+											<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+											<div class="col-sm-10">
+                                                                                            <input type="email" class="form-control" id="email" name="email" required="" placeholder="Email">
+											</div>
+										</div>
+										
+									
+								</div>
+								<div class="col-md-6 col-xs-6 col-sm-6">
+									<p class="float_right">* Thông tin bắt buộc</p>
+								</div>
+								
+							</div>
+							<div class="row">
+								<div class="col-md-6 col-xs-6 col-sm-6">
+									<div class="thanhtoan">
+                                                                            <a href="<?php echo WEBPATH?>/lazada/index">
+										<button> <i class="fa fa-angle-left"></i> Trở về  </button>
+                                                                            </a>   
+                                                                        </div>
+									</div>
+									<div class="col-md-6 col-xs-6 col-sm-6">
+										<div class="thanhtoan ">
+										
+                                                                                    <button onclick="sendmail()" class="float_right"> Gửi </button>
+									</div>
+									</div>
+								</div>
+                                                            </form>
+							</div>
+							
+						</div>
+				</div>
+				
+			</div>
+			
+			
+		</article>

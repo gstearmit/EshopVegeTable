@@ -1,0 +1,237 @@
+<?php
+
+use Zend\Session\Container;
+
+$container = new Container('shopcart');
+$arraycart = $container->cart;
+?>
+<section>
+    <div class="wapper">
+        <div class="breadcrumb hidden-xs ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2 col-xs-12 rohlik">
+                        <h4><a href="<?php echo WEBPATH ?>/apotraviny/index"> <i class="fa fa-angle-left"></i>  Zpět na úvod</a></h4>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <ul class="lastul">
+                            <li> <a href="<?php echo WEBPATH . '/apotraviny/index'; ?>"> Rohlik.cz</a></li>
+                            <li> > </li>
+                            <li> <a href="<?php echo WEBPATH . '/apotraviny/index/viewproductcat/' . $data_cat['id'] ?>" > <?php echo $data_cat['name'] ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-2 zadge">
+                        <a href="#"><img src="<?php echo ROHLIK_APOTRAVINY ?>/img/badge.png" alt="" > Získej až 2000 Kč</a>
+                    </div> 
+                    <div class="col-md-3 col-sm-3 fixhead">
+                        <p>  
+                            <i class="fa fa-cart-plus"> </i> </span>Košík <span class='count-cart'><?php echo count($arraycart); ?></span>
+                            <a href="<?php echo WEBPATH . '/shoppingcart/viewcart' ?>">
+                                <button class="btn btn-xs btn-viewcart">Objednat</button>
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="row scrolltotop">
+                    <div class="col-md-2 col-xs-12 col-sm-2 borderfull">
+                        <strong> Podkategorie</strong>
+                        <ul class="menudetail"> 
+                            <?php
+                            foreach ($cat_left as $key => $value) {
+                                if ($value['hot'] == 1) {
+                                    ?>
+                                    <li> <a href="<?php echo WEBPATH . '/apotraviny/index/viewproductcat/' . $value['id'] ?>"> <?php echo $value['name'] ?></a></li>
+
+                                <?php }
+                            }
+                            ?>
+                        </ul>
+                        <strong>Značky</strong>
+
+
+
+
+                    </div>
+                    <div class="col-md-10 col-xs-12 col-sm-10 contactten ">
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h1>Mé oblíbené</h1>	
+
+                                <div class="filter">
+                                    <!--<ul>
+                                        <input type="hidden" id="id-cat" value="<?php echo $data_cat['id']; ?>"/>
+                                        <input type="hidden" id="url-order" value="<?php echo WEBPATH . '/apotraviny/index/viewproductcat/' . $data_cat['id'] . '?order-by=' ?>"/>
+                                        <li><label><input onchange="orderproduct();" name="pro" value="id-DESC" type="radio" <?php
+                                    if ($order == null || $order == 'id-DESC') {
+                                        echo 'checked';
+                                    }
+                                    ?>><span class="like-radio"></span>Od ke starým nového</label></li>
+                                        <li><label><input onchange="orderproduct();" name="pro" value="id-ASC" type="radio" <?php
+                                    if ($order == 'id-ASC') {
+                                        echo 'checked';
+                                    }
+                                    ?> ><span class="like-radio"></span>Od nejstaršího k novějšímu</label></li>
+                                        <li><label><input onchange="orderproduct();" name="pro" value="price-DESC" type="radio" <?php
+                                    if ($order == 'price-DESC') {
+                                        echo 'checked';
+                                    }
+                                    ?> ><span class="like-radio"></span>Cena od nejvyšší k nejnižší</label></li>
+                                        <li><label><input onchange="orderproduct();" name="pro" value="price-ASC" type="radio" <?php
+                                    if ($order == 'price-ASC') {
+                                        echo 'checked';
+                                    }
+                                    ?>><span class="like-radio"></span>Cena od nejnižší k nejvyšší</label></li>
+
+                                        
+                                    </ul>-->
+                                </div>	
+                            </div>
+                        </div>
+                        <div class="row detailborder-bottom row-product">
+                            <!-- Scroll Ajax Content -->
+                            <?php
+                            foreach ($list_product as $key => $value) {
+
+                                echo '<div class="col-md-3 col-sm-3 col-xs-12 col-box">
+                                    <div class="imgslider">
+                                        <span class="heart-ws" onclick="deleitemswish(' . $value['product_ID'] . ',0); "><i class="fa fa-heart"></i></span>
+                                        <!-- <div class="oldprice"> -33 %</div>-->
+                                        <img onclick="productdetail(' . $value['product_ID'] . ')" src="' . WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value['img'] . '" class="img-responsive" alt="" onerror=this.src="' . ROHLIK_APOTRAVINY . '/img/no-product.png" />
+                                       <!-- <p class="">Datum spotřeby 2.6.2015</p>-->
+
+                                    </div>
+                                    <div class="mota">
+                                        <p class="detailclick" onclick="productdetail(' . $value['product_ID'] . ')">
+                                            <a href="#">' . $value['name'] . ' </a>
+                                            <input type="hidden" value="' . $value['product_ID'] . '" id="id_pro' . $value['id'] . '"/>
+                                        </p>
+                                       <!-- <p>	<strong>98&nbsp;Kč</strong>
+                                            <del>17&nbsp;Kč</del>-->
+                                        <p class="adddetail">
+                                        <form action="' . WEBPATH . '/shoppingcart/addcart" method="post">
+                                           <input type="hidden" name="number-product" value="' . $value['availability'] . '" />
+                                            <i class="fa fa-minus-circle" onclick="minuscart(' . $value['product_ID'] . ')"></i>
+                                            <input style="width:25px;" type="text" name="qty" value="1" id="qty' . $value['product_ID'] . '" class="">
+                                             <input type="hidden" name="id-product"  value="' . $value['product_ID'] . '" class="">    
+                                            <i class="fa fa-plus-circle" onclick="pluscart(' . $value['product_ID'] . ')"></i>
+                                            <button class="btn btn-success">Do košíku </button>
+                                        </form>    
+                                        </p>
+                                        <span>(' . $value['price'] . ' &nbsp;Kč/kg)</span></p>
+
+                                    </div>
+
+                                </div>';
+                            }
+                            ?>
+                        </div>	
+                        <div style="clear:both"></div>
+                        <center class="no-data">naprázdno údaje více</center>
+                    </div>
+                    <div id="backtop" class="hidden-xs scrolltop">
+                        <a href="#top" class="scrollToTop bottom" style="display: inline;"><img src="<?php echo ROHLIK_APOTRAVINY ?>/img/icon_gototop.png" alt=""/> </a>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('.row-product').scrollPagination({
+                                nop: 8,
+                                offset: 0,
+                                error: 'No More Posts!',
+                                delay: 1000,
+                                scroll: true
+
+                            });
+                            // hide #back-top first
+                            $('#backtop').hide();
+
+                            // fade in #back-top
+                            $(function () {
+                                $(window).scroll(function () {
+                                    if ($(this).scrollTop() > 100) {
+                                        $('#backtop').fadeIn();
+                                    } else {
+                                        $('#backtop').fadeOut();
+                                    }
+                                });
+
+                                // scroll body to 0px on click
+                                $('#backtop a').click(function () {
+                                    $('body,html').animate({
+                                        scrollTop: 0
+                                    }, 800);
+                                    return false;
+                                });
+                            });
+
+                        });
+                    </script>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+</section>
+<!--end contact-->
+
+
+
+<div id="sp" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body product-detail">
+
+
+                <!--CONTENT AJAX -->
+
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->			
+</div>
+
+<style>
+    .adddetail i{
+        font-size: 16px !important;
+        cursor: pointer;
+    }
+    .img-detail{
+
+        width:100%;
+    }
+
+</style>
+<div id="md-wsl" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Odstranit produkty z přání</h4>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <p>Chcete-li odstranit tento produkt ze seznamu oblíbených ?</p>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <span id="md-bt"></span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

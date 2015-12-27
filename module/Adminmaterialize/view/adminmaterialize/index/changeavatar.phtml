@@ -1,0 +1,27 @@
+<?php if(!$getuser){echo "you need login";}
+else{?>
+<div class="content clearfix"><div id="nav1"><ul class="me-nu1 nav nav-pills nav-stacked"><li class="menu-nav active"><a href="#">Đổi Hình Nền</a></li></ul></div><div class="clearfix bottom-line "></div>
+                        
+                        <div class="avata col-md-12 col-sm-9 col-xs-12">
+                        	<div class="col-md-3">
+                            	<p>Ảnh hiện tại</p>
+                            </div>
+                        	<div class="col-md-9">
+                            	<img width="150" height ="150" src="<?php echo $this->escapeHtml($getuser->avatar);?>">
+                            </div>
+                            <div class="avata col-md-3">
+                            	<p>Chọn ảnh khác</p>
+                            </div>
+                            <div class="avata col-md-9">
+                            	<form id="form5" method="post"	action= "http://clipmediagroup.eu/admin/change" enctype="multipart/form-data">
+					<label for="file">Filename:(<5Mb)</label>
+					<input type="file" name="imagefile" id="imagefile"><br>
+
+					<button id="submitButton" class="btn btn-primary">change</button>
+				</form>
+                                <div id="cis"></div>
+                            </div>
+                            <script src="http://clipmediagroup.eu/js/ajax.js"></script>
+                        </div></div>
+
+<?php }?>

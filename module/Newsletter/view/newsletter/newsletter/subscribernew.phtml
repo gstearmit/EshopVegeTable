@@ -1,0 +1,30 @@
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+<?php
+$popupNewsletterOff  = $this->layout()->popupNewsletterOff;
+if($popupNewsletterOff == 1)
+{
+	//echo '<script type="text/javascript"> //<![CDATA[ Mage.Cookies.set(\'popupNewsletterOff\',true);  //]]> </script>';
+}else {
+	//echo '<script type="text/javascript"> //<![CDATA[ Mage.Cookies.set(\'popupNewsletterOff\',undefined);  //]]> </script>';
+}
+
+$Status_subscribed = $this->layout ()->Status_subscribed;
+if ($Status_subscribed === 0) {
+	
+	echo '<ul class="messages">  <li class="error-msg"><ul><li><span>Error! try agian</span></li></ul></li></ul>';
+}
+
+if ($Status_subscribed != 0) {
+	echo '<ul class="messages"><li class="success-msg"><ul><li><span>subscribed Register Sucess.</span></li></ul></li></ul>';
+	echo '<a href="' . WEBPATH . '"><h3>Click here to Home</h3></a>';
+}
+?>
+</div>
+</div>
+</div>
+</div>
+

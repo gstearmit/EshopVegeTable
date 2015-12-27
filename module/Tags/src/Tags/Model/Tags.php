@@ -1,0 +1,185 @@
+<?php
+
+namespace Tags\Model;
+
+// Add these import statements
+use Zend\InputFilter\InputFilter;
+use Zend\InputFilter\Factory as InputFactory;
+use Zend\InputFilter\InputFilterAwareInterface;
+use Zend\InputFilter\InputFilterInterface;
+
+class Tags implements InputFilterAwareInterface {
+	public $id;
+	public $name;
+	public $parent;
+	public $child;
+	public $date_creat;
+	public $date_modified;
+	public $status;
+	public $alias;
+	public $img;
+	public $description;
+	protected $inputFilter;
+	public function exchangeArray($data) {
+		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
+		$this->name = (isset ( $data ['name'] )) ? $data ['name'] : null;
+		if ($data ['parent'] == '' || $data ['parent'] == 0) {
+			$this->parent = null;
+		} else
+			$this->parent = (isset ( $data ['parent'] )) ? $data ['parent'] : null;
+		$this->child = (isset ( $data ['child'] )) ? $data ['child'] : null;
+		
+		$this->date_creat = (isset ( $data ['date_creat'] )) ? $data ['date_creat'] : null;
+		$this->date_modified = (isset ( $data ['date_modified'] )) ? $data ['date_modified'] : null;
+		$this->status = (isset ( $data ['status'] )) ? $data ['status'] : null;
+		$this->alias = (isset ( $data ['alias'] )) ? $data ['alias'] : null;
+		$this->img = (isset ( $data ['img'] )) ? $data ['img'] : null;
+		$this->description = (isset ( $data ['description'] )) ? $data ['description'] : null;
+	}
+	public function dataArraySwap($data, $Renamefile) {
+		$this->id = (isset ( $data ['id'] )) ? $data ['id'] : null;
+		$this->name = (isset ( $data ['name'] )) ? $data ['name'] : null;
+		if ($data ['parent'] == '' || $data ['parent'] == 0) {
+			$this->parent = null;
+		} else
+			$this->parent = (isset ( $data ['parent'] )) ? $data ['parent'] : null;
+		$this->child = (isset ( $data ['child'] )) ? $data ['child'] : null;
+		
+		$this->date_creat = (isset ( $data ['date_creat'] )) ? $data ['date_creat'] : null;
+		$this->date_modified = (isset ( $data ['date_modified'] )) ? $data ['date_modified'] : null;
+		$this->status = (isset ( $data ['status'] )) ? $data ['status'] : null;
+		$this->alias = (isset ( $data ['alias'] )) ? $data ['alias'] : null;
+		$this->img = $Renamefile;
+		$this->description = (isset ( $data ['description'] )) ? $data ['description'] : null;
+	}
+	
+	// Add content to these methods:
+	public function setInputFilter(InputFilterInterface $inputFilter) {
+		throw new \Exception ( "Not used" );
+	}
+	// Add the following method:
+	public function getArrayCopy() {
+		return get_object_vars ( $this );
+	}
+	public function getInputFilter() {
+		if (! $this->inputFilter) {
+			$inputFilter = new InputFilter ();
+			
+			$factory = new InputFactory ();
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'id',
+					'required' => false,
+					'filters' => array (
+							array (
+									'name' => 'Int' 
+							) 
+					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'name',
+					'required' => true,
+					'filters' => array (
+							array (
+									'name' => 'StripTags' 
+							),
+							array (
+									'name' => 'StringTrim' 
+							) 
+					),
+					'validators' => array (
+							array (
+									'name' => 'StringLength',
+									'options' => array (
+											'encoding' => 'UTF-8',
+											'min' => 1,
+											'max' => 100 
+									) 
+							) 
+					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'alias',
+					'required' => true,
+					'filters' => array (
+							array (
+									'name' => 'StripTags' 
+							),
+							array (
+									'name' => 'StringTrim' 
+							) 
+					),
+					'validators' => array (
+							array (
+									'name' => 'StringLength',
+									'options' => array (
+											'encoding' => 'UTF-8',
+											'min' => 1,
+											'max' => 100 
+									) 
+							) 
+					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'Description',
+					'required' => false,
+					'filters' => array (
+							array (
+									'name' => 'StripTags' 
+							),
+							array (
+									'name' => 'StringTrim' 
+							) 
+					),
+					'validators' => array (
+							array (
+									'name' => 'StringLength',
+									'options' => array (
+											'encoding' => 'UTF-8',
+											'min' => 1,
+											'max' => 100 
+									) 
+							) 
+					) 
+			) ) );
+			
+			$inputFilter->add ( $factory->createInput ( array (
+					'name' => 'img',
+					'required' => false,
+					'validators' => array (
+							array (
+									'name' => 'FileExtension',
+									'options' => array (
+											'extension' => 'jpg, jpeg, JPG, JPEG' 
+									)  // png, gif,, PNG , GIF
+														),
+							array (
+									'name' => 'FileSize',
+									'options' => array (
+											'min' => 1,
+											'max' => 4000000 
+									),
+									array (
+											'name' => 'StringLength',
+											'options' => array (
+													'encoding' => 'UTF-8',
+													'min' => 1,
+													'max' => 100 
+											) 
+									) 
+							) 
+					) 
+			) ) );
+			
+			
+			
+			$this->inputFilter = $inputFilter;
+		}
+		
+		return $this->inputFilter;
+	}
+}
+?>

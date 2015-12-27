@@ -1,0 +1,72 @@
+ <?php
+$title = 'Delete catalogue';
+$this->headTitle($title);
+?>
+
+
+<section id="content">
+
+	<!--breadcrumbs start-->
+	<div id="breadcrumbs-wrapper" class=" grey lighten-3">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<h5 class="breadcrumbs-title">Mana Name site</h5>
+					<ol class="breadcrumb">
+						<li><a href="<?php echo WEBPATH;?>/materialize/">Dashboard</a></li>
+						<li><a href="<?php echo WEBPATH;?>/catalog/name/index">Name</a></li>
+						<li class="active">Delete</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--breadcrumbs end-->
+
+	
+	<!--start container-->
+	<div class="container">
+		<div class="section">
+
+			<!-- chi tiet -->
+						<?php if (!isset ( $check )) {?>
+								  <h5> <span style="font-style: bold;">Are you sure that you want to delete ? </span></h5>
+									<p>Note: If you delete this list, it will affect the list containing it. Or do you think more carefully before deleting</p>
+									<?php 
+									$url = $this->url('Crowler', array('controller'=>'name','action' => 'delete', 'id'=>$this->id)); ?>
+									<form action="<?php echo $url; ?>" method="post">
+									<div>
+									  <input type="hidden" name="id" value="<?php echo (int)$this->product->id; ?>" />
+									  <input type="submit" name="del" value="Yes" class="btn btn-primary" />
+									  <a href="javascript:void(0)" onclick="history.go(-1)" name="del"  class="btn btn-primary" >NO</a>
+									</div>
+									</form>
+								</div><!-- end form delete -->
+			<?php } // if (!isset ( $check )?>
+			  <?php
+			  
+			    if (isset ( $check ) && $check == 1 ) {  ?>
+			             
+			             <div class="alert alert-success">
+						  <strong>Success!</strong> Delete Name.
+						  <a href="<?php echo WEBPATH;?>/crowler/name/index" class="btn-flat waves-effect pink accent-2 white-text"><i class="mdi-communication-comment left"></i>Mana Name</a>
+						</div>
+			               <?php   }  ?>
+			               
+			    <?php   if(isset($check)&&$check==0) {  ?>
+			                     <div class="alert alert-danger">
+						  <strong>Danger!</strong> Error Delete Name.
+						   <a href="<?php echo WEBPATH;?>/crowler/name/index" class="btn-flat waves-effect pink accent-2 white-text"><i class="mdi-communication-comment left"></i>Mana Name</a>
+						
+						</div>       
+			                            
+			                              <?php   }  ?>
+						
+			<!-- end chi tiet  -->
+
+		</div>
+		<!-- end section -->
+	</div>
+	<!--end container-->
+</section>
+

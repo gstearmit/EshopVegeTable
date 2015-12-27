@@ -1,0 +1,53 @@
+﻿<?php //$paginator=$this->layout()->ressort;
+function substr_unicode($str, $s, $l = null) {
+    return join("", array_slice(
+        preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY), $s, $l));
+}
+ function getduration($duration){
+	$list=explode(':',$duration);
+	$sizearr=sizeof($list);
+		if(((int) $list[0])==0)
+		{
+			return substr($duration,3);
+		}
+	else return $duration;
+		
+	}
+
+?>
+<?php
+foreach ($paginator as $upload) :
+$imgUrl='';
+if($upload->imgfolder==''){$imgUrl='http://s1.data.eclip.tv/data/uploads/images/'.$upload->seriecode.'/1.jpg';}
+else $imgUrl=$upload->imgfolder.'/thumbnail.jpg';
+ ?>
+	<div class="col-md-12 item-search"  role="checkbox" aria-checked="false" style="margin-bottom:10px;margin-top: 10px;" data-value="<?php echo $this->escapeHtml($upload->id);?>">
+         <div class="col-md-4">
+			<img class="" width="200" height="120" src="<?php echo $imgUrl;?>">
+			 <div class="duration"><?php echo getduration($upload->duration);?></div>
+         </div>
+         <div class="col-md-8">
+             <p>
+				<span style="color:#0859ab; font-weight:bold"><?php if(strlen($upload->title)<80){echo $this->escapeHtml($upload->title);}else echo $this->escapeHtml(substr_unicode($upload->title,0,80)).'...';?> 
+				</span>   
+				</br>
+				<span style="color:#999; font-weight:bold; font-size:12px"><?php echo $this->escapeHtml($upload->views);?> Lượt xem  &nbsp&nbsp<span>Đăng Ngày: </span>  <?php echo $this->escapeHtml(substr($upload->datetime,0,10));?>
+				</span>
+			</p>
+			<p><?php if(strlen($upload->description)<120){echo $this->escapeHtml($upload->description);}else echo $this->escapeHtml(substr_unicode($upload->description,0,120)).'...';?>
+			</p>
+         </div>           
+         <div class="clearfix"></div>
+    </div>
+                         
+ <?php endforeach; ?>
+  <div class="clearfix"></div>
+
+
+  <script>
+	$('div.item-search').click(function(){
+		$('div.item-search').removeClass('checked');
+		$(this).addClass('checked');		
+	});	
+  </script>
+

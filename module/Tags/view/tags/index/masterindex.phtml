@@ -1,0 +1,183 @@
+<section id="content">
+
+    <!--breadcrumbs start-->
+    <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m7 l7">
+                    <h5 class="breadcrumbs-title">Mana Tags</h5>
+                    <ol class="breadcrumb">
+                        <li><a href="<?php echo WEBPATH; ?>/materialize/">Dashboard</a></li>
+                        <li><a href="<?php echo WEBPATH; ?>/tags/masterindex">Tags</a></li>
+                        <li class="active">Manager</li>
+                    </ol>
+
+                </div>
+                <div class="col s12 m5 l5 btn-manage">
+                    <a href="<?php echo WEBPATH; ?>/tags/masterindex" class="waves-effect waves-light  btn">Manager Tags</a>
+                    <a href="<?php echo WEBPATH; ?>/tags/masteradd" class="waves-effect waves-light  btn">Add New Tags</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs end-->
+
+
+    <!--start container-->
+    <div class="container">
+        <div class="section">
+
+            <!--thay trang chi tiet vao--->
+            <div class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+
+
+                <section class="md-content-section">
+
+                    <md-content class="md-default-theme">
+                        <div class="md-content__body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Status</th>
+                                            <th>Desciption</th>
+                                            <th>Thumb</th>
+                                            <th>Action</th>
+                                            <th>Completion %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $listNews = $this->layout()->listNews;
+                                        $listpr = $this->layout()->listNews;
+                                        $paginator = $this->layout()->paginator;
+                                        $allRecord = $this->layout()->allRecord;
+                                        $offset = $this->layout()->offset;
+                                        $itemsPerPage = $this->layout()->itemsPerPage;
+
+                                        // echo "<pre>";
+                                        // print_r($listNews);
+                                        // echo "</pre>";
+                                        // die;
+
+                                        for ($i = 0; $i < count($listNews); $i ++) {
+                                            ?>			
+
+                                            <tr>
+                                                <td><?php echo $listNews[$i]->id + 10; ?></td>
+                                                <td><?php echo $listNews[$i]->name; ?></td>
+                                                <td>
+                                                    <?php
+                                                    if ($listNews[$i]->status == 1) {
+                                                        echo '<span class="label label-success">Active</span>';
+                                                    }
+                                                    ?>
+                                                    <?php
+                                                    if ($listNews[$i]->status == 0) {
+                                                        echo '<span class="label label-primary">Pending</span>';
+                                                    }
+                                                    ?>
+                                                    <?php
+                                                    if ($listNews[$i]->status == 0) {
+                                                        echo '<span class="label label-danger">Suspended</span> ';
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td><?php echo $listNews[$i]->description; ?></td>
+                                                <td><?php if ($listNews[$i]->img != '') { ?><img
+                                                            class="img-responsive"
+                                                            src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $listNews[$i]->img; ?>" /> <?php } ?></td>
+                                                <td>
+                                                    <div id="linview">
+                                                        <input type="hidden" id="url-action" value="<?php echo WEBPATH; ?>/tags/masterdelete/"/>
+                                                        <a title="Edit" class="btn-floating  green" href="<?php echo WEBPATH ?>/tags/masteredit/<?php echo $listNews[$i]->id; ?>">
+                                                            <i class="mdi-editor-mode-edit"></i>
+                                                        </a>
+                                                        <a title="Delete" onclick="actiondelate(<?php echo $listNews[$i]->id; ?>)"class="btn-floating  red modal-trigger" href="#modal3">
+                                                            <i class="mdi-content-clear"></i>
+                                                        </a> 
+                                                        <?php
+                                                        if ($listNews [$i]->status == 1)
+                                                            $statusNew = 0;
+                                                        if ($listNews [$i]->status == 0)
+                                                            $statusNew = 1;
+                                                        ?>
+                                                        <a  title="Change Status" class="btn-floating blue-grey" href="<?php echo WEBPATH; ?>/tags/masterstatus/<?php echo $listNews[$i]->id; ?>/status=<?php echo $listNews[$i]->status; ?>">
+                                                            <i class="mdi-notification-sync"></i>
+                                                        </a>                                                          
+                                                    </div>
+                                                </td>
+                                                <td><div
+                                                        class="progressbar-xs no-margin progress ng-isolate-scope"
+                                                        value="55">
+                                                        <div class="progress-bar"
+                                                             ng-class="type & amp;
+                                                                     & amp;
+                                                                     'progress-bar-' + type"
+                                                             role="progressbar" aria-valuenow="55"
+                                                             aria-valuemin="0" aria-valuemax="100"
+                                                             ng-style="{width: percent + '%'}" aria-valuetext="55%"
+                                                             ng-transclude="" style="width: 55%;"></div>
+                                                    </div></td>
+                                            </tr>
+                                            <?php
+                                        } // end for
+                                        ?>	
+
+                                        <tr>
+                                            <td>
+                                                <!-- colspan="11" -->
+                                                <?php
+                                                // echo $this->paginationControl ( $paginator, 'Sliding', 'layout/paginatorcatalogue',
+                                                // array (
+                                                // 'name' => 'Catalog',
+                                                // 'controller' => 'index',
+                                                // 'action' => 'manacatalogue'
+                                                // ) );
+                                                // echo "ediuddd :"; var_dump($this->pagesInRange);
+                                                ?>
+
+
+
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </md-content>
+
+                </section>
+
+
+
+
+            </div>
+
+
+        </div>
+        <!-- left -->
+        <!-- end chi tiet -->
+
+
+
+
+    </div>
+    <!-- end section -->
+</div>
+<!--end container-->
+</section>
+
+<div id="modal3" class="modal" style="display: none; opacity: 1; top: 0px;">
+    <div class="modal-content teal white-text">
+        <p>You sure you want to delete this Tags. All vehicle data be erased from the database</p>
+    </div>
+    <div class="modal-footer  teal lighten-4">
+        <span class="append-btn"></span>
+        <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">No</a>       
+    </div>
+</div>

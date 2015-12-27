@@ -1,0 +1,132 @@
+<style>
+.cochu {
+font-size: 18px;
+font-weight: bold;
+}
+.calcR b {
+font-size: 23px;
+color: #3B9D00;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 700;
+}
+
+.applyNow {
+color: red;
+float: left;
+margin: 18px 0 0 0;
+padding: 0 21px 0 0;
+background: url(../public/img/trinAgle.png) right 4px no-repeat;
+}
+</style>
+<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 col-md-12">
+							<h1 class="text-center unleash">ADSLINK.EU Media Revenue Calculator</h1>
+							<p>Note:these stats are being generated using the historical data from our 'General/Entertainment' sites. this category of site typically has the lowest these stats are being generated using the historical data from our 'General/Entertainment' sites. this category of site typically has the lowest </p>
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-xs-12 col-sm-12 borderform">
+						    <link rel="stylesheet" type="text/css" href="<?php echo WEBPATHURL;?>/advhtml/css/styleformvalidate.css"/>
+							<script type="text/javascript">
+								H5F.listen(window,"load",function () {
+									H5F.setup(document.getElementById("estimated"));
+								},false);
+							</script>
+							
+							<form id="estimated" name="estimated"  method="post" >
+							    <input type='hidden' id="estimatedurl" name='estimatedurl' value='<?php echo WEBPATH.'/estimatedprocess.ads'?>'/>
+								<div class="col-md-6 col-xs-12 col-sm-6 borderleft">
+									<p class="borderbottom"></p><h2> Enter your traffic start below to estimate your daily/monthy revenus </h2><p></p>
+									<label>WebSite</label>
+									<input class="form-control" type="url" id="website" name='website' required placeholder="<?php echo  WEBPATH;?>"><br>
+									<label>Daily Ad Impression (min 1.000 vistor)</label>
+									<input class="form-control" type="number" id="dailyadimpression" name='dailyadimpression'  min="1000"  maxlength="6" required placeholder="10000"><br>
+									    <p class="validation01">
+										  <span class="invalid">Your Daily Ad Impression is out of min 1.000</span>
+										  <span class="valid"> .Your Daily Ad Impression is in the correct range</span>
+										</p>
+									<p>Percentage of visitors by country</p>
+									<label>USA(example :70%)</label>
+									<input class="form-control" type="number" id="usa" name='usa' placeholder="70%">
+									<label>EU(example :20%)</label>
+									<input class="form-control" type="number" id="eu" name ='eu' placeholder="20%">
+									
+									<label>World/International:(example :10%)</label>
+									<input class="form-control" id="international" name='international' type="number" placeholder="10%"> <br>
+									
+									
+									
+									<input type='submit' id="cal" class="btn btn-info calcu" value='Calculate'/>
+									
+								</div>
+								<div class="col-md-6 col-xs-12 col-sm-6 calcR">
+									<p class="borderbottom"></p><h2>Output Estimate Revenue</h2><p></p>
+									<p></p><h2> please enter information in the left  form and click "calculate"</h2><p></p>
+				 		            
+								    <div id="result"></div>
+								</div>
+								
+								<div class="col-md-12 col-xs-12 col-sm-12 mar-top colorf">
+									<p> *these are provided as estimates only and are no guarentee of how much you"ll make with ADSLINK.EU</p>
+								</div>	
+							</form>
+							
+						</div>
+					</div>
+					
+					<!--slide-->
+				</div>
+				
+				
+				
+																																				</div>
+	
+	       <script>	
+					$(document).ready(function(){
+						var error = $( "#dailyadimpression" ).hasClass( "error" );
+						if(error){
+							$("#estimated .validation01").css('display','block');
+							}
+						$("#price").hide();
+						$("#cal").click(function(){
+							var dailyadimpression = $('#dailyadimpression').val();
+							$('#dailyadimpressionresilt').val(dailyadimpression);
+							$("#price").show();
+						});
+					}); 
+
+
+					 var estimated = $('#estimated');
+					 estimated.on('submit', function(ev){
+					        ev.preventDefault();
+					       
+							//ajax
+							 var pagenew = 1; 
+					         var ajaxDatanew = $("#estimated").serialize()+"&do=estimated&page="+pagenew;
+					       
+						    		$('#loading').show();
+						    		//alert(ajaxDatanew);// return 0;
+						    		$.ajax({
+						    	        url: $("#estimatedurl").val(),
+						    	        cache: false,
+						    	        type: "POST",
+						    	        data: ajaxDatanew,           
+						    	        success: function(serverData){
+						    	        	//alert(serverData);// return 0;
+						    	        	if(serverData != 'false')
+						    	        	{
+						    	            	$("#result").html(serverData);
+						    	        	}
+						    	        	
+						    	        },
+						    	        error: function() {
+						    	            alert("Bad Error submit"); return 0;
+						    	        }
+						    	    });
+						    	
+					    });	
+				</script>
+					

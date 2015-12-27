@@ -1,0 +1,160 @@
+<?php
+use Zend\Session\Container;
+$setting = $this->layout()->setting;
+$setting_session = new Container('setting');
+?>
+<?php echo $this->doctype(); ?>
+<!DOCTYPE html>
+<html class="no-js " lang="cs">
+<head >
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title><?php echo $setting_session->name; ?></title>
+    <meta name="description" content="<?php echo $setting_session->seo_description; ?>" />
+        <meta name="keywords" content="<?php echo $setting_session->seo_keywords; ?>" />
+        <meta name="robots" content="INDEX,FOLLOW" />
+	<meta name="author" content="<?php echo $setting_session->name; ?>">
+	<meta name="revisit-after" content="1 Day">
+
+	<meta property="og:site_name" content="Apotraviny.cz">
+	<meta property="og:title" content="<?php echo $setting_session->name; ?>">
+	<meta property="og:image" content="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/social/share-huge.jpg">
+	<meta property="og:description" content="<?php echo $setting_session->seo_description; ?>">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="<?php echo WEBPATH; ?>">
+	<meta property="fb:app_id" content="615828701867578">
+	<meta property="fb:admins" content="666678592">
+
+	<meta name="apple-itunes-app" content="app-id=9898989898">
+	<meta name="google-play-app" content="app-id=cz.apotraviny.app">
+
+	<link rel="icon" href="<?php echo WEBPATH_UPLOAD_PATH_IMG . '/' . $setting_session->ico; ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo WEBPATH_UPLOAD_PATH_IMG . '/' . $setting_session->ico; ?>" type="image/x-icon" />
+	
+	<link rel="apple-touch-icon" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/touch-icons/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/touch-icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/touch-icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/touch-icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/touch-icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/touch-icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/touch-icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/images/touch-icons/apple-touch-icon-152x152.png">
+
+	<link rel="canonical" href="<?php echo WEBPATH; ?>">
+
+	<link rel="stylesheet" type="text/css" href="<?php echo ROHLIK_LANGDINGPAGE; ?>/webtemp/cssloader-39831ab48d2a-lp-v1.css?1433158101">
+
+
+	
+	<meta name="viewport" content="width=980">
+	<!--[if lte IE 8]>
+	<script src="/js/html5shiv.min.js"></script>
+	<![endif]-->
+
+	<link href='https://fonts.googleapis.com/css?family=Open%20Sans%3A300%2C400%2C400italic%2C600%2C700%2C800%7CNoto%20Serif%3A400%2C400italic%7COpen%20Sans%20Condensed%3A700%7COswald%3A400&amp;subset=latin-ext' rel='stylesheet' type='text/css'>
+
+	
+
+</head>
+<body class="next welcomeLandingPage b " data-basepath="" data-baseurl="<?php echo ROHLIK_LANGDINGPAGE; ?>" data-cookie-domain=".<?php echo BAG_NO_HTTP; ?>">
+<script>document.body.className += ' js'</script>
+
+
+<nav>
+	<div class="container">
+		<h1><a title="Apotraviny.cz" href="<?php echo WEBPATH;?>">Apotraviny.cz</a></h1>
+
+		<p><a title="Přeskočit do obchodu" href="<?php echo WEBPATH;?>/langding/redirect">Přeskočit do obchodu</a></p>
+		<ul>
+		    <li><a href="#delivery" class="scrollToWithAnimation fixedNav" title="Doprava a platba">Doprava a platba</a></li>
+			<li><a class="fixedNav" title="Novinka: recepty" href="#">recepty od Apotraviny.cz</a></li>
+			<li><a class="registration fixedNav" title="Získejte teď hned 100&nbsp;Kč a dopravu zdarma na první objednávku" href="/registrace"><strong>Získat 100&nbsp;Kč a dopravu zdarma</strong></a></li>
+			<li><a href="#how" class="scrollToWithAnimation fixedNav" title="Jak to funguje">Jak to funguje</a></li>
+			<li><a href="#delivery" class="scrollToWithAnimation fixedNav" title="Doprava a platba">Doprava a platba</a></li>
+		</ul>
+	</div>
+</nav>
+
+	<header>
+		<div class="container">
+			<h1>Už nikdy nebudete muset tahat tašky</h1>
+
+			<h2>Nákup Vám dovezeme <strong>za 30 minut</strong> až domů</h2>
+			<ul>
+				<li class="button"><a title="Vyrazit do obchodu" href="<?php echo WEBPATH;?>/langding/redirect">Vyrazit do obchodu</a></li>
+				<li class="button orange"><a href="https://www.youtube.com/watch?v=bE4AdCpMN8g" data-embed="//www.youtube.com/embed/bE4AdCpMN8g?rel=0&autoplay=1" class="openVideo" title="Jak to funguje">Jak to funguje</a></li>
+			</ul>
+			<nav>
+				<h6><a title="Apotraviny.cz" href="<?php echo WEBPATH;?>/apotraviny/index">Apotraviny.cz</a></h6>
+				<ul>
+					<li><a href="#delivery" class="scrollToWithAnimation fixedNav" title="Doprava a platba">Doprava a platba</a></li>
+					<li><a href="#how" class="scrollToWithAnimation fixedNav" title="Jak to funguje">Jak to funguje</a></li>
+					<li><a class="registration fixedNav" title="Získejte teď hned 100&nbsp;Kč a dopravu zdarma na první objednávku" href="<?php echo WEBPATH;?>/langding/redirect"><strong>Získat 100&nbsp;Kč a dopravu zdarma</strong></a></li>
+					<li><a class="fixedNav" title="Novinka: recepty" href="#">recepty od Apotraviny.cz</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	
+	
+	<?php echo $this->content; ?>
+	
+	
+<footer>
+		<div class="container">
+			<section class="contact">
+				<ul>
+					<li class="phone"><strong><span>840&nbsp;730&nbsp;740</span></strong> <span>Každý den&nbsp;od 10 do 23 hodin<span></li>
+					<li class="mail"><a href="mailto:apotraviny@">apotraviny@apotraviny.cz</a> <span>Na e-mail se snažíme odpovídat okamžitě</span></li>
+				</ul>
+			</section>
+			<div class="cols">
+				<section class="custommers">
+					<h5>Pro zákazníky</h5>
+					<ul>
+						<li><a title="Apotraviny.cz Premium" href="#">Apotraviny.cz Premium</a></li>
+						<li><a title="Mobilní aplikace" href="#">Mobilní aplikace</a></li>
+						<li><a title="Garance spokojenosti" href="#">Garance spokojenosti</a></li>
+						<li><a title="Doprava a mapa dovozu" href="#">Doprava a mapa dovozu</a></li>
+						<li><a title="Doprava na první objednávku zdarma" href="#">Doprava na první objednávku zdarma</a></li>
+						<li><a title="Nakoupíme za Vás" href="#">Nakoupíme za Vás</a></li>
+					</ul>
+				</section>
+				<section class="about">
+					<h5>O nás</h5>
+					<ul>
+						<li><a title="Kontakt" href="#">Kontakt</a></li>
+						<li><a title="Podmínky užití" href="#">Podmínky užití</a></li>
+						<li><a title="Volná místa" href="#">Volná místa</a></li>
+					</ul>
+				</section>
+
+				<p>Alkohol a cigarety prodáváme pouze osobám starším 18 let. Při převzetí zboží bude ověřen váš věk.</p>
+				
+			</div>
+			<section class="fb">
+				<div class="fb-like-box" data-href="https://www.facebook.com/damerohlik" data-colorscheme="light" data-width="292" data-height="180" data-show-faces="true" data-stream="false" data-header="false" data-show-border="false"></div>
+			</section>
+		</div>
+	</footer>
+
+
+<div class="tooltip"></div>
+
+<div id="fb-root"></div>
+
+	<!--[if (gte ie 6)&(lte ie 8)]>
+	<script src="/js/selectivizr.js"></script>
+	<![endif]-->
+
+<script type="text/javascript" src="<?php echo ROHLIK_LANGDINGPAGE; ?>/webtemp/jsloader-f21384e92167.js?1432593864"></script>
+
+<script>var dataLayer = [{"title":"Nakupujte bez front a tahání těžkých tašek. Vyzkoušejte online supermarket Apotraviny.cz","pageType":":Front:Promo:welcome","category":null,"minOrder":null,"addressStreet":null,"addressCity":null,"visitorType":null,"ordersTotal":null,"userId":null,"userEmail":null,"userCreateDate":null,"userStatus":null,"firstVisit":false,"breadcrumbs":[]}];</script>
+<script type="text/javascript" defer="defer" src="https://mylivechat.com/chatinline.aspx?hccid=35565043"></script>
+</body>
+</html>	
+	
+
+
+

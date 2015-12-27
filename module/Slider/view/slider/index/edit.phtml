@@ -1,0 +1,135 @@
+<!-- font chu icon http://fortawesome.github.io/Font-Awesome/icons/ -->
+<script language="javascript" src="<?php echo WEBPATH?>/include/ckeditor/ckeditor.js" type="text/javascript"></script>
+<div class="main-container col2-left-layout">
+	<div class="container">
+		<div class="main">
+
+			<div class="row show-grid">
+				<div
+					class="col-left sidebar col-lg-3 col-md-3 col-sm-3 col-pull-3 hidden-xs">
+
+					<!--  <div id="leftcatalogue"></div> -->
+					<!-- leftcatalogue -->
+
+					<div id="myacountaja"></div>
+					<!-- myacountaja -->
+					<div id="myproductaja"></div>
+
+					<div id="mycartaja"></div>
+
+
+					<div id="compareproductaja"></div>
+					<!-- compareproductaja -->
+					
+					
+
+					<p></p>
+				</div>
+
+				<!--thay trang chi tiet vao--->
+				<div
+					class="col-main col-lg-9 col-md-9 col-sm-9 col-push-9 col-xs-12">
+					<div class="pageheader">
+						<h1 class="title-admin page-title">
+							<i class="glyphicon glyphicon-plus"></i>Edit Slider:
+						</h1>
+					</div>
+					
+					<div class="buttons-set buttons-set2" style=" /*float: right; */">
+						<a href="<?php echo WEBPATH?>/slider/index">
+							<button type="button" name="Mana Slider" title="Mana Slider"
+								class="butoon button btn-share">
+								<span><span>Mana Slider</span></span>
+							</button>
+						</a> <a href="<?php echo WEBPATH?>/slider/add">
+							<button type="button" title="AddNew"
+								class="butoon button btn-add">
+								<span><span>Add new Slider</span></span>
+							</button>
+						</a>
+
+					</div>
+					<div class=""> 
+					<?php
+					
+						if ( (isset ( $check ) && $check == 1  ) ||  (isset ( $check ) && $check == 1 && $this->error == 1))
+							 
+					 {
+						echo '<div class="alert alert-success" role="alert">Slider has been updated success.</div>';
+					}
+					?>
+					<?php if(isset($check)&&$check==0){echo '<div class="alert alert-danger" role="alert">Error!!.</div>';}?>
+					<?php if(!isset($check) || $check =='NULL'){?>
+    <div class=" col-lg-12 col-md-12 col-sm-12 col-push-12 col-xs-12">
+     <?php
+						$form = $this->Sliderform;
+						$form->prepare ();
+						echo $this->form ()->openTag ( $form );
+						?>
+							    <?php echo $this->formElement($form->get('id')); ?>
+							    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('id'));?></span>   
+							    
+							  
+							    <?php echo $this->formlabel($form->get('link'));?>
+							    <?php echo $this->formElement($form->get('link')); ?>
+							    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('link'));?></span>
+							    
+							   
+							    <?php echo $this->formLabel($form->get('img')); ?>
+							    <div class="form-control imgnew">
+							    <?php 
+							    if($this->img_thumb !='') {?>
+							      <img
+									class="img-responsive"
+									src="<?php echo WEBPATH.'/imgslideshow/thumb_slideshow2/'.$this->img_thumb;?>" />
+																			
+							    <?php }?>
+							    </div>
+							    <?php echo $this->formFile($form->get('img')); ?>
+							    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('img'));?></span>
+							    
+							    <?php echo $this->formlabel($form->get('text'));?>
+							    <?php echo $this->formElement($form->get('text')); ?>
+							    <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('text'));?></span>
+							
+							     
+
+							<label for="parent">Status</label>
+							<div class="form-control">
+						      <?php echo $this->formElement($form->get('status')); ?>
+						      <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('status'));?></span>
+							</div>
+
+
+
+							<p></p>
+								<?php echo $this->formElement($form->get('submit'));?>
+							     <?php echo $this->form()->closeTag($form);?>
+							     </div>
+							     <?php }?>
+							</div>
+					<!-- end chi tiet -->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	function get_alias(){
+		var str = (document.getElementById("name").value);
+		str= str.toLowerCase();
+		str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+		str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+		str= str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+		str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+		str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+		str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
+		str= str.replace(/đ/g,"d");
+		str= str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g,"-");
+		str= str.replace(/-+-/g,"-"); //thay thế 2- thành 1-
+		str= str.replace(/^\-+|\-+$/g,"");//cắt bỏ ký tự - ở đầu và cuối chuỗi
+		document.getElementById("alias").value = str;
+		return str;
+	}
+	</script>
+	<script type="text/javascript">CKEDITOR.replace('text'); </script>

@@ -1,0 +1,96 @@
+<?php 
+use Zend\Session\Container;
+$session_fb = new Container('facebook');
+
+
+
+if($session_fb->id == null)
+{
+	$session_user = new Container('user');
+	$session_fb->id = $session_user->id;
+	$session_fb->username=$session_user->username;
+	$session_fb->avatar=$session_user->avatar;
+	$session_fb->time=time()+14400;
+	$session_fb->role=$session_user->group;
+	$session_fb->fbid = $session_user->fbid;
+	$session_fb->fullname = $session_user->fullname;
+	$session_fb->referral_id_array = $session_user->referral_id_array;
+	$session_fb->referral_id = $session_user->referral_id;
+	
+	$session_fb->address_line1=$session_user->address_line1;
+	$session_fb->address_line2=$session_user->address_line2;
+	$session_fb->CityorTown=$session_user->CityorTown;
+	$session_fb->StateorCounty =$session_user->StateorCounty;
+	$session_fb->ZipcodeorPostcode = $session_user->ZipcodeorPostcode;
+	$session_fb->Country = $session_user->Country;
+	$session_fb->AccountType = $session_user->AccountType;
+	$session_fb->CompanyName = $session_user->CompanyName;
+	$session_fb->MobileAppads = $session_user->MobileAppads;
+	$session_fb->Language = $session_user->Language;
+	$session_fb->Withdrawal =$session_user->Withdrawal;
+}
+?>
+<table class="table table-bordered">
+	<tr>
+	 <div class="pageheader">
+         <h2 class="title-admin">All Infor Oder Detail Of <?php echo $session_fb->fullname;?> </h2>
+    </div>
+	</tr>
+	<tr>
+		<td>ID</td>
+		<td>Creat Name Campaign</td>
+		<td>DolarTotal</td>
+		<td>TotaVistor</td>
+		<td>Cpmrate</td>
+		<!-- <td>Status oder</td> -->
+		<td>Type</td>
+		
+        <td>Status</td>
+        <td>Payment methods</td>
+		<!-- <td>Edit</td> -->
+		<td>Delete</td>
+	</tr>
+    <?php 
+
+    
+    foreach ($list as $keylist=>$listNews){ ?>
+        <tr>
+		<td><?php echo $listNews['id'] + 992015; ?></td>
+		<td><?php echo $listNews['creatnamecampaign']; ?></td>
+		<td><?php echo '$'.$listNews['DolarTotal'].'.00'; ?></td>
+		<td><?php echo $listNews['TotaVistor'].'000'; ?></td>
+		<td><?php echo '$'.$listNews['Cpmrate'].'.00'; ?></td>
+		<!-- <td><?php echo $listNews['status_oder']; ?></td>  -->
+		<td>
+		  <?php if($listNews['type'] == 0 || $listNews['type'] == 1) { echo 'Interstitial Advertising';}?>
+		  <?php if($listNews['type'] == 2) { echo 'Leaderboard Banner Advertising';}?>
+		  <?php if($listNews['type'] == 3) { echo 'Pop Ad Advertising ';}?>
+		</td>
+		
+		<td>
+		    <?php if($listNews['status_oder'] == 1) { echo '<span class="label label-success">Active</span>'; } ?>
+		    <?php if($listNews['status_oder'] == 0) { echo '<span class="label label-important">Not Active</span>'; } ?>
+		   
+		</td>
+       <td>
+         <a href="<?php echo WEBPATH.$this->url('Advertiser', array('controller' => 'Advertiser\Controller\Index', 'action' => 'paypalpro', 'id' => $listNews['id']+ 992015 )); ?>"> By PayPal </a>
+        |<a href="<?php echo WEBPATH.$this->url('Advertiser', array('controller' => 'Advertiser\Controller\Index', 'action' => 'paytowallet', 'id' => $listNews['id'] + 992015)); ?>"> Wallet </a>
+	   
+	   </td>
+
+		<!--  <td><a href="<?php echo $this->url('Oder', array('controller' => 'oder', 'action' => 'edit', 'id' => $listNews['id'] + 992015)); ?>">Edit</a></td> -->
+		<td><a href="<?php echo $this->url('Advertiser', array('controller' => 'Advertiser\Controller\Index', 'action' => 'deletecamp', 'id' => $listNews['id_proc'])); ?>">Delete</a></td>
+	</tr>
+    <?php } ?>
+    <tr>
+		<td colspan="13">
+            <?php
+												echo $this->paginationControl ( $paginator, 'Sliding', 'layout/paginatoroder', array (
+														'name' => 'Oder',
+														'controller' => 'oder',
+														'action' => 'oderadv' 
+												) );
+												?>
+        </td>
+	</tr>
+</table>

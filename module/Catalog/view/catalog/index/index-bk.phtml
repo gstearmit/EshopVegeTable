@@ -1,0 +1,46 @@
+<div class="pageheader">
+    <h2 class="title-admin"><i class="glyphicon glyphicon-user"></i> Manage Catalog</h2>
+</div>
+<div class="">
+    <a href="<?php echo $this->url('Catalog',array('action'=>'add')); ?>" class="btn btn-primary">Add New Catalog</a>
+    <table class="table table-striped" style="text-align:left;">
+        <tr>
+            <th>ID</th>
+            <th>Catalog Name</th>  
+            <th>Edit</th>
+        </tr>
+		<tr>
+    <?php foreach($paginator as $key=>$value){ if($key==1)continue; ?>
+            <td><?php echo $this->escapeHtml($key);?></td>
+            <td><?php echo $this->escapeHtml($value);?></td>       
+
+            <td><a href="<?php echo "http://".$_SERVER['SERVER_NAME']."/catalog/edit/".$this->escapeHtml($key);?>"><span class="glyphicon glyphicon-edit">&nbsp;&nbsp;</span></a><a href="#" class="del-catalog" data-id="<?php echo $this->escapeHtml($key); ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+    
+    <?php }?>
+    </table>
+</div>
+<script>
+$('.del-catalog').click(function(){
+
+    //var ans=
+    //console.log('123');
+    if(confirm('Are you sure you want to delete this catalog'))
+    {
+        var dataid=$(this).data('id');
+        $.ajax({
+            url:"http://<?php echo $_SERVER['SERVER_NAME'];?>/catalog/delete/"+dataid,
+            type:"POST",
+            data:{id:dataid},
+            success:function(e)
+            {
+                if(e){location.reload();}
+                else{console.log('err!!');}
+            }
+            
+        });
+    }else{}
+
+});
+
+</script>

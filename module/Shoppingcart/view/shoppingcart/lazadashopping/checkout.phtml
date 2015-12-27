@@ -1,0 +1,254 @@
+<?php 
+use Zend\Session\Container; 
+$session_user = new Container('userlogin');
+$user_name = $session_user->username;
+if($user_name != null){
+ 
+?>
+<div class="col-md-8 checkout-user" >
+    <form id="submitform" class="form-checkout" method="post" action="<?php echo WEBPATH?>/shoppingcart/lazada/checkout">
+       <input type="hidden" name="idus" value="<?php echo $session_user->idus; ?>"/>
+        <div class=" padding-marrgin border_form">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-horizontal" id="contact">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" value="<?php echo $session_user->username; ?>" name="email" id="email"  placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3 control-label">Họ tên</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<?php echo $session_user->fullname; ?>" name="name" id="Name" placeholder="Họ Tên" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-sm-3 control-label">Địa chỉ</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" value="<?php echo $session_user->address; ?>" name="address" id="address" placeholder="Địa chỉ" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="col-sm-3 control-label">Tỉnh/thành phố</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="city" onchange="get_city();">
+                                    <option> chọn tỉnh/ thành phố </option>
+                                    <?php foreach ($data_city as $key1=>$value1){?>
+                                    <option value="<?php echo $value1['ID']?>"><?php echo $value1['TenTinhThanh']?> </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="quanhuyen" class="col-sm-3 control-label">Quận Huyện</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="quanhuyen" >
+                                    <option> Chọn quận huyện </option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-3 control-label">Số Điện Thoại</label>
+                            <div class="col-sm-9">
+                                <input type="number" name="phone" class="form-control" value="<?php echo $session_user->phone; ?>"  id="phone" placeholder="09874678" required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Kiểu thanh toán</label>
+                            <div class="col-sm-9">
+                                <label class="checkbox-inline">
+                                    <input id="checkout" onclick="get_valuecheckout();" type="radio" class="radio-checkout" name="checkout" id="inlineCheckbox1" value="0" checked>
+                                    <span  class="btn btn-success">Platba na dobírku</span>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input id="checkout" onclick="get_valuecheckout();" type="radio" class="radio-checkout" name="checkout" id="inlineCheckbox2" value="1"> 
+                                    <span  class="btn btn-primary"><i class="fa fa-cc-paypal"></i> Platba přes PayPal</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-3">
+                </div>
+            </div>
+            
+        </div>
+        <div class=" marrgin-padding border_form">
+            <div class="hipping_options_area" >
+                <h4>Choose your shipping option</h4>
+                <div class="shipping_options">
+                    <div class="shippingOptionRow">
+                        <input class="shipping_fee_type" type="radio" name="shipping-group-" id="shipping_type_address_input_standard" value="standard" checked="checked">
+                        <label class="shippingOptionLabel" for="shipping_type_address_input_standard">
+                            <strong>Giao hàng tiêu chuẩn</strong>
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class=" btn btn-warning" id="submit-form"> TIẾP TỤC >> </button>
+
+    </form>
+</div>
+<?php }else{ ?>
+<div class="col-md-8 border_form type-checkout">
+    <div class="row">
+        <div class="col-md-3">
+            <span> Nhập vào địa chỉ email:</span>
+        </div>
+        <div class="col-md-6">
+            <form method="post" action="<?php echo WEBPATH?>/customer/lazada/login" id="form-checks">
+                <input type="hidden" name="url" value="<?php echo WEBPATH ?>/shoppingcart/lazada/checkout" />
+                <input class="form-control input-check" type="email" name="email" id="emails"  required="" placeholder="email@email.com"/>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="radio" name="check" value="0"> Đặt hàng mà không cần đăng ký
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input  type="radio" name="check" value="1"> Tôi đã có tài khoản tại Lazada.vn
+                    </label>
+                </div>
+                <input class="form-control input-check" type="password" id="passwords" name="password" required="" placeholder="nhập mật khẩu để đăng nhập vào tài khoản "/>
+                <a href="<?php echo WEBPATH ?>/customer/lazada/forgotpass">
+                <span style="text-align:right; display:block;">quên mật khẩu </span>
+                </a>
+                <div class="icontt"><button id="continue-checkout">TIẾP TỤC >> </button></div>
+                <div class="line">
+                    <hr>
+                    <p class="text-center or">OR</p>
+                </div>
+                <div class="fb">
+                    <a href="#">
+                        <button class="iconfb"><i class="fa fa-facebook"></i></button>
+                        <span> Đăng Nhập bằng facebook</span>
+                    </a>
+                </div>
+                <div class="gd">
+                    <a href="#">
+                        <button class="icongd"><i class="fa fa-google-plus"></i></button>
+                        <span> Đăng Nhập bằng google</span>
+                    </a>
+                </div>
+
+
+            </form>
+
+        </div>
+        <div class="col-md-3">
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="col-md-8 checkout-guest" >
+    <form id="submitform" class="form-checkout" method="post" action="<?php echo WEBPATH?>/shoppingcart/lazada/checkout">
+        <input type="hidden" name="idus" value="<?php echo $session_user->idus; ?>"/>
+        <div class=" padding-marrgin border_form">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-horizontal" id="contact">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" name="email" id="email"  placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3 control-label">Họ tên</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="name" id="Name" placeholder="Họ Tên" required>
+                                <span class="get-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-sm-3 control-label">Địa chỉ</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="address" id="address" placeholder="Địa chỉ" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="col-sm-3 control-label">Tỉnh/thành phố</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="city" onchange="get_city();">
+                                    <option> chọn tỉnh/ thành phố </option>
+                                    <?php foreach ($data_city as $key1=>$value1){?>
+                                    <option value="<?php echo $value1['ID']?>"><?php echo $value1['TenTinhThanh']?> </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="quanhuyen" class="col-sm-3 control-label">Quận Huyện</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="quanhuyen" >
+                                    <option> Chọn quận huyện </option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-3 control-label">Số Điện Thoại</label>
+                            <div class="col-sm-9">
+                                <input type="number" name="phone" class="form-control" value="number"  id="phone" placeholder="09874678" required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Kiểu thanh toán</label>
+                            <div class="col-sm-9">
+                                <label class="checkbox-inline">
+                                    <input id="checkout" onclick="get_valuecheckout();" type="radio" class="radio-checkout" name="checkout" id="inlineCheckbox1" value="0" checked>
+                                    <span  class="btn btn-success">Platba na dobírku</span>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input id="checkout" onclick="get_valuecheckout();" type="radio" class="radio-checkout" name="checkout" id="inlineCheckbox2" value="1"> 
+                                    <span  class="btn btn-primary"><i class="fa fa-cc-paypal"></i> Platba přes PayPal</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-3">
+                </div>
+            </div>
+            
+        </div>
+        <div class=" marrgin-padding border_form">
+            <div class="hipping_options_area" >
+                <h4>Choose your shipping option</h4>
+                <div class="shipping_options">
+                    <div class="shippingOptionRow">
+                        <input class="shipping_fee_type" type="radio" name="shipping-group-" id="shipping_type_address_input_standard" value="standard" checked="checked">
+                        <label class="shippingOptionLabel" for="shipping_type_address_input_standard">
+                            <strong>Giao hàng tiêu chuẩn</strong>
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class=" btn btn-warning" id="submit-form"> TIẾP TỤC >> </button>
+
+    </form>
+</div>
+<?php } ?>

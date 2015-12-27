@@ -1,0 +1,25 @@
+<?php if ($this->pageCount): ?>
+ 
+        <ul class="pagination pagination-centered">
+            <li <?php echo!isset($this->previous) ? 'class="disabled"' : ''; ?>>
+                <a href="<?php echo $this->url($this->route);?>page/<?php echo $this->first.'?keyword='.$_GET['keyword']; ?>">&laquo;</a></li>
+            <li <?php echo!isset($this->previous) ? 'class="disabled"' : ''; ?>>
+                <a href="<?php echo $this->url($this->route);?>page/<?php echo $this->previous.'?keyword='.$_GET['keyword']; ?>">&lsaquo;</a></li>
+
+
+            <!-- Numbered page links -->
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <li <?php echo $page == $this->current ? 'class="active"' : ''; ?>><a href="<?php echo $this->url($this->route);?>page/<?php echo $page;?>?keyword=<?php echo $_GET['keyword']; ?>">
+                        <?php echo $page; ?>
+                    </a></li>
+            <?php endforeach; ?>
+
+            <!-- Next page link -->
+            <li <?php echo!isset($this->next) ? 'class="disabled"' : ''; ?>>
+                <a href="<?php echo $this->url($this->route);?>page/<?php echo $this->next.'?keyword='.$_GET['keyword']; ?>">&rsaquo;</a></li>
+            <!-- Last page link -->
+            <li <?php echo!isset($this->next) ? 'class="disabled"' : ''; ?>>
+                <a href="<?php echo $this->url($this->route);?>page/<?php echo $this->last.'?keyword='.$_GET['keyword']; ?>">&raquo;</a></li>
+        </ul>
+  
+<?php endif; ?>

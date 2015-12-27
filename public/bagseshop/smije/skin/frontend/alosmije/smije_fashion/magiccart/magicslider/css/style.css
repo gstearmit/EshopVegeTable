@@ -1,0 +1,46 @@
+.iview{display:block;padding:1px;border-radius:0;position:relative;overflow:hidden}
+.iview .iviewSlider{display:block;width:100%;height:500px;overflow:hidden}
+.slide-home .iview{margin:0 auto 30px}
+.slide-home .iview .iviewSlider{display:block;height:388px;overflow:hidden;width:848px}
+.slide-home .iview-controlNav{right:0;left:70%;bottom:15px}
+.slide-home .iview-controlNav div.iview-items{height:auto}
+.iview-controlNav{position:absolute;bottom:30px;left:0;height:44px}
+.iview-controlNav a{text-indent:-9999px}
+.iview-controlNav a.iview-controlPrevNav{float:left;width:50px;height:44px;background:url('../images/slider-controls.png') no-repeat}
+.iview-controlNav a.iview-controlNextNav{float:left;width:50px;height:44px;background:url('../images/slider-controls.png') no-repeat -50px 0}
+.iview-controlNav div.iview-items{padding:0 10px 0 10px;height:30px}
+.iview-controlNav a.iview-control{padding:0;float:left;width:10px;height:10px;background-color:#aaa;line-height:0;border-radius:50%}
+.iview-controlNav a.iview-control.active,.iview-controlNav a.iview-control:hover{background-color:#333}
+.iview-caption{color:#333}
+.iview-caption.caption1{line-height:69px}
+.iview-caption.caption1 .caption-contain{font-family:Arial,Helvetica,sans-serif;color:#e5685d;font-weight:bold;font-size:69px;letter-spacing:-4px}
+.iview-caption.caption2{font-family:"Montserrat"}
+.iview-caption.caption2{color:#333333;text-shadow:none;font-size:36px;line-height:28px}
+.iview-caption.caption2 .caption-contain{font-family:"Montserrat";font-size:31px;letter-spacing:-2px;text-align:left}
+.iview-caption.caption3{line-height:26px}
+.iview-caption.caption3 .caption-contain{font-family:"Raleway";font-size:26px;font-weight:bold;line-height:26px;letter-spacing:-1px}
+.iview-caption.caption4 .caption-contain{font-family:"Raleway";font-size:14px}
+.iview-caption.caption5 .caption-contain{color:#333;cursor:pointer;font-family:"Raleway";font-size:18px;line-height:18px;padding:0;text-align:center}
+.iview-caption.caption5{font-size:13px;font-weight:normal;text-shadow:none}
+.iview-caption.caption6{color:#fff;line-height:43px;cursor:pointer}
+.iview-caption.caption6 .caption-contain{border-radius:3px;background-color:#333333;padding:0 20px;font-size:14px;width:auto!important;display:inline-block}
+.iview-caption.caption6 .caption-contain:hover{background-color:#e5685d}
+.iview-caption.caption7{text-align:left;font-size:11px;color:#888;border-radius:0}
+.iview-caption.caption7 div{line-height:200%}
+.iview-caption.caption7 h3{margin-bottom:20px;color:#FFF}
+/*#iview-preloader{border:#666 1px solid;width:150px}
+#iview-preloader div{background:#666}
+*/
+.iview-controlNav div.iview-items ul li{padding:0;float:left;width:11px;height:12px;margin:3px;margin-top:16px;line-height:0}
+.iview #iview-tooltip{display:none;position:absolute;background:url('../images/tooltip.png') no-repeat;width:144px;height:110px;bottom:30px;left:-67px;padding:10px;z-index:100}
+.slide-home .iview-directionNav a{height:25px;width:30px;text-indent:-999em;opacity:0}
+.slide-home:hover .iview-directionNav a{opacity:1}
+.slide-home .iview-directionNav .iview-prevNav{background-image:url('../images/prevNav.png');background-repeat:no-repeat;background-position:8px 3px}
+.slide-home .iview-directionNav .iview-prevNav:hover{background-image:url('../images/prevNav-hover.png')}
+.slide-home .iview-directionNav .iview-nextNav{background-image:url('../images/nextNav.png');background-repeat:no-repeat;background-position:8px 3px}
+.slide-home .iview-directionNav .iview-nextNav:hover{background-image:url('../images/nextNav-hover1.png')}
+.block-banner-slide{margin-bottom:20px}
+.iview #iview-tooltip div.holder{display:block;width:124px;height:84px;overflow:hidden;border-radius:2px}
+.iview #iview-tooltip div.holder div.container-tooltip{display:block;width:4000px}
+.iview #iview-tooltip div.holder div.container-tooltip div{float:left;display:block;overflow:hidden;width:144px;height:110px;left:-50%;text-align:center}
+.iview #iview-tooltip div.holder div.container-tooltip div img{height:84px;margin:0 auto;width:100%}

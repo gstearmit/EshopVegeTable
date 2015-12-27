@@ -1,0 +1,118 @@
+<?php if (!$this->layout()->getuser) die("Error") ?>
+    <section id="content">
+
+        <!--breadcrumbs start-->
+        <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <h5 class="breadcrumbs-title">Mana Manufature</h5>
+                        <ol class="breadcrumb">
+                            <li><a href="<?php echo WEBPATH; ?>/materialize/">Dashboard</a></li>
+                        <li><a href="<?php echo WEBPATH; ?>/manufacture">Manufature</a></li>
+                        <li class="active">Add Manufature</li>
+                    </ol>
+
+                </div>
+                <div class="col s12 m6 l6 btn-manage">
+                    <a href="<?php echo WEBPATH; ?>/manufacture" class="waves-effect waves-light  btn">Manager Manufature</a>
+                    <a href="<?php echo WEBPATH; ?>/manufacture/add" class="waves-effect waves-light  btn">Add Manufature</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs end-->
+
+
+    <!--start container-->
+    <div class="container">
+        <div class="section">        
+
+            <div class="divider"></div>
+            <!--Basic Form-->
+            <div id="basic-form" class="section">
+                <div class="row">
+                    <?php if(isset($alert)){ echo $alert;}?>
+                    
+                    
+                    <div class="col s12 m12 l12">
+                        <div class="card-panel">
+                            <!--<h4 class="header2">Basic Form</h4>-->
+                            <div class="row">
+
+                                <form method="post" name="Tags" class="form-horizontal" enctype="multipart/form-data" id="Tags">                                
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input type="text" name="name" class="form-control"   id="name" value="<?php echo $data_detail['manu_name'];?>"> 
+                                            <label for="first_name">Manufacture name</label>
+                                        </div>
+
+                                        <div class="input-field col s6 style-textarea">
+                                            <textarea name="description" class="form-control materialize-textarea" id="description"><?php echo $data_detail['description'];?></textarea>                                            
+                                            <label for="description">Description</label> 
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="file-field input-field col s6 set-label">
+                                            <label for="img">Images </label>   
+                                            <input class="file-path validate valid" type="text">
+                                            <div class="btn">
+                                                <span>Img</span>
+                                                <input type="file" name="img" class="form-control"  id="img">  
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                             <img src="<?php echo WEBPATH_UPLOAD_PATH_IMG . $data_detail['img'];?>" width="100" />
+                                        </div>
+                                    </div>                                  
+                                    <div class="row">
+                                        <div class="col s12 m12 l12">
+                                            <label for="parent">Status</label>
+                                            <div class="row">
+                                                <div class="col s12 m12 l6">
+                                                    <input name="status" type="radio" value="0" id="test1" <?php if($data_detail['status']==0){ echo 'checked';}?>> <label for="test1">Pause</label>
+                                                    <p></p>
+                                                </div>
+                                                <div class="col s12 m12 l6">
+                                                    <input name="status" type="radio" value="1" id="test2" <?php if($data_detail['status']==1){ echo 'checked';}?>> <label for="test2">Active</label>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>                     
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Form with placeholder -->
+
+            </div>
+        </div>
+
+        <!-- Form with icon prefixes -->
+
+    </div>
+
+
+
+
+
+
+</div>
+</section>
+
+<style>
+    .alert-danger{
+        background: #F7D3D2;
+    }
+</style>
+

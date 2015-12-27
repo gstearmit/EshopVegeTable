@@ -1,0 +1,50 @@
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin-bottom:15px;
+}
+.fileUpload input{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.topaction a{
+margin-bottom:5px;
+}
+@media(max-width:980px){
+	.customer{
+    width: 100% !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    border: 1px solid #DDD !important;
+	}
+	.topaction a{
+		margin-top:5px !important;
+		padding:4px 6px !important;
+		}
+	
+}
+
+/***********************************/
+.container.menu-locate.phuc-red {
+  position: relative;
+  top: 26px;
+  z-index: 1111;
+  width: 65%;
+  left: 3%;
+}
+header#p-header {
+  position: relative;
+  top: -38px;
+}
+
+
+
+
+

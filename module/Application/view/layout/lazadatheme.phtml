@@ -1,0 +1,928 @@
+<?php echo $this->doctype(); ?>
+<?php
+	
+	use Zend\Session\Container;
+	
+	$setting = $this->layout()->setting;
+	$setting_session = new Container('setting');
+	
+	$container = new Container('shopcart_lazada');
+	$arraycart = $container->cart_lazada;
+	
+	$session_user = new Container('userlogin');
+	$user_name = $session_user->username;
+	
+	$session_product = new Container('product');
+	$list_product = $session_product->product_search;
+	
+	$session_catalog = new Container('catalog');
+	$list_catalog = $session_catalog->list_cat;
+	
+	$fb_session = new Container('facebook_share');
+	
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><?php echo $setting_session->name; ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="<?php echo $setting_session->seo_description; ?>" />
+        <meta name="keywords" content="<?php echo $setting_session->seo_keywords; ?>" />
+        <meta property="og:url" content="<?php echo $fb_session->url; ?>">
+        <meta property="og:image" content="<?php echo $fb_session->img; ?>">
+        <meta name="robots" content="INDEX,FOLLOW" />
+        <meta charset="UTF-8">
+        <link rel="icon" href="<?php echo WEBPATH_UPLOAD_PATH_IMG.'logo/'.$setting_session->ico ?>" type="image/x-icon" />
+        <link rel="shortcut icon" href="<?php echo WEBPATH_UPLOAD_PATH_IMG . '/' . $setting_session->ico; ?>" type="image/x-icon" />
+        <link href="<?php echo ROHLIK_LAZADA; ?>/lazadanew/css/jquery.mmenu.all.css" rel="stylesheet" type="text/css"/>       
+        <link href="<?php echo ROHLIK_LAZADA; ?>/lazadanew/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo ROHLIK_LAZADA; ?>/lazadanew/fonts/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo ROHLIK_LAZADA; ?>/lazadanew/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo ROHLIK_LAZADA; ?>/lazadanew/css/style-lop1.css" rel="stylesheet" type="text/css"/> 
+		<link href="<?php echo ROHLIK_LAZADA; ?>/lazadanew/css/style-new.css" rel="stylesheet" type="text/css"/> 
+		<script src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/js/jquery-2.1.3.js" type="text/javascript"></script>
+        <script src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/js/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/js/jquery.validate.js"></script>
+        <script src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/js/time.js" type="text/javascript"></script>
+        <script src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/js/jquery.mmenu.min.all.js" type="text/javascript"></script>
+        <script src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/js/kendo.all.min.js" type="text/javascript"></script>
+		<!--<script type="text/javascript" src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/js/multizoom.js"></script>-->
+		
+        <script>
+            $(document).ready(function () {
+                $('.box-thanhtoan').click(function () {
+                    $('#product').modal('show');
+				});
+			});
+            function scrollWin(x, y) {
+                window.scrollBy(x, y);
+			}
+            var domain = '<?php echo WEBPATH; ?>';
+		</script>
+		
+        <script type="text/javascript">
+			
+            $(function () {
+                $("#menu")
+				.mmenu({
+				})
+				.on("click", "a[href=\"#\"]",
+				function () {
+					//alert("Thank you for clicking, but that's a demo link.");
+					return false;
+				}
+				);
+				
+				
+                var data = [<?php
+					foreach ($list_product as $keys => $values) {
+						echo '"' . $values['name'] . '",';
+					}
+				?>
+                ];
+				
+                $("#search-data").kendoAutoComplete({
+                    dataSource: data,
+                    separator: ", "
+				});
+				
+				
+			});
+			
+		</script>
+		
+        <script>
+            $(function () {
+                $('#house a').click(function () {
+                    $('.box-danngnhap').toggle();
+				});
+			});
+			
+            $(function () {
+                $('#tab-menu li a').hover(function () {
+                    $('#tab-menu li a').removeAttr('class');
+                    $('.div-tab').hide();
+                    $('.hinhtron').hide();
+                    var showtab = $(this).attr("rel");
+                    var active = showtab.replace("#", "");
+                    //alert(active);
+                    $(this).addClass('active-tab');
+                    $(showtab).show();
+                    $(this).find('.hinhtron').css('display', 'block');
+                    $(active, '.hinhtron').addClass('display');
+					
+				});
+                $('.show-div').click(function () {
+					
+				});
+				
+                $('.box-tatca-danhmuc').click(function () {
+                    $('.toi-trongsuot').slideToggle();
+				});
+			});
+			
+			
+			
+            /*   --------------------------------------------------- */
+			
+			
+            /*   --------------------------------------------------- */
+            function showdiv(key) {
+                $('html, body').animate({scrollTop: $('#tang-' + key).position().top - 30}, 'slow');
+				
+				
+			}
+			
+            /*   --------------------------------------------------- */
+            function showDiv() {
+                if ($(window).scrollTop() > 100) {
+                    $(".logo-timkiem-mua-fluid").css({"position": "fixed", "top": "0px"});
+					} else {
+                    $(".logo-timkiem-mua-fluid").css({"position": "relative", "top": "0px"});
+				}
+			}
+            $(window).scroll(showDiv);
+            showDiv();
+			
+            function truqty(key) {
+				
+                var qty = $('#getqty' + key).val();
+				
+                if (qty > 1) {
+                    var qtynew = parseInt(qty) - 1;
+                    $('#getqty' + key).val(qtynew);
+					} else {
+                    $('#getqty' + key).val('1');
+				}
+			}
+            function congqty(key) {
+                var qty = $('#getqty' + key).val();
+				
+                var qtynew = parseInt(qty) + 1;
+                $('#getqty' + key).val(qtynew);
+			}
+		</script>
+	</head>
+    <body>
+		
+		
+        <header>
+			
+            <nav class="navbar navbar-default thaydoinavbar">
+                <div class="container-fluid domaumenufluid">
+                    <div class="container">
+                        <div class="row row-menu-top">
+                            <div class="col-sm-12 menu-top-top">
+                                <div class="col-sm-3 header-top-left"></div>
+								
+                                <div class="col-sm-9 header-top-right">
+                                    <div class="container-fluid">
+                                        <!-- Brand and toggle get grouped for better mobile display -->
+                                        <div class="navbar-header header-trencung-mobi">
+                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+											</button>
+                                            <a class="navbar-brand" href="#">
+                                                <img alt="Brand name" src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'logo/'.$setting_session->logo1 ?>" height="40"  />
+											</a>
+										</div>
+										
+                                        <!-- Collect the nav links, forms, and other content for toggling -->
+                                        <div class="collapse navbar-collapse menu-container" id="bs-example-navbar-collapse-1">
+                                            <ul class="nav navbar-nav ulmenu">
+                                                <li>
+                                                    <?php
+														if ($user_name != null) {
+														?>
+                                                        <a href="<?php echo WEBPATH ?>/customer/wishlist/index">DANH SÁCH YÊU THÍCH </a>
+														<?php } else { ?>
+                                                        <a data-toggle="modal" data-target=".bs-example-modal-sm">DANH SÁCH YÊU THÍCH</a>
+													<?php } ?>
+												</li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CHĂM SÓC KHÁCH HÀNG <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Trung tâm hỗ trợ</a></li>
+                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Đơn hàng & Thanh toán</a></li>
+                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Giao hàng & Nhận hàng</a></li>
+                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Đổi trả hàng & Hoàn tiền <button class="btn-danger">Mới</button></a></li>
+													</ul>
+												</li>
+                                                <li class="dropdown" id="house">
+                                                    <?php
+														if ($user_name == null) {
+														?>
+                                                        <a href="javascript:void(0);" id="my-order" class="dropdown"  data-toggle="dropdown" role="button" >KIỂM TRA ĐƠN HÀNG <span class="caret"></span></a>
+														<?php } else { ?>
+                                                        <a href="<?php echo WEBPATH ?>/shoppingcart/lazada/myorder" class="dropdown"   role="button" >KIỂM TRA ĐƠN HÀNG <span class="caret"></span></a>
+													<?php } ?>
+												</li>
+												
+                                                <li class="dropdown">
+													
+                                                    <!-- Large modal -->
+                                                    <?php
+														if ($user_name != null) {
+														?>
+                                                        <a href="<?php echo WEBPATH ?>/customer/lazada/manageacount"><?php echo $user_name; ?><span class="caret"></span></a>
+														<?php } else { ?>
+                                                        <a data-toggle="modal" data-target=".popup_dangki">ĐĂNG KÍ<span class="caret"></span></a>
+													<?php } ?>
+                                                    <div id="modal-register" class="modal fade bs-example-modal-lg popup_dangki" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content dangki-vuavua">
+                                                                <div class="row">
+                                                                    <form action="<?php echo WEBPATH ?>/customer/lazada/register" method="post" id="form-regisers">
+                                                                        <div class="col-sm-12 margin-top-bottom">
+                                                                            <div class="col-sm-12 box-tieude-login">
+                                                                                <span class="text-tieude-login">ĐĂNG KÍ</span>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3 box-text-label">Họ Tên : <span class="maudo">*</span> </div>
+                                                                                <div class="col-sm-9">
+                                                                                    <input type="text" class="form-control" id="fullname" name="fullname" required="">
+																				</div>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3 box-text-label">Email : <span class="maudo">*</span> </div>
+                                                                                <div class="col-sm-9">
+                                                                                    <input type="email" class="form-control" id="email" name="email" required="">
+																				</div>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3 box-text-label">Mật Khẩu : <span class="maudo">*</span> </div>
+                                                                                <div class="col-sm-9">
+                                                                                    <input type="password" class="form-control" id="password" name="password" required="">
+																				</div>
+																			</div>
+                                                                            <div class="col-sm-12">
+                                                                                <div class="col-sm-3"></div>
+                                                                                <div class="col-sm-9">
+                                                                                    <span>ít nhất gồm 6 kí tự gồm chữ và số</span>
+																				</div>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3 box-text-label">Nhập lại MK : <span class="maudo">*</span></div>
+                                                                                <div class="col-sm-9">
+                                                                                    <input type="password" id="re_pass" name="re_pass" class="form-control" required="" >
+																				</div>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3 box-text-label">Ngày sinh :</div>
+                                                                                <div class="col-sm-3"> 
+                                                                                    <select class="form-control" name="year">
+																						
+                                                                                        <?php
+																							for ($i = (date("Y") - 100); $i <= (date("Y") - 10); $i++) {
+																							?>
+                                                                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                                            <?php
+																							}
+																						?>
+																					</select>
+																				</div>
+                                                                                <div class="col-sm-3 media-margin">
+                                                                                    <select class="form-control" name="month">
+                                                                                        <?php
+																							for ($i = 1; $i <= 12; $i++) {
+																							?>
+                                                                                            <option value="<?php echo $i; ?>"><?php echo ($i <= 9) ? "0" . $i : $i; ?></option>
+                                                                                            <?php
+																							}
+																						?>
+																					</select>
+																				</div>
+                                                                                <div class="col-sm-3 media-margin">
+                                                                                    <select class="form-control" name="date">
+                                                                                        <?php
+																							for ($i = 1; $i <= 31; $i++) {
+																							?>
+                                                                                            <option value="<?php echo $i; ?>"><?php echo ($i <= 9) ? "0" . $i : $i; ?></option>
+                                                                                            <?php
+																							}
+																						?>
+																						
+																					</select>
+																				</div>
+																			</div>
+																			
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3 box-text-label">Giới Tính :</div>
+                                                                                <div class="col-sm-9">
+                                                                                    <select class="form-control" name="sex">
+                                                                                        <option value="0">Nam</option>
+                                                                                        <option value="1">Nữ</option>
+																					</select>
+																				</div>
+																			</div>
+																			
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3"></div>
+                                                                                <div class="col-sm-6">
+                                                                                    <span class="text-thuong">  Tôi đã đọc và đồng ý với <span class="maudo">các điều khoản của ABC</span></span>
+																				</div>
+                                                                                <div class="col-sm-3">
+																					
+                                                                                    <span class="text-thuong"> (<span class="maudo">*</span>) Thông tin bắt buộc</span>
+																				</div>
+																				
+																			</div>
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3"></div>
+                                                                                <div class="col-sm-9">
+                                                                                    <button class="btn btn-danger">Đăng Kí</button>
+																				</div>
+																			</div>
+																			
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+                                                <li class="dropdown">
+                                                    <?php
+														if ($user_name != null) {
+														?>
+                                                        <a href="<?php echo WEBPATH ?>/customer/lazada/logout">LOGOUT<span class="caret"></span></a>
+														<?php } else { ?>
+                                                        <a data-toggle="modal" data-target=".bs-example-modal-sm">ĐĂNG NHẬP<span class="caret"></span></a>
+													<?php } ?>
+                                                    <div id="modal-login" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-sm">
+                                                            <div class="modal-content dangnhap-reponsive">
+                                                                <div class="row">
+                                                                    <form action="<?php echo WEBPATH ?>/customer/lazada/login" method="post" id="form-login" >
+                                                                        <input type="hidden" name="url" value="<?php echo WEBPATH ?>/lazada/index" />
+                                                                        <div class="col-sm-12 margin-top-bottom">
+                                                                            <div class="col-sm-12 box-tieude-login">
+                                                                                <span class="text-tieude-login">ĐĂNG NHẬP</span>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top-nopading">
+                                                                                <div class="col-sm-4 box-text-label">Email: <span class="maudo">*</span></div>
+                                                                                <div class="col-sm-8">
+                                                                                    <input type="email" class="form-control" name="email" id="email" required="">
+																				</div>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top-nopading">
+                                                                                <div class="col-sm-4 box-text-label">Mật Khẩu:<span class="maudo">*</span></div>
+                                                                                <div class="col-sm-8">
+                                                                                    <input type="password" class="form-control" name="password" id="password" required="">
+																				</div>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top">
+                                                                                <div class="col-sm-3"></div>
+                                                                                <div class="col-sm-5 box-wuenmatkhau-dangnhap">
+                                                                                    <a href="<?php echo WEBPATH ?>/customer/lazada/forgotpass">Quên mật khẩu?</a>
+																				</div>
+                                                                                <div class="col-sm-4 box-wuenmatkhau-dangnhap">
+                                                                                    <a href="#" id="regis" aria-hidden="true" data-dismiss="modal" aria-label="Close"> Đăng Kí</a>
+																				</div>
+																			</div>
+                                                                            <div class="col-sm-12 margin-top-nopading">
+                                                                                <div class="col-sm-4"></div>
+                                                                                <div class="col-sm-8">
+                                                                                    <button class="btn btn-danger">ĐĂNG NHẬP</button>
+																				</div>
+																			</div>
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+													</div>
+												</li>
+												
+											</ul>
+											
+											
+										</div><!-- /.navbar-collapse -->
+									</div>
+								</div><!-- /.container-fluid -->
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+            <div class="container-fluid logo-timkiem-mua-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 menu-top-giua">
+                            <div class="col-sm-2 box-chua_logo">
+                                <a href="<?php echo WEBPATH ?>/lazada/index">
+                                    <img src="<?php echo WEBPATH_UPLOAD_PATH_IMG.'logo/'.$setting_session->logo1 ?>"  class="img-responsive anhlogo" style ="width: 92%;height: 47px;" alt="#">
+								</a>
+							</div>
+                            <form action="<?php echo WEBPATH ?>/lazada/index/search" method="get" id="form-searchs">
+                                <div class="col-sm-6 box-chua-search">
+                                    <div class="input-group input-group-lg">                                   
+                                        <input id="search-data" name="key" type="text" class="form-control input-search" placeholder="Tìm kiếm theo sản phẩm...." aria-describedby="sizing-addon1">
+                                        <span class="input-group-addon button-timkiem" id="sizing-addon1"><span class="timkiem_an">Tìm kiếm</span><i class="fa fa-search fa-timkiem"></i></span>
+										
+									</div>
+								</div>
+							</form>
+                            <div class="col-sm-2 box-chua_thanhtoan">
+                                <div class="box-thanhtoan">
+                                    <span class="text-giohang"><?php echo count($arraycart) ?></span>
+                                    <img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/header/thanhtoan.png"  class="anh-thanhtoan" alt="#">
+									
+								</div>
+							</div>
+                            <div class="col-sm-2 oclock-header">
+								
+                                <div class="thoigian-oclock" id='thoigian-oclock'>08:48:53</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="container-fluid menu-top-nho-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 menu-group-menu-header-bottom"> 
+                            <div class="col-sm-2">
+								
+							</div>
+                            <!--
+								<div class="col-sm-8 menu-header-bottom">
+                                <menu>
+								<ul>
+								<li> <a href="#">Xu hướng</a></li>
+								<li><a href="#">Voucher</a></li>
+								<li><a href="#">Tai nghe</a></li>
+								<li><a href="#">Đồng hồ</a></li>
+								<li><a href="#">Iphone 6</a></li>
+								<li><a href="#">Iphone 4s</a></li>
+								<li><a href="#">Nokia</a></li>
+								<li><a href="#">Loa vi tính</a></li>
+								</ul>
+                                </menu>
+								</div>
+								<div class="col-sm-2">
+                                <span class="text-header-bottom-right">Daily Deals mới, khám phá ngay <i class="fa fa-arrow-circle-o-right"></i></span>
+								</div>
+							-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		
+        <?php echo$this->content ?>
+		
+		
+        <footer>
+            <!--<div class="container box-an-360">
+                <div class="row margin-top">
+				<div class="col-sm-3">
+				<div class="col-sm-12 Ten-muc-footer-top">CHĂM SÓC KHÁCH HÀNG</div>
+				<div class="col-sm-12 menu-footer-chua-link">
+				<ul>
+				<li><a href="#">Trung tâm hỗ trợ</a></li>
+				<li><a href="#">Thanh toán</a></li>
+				<li><a href="#">Hướng dẫn đặt hàng</a></li>
+				<li><a href="#">Giao hàng & Nhận hàng</a></li>
+				<li><a href="#">Hướng dẫn đổi trả hàng</a></li>
+				<li><a href="#">Bảo hành</a></li>
+				</ul>
+				</div>
+				<div class="col-sm-12 menu-footer-khong-chua-link">
+				<ul>
+				<li>HCM (08) 3942 xxxx </li>
+				<li>HN (04) 7300 xxxx</li>
+				<li>Thứ 2 - thứ 6: 7h - 20h</li>
+				<li>Thứ 7, CN & ngày lễ: 8h - 17h</li>
+				<li>Hoặc gửi yêu cầu <a href="#">tại đây</a></li>
+				<li>Thông báo hàng giả (08) 7300 xxxx</li>
+				
+				</ul>
+				</div>
+				</div> 
+				<div class="col-sm-3">
+				<div class="col-sm-12 Ten-muc-footer-top">ABC VIỆT NAM</div>
+				<div class="col-sm-12 menu-footer-chua-link">
+				<ul>
+				<li><a href="#">Về Apotraviny Việt Nam</a></li>
+				<li><a href="#">Chương trình abc</a></li>
+				<li><a href="#">Tuyển dụng</a></li>
+				<li><a href="#">Điều khoản mua bán hàng hóa</a></li>
+				<li><a href="#">Chính sách bảo mật</a></li>
+				<li><a href="#">Báo chí</a></li>
+				<li><a href="#">Bán hàng cùng abc</a></li>
+				<li><a href="#">Thương hiệu tại abc</a></li>
+				<li><a href="#">Danh mục sản phẩm</a></li>
+				<li><a href="#"> Phát hiện hàng giả </a></li>
+				</ul>
+				</div>
+				</div> 
+				<div class="col-sm-3">
+				<div class="col-sm-12 Ten-muc-footer-top">ĐĂNG KÍ NHẬN TIN</div>
+				<div class="col-sm-12 menu-footer-chua-link">
+				
+				<div class="col-sm-12 box-dangki-tin">Email:</div>
+				<div class="col-sm-12 box-dangki-tin">
+				<input type="text" id="email-rg" class="form-control" placeholder="Địa chỉ email của bạn">
+				</div>
+				<div class="col-sm-12 margin-top-bottom-nopadding">
+				<div class="col-sm-6">
+				<button onclick="registeremail();" class="btn btn-danger button-footer">Đăng ký</button>
+				
+				</div>
+				<!--
+				<div class="col-sm-6">
+				<button class="btn btn-danger button-footer">Nữ</button>
+				</div>
+			-->
+			<!--</div>
+				<div class="col-sm-12 box-dangki-tin">
+				Thông tin của bạn sẽ được giữ kín tuyệt đối, và bạn có thể hủy đăng ký bất cứ lúc nào. Mỗi khách hàng chỉ tham gia chương trình 1 lần. Chương trình chỉ dành cho khách hàng mới.
+				</div>
+				<div class="col-sm-12 box-dangki-tin">
+				Bằng việc đăng ký nhận tin từ Apotravinny, bạn xác nhận rằng bạn đã đọc và hiểu <a href="#">chính sách bảo mật</a> của chúng tôi.
+				</div>
+				
+				</div>
+				</div> 
+				<div class="col-sm-3">
+				<div class="col-sm-12 Ten-muc-footer-top">TẢI NGAY ỨNG DỤNG</div>
+				<div class="col-sm-12 margin-top-nopading">
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/ungdung1.png"  class="img-responsive" alt="#"/>
+				</div>
+				<div class="col-sm-12 margin-top-nopading">
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/ungdung2.png"  class="img-responsive" alt="#"/>
+				</div>
+				</div> 
+				<div class="col-sm-12"><div class="col-sm-12 border-footer"></div></div>
+                </div>
+                <div class="row">
+				<div class="col-sm-12 nopading">
+				<div class="col-sm-2 border-dotted-right">
+				<div class="col-sm-12 Ten-muc-footer-top">CÁCH THỨC THANH TOÁN</div>
+				<div class="col-sm-12">
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/visa.png" class="img-responsive" alt="#"/>
+				</div> 
+				</div>
+				
+				<div class="col-sm-3 border-dotted-right">
+				<div class="col-sm-12 Ten-muc-footer-top">ĐƯỢC CHỨNG NHẬN</div>
+				<div class="col-sm-6 nopading">
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/clcik.png" class="img-responsive" alt="#"/>
+				</div>
+				<div class="col-sm-6">
+				<a href="#">  <img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/tindung.png" class="img-responsive" alt="#"/></a>
+				</div>
+				<div class="col-sm-12 Ten-muc-footer-top">DỊCH VỤ THANH TOÁN</div>
+				<div class="col-sm-12  nopading">
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/kery.png" class="img-responsive" alt="#"/>
+				</div>
+				</div>
+				<div class="col-sm-7">
+				<div class="col-sm-12 Ten-muc-footer-top">SẢN PHẨM NỔI BẬT</div>
+				<div class="col-sm-12 menu-footer-khong-chua-link">
+				<?php
+					//print_r($list_catalog);
+					foreach ($list_catalog as $i => $j) {
+						if ($j['hot'] == 1) {
+							echo '<a href="' . WEBPATH . '/lazada/index/viewproductcat/' . $j['id'] . '">' . $j['name'] . '</a>, ';
+						}
+					}
+				?>
+				
+				</div>
+				</div>
+				</div>
+				<div class="col-sm-12"> <div class="col-sm-12 border-footer-moi"></div></div>
+				
+                </div>
+                <div class="row">
+				
+				<div class="col-sm-12">    <div class="col-sm-12 Ten-muc-footer-top">APOTRAVINY - KÊNH MUA SẮM TRỰC TUYẾN HÀNG ĐẦU VIỆT NAM!</div></div>
+				<div class="col-sm-12 box-text-bt">
+				<span class="text-dam">    Mua hàng trực tuyến (mua hàng online)</span> mang lại sự tiện lợi, lựa chọn đa dạng hơn và các dịch vụ tốt hơn cho người tiêu dùng, thế nhưng người tiêu dùng Việt Nam vẫn chưa tận hưởng được những tiện ích đó. Chính vì vậy APOTRAVINY Việt Nam được triển khai với mong muốn trở thành trung tâm mua sắm trực tuyến số 1 tại Việt Nam, nơi bạn có thể chọn lựa mọi thứ, từ các mặt hàng điện tử như laptop, điện thoại di động giá rẻ, thiết bị gia dụng như máy lạnh, máy lọc không khí, máy hút bụi mini gia đình, nội thất phòng ngủ… Chúng tôi có tất cả!
+				</div>
+				<div class="col-sm-12 box-text-bt">
+				Tại Apotraviny bạn có thể mua đồ điện tử giá rẻ, cũng như các loại mặt hàng khác với rất nhiều các chương trình khuyến mãi hàng tháng. Ngoài ra bạn cũng có thể tham gia bán hàng trực tuyến thông qua hệ thống marketplace của APOTRAVINY với rất nhiều hỗ trợ và dịch vụ hấp dẫn.
+				</div>
+				<div class="col-sm-12 box-text-bt">
+				Bây giờ bạn có thể trải nghiệm mua hàng online thỏa thích mà APOTRAVINY mang lại chỉ với 1 click chuột. Dù bạn là một nhà quản lý bận rộn với công việc hay là người nội trợ với danh sách dài việc phải làm, chắc chắn bạn cũng sẽ yêu thích trải nghiệm mua hàng tại <span class="text-dam">APOTRVINY Việt Nam - mua hàng trực tuyến dễ dàng hơn, thuận tiện hơn và tiết kiệm thời gian.</span>
+				</div>
+				<div class="col-sm-12 margin-top-bottom">
+				<div class="col-sm-3 footer-cuoi-left">
+				<div class="col-sm-6 nopading">
+				ABC South-East Asia
+				</div>
+				<div class="col-sm-6 nopading">
+				<div class="la-co">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon1.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="la-co">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/iocn2.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="la-co">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon3.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="la-co">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon4.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="la-co">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon5.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="la-co">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon6.png" class="img-responsive" alt="#"/>
+				</a>
+				
+				</div>
+				</div>
+				</div>
+				<div class="col-sm-4"></div>
+				<div class="col-sm-5 footer-cuoi-right">
+				<div class="col-sm-3 nopading">
+				Kết nối chúng tôi
+				</div>
+				<div class="col-sm-9 nopading">
+				<div class="mangxahoi">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon-xh-1.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="mangxahoi">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/iocn-xh-2.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="mangxahoi">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon-xh-3.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="mangxahoi">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon-xh-4.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="mangxahoi">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon-xh-5.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="mangxahoi">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon-xh-6.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="mangxahoi">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon-xh-7.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				<div class="mangxahoi">
+				<a href="#"> 
+				<img src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/footer/icon-xh-8.png" class="img-responsive" alt="#"/>
+				</a>
+				</div>
+				</div>
+				</div>
+				</div>
+				
+                </div>
+			</div>-->
+            <div class="container-fluid footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+							<center>
+								<p>CÔNG TY TNHH RƯỢU VANG VÀ SẢN PHẨM CHÂU ÂU (EUROPEAN WINE & PRODUCTS CO, LTD)</p>
+								<p>Email: info@european-wine-and-products.vn<p>
+								<p>Địa chỉ: Tầng 8, tòa nhà Quý Hạnh, số 165 Bà Triệu, phường Lê Đại Hành, quận Hai Bà Trưng, thành phố Hà Nội, Việt Nam</p>
+								<p>HOTLINE: (+84) 129 278 8886 PHONE: (+84) 4 8585 6511</p>								
+							</center>
+                            <!--<div class="col-sm-3"></div>
+								<div class="col-sm-6 ">
+                                <div class="col-sm-12 can-giua-box-top">Công ty CPĐTPT Công Nghệ Mơi Alatca</div>
+                                <div class="col-sm-12 can-giua-box-bottom">
+								168 Kim Giang, Phường Đại Kim, Quận Hoàng Mai, Hà Nội
+                                </div>
+								</div>
+							<div class="col-sm-3"></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+        <!--modan mua hang------------------------------------------------------->
+		
+        <div id="product" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bgwhilt">
+					
+                    <div class="modal-body body-cart">
+						
+                        <img class="img-load" src="<?php echo ROHLIK_LAZADA; ?>/lazadanew/img/load.gif" />
+                        <div id="center-cart">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <span class="cartintro">Bạn có <span id="number-cart"><?php echo count($arraycart); ?></span> sản phẩm trong giỏ hàng.<br>
+							<a style="color:#6f0000; font-size:10px;" href="http://www.lazada.vn/uu-dai-thanh-toan-the/" target="_blank" title="Ưu đãi thẻ">Thanh toán bằng thẻ tín dụng/ghi nợ hoặc ATM nội địa để giảm thêm 10.000 VND trên tổng giá trị đơn hàng (*)</a></span>
+							
+                            <table class="table stylefonttable" >
+                                <thead>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td >Giá</td>
+                                        <td >Số lượng</td>
+                                        <td >Tổng cộng</td>
+									</tr>
+								</thead>
+                                <tbody id="body_cart">
+                                    <?php
+										foreach ($product_cat as $key => $value) {
+											
+											$qty = $arraycart[$value['id']];
+										?>
+                                        <tr> 
+                                            <td> <a href="/may-nh-kts-fujifilm-s9400w-16-2mp-va-zoom-quang-50x-en-941937.html?mp=1">
+												<img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value['img']; ?>" width="117" height="117" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA ?>/img/no-product.png" >
+											</a>
+                                            </td>
+                                            <td >
+                                                <div class="productdescription"><?php echo $value['name'] ?></div>
+                                                <!--<div class="productdetails">Fujifilm</div>-->
+                                                <span class="stock instock">
+												<i class="fa fa-check"></i> Còn hàng </span>
+												
+												<!-- <span class="productlink">
+													<a href="#"  data-price="4399000" class="cart-product-actions-link sel-product-move-to-wishlist">
+													Thêm vào danh sách yêu thích                                        </a>
+												</span>-->
+                                                <span class="productlink">
+                                                    <a  data-price="4399000" onclick="deletecart(<?php echo $value['id']; ?>)" href="javascript:void(0);" class="cart-product-actions-link cartItemRemove sel-cart-remove-item-FU404ELAU6SXVNAMZ-459211">
+													Xóa   </a>
+												</span>
+											</td>
+                                            <td class="price_center">
+                                                <?php
+													if ($value['sale_products'] == 1) {
+														$price = $value['price'] - ($value['price'] * $value['promotions'] / 100);
+														echo '<span>' . $price . ' Kč</span><br>
+														<span class="mbs cart-product-oldprice-value">
+														<del>' . $value['price'] . ' Kč</del>
+														</span><br>
+														<span class="txtGreen strong">
+														Giảm giá ' . $value['promotions'] . '%
+														</span>';
+														} else {
+														echo '<span>' . $value['price'] . ' Kč</span>';
+														$price = $value['price'];
+													}
+												?>
+												
+											</td>
+                                            <td class="width_10 price center">
+                                                <input type="hidden" id="number-pro<?php echo $value['id']; ?>" value="<?php echo $value['availability'] ?>"/>
+                                                <input style="width: 40px;" type="number"  value="<?php echo $qty; ?>" id="qty<?php echo $value['id']; ?>"/>
+                                                <input style="width: 40px;" type="hidden"  value="<?php echo $qty; ?>" id="qty_old<?php echo $value['id']; ?>"/>
+                                                <i onclick="updatecart(<?php echo $value['id']; ?>)" class="fa fa-refresh"></i>
+											</td>
+                                            <td class="width_20 right_align price lastcolumn">
+                                                <?php echo $qty * $price ?> Kč
+                                                <!--<div style="color:green">- 439.900 VND</div>-->
+												
+											</td>
+											
+										</tr>
+                                        <?php
+											$total_money +=$qty * $price;
+										}
+									?>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"> Tổng cộng</td>
+                                        <td> <?php echo $total_money ?> Kč</td>
+										
+									</tr>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"> <strong>Thành Tiền</strong></td>
+                                        <td> <strong><?php echo $total_money ?> Kč</strong></br>
+                                            Đã bao gồm VAT
+										</td>
+										
+									</tr>
+								</tbody>
+							</table>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="#" data-dismiss="modal"><span><i class="fa fa-caret-right"></i> Thêm sản phẩm khác vào giỏ hàng</span></a>
+								</div>
+                                <div class="col-md-6 btn_right">
+                                    <a href="<?php echo WEBPATH ?>/shoppingcart/lazada/checkout" >
+                                        <button class="btn btn-warning">Tiến hành đặt hàng <i class="fa fa-angle-double-right"></i>  <i class="fa fa-play-circle-o"></i></button>
+									</a>
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		
+        <!-- Thanh thoán nhanh --  ---------------------------------------------->
+        <div id="buynow" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bgwhilt">
+					
+                    <div class="modal-body body-cart">  
+                        <form id="form-buynow" action="<?php echo WEBPATH ?>/shoppingcart/lazada/buynow" method="post">
+                            <div id="center-cart">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4>Thông tin thanh toán</h4>
+								
+                                <p>Khách hàng: <?php echo $session_user->fullname; ?></p>
+                                <p>Email: <?php echo $session_user->username; ?></p>
+                                <p>Địa chỉ:  <input class="form-control" required="" type="text" name="address" value="<?php echo $session_user->address; ?>"/></p>
+                                <p>Điện thoại: <input class="form-control" required="" type="number" name="phone" value="<?php echo $session_user->phone; ?>"/></p>
+                                <input type="hidden" name="name" value="<?php echo $session_user->fullname; ?>"/>
+                                <input type="hidden" name="email" value="<?php echo $session_user->username; ?>"/>     
+                                <input type="hidden" name="idus" value="<?php echo $session_user->idus; ?>"/>
+								
+                                <table class="table stylefonttable" >
+                                    <thead>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                            <td >Giá</td>
+                                            <td >Số lượng</td>
+                                            <td >Tổng cộng</td>
+										</tr>
+									</thead>
+                                    <tbody id="body_buynow">
+										
+										
+									</tbody>
+								</table>
+                                <div class="row">
+                                    <div class="col-md-6">
+										
+									</div>
+                                    <div class="col-md-6 btn_right">
+										
+                                        <button class="btn btn-warning">Đặt hàng <i class="fa fa-angle-double-right"></i>  <i class="fa fa-play-circle-o"></i></button>
+										
+									</div>
+								</div>
+								
+							</div>
+						</form>
+					</div>
+					
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+        
+        
+		<!-- Modal Danh sách yêu thích -->
+		<div id="md-get-ws" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Xóa sản phẩm khỏi danh sách yêu thích</h4>
+					</div>
+					<div class="modal-body">
+						<p>Sản phẩm này đã có trong danh sách yêu thích của bạn. Bạn muốn xóa sản phẩm này ra khỏi danh sách yêu thích?</p>
+					</div>
+					<div class="modal-footer">
+						<span id="md-bt"></span>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+						<a href="<?php echo WEBPATH?>/customer/wishlist/index">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Danh sách yêu thích</button>
+						</a>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</body>
+    <script type="text/javascript" defer="defer" src="https://mylivechat.com/chatinline.aspx?hccid=35565043"></script>
+</html>

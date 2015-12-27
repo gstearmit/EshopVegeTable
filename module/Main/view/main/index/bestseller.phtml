@@ -1,0 +1,150 @@
+<?php 
+$Product_bestseller = $this->Product_bestseller;
+if(count($Product_bestseller) > 0 ) {
+?>
+<div>
+	<div class="fxwjnlodcm magicproduct">
+		<div class="block-title-tabs">
+			<ul class="magictabs"
+				data-ajax='{"limit":"4","productDelay":"500","widthImages":"120","heightImages":"154","action":"cart,compare,wishlist,review"}'>
+				<li class="item active loaded single" data-type="bestseller"><span
+					class="title">Bestseller(<?php echo count($Product_bestseller);?>)</span></li>
+			</ul>
+		</div>
+		<div class="ajax_loading" style="display: none"
+			data-url="<?php echo WEBPATH?>/magicproduct/index/ajax">
+			<img
+				src="<?php echo BAG_REAL_HTML; ?>/smije/skin/frontend/alosmije/default/magiccart/plugin/images/loading.gif"
+				alt="Loading..." />
+		</div>
+		<div class="content-products positionlef bestsellers-positionlef"
+			data-margin="10" data-slider='null'
+			data-options='{"480":"1","640":"1","768":"2","992":"4","993":"4"}'>
+
+			<div class="mage-magictabs mc-bestseller">
+				<ul class="flexisel-content products-grid bestseller zoomOut play">
+                       <?php 
+                                       $delay_efex_fea = 0;
+											foreach ($Product_bestseller as $key =>$Product_WEEKLY_FEATURED_bestseller)
+											{
+												
+												$style = 'style="-webkit-animation-delay: '.$delay_efex_fea.'ms; -moz-animation-delay: '.$delay_efex_fea.'ms; -o-animation-delay: '.$delay_efex_fea.'ms; animation-delay: '.$delay_efex_fea.'ms;"';
+												//img
+										         $img_featured = '';
+												 if($Product_WEEKLY_FEATURED_bestseller->img !='' || $Product_WEEKLY_FEATURED_bestseller->img != null) { $img_featured =$Product_WEEKLY_FEATURED_bestseller->img; }
+												 if( ($Product_WEEKLY_FEATURED_bestseller->img =='' and $Product_WEEKLY_FEATURED_bestseller->img0 !='' ) || ($Product_WEEKLY_FEATURED_bestseller->img == null and $Product_WEEKLY_FEATURED_bestseller->img0 !='' ) ) { $img_featured =$Product_WEEKLY_FEATURED_bestseller->img0; }
+												 if($Product_WEEKLY_FEATURED_bestseller->img =='' and $Product_WEEKLY_FEATURED_bestseller->img0 =='' and $Product_WEEKLY_FEATURED_bestseller->img1 !='' ) { $img_featured =$Product_WEEKLY_FEATURED_bestseller->img1; }
+												 if($Product_WEEKLY_FEATURED_bestseller->img == null and $Product_WEEKLY_FEATURED_bestseller->img0 ==null and $Product_WEEKLY_FEATURED_bestseller->img1 !='' ) { $img_featured =$Product_WEEKLY_FEATURED_bestseller->img1; }
+												 if($Product_WEEKLY_FEATURED_bestseller->img == null and $Product_WEEKLY_FEATURED_bestseller->img0 ==null and $Product_WEEKLY_FEATURED_bestseller->img1 == null ) { $img_featured = 'default.jpg'; }
+												 
+												 //rate
+												 if($Product_WEEKLY_FEATURED_bestseller->rating !='' || $Product_WEEKLY_FEATURED_bestseller->rating != null) {
+												 	if(is_numeric($Product_WEEKLY_FEATURED_bestseller->rating) and $Product_WEEKLY_FEATURED_bestseller->rating >=0 )
+												 	{
+												 		$rate_featured = @floor((($Product_WEEKLY_FEATURED_bestseller->rating)/10)*100);
+												 	}else $rate_featured = 0;
+												 } else $rate_featured = 0;
+												 
+												 //price
+												 if($Product_WEEKLY_FEATURED_bestseller->price !='' || $Product_WEEKLY_FEATURED_bestseller->price != null) {
+												 	if(is_numeric($Product_WEEKLY_FEATURED_bestseller->price) and $Product_WEEKLY_FEATURED_bestseller->price >=0 )
+												 	{
+												 		$number_featured = $Product_WEEKLY_FEATURED_bestseller->price;
+												 		$format_number_featured = number_format($number_featured, 0, '', '.');
+												 	}else  {  $format_number_featured = 0; }
+												 }else  $format_number_featured = 0;
+
+												 $delay_efex_fea = $delay_efex_fea + 500;
+												 
+												?>
+					
+					<li <?php echo $style;?>
+						class="item item-animate">
+						<div class="per-product">
+							<div class="images-container">
+								<div class="product-hover">
+								<?php if($Product_WEEKLY_FEATURED_bestseller->new_products!='' and $Product_WEEKLY_FEATURED_bestseller->new_products==1) {?> <span class="sticker top-left"><span class="labelnew">New</span></span> <?php }//?>
+								<?php if($Product_WEEKLY_FEATURED_bestseller->promotions!='' and is_numeric($Product_WEEKLY_FEATURED_bestseller->promotions)) {?><span class="sticker top-right"><span class="labelsale"><?php echo $Product_WEEKLY_FEATURED_bestseller->promotions;?>%</span></span> <?php } //?>
+																		
+									<a href="<?php echo WEBPATH?>/product/index/view/<?php echo $Product_WEEKLY_FEATURED_bestseller->id;?>"
+										title="<?php echo $Product_WEEKLY_FEATURED_bestseller->name;?>" class="product-image"> 
+										<img
+										class="img-responsive"
+										src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.'/'.$img_featured; ?>"
+										width="120" height="154" alt="<?php echo $Product_WEEKLY_FEATURED_bestseller->name;?>" /> <span
+										class="product-img-back"> <img class="img-responsive"
+											src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_.'/'.$img_featured; ?>"
+											width="120" height="154" alt="<?php echo $Product_WEEKLY_FEATURED_bestseller->name;?>" />
+									</span>
+									</a>
+								</div>
+							</div>
+							<div class="products-textlink clearfix">
+								<h2 class="product-name">
+									<a href="<?php echo WEBPATH?>/product/index/view/<?php echo $Product_WEEKLY_FEATURED_bestseller->id;?>"
+										title="<?php echo $Product_WEEKLY_FEATURED_bestseller->name;?>"><?php echo $Product_WEEKLY_FEATURED_bestseller->name;?></a>
+								</h2>
+								<div class="ratings">
+									<div class="rating-box">
+										<div class="rating" style="width: <?php echo $rate_featured;?>%"></div>
+									</div>
+									<span class="amount"><a href="#"
+										onclick="var t = opener ? opener.window : window; t.location.href='<?php echo WEBPATH?>/review/product/list/id/42/'; return false;">1 Review(s)</a></span>
+								</div>
+
+
+
+								<div class="price-box">
+									<span class="regular-price" id="product-price-42"> <span
+										class="price">$<?php echo $format_number_featured;?></span>
+									</span>
+
+								</div>
+
+								<div class="actions-no">
+									<div class="actions">
+										<button type="button" title="Add to Cart"
+											class="pull-left button btn-cart"
+											onclick="setLocation('<?php echo WEBPATH?>/checkout/cart/add/uenc/aHR0cDovL2Fsb3RoZW1lcy5jb20vZGVtby9zbWlqZS9pbmRleC5waHAvP19fX3N0b3JlPWVuZ2xpc2hfZmFzaGlvbg,,/product/42/form_key/CNujFwNHOtvHnMY6/')">
+											<span><span>Add to Cart</span></span>
+										</button>
+										<ul class="add-to-links pull-left">
+											<li class="pull-left"><a
+												href="<?php echo WEBPATH?>/wishlist/index/add/product/42/form_key/CNujFwNHOtvHnMY6/"
+												title="Add to Wishlist" class="link-wishlist">Add to
+													Wishlist</a></li>
+											<li class="pull-right"><span class="separator">|</span> <a
+												href="<?php echo WEBPATH?>/catalog/product_compare/add/product/42/uenc/aHR0cDovL2Fsb3RoZW1lcy5jb20vZGVtby9zbWlqZS9pbmRleC5waHAvP19fX3N0b3JlPWVuZ2xpc2hfZmFzaGlvbg,,/form_key/CNujFwNHOtvHnMY6/"
+												title="Add to Compare" class="link-compare">Add to Compare</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<?php } ?>
+				</ul>
+			</div>
+
+
+		</div>
+		<!-- MAP -->
+		<!-- MAP -->
+	</div>
+
+	<script type="text/javascript">
+										jQuery(document)
+												.ready(
+														function() {
+															jQuery(
+																	".fxwjnlodcm")
+																	.magicproduct(
+																			{
+																				selector : ".fxwjnlodcm", // Selector product grid
+																			});
+														});
+									</script>
+
+</div>
+<?php  } //end count($Product_bestseller)?>

@@ -1,0 +1,182 @@
+﻿<?php $channel=$this->layout()->channel;
+$channel_code=$channel->channel_code;?>
+
+<?php $l=$this->layout()->type;$check=$this->layout()->check; ?>
+
+<div class="content">
+<?php if(!$check){?>
+<div class="header-channel">
+<img width="100%" style="max-height:300px;"src="<?php echo $channel->image;?>">
+</div>
+	<div>
+	   <div id="nav1">
+			<?php echo "phucxcxc";?>
+			<ul class="me-nu1 nav nav-pills nav-stacked">   
+				<li class="<?php if(!$l)echo 'active';?> menu-nav1"><a href="<?php echo WEBPATH;?>/channels/<?php echo $channel_code;?>">Home</a></li>
+				<li class="<?php if($l!=""&&$l=="video")echo 'active';?>"><a href="<?php echo WEBPATH;?>/channels/<?php echo $channel_code;?>/video">Videos</a></li>
+				<li class="<?php if($l!=""&&$l=="playlist")echo 'active';?>"><a href="<?php echo WEBPATH;?>/channels/<?php echo $channel_code;?>/playlist">Playlists</a></li>	
+				<li class=""><a href="<?php echo WEBPATH;?>/channels/<?php echo $channel_code;?>">About</a></li>		
+			</ul>
+		</div>
+	
+		
+		<button id="nav-toggle1">Show</button>
+	
+		<script>
+		  var navigation = responsiveNav("#nav1", {
+			customToggle: "#nav-toggle1"
+		  });
+		</script>
+                
+        <div class="clearfix bottom-line "></div>
+    </div>
+		<div class="page_content">
+<?php if(!$l){?>
+			<h4 style="font-weight:bold">Newest Video</h4>
+			<div class="newest-video">				
+			</div>
+			<div class="clearfix bottom-line"></div>
+			<h4 style="font-weight:bold"> Playlist</h4>
+			
+			<div class="newest-playlist"></div>
+			<div class="clearfix bottom-line"></div>
+			<h4 style="font-weight:bold">Most Views</h4>
+			<div class="mostview-video">				
+			</div>
+<script>
+	e = location.pathname;
+	$.ajax({
+               type: "POST",
+               url: "<?php echo WEBPATH;?>/main/uservideo",
+               data: {idcode:e,page:1},
+               success: function(result){
+                           
+                                $('.newest-video').html(result);
+                                
+                           
+                       }
+   });
+
+    $.ajax({
+               type: "POST",
+               url: "<?php echo WEBPATH;?>/main/plvideo",
+               data: {idcode:e,page:1},
+               success: function(result){
+                           
+                                $('.newest-playlist').html(result);
+                                
+                           
+                       }
+   });
+      $.ajax({
+               type: "POST",
+               url: "<?php echo WEBPATH;?>/main/uservideo",
+               data: {idcode:e,page:1,sort:'views',sortby:'DESC'},
+               success: function(result){
+                           
+                                $('.mostview-video').html(result);
+                                
+                           
+                       }
+   });
+</script>	
+	
+
+
+<?php }?>
+	</div>
+	<div class="clearfix"></div>
+<?php  if($l!=""&&$l=="video"){?>
+<script>
+	e = location.pathname;
+	$.ajax({
+               type: "POST",
+               url: "<?php echo WEBPATH;?>/main/uservideo",
+               data: {idcode:e,page:1},
+               success: function(result){
+                           
+                                $('.page_content').html(result);
+								
+                                
+                           
+                       }
+   });
+</script>
+
+
+<div class="loading-button"><button class="user_more btn btn-primary"  type="button" style="margin:0 auto;width:100%;" >load more</button></div>
+<script>
+var kk=2;
+var i=0;
+ function loadMore()
+{
+   e = location.pathname;
+ $.ajax({
+               type: "POST",
+               url: "<?php echo WEBPATH;?>/main/uservideo",
+			   			   beforeSend : function(){
+					$('.loading-button').html('<button class="user_more btn btn-primary"  id="loading-example-btn" data-loading-text="Loading..." type="button" style="margin:0 auto;width:100%;" >load more</button>');
+			   },
+               data: {idcode:e,page:kk},
+			   
+               success: function(result){                           
+                                $('.page_content').append(result);		
+								$('.page_content').fadeIn("slow");								
+								kk++;			
+
+                       }
+   });
+   $(window).bind('scroll', bindScroll);
+ }
+ function bindScroll(){
+   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+       $(window).unbind('scroll');
+       loadMore();
+   }
+}
+
+$(window).scroll(bindScroll);
+</script>
+<?php }?>
+<?php  if($l!=""&&$l=="playlist"){?>
+<script>
+e = location.pathname;
+ $.ajax({
+               type: "POST",
+               url: "<?php echo WEBPATH;?>/main/plvideo",
+               data: {idcode:e,page:1},
+               success: function(result){
+                           
+                                $('.page_content').html(result);
+                                
+                           
+                       }
+   });
+</script>
+
+<?php }}else{ $res=$this->layout()->res;
+	foreach($res as $result){
+?>
+	<div class="catal most-play">
+		<div class="active"><a href="<?php echo WEBPATH;?>/channels/<?php echo $this->escapeHtml($result->channel_code);?>"><h4 style="font-weight:bold; padding: 10px 25px;color:#fff;"><?php echo $this->escapeHtml($result->name);?></h4></a></div>		
+		
+	</div>
+	<div><img width="100%" style="max-height:300px;"src="<?php echo $this->escapeHtml($result->image);?>"></div>
+	<div class="<?php echo $this->escapeHtml($result->channel_code);?>"><script>
+e = '/channels/<?php echo $this->escapeHtml($result->channel_code);?>';
+ $.ajax({
+               type: "POST",
+               url: "<?php echo WEBPATH;?>/main/uservideo",
+               data: {idcode:e,page:1,item:1},
+               success: function(result){
+                           
+                                $('.<?php echo $this->escapeHtml($result->channel_code);?>').html(result);
+                                
+                           
+                       }
+   });
+</script></div>
+	<div class="clearfix"></div>
+
+<?php }}?>
+</div>

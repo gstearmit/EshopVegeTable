@@ -1,0 +1,67 @@
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url('Abuse', array('controller' => 'abuse', 'action' => 'editNews', 'id' => $id)));
+echo $this->form()->openTag($form);
+?>
+
+
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('name')); ?></label>
+    <div><?php echo $this->formElement($form->get('name')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('name')); ?></span>
+</div>
+<div><?php echo $this->formHidden($form->get('id')); ?></div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('email')); ?></label>
+    <div><?php echo $this->formElement($form->get('email')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('email')); ?></span>
+</div>
+
+
+
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('catalogue')); ?></label>
+    <div><?php echo $this->formElement($form->get('catalogue')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('catalogue')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('linkads')); ?></label>
+    <div><?php echo $this->formElement($form->get('linkads')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('linkads')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('url_reported')); ?></label>
+    <div><?php echo $this->formElement($form->get('url_reported')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('url_reported')); ?></span>
+</div>
+
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('user_forum')); ?></label>
+    <div><?php echo $this->formElement($form->get('user_forum')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('user_forum')); ?></span>
+</div>
+
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('abuse_description')); ?></label>
+    <div><?php echo $this->formElement($form->get('abuse_description')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('abuse_description')); ?></span>
+</div>
+
+<div class="form-group">
+    <label class="control-label"><?php echo $this->formLabel($form->get('human_check')); ?></label>
+    <div><?php echo $this->formElement($form->get('human_check')); ?></div>
+     <span class="common-error-msg"><?php echo $this->formElementErrors($form->get('human_check')); ?></span>
+</div>
+
+
+<?php echo $this->formElement($form->get('security')); ?>
+<?php echo $this->formElement($form->get('submit')); ?>
+<?php echo $this->form()->closeTag() ?>

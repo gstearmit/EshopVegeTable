@@ -1,0 +1,90 @@
+[
+  {
+    "key": "fee_1ms",
+    "value": "19"
+  },
+  {
+    "key": "fee_1mm",
+    "value": "25"
+  },
+  {
+    "key": "fee_3ms",
+    "value": "30"
+  },
+  {
+    "key": "fee_3mm",
+    "value": "138"
+  },
+  {
+    "key": "fee_emb_1ms",
+    "value": "21"
+  },
+  {
+    "key": "fee_emb_1mm",
+    "value": "27"
+  },
+  {
+    "key": "fee_emb_3ms",
+    "value": "32"
+  },
+  {
+    "key": "fee_emb_3mm",
+    "value": "138"
+  },
+  {
+    "key": "fee_trv",
+    "value": "30"
+  },
+  {
+    "key": "fee_st_1ms",
+    "value": "45"
+  },
+  {
+    "key": "fee_st_1mm",
+    "value": "65"
+  },
+  {
+    "key": "fee_st_3ms",
+    "value": "45"
+  },
+  {
+    "key": "fee_st_3mm",
+    "value": "95"
+  },
+  {
+    "key": "fee_st_emb_1ms",
+    "value": "N\/A"
+  },
+  {
+    "key": "fee_st_emb_1mm",
+    "value": "N\/A"
+  },
+  {
+    "key": "fee_st_emb_3ms",
+    "value": "N\/A"
+  },
+  {
+    "key": "fee_st_emb_3mm",
+    "value": "N\/A"
+  },
+  {
+    "key": "fee_st_trv",
+    "value": "5"
+  },
+  {
+    "key": "fee_6mm",
+    "value": "210"
+  },
+  {
+    "key": "fee_st_6mm",
+    "value": "135"
+  },
+  {
+    "key": "fee_1mm_full",
+    "value": "25"
+  },
+  {
+    "key": "fee_st_1mm_full",
+    "value": "95"
+  }
+]

@@ -1,0 +1,16 @@
+﻿<?php $check=$this->layout()->check;
+if(!$check){?>
+
+<form style="width:500px;" method='POST'>
+	<div class="input-group">
+  <span class="input-group-addon">Your Email: </span>
+  <input type="text" class="form-control" name="email" placeholder="Email">
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<?php }else{ $err=$this->layout()->err; $email=$this->layout()->email;?>
+<?php if($err){?> 
+<div class="alert alert-warning"><?php echo "Email ".$email." not yet register";?></div>
+<?php }else{?>
+<div class="alert alert-info"> Login to your email <?php echo $email;?> to receive password</div>
+<?php }}?>

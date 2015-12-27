@@ -1,0 +1,27 @@
+<?php //print_r($menu);?>
+<div class="menuheader">
+                <div class="container">
+                    <ul class="mainmenu">
+                        <li><a href="<?php echo WEBPATH.'/customer/wishlist/wishlistindex'?>"><span class="fav"> <i class="fa fa-heart"></i> </span>Mé oblíbené </a></li>
+                        <li><a href="#"><span class="disc"> % </span>Last minute </a></li>
+                        <?php foreach ($menu as $key=>$value){
+                            $parent_id=$value['id'];                           
+                            ?>
+                        <li>
+                            <a href="<?php echo WEBPATH.'/apotraviny/index/viewproductcat/'.$value['id'] ?>"> <?php  echo $value['name']; ?></a>
+                            <div class="catolog">
+                                <ul>
+                                    <?php foreach ($submenu[$parent_id] as $key1=>$value1){?>
+                                    <li><a href="<?php echo WEBPATH.'/apotraviny/index/viewproductcat/'.$value1['id'] ?>"> <img src="<?php echo ROHLIK_APOTRAVINY; ?>/img/apple.png" alt="" /> 
+                                           <?php echo $value1['name'];?>
+                                        </a>
+                                    </li>
+                                    <?php }?>
+                                </ul>
+                            </div></li>   
+                        <?php } ?>
+                       </ul>
+
+                </div>
+
+            </div>

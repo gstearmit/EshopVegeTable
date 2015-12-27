@@ -1,0 +1,910 @@
+<div class="container-fluid thanh-cuoi-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 nopading-360">
+                <div class="col-sm-2 box-tatca-danhmuc ">TẤT CẢ DANH MỤC <i class="fa fa-arrow-circle-down"></i></div>
+                <div class="col-sm-10 box-tieude-danhmuc"> 
+                    <ul class="ul_camera">
+                        <li><a href="#"><?php echo $catalog_detail['name'];?></a></li>  
+						
+                        <li><span> <?php echo $data_detail['name']?></span></li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<article>
+    <!--<div class="container-fluid toi-trongsuot">
+        <div class="container">
+		<div class="row">
+		<div class="col-sm-12 row-content-top">
+		<div class="col-sm-2 menudoc-conten-left">
+		<ul id="tab-menu">
+		<?php
+			foreach ($data_m as $keycat => $valuecat) {
+			?>
+			<li class="menu-cat" ><a class="<?php
+				if ($keycat == 0) {
+					echo 'active-tab';
+				}
+			?>" rel='#category-box<?php echo $valuecat['id'] ?>' href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$valuecat['id']?>">  <?php echo $valuecat['name'] ?></a></li>
+		<?php } ?>
+		</ul>
+		</div>
+		<?php
+			foreach ($data_m as $keycat1 => $valuecat1) {
+				$idcat=$valuecat1['id'];
+			?>
+			<div class="col-sm-8 div-tab" id="category-box<?php echo $valuecat1['id'] ?>">
+			<div class="col-sm-12 nopading-width50">
+			<div class="col-sm-3 box-tablet-50">
+			<ul id="nav"  >
+			<?php foreach ($sub_menu[$idcat] as $keys=>$values){?>
+				<li><a href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$values['id']?>"> <?php echo $values['name']?></a></li>
+			<?php } ?>
+			</ul>
+			
+			</div>
+			<div class="col-sm-9"></div>
+			</div>
+			</div>
+		<?php } ?>
+		<div class="col-sm-2  menu-right-content">
+		
+		</div>
+		</div>
+		</div>
+        </div>
+	</div>-->
+    <div class="container">
+        <div class="row margin-top-nhieu">
+            <div class="col-sm-12 box-noborder-980">
+                <div class="col-sm-2 nopading">
+                    <!--<div class="col-sm-12 box-timtheo">
+                        TÌM THEO
+					</div>-->
+                    <div class="col-sm-12 menu-timthoe">
+                        <menu>
+                            <ul>
+                                <?php foreach ($data_m as $j=>$k){?>
+									<li> <a href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$k['id']?>"> <?php echo $k['name'];?> </a>
+										<ul>
+											<?php foreach ($sub_menu[$k['id']] as $j_s=>$k_s){?>
+												<li><a href="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$k_s['id']?>"><i class="fa fa-angle-right"></i> <?php echo $k_s['name'];?></a></li>
+											<?php } ?>
+										</ul>
+									</li>
+								<?php } ?>                                
+							</ul>
+						</menu>
+					</div>
+                    <!--<div class="col-sm-12 box-timhieuthem">
+                        <h5>TÌM HIỂU THÊM</h5>
+                        <menu>
+						<ul>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">Hàng mới về
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">Bán chạy nhất
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">Giảm giá
+						</label>
+						</div>
+						</a>
+						</li>
+						</ul>
+                        </menu>
+						</div>
+						<div class="col-sm-12 box-thuong-hieu-lon">
+                        <h5>BỘ NHỚ TRONG</h5>
+						
+                        <menu>
+						<ul>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">0 GB(125)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">1 GB(1)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">2 GB(6)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">3 GB(2)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">4 GB(43)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">8 GB(106)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">10 GB(1)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">16 GB(112)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">18 GB(1)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">29 GB(1)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">31 GB(1)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox"> 64GB(4.4)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">128 GB(8)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">256 GB(2)
+						</label>
+						</div>
+						</a>
+						</li>
+						</ul>
+                        </menu>
+						</div>
+						<div class="col-sm-12 box-thuong-hieu-lon">
+                        <h5>THƯƠNG HIỆU</h5>
+                        <div class="input-group input-group-lg">
+						<input type="text" class="form-control timkiem-thuonghieu"  aria-describedby="sizing-addon1">
+						<span class="input-group-addon nut-timkiemthuonghieu" id="sizing-addon1"><span ><i class="fa fa-search"></i></span>
+						
+                        </div>
+                        <menu>
+						<ul>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">2GOOD(4)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">2TECK(21)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">A4-TECK(19)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">ACER(45)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">ADATA(67)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">ADMET(34)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">ADONIT(21)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">ADSUN(65)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">AMAZON(35)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">AMICA(32)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">ANTEC(23)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">CNET(43)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">CHOCO(32)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">CINCOM(65)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">DENZO(64)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">DITA(23)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">GLASS(73)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">GOSH(21)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">INNO(43)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">INTEL(344)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">IPAD(54)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">IPHONE(79)
+						</label>
+						</div>
+						</a>
+						</li>
+						</ul>
+                        </menu>
+						</div>
+						
+						
+						
+						<div class="col-sm-12 box-thuong-hieu-lon">
+                        <h5>BỘ NHỚ HỆ THỐNG</h5>
+						
+                        <menu>
+						<ul>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">0GB(4)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">1GB(21)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">2GB(19)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">3GB(45)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">4GB(67)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">6GB(34)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">8GB(21)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">14 GB(65)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">16 GB(35)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">20 GB(32)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">32GB(23)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">34 GB(43)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">40 GB(32)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">41 GB(65)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">64 GB(64)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">70 GB(23)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">77 GB(73)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">100 GB(21)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">118 GB(43)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">158 GB(344)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">256 GB(54)
+						</label>
+						</div>
+						</a>
+						</li>
+						<li>
+						<a href="#">
+						<div class="checkbox">
+						<label>
+						<input type="checkbox">512 GB(79)
+						</label>
+						</div>
+						</a>
+						</li>
+						</ul>
+                        </menu>
+						</div>
+						<div class="col-sm-12 box-chon-gia">
+                        <fieldset class="rating">
+						<legend><h5>Đánh giá:</h5></legend>
+						<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+						<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+						<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+						<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+						<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                        </fieldset>
+						
+					</div>-->
+				</div>
+				
+				
+				
+				
+				
+				
+                <div  class="col-sm-10 nopading">
+                    <div class="row">
+                        <div class="col-sm-12 box-tieude-ketwa-yeuthich">
+                            <div class="col-sm-3 nopading">
+                                <span class="text-lon"><?php echo $catalog_detail['name']?></span>
+							</div>
+                            <div class="col-sm-1 nopading"> 
+                                <span class="text-nho">   <?php echo count($listproduct);?> Kết Quả</span>
+							</div>
+                            <div class="col-sm-2">
+                                <span class="text-viethoa">  SẮP XẾP THEO: </span>
+							</div>
+                            <div class="col-sm-2 box-sapxep-theo">
+                                <input type="hidden" id="url-order" value="<?php echo WEBPATH.'/lazada/index/viewproductcat/'.$catalog_detail['id'].'/?order-by='?>" />
+                                <select class="form-control" onchange="orderproduct()" id="order">  
+                                    <option value="id-DESC" <?php if($order ==null || $order == 'id-DESC'){ echo 'selected';}?>> Từ mới tới cũ</option>
+                                    <option value="id-ASC" <?php if($order == 'id-ASC'){ echo 'selected';}?>> Từ cũ tới mới</option>
+                                    <option value="price-DESC" <?php if($order == 'price-DESC'){ echo 'selected';}?>>Giá: từ cao đến thấp</option>
+                                    <option value="price-ASC" <?php if($order == 'price-ASC'){ echo 'selected';}?>>Giá: từ thấp đến cao</option>
+									
+								</select>
+							</div>
+                            <div class="col-sm-4 nopading">
+                                <div role="tabpanel">
+									
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs menu-nhaytab-trinhbay" role="tablist">
+                                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"> <i class="fa fa-th"></i>  Dạng danh sách </a></li>
+                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-bars"></i> Dạng lưới</a></li>
+										
+									</ul>
+									
+                                    <!-- Tab panes 
+										<div class="tab-content">
+										<div role="tabpanel" class="tab-pane active" id="home">fgfg</div>
+										<div role="tabpanel" class="tab-pane" id="profile">123</div>
+										
+									</div>-->
+									
+								</div>
+							</div>
+							
+						</div>
+                        <div class="col-sm-12"> <div class="col-sm-12 border-margin-top-bottom"></div></div>
+					</div>
+                    <div class="row">
+                        <div role="tabpanel" class="col-sm-12 tab-content">
+                            <div  role="tabpanel" class="col-sm-12 tab-pane active" id="home">											
+								<?php foreach ($paginator as $key=>$value){ ?>            
+									<div class="row row-mang-danhsach">
+										<div class="col-sm-12 margin-top-bottom">
+											<div class="col-sm-3 box-nopading-980">
+												<a href="<?php echo WEBPATH.'/lazada/index/detailproduct/'.$value->id ?>">
+													<img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value->img; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" />
+												</a>
+											</div>
+											<div class="col-sm-6 nopading">
+												<div class="col-sm-12">
+													<?php                                    
+														if($value->new_products == 1){
+														?>
+														<div class="box-hang-moi-ve" >  Hàng mới về</div>
+													<?php } ?>
+												</div>
+												<div class="col-sm-12 box-tieude-top-tren">
+													<h4>
+														<a href="<?php echo WEBPATH.'/lazada/index/detailproduct/'.$value->id ?>">
+															<?php echo $value->name?>
+														</a>
+													</h4>
+												</div>
+												<div class="col-sm-12 box-content-chuamenu">
+													<?php echo $value->descripts?>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												
+												<div class="col-sm-12 box-text-gachngang"><?php if($value->price !=0){echo number_format($value->price,0, ',', '.');}?> VNĐ</div>
+												<!--<div class="col-sm-12 box-giathuc"><?php echo $value->price?></div> -->
+												<?php if($value->sale_products ==1){?>
+													<div class="col-sm-12 box-giamgia">
+														- <?php  echo $value->promotions ?>%                               
+													</div> 
+												<?php } ?>
+												<div class="col-sm-12 box-muangay-an">
+													<input type="hidden" value="1" id="getqty<?php echo $value->id ?>" class="">
+													<input type="hidden" id="number-pro<?php echo $value->id;?>" value="<?php echo $value->availability?>"/>  
+													<div class="box-mua-ngay"><a href="javascript:void(0);" onclick="addcart(<?php echo $value->id ?>);">Mua ngay</a> </div>
+												</div>
+												<?php if($value->sale_products ==1){?>
+													<div class="col-sm-12 box-giam-con">
+														<?php                                       
+														if($value->price !=0){echo number_format($value->price - ($value->price * $value->promotions/100),0, ',', '.');} ?>  VNĐ
+													</div>
+												<?php } ?>
+											</div>
+										</div>
+									</div>
+								<?php } ?>
+								
+                                
+								<?php
+									echo $this->paginationControl(
+									$paginator, 'Sliding', '/layout/page.phtml'
+									);
+								?> 
+								
+                                
+							</div>
+                            
+                            <div  role="tabpanel" class="col-sm-12 tab-pane" id="profile">
+                                
+								
+                                <div class="row">								
+									
+									
+									<?php foreach ($paginator as $key1=>$value1){ ?>
+										<div class="col-sm-3 box-dang-luoi-no">
+											<div class="col-sm-2 box-chua-anhmini">
+												<div class="col-sm-12 nopading">
+													<img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value1->img1; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" />
+												</div>
+												<div class="col-sm-12 nopading">
+													<img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value1->img2; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" />
+												</div>
+												<div class="col-sm-12 nopading">
+													<img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value1->img3; ?>" class="img-responsive" alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" />
+												</div>
+											</div>
+											<div class="col-sm-10 nopading-border-left">
+												<div class="col-sm-12">
+													<a href="<?php echo WEBPATH.'/lazada/index/detailproduct/'.$value1->id ?>">
+														<figure class="img-cat">
+															<img src="<?php echo WEBPATH_UPLOAD_PATH_IMG_THUNB_ . $value1->img; ?>" class="img-responsive"  alt="" onerror=this.src="<?php echo ROHLIK_LAZADA; ?>/img/no-product.png" />
+														</figure>
+													</a>
+												</div>
+												<div class="col-sm-12">
+													<?php                                    
+														if($value1->new_products == 1){
+														?>
+														<div class="box-hang-moi-ve" >  Hàng mới về</div>
+													<?php } ?>
+												</div>
+												<div class="col-sm-12 box-hang-moi-ve-tenmay">
+													<h5>
+														<a href="<?php echo WEBPATH.'/lazada/index/detailproduct/'.$value1->id ?>">
+															<?php echo $value1->name; ?>
+														</a>
+													</h5>
+												</div>
+												<div class="col-sm-12 nopading">
+													<div class="col-sm-9 box-text-gachngang">
+														<?php 
+															if($value1->price !=0){
+																if($value1->sale_products ==1){
+																	echo '<del>'.number_format($value1->price,0, ',', '.').' VNĐ </del>';
+																	}else{
+																	echo number_format($value1->price,0, ',', '.').'VNĐ';
+																}
+															}
+														?> 
+													</div>
+													<?php 
+														if($value1->sale_products ==1){?>
+														<div class="col-sm-3">
+															<span class="giam-phamtram"> -<?php echo $value1->promotions?>%</span>
+														</div>
+													<?php }?>
+													<?php if($value1->sale_products ==1){?>
+														<div class="col-sm-9 box-giathuc">
+														<?php if($value1->price !=0){echo number_format($value1->price - ($value1->price * $value1->promotions/100),0, ',', '.');}?> VNĐ                                                </div>
+													<?php } ?>
+													</div>
+													<div class="col-sm-12 box-so-luong-danhgia">
+														<!--(21 đánh giá)-->
+													</div>
+													<div class="col-sm-12  box-muangay-lon">
+														<input type="hidden" value="1" id="getqty<?php echo $value1->id ?>" class="">                                           
+														<input type="hidden" id="number-pro<?php echo $value1->id;?>" value="<?php echo $value1->availability?>"/>  
+														<div class="box-muangay-luoi"><a href="javascript:void(0);" onclick="addcart(<?php echo $value1->id ?>);">Mua ngay</a> </div>
+													</div>
+											</div>
+										</div>
+									<?php } ?>
+									
+								</div>
+								
+								<?php
+									echo $this->paginationControl(
+									$paginator, 'Sliding', '/layout/page.phtml'
+									);
+								?> 
+                                </div>
+								</div>
+								</div>
+								</div>
+								</div>
+								</div>
+								<!--
+								<div class="col-sm-12 box-contet-bottom">
+								<h5>Chất lượng của điện thoại Sony</h5>
+								</div>
+								<div class="col-sm-12">
+								<div class="col-sm-12 border-soid-bottom"></div>
+								</div>
+								<div class="col-sm-12 box-contet-bottom-text">
+								Bạn có phải là một fan bự của các sản phẩm, đồ dùng đến từ Nhật? Bạn có yêu thích nền văn hóa của xứ sở mặt trời mọc? Hay bạn có là một người trẻ trung năng động và tràn đầy năng lượng? Nếu câu trả lời của bạn là có, một chiếc điện thoại Sony có lẽ dành cho bạn. Vài năm trước khi còn chung một nhà với Ericsson, Sony nổi lên như là một hiện tượng của các thiết bị di động với hệ thống giải trí Walkman nổi tiếng. Khi được tích hợp vào những chiếc điện thoại, Sony tượng trưng cho sự năng động và phong cách của tuổi trẻ khi bạn cầm nó trong tay. Với những bạn yêu thích âm nhạc thì một chiếc điện thoại sony ericsson sẽ cực kỳ phù hợp khi bạn có thể tận hưởng âm nhạc mọi lúc mọi nơi. Gần đây, sau khi tách ra với ericsson, Sony vẫn chứng minh được phong cách năng động và trẻ trung của mình trong các sản phẩm điện thoại thông minh và tiêu biểu là dòng Sony Xperia. Dòng điện thoại này rất đa dạng về mẫu mã và màu sắc như những chiếc Sony Xperia J, M điện thoại phổ thông phù hợp với các bạn trẻ hay cao cấp nhất là dòng Z với âm thanh sống động, đa chức năng cho những bạn dư hầu bao. Hơn thế nữa, để phù hợp hơn với những bạn năng động và hoạt bát, Sony đi đầu trong việc bảo vệ điện thoại với bọc kính giúp điện thoại chống thấm nước nhưng vẫn cho khả năng cảm ứng linh hoạt và trải nghiệm tuyệt vời. Nếu bạn có thấy những ai đang rửa điện thoại mình trực tiếp dưới vòi nước, thì đó chắc hẳn là một chiếc Sony Xperia Z.
+								</div>
+								<div class="col-sm-12 box-contet-bottom">
+								<h5>Mua điện thoại Sony giá rẻ ở đâu</h5>
+								</div>
+								<div class="col-sm-12">
+								<div class="col-sm-12 border-soid-bottom"></div>
+								</div>
+								<div class="col-sm-12 box-contet-bottom-text">
+								Với đa dạng các mẫu mã, điện thoại của Sony cũng có giá thành rất linh hoạt phù hợp với nhiều đối tượng khách hàng. Giành cho những bạn trẻ vẫn có những chiếc điện thoại Sony Xperia E, J hay M với giá chỉ vài triệu. Đối với những bạn có hầu bao rủng rỉnh và muốn trải nghiệm tột cùng những tính năng mà một chiếc điện thoại Sony mang lại, dòng Xperia Z có lẽ là phù hợp nhất. Nhưng nếu bạn vẫn phân vân giữa những nhà bán lẻ, một có thể tìm đến Lazada. Tại Lazda.vn, bạn sẽ dễ dàng tìm được một chiếc Sony đúng với mong muốn cùng một cái giá khá hấp dẫn. Hơn thế nữa dịch vụ hậu mãi và giao nhận của Lazada sẽ luôn làm bạn hài lòng. Hãy để Lazada đem đến cho bạn cảm giác thảnh thơi mua sắm nhé!
+								</div>-->
+								</div>
+								</div>
+								
+								
+								</article>								
